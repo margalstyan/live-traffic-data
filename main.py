@@ -31,7 +31,7 @@ async def lifespan(app: FastAPI):
     coord_dict = points_df.set_index('key')[['lat', 'lon']].to_dict('index')
 
     # Start scheduler
-    scheduler.add_job(run_updater, "interval", hours=1)
+    scheduler.add_job(run_updater, "interval", minutes=30)
     scheduler.start()
     print("🟢 Scheduler started. First run happening now...")
     run_updater()
