@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Traffic Durations</title>
-  <meta http-equiv="refresh" content="300"> <!-- refresh every 5 minutes -->
+  <title>Traffic Duration Viewer</title>
+  <meta http-equiv="refresh" content="300"> <!-- Refresh every 5 minutes -->
 </head>
 <body>
-  <h1>Live Traffic Durations</h1>
+  <h1>Live Traffic Duration Table</h1>
+
+  <!-- Download Button -->
+  <p>
+    <a href="/download" download>
+      <button>📥 Download CSV</button>
+    </a>
+  </p>
+
   {{ table | safe }}
 </body>
 </html>
