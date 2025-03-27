@@ -2,24 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "run/index.py",
+      "src": "api/index.py",
       "use": "@vercel/python"
-    },
-    {
-      "src": "/**/*",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "run/index.py"
+      "dest": "api/index.py"
     }
-  ],
-  "env": {
-    "PYTHONPATH": "./",
-    "POINTS_CSV": "data/points.csv",
-    "ROUTES_CSV": "data/routes.csv",
-    "OUTPUT_CSV": "data/output.csv"
-  }
+  ]
 }

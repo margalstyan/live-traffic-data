@@ -1,9 +1,6 @@
-fastapi~=0.115.12
-uvicorn[standard]
-pandas~=2.2.3
+fastapi
+mangum
 jinja2
-googlemaps~=4.10.0
-pytz~=2025.2
-apscheduler~=3.11.0
-
-mangum~=0.19.0
+pandas
+apscheduler
+googlemaps

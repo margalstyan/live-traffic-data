@@ -33,7 +33,7 @@ async def lifespan(app: FastAPI):
     # Start scheduler
     scheduler.add_job(run_updater, "interval", minutes=30)
     scheduler.start()
-    print("🟢 Scheduler started. First run happening now...")
+    print("🟢 Scheduler started. First api happening now...")
     run_updater()
 
     yield  # Start serving requests
