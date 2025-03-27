@@ -31,7 +31,7 @@ async def lifespan(app: FastAPI):
     coord_dict = points_df.set_index('key')[['lat', 'lon']].to_dict('index')
 
     # Start scheduler
-    scheduler.add_job(run_updater, "interval", minutes=30)
+    scheduler.add_job(run_updater, "interval", minutes=5)
     scheduler.start()
     print("🟢 Scheduler started. First api happening now...")
     run_updater()
@@ -108,9 +108,15 @@ async def stop_scheduler():
     scheduler.shutdown(wait=False)
     return {"status": "Scheduler stopped"}
 
+@app.post("/start")
+async def stop_scheduler():
+    scheduler.start()
+    return {"status": "Scheduler started"}
+
 
 @app.get("/download")
 async def download_csv():
     if os.path.exists(OUTPUT_CSV):
         return FileResponse(OUTPUT_CSV, media_type='text/csv', filename="result.csv")
     return {"error": "File not found"}
+
