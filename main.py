@@ -87,8 +87,8 @@ async def read_data(request: Request):
 
 @app.post("/update")
 async def stop_scheduler(background_tasks: BackgroundTasks):
-    background_tasks.add_task(run_updater)
-    return {"status": "Scheduler stopped"}
+    run_updater()
+    return {"status": "starting update"}
 
 
 @app.get("/download")
