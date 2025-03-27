@@ -16,6 +16,7 @@ GOOGLE_API_KEY = "AIzaSyDVlpHB0cKSVr9SWIAI1kisAdqtG1Hnl1A"
 POINTS_CSV = "data/points.csv"
 ROUTES_CSV = "data/routes.csv"
 OUTPUT_CSV = "data/result.csv"
+UPDATE_SECRET = os.getenv("UPDATE_SECRET", "secret123")
 
 tz = pytz.timezone("Asia/Yerevan")
 gmaps = googlemaps.Client(key=GOOGLE_API_KEY)
@@ -120,3 +121,10 @@ async def download_csv():
         return FileResponse(OUTPUT_CSV, media_type='text/csv', filename="result.csv")
     return {"error": "File not found"}
 
+@app.post("/run-updater")
+async def run_updater_endpoint(request: Request):
+    secret = request.query_params.get("secret")
+    if secret != UPDATE_SECRET:
+        return {"error": "Unauthorized"}
+    run_updater()
+    return {"status": "Updater ran successfully"}
