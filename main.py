@@ -20,9 +20,9 @@ from fastapi import BackgroundTasks
 
 # === CONFIG ===
 GOOGLE_API_KEY = 'AIzaSyDVlpHB0cKSVr9SWIAI1kisAdqtG1Hnl1A'
-POINTS_CSV = 'points.csv'
-ROUTES_CSV = 'routes.csv'
-OUTPUT_CSV = 'data.csv'  # save final combined data here
+POINTS_CSV = 'data/points.csv'
+ROUTES_CSV = 'data/routes.csv'
+OUTPUT_CSV = 'data/result.csv'  # save final combined data here
 SLEEP_TIME = 3600  # 1 hour in seconds
 TOTAL_RUNS = 1
 
