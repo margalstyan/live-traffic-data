@@ -1,0 +1,50 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "shtapgo/main.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.9"
+      }
+    },
+    {
+      "src": "shtapgo/templates/**/*",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "shtapgo/public/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/download",
+      "dest": "shtapgo/main.py"
+    },
+    {
+      "src": "/stop",
+      "methods": ["POST"],
+      "dest": "shtapgo/main.py"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "shtapgo/main.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "shtapgo/main.py"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "shtapgo/public/static/$1"
+    }
+  ],
+  "env": {
+    "PYTHONPATH": "shtapgo/",
+    "POINTS_CSV": "shtapgo/data/points.csv",
+    "ROUTES_CSV": "shtapgo/data/routes.csv",
+    "OUTPUT_CSV": "shtapgo/data/output.csv"
+  }
+}
