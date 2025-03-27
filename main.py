@@ -75,6 +75,7 @@ def run_updater():
     duration_col = f'duration_{timestamp}'
 
     routes_df = pd.read_csv(ROUTES_CSV)
+    print("🔁 Calculating durations...")
     durations = get_durations(routes_df)
     routes_df[duration_col] = durations
 
