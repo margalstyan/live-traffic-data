@@ -97,6 +97,6 @@ async def download_csv():
         return FileResponse(OUTPUT_CSV, media_type='text/csv', filename="result.csv")
     return {"error": "File not found"}
 
-@app.get("keep_alive")
+@app.get("/keep_alive")
 async def keep_alive():
     return {"status": "running"}
