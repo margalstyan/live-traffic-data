@@ -11,7 +11,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from fastapi.responses import FileResponse
 from fastapi.background import BackgroundTasks
 # === Config ===
-GOOGLE_API_KEY = "AIzaSyDVlpHB0cKSVr9SWIAI1kisAdqtG1Hnl1A"
+GOOGLE_API_KEY = "AIzaSyBJ1jHA-FbNDE4wheJxwQ3FnUK6iR9PW7o"
 POINTS_CSV = "data/points.csv"
 ROUTES_CSV = "data/routes.csv"
 OUTPUT_CSV = "data/result.csv"
