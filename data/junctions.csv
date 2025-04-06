@@ -1,0 +1,22 @@
+coordinate,connected_roads,traffic_light
+"40.187223, 44.515214","baghramyan_1, baghramyan_1-, sayat_nova_6, sayat_nova_6-, mesrop_mashtoc_4, mesrop_mashtoc_4-, mesrop_mashtoc_3, mesrop_mashtoc_3-",1
+"40.188222, 44.516428","mesrop_mashtoc_3, mesrop_mashtoc_3-, mesrop_mashtoc_2, mesrop_mashtoc_2-, moskovyan_1, moskovyan_1-, moskovyan_2",1
+"40.189064, 44.517425","mesrop_mashtoc_2, mesrop_mashtoc_2-, mesrop_mashtoc_1, mesrop_mashtoc_1-, isahakyan_3, isahakyan_4",1
+"40.190479, 44.519312","mesrop_mashtoc_1, mesrop_mashtoc_1-, koryun_3, koryun_3-",0
+"40.189323, 44.522277","koryun_3, koryun_3-, koryun_2, koryun_2-, teryan_1, teryan_1-, teryan_2, teryan_2-",1
+"40.187958, 44.520619","isahakyan_2, isahakyan_3, teryan_2, teryan_2-, teryan_3, teryan_3-",1
+"40.187200, 44.519759","teryan_3, teryan_3-, teryan_4, teryan_4-, moskovyan_2, moskovyan_3",1
+"40.185003, 44.517169","sayat_nova_6, sayat_nova_6-, sayat_nova_5, sayat_nova_5-, teryan_4, teryan_4-, teryan_5, teryan_5-",1
+"40.183657, 44.518887","sayat_nova_5, sayat_nova_5-, sayat_nova_4, sayat_nova_4-, abovyan_4, abovyan_5",1
+"40.186000, 44.521577","abovyan_4, abovyan_3, abovyan_3-, moskovyan_3, moskovyan_4",1
+"40.186734, 44.522426","abovyan_3, abovyan_3-, abovyan_2, abovyan_2-, isahakyan_1, isahakyan_2",1
+"40.188149, 44.524070","koryun_1, koryun_1-, koryun_2, koryun_2-, abovyan_1, abovyan_1-, abovyan_2, abovyan_2-",1
+"40.182055, 44.520875","sayat_nova_4, sayat_nova_4-, sayat_nova_3, sayat_nova_3-, nalbandyan_3, nalbandyan_3-, nalbandyan_4, nalbandyan_4-",1
+"40.183702, 44.523426","nalbandyan_3, nalbandyan_3-, nalbandyan_2, nalbandyan_2-, moskovyan_4, khanjyan_1, khanjyan_1-",1
+"40.184327, 44.524416","nalbandyan_2, nalbandyan_2-, nalbandyan_1, nalbandyan_1-, isahakyan_1, alek_manukyan_2",1
+"40.185572, 44.526368","nalbandyan_1, nalbandyan_1-, koryun_1, koryun_1-, charents_2, charents_2-, heratsi_2, heratsi_2-",0
+"40.179829, 44.523623","sayat_nova_3, sayat_nova_3-, sayat_nova_2, sayat_nova_2-, khanjyan_1, khanjyan_1-, khanjyan_2, khanjyan_2-",1
+"40.178650, 44.523243","khanjyan_2, khanjyan_2-, heratsi_1, heratsi_1-",0
+"40.178965, 44.524792","sayat_nova_2, sayat_nova_2-, sayat_nova_1, sayat_nova_1-, alek_manukyan_1, alek_manukyan_1-, alek_manukyan_2",1
+"40.176972, 44.527356","sayat_nova_1, sayat_nova_1-, charents_1, charents_1-, charents_2, charents_2-",1
+"40.183766, 44.526099","alek_manukyan_2, charents_2-, heratsi_2, heratsi_2-, heratsi_1, heratsi_1-",0

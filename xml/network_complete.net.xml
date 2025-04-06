@@ -1,0 +1,1186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-04-05 20:31:14 by Eclipse SUMO netconvert Version 1.20.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <node-files value="combined_nodes.xml"/>
+        <edge-files value="combined_edges.xml"/>
+    </input>
+
+    <output>
+        <output-file value="network_complete.net.xml"/>
+    </output>
+
+</configuration>
+-->
+
+<net version="1.20" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="-458634.22,-4446952.79" convBoundary="0.00,0.00,1165.51,2101.30" origBoundary="458634.22,4446952.79,459799.72,4449054.09" projParameter="!"/>
+
+    <edge id="abovyan_1-_to_abovyan_2-_to_abovyan_1-" from="abovyan_1-" to="abovyan_2-_to_abovyan_1-" priority="1">
+        <lane id="abovyan_1-_to_abovyan_2-_to_abovyan_1-_0" index="0" speed="13.89" length="299.52" shape="986.39,1928.09 777.54,1713.40"/>
+    </edge>
+    <edge id="abovyan_1-_to_koryun_1_to_abovyan_1-" from="abovyan_1-" to="koryun_1_to_abovyan_1-" priority="1">
+        <lane id="abovyan_1-_to_koryun_1_to_abovyan_1-_0" index="0" speed="13.89" length="178.85" shape="986.91,1927.59 863.30,1798.33"/>
+    </edge>
+    <edge id="abovyan_1-_to_koryun_2-_to_abovyan_1-" from="abovyan_1-" to="koryun_2-_to_abovyan_1-" priority="1">
+        <lane id="abovyan_1-_to_koryun_2-_to_abovyan_1-_0" index="0" speed="13.89" length="192.25" shape="984.10,1930.41 844.85,1797.85"/>
+    </edge>
+    <edge id="abovyan_1_to_abovyan_1_to_abovyan_2" from="abovyan_1" to="abovyan_1_to_abovyan_2" priority="1">
+        <lane id="abovyan_1_to_abovyan_1_to_abovyan_2_0" index="0" speed="13.89" length="1.97" shape="1027.36,2000.78 1028.81,1999.46"/>
+    </edge>
+    <edge id="abovyan_1_to_abovyan_1_to_koryun_1-" from="abovyan_1" to="abovyan_1_to_koryun_1-" priority="1">
+        <lane id="abovyan_1_to_abovyan_1_to_koryun_1-_0" index="0" speed="13.89" length="255.82" shape="1022.98,2000.54 853.90,1808.57"/>
+    </edge>
+    <edge id="abovyan_1_to_abovyan_1_to_koryun_2" from="abovyan_1" to="abovyan_1_to_koryun_2" priority="1">
+        <lane id="abovyan_1_to_abovyan_1_to_koryun_2_0" index="0" speed="13.89" length="258.93" shape="1022.98,2000.54 851.84,1806.23"/>
+    </edge>
+    <edge id="abovyan_2-_to_abovyan_2-_to_abovyan_1-" from="abovyan_2-" to="abovyan_2-_to_abovyan_1-" priority="1">
+        <lane id="abovyan_2-_to_abovyan_2-_to_abovyan_1-_0" index="0" speed="13.89" length="0.20" shape="777.45,1709.19 777.30,1709.32"/>
+    </edge>
+    <edge id="abovyan_2-_to_abovyan_2-_to_koryun_1-" from="abovyan_2-" to="abovyan_2-_to_koryun_1-" priority="1">
+        <lane id="abovyan_2-_to_abovyan_2-_to_koryun_1-_0" index="0" speed="13.89" length="94.50" shape="783.59,1707.81 841.96,1782.12"/>
+    </edge>
+    <edge id="abovyan_2-_to_abovyan_3-_to_abovyan_2-" from="abovyan_2-" to="abovyan_3-_to_abovyan_2-" priority="1">
+        <lane id="abovyan_2-_to_abovyan_3-_to_abovyan_2-_0" index="0" speed="13.89" length="139.83" shape="777.15,1705.07 678.70,1605.77"/>
+    </edge>
+    <edge id="abovyan_2-_to_isahakyan_1_to_abovyan_2-" from="abovyan_2-" to="isahakyan_1_to_abovyan_2-" priority="1">
+        <lane id="abovyan_2-_to_isahakyan_1_to_abovyan_2-_0" index="0" speed="13.89" length="87.91" shape="777.11,1705.11 713.24,1644.71"/>
+    </edge>
+    <edge id="abovyan_2_to_abovyan_1_to_abovyan_2" from="abovyan_2" to="abovyan_1_to_abovyan_2" priority="1">
+        <lane id="abovyan_2_to_abovyan_1_to_abovyan_2_0" index="0" speed="13.89" length="381.25" shape="774.57,1711.17 1029.03,1995.08"/>
+    </edge>
+    <edge id="abovyan_2_to_abovyan_2_to_abovyan_3" from="abovyan_2" to="abovyan_2_to_abovyan_3" priority="1">
+        <lane id="abovyan_2_to_abovyan_2_to_abovyan_3_0" index="0" speed="13.89" length="0.20" shape="773.78,1707.76 773.93,1707.62"/>
+    </edge>
+    <edge id="abovyan_2_to_abovyan_2_to_isahakyan_2" from="abovyan_2" to="abovyan_2_to_isahakyan_2" priority="1">
+        <lane id="abovyan_2_to_abovyan_2_to_isahakyan_2_0" index="0" speed="13.89" length="87.50" shape="768.18,1708.73 710.82,1642.65"/>
+    </edge>
+    <edge id="abovyan_2_to_koryun_2-_to_abovyan_2" from="abovyan_2" to="koryun_2-_to_abovyan_2" priority="1">
+        <lane id="abovyan_2_to_koryun_2-_to_abovyan_2_0" index="0" speed="13.89" length="105.49" shape="774.55,1711.19 843.23,1791.25"/>
+    </edge>
+    <edge id="abovyan_3-_to_abovyan_3-_to_abovyan_2-" from="abovyan_3-" to="abovyan_3-_to_abovyan_2-" priority="1">
+        <lane id="abovyan_3-_to_abovyan_3-_to_abovyan_2-_0" index="0" speed="13.89" length="0.20" shape="677.88,1602.25 677.73,1602.38"/>
+    </edge>
+    <edge id="abovyan_3-_to_moskovyan_3_to_abovyan_3-" from="abovyan_3-" to="moskovyan_3_to_abovyan_3-" priority="1">
+        <lane id="abovyan_3-_to_moskovyan_3_to_abovyan_3-_0" index="0" speed="13.89" length="52.82" shape="676.90,1598.86 639.73,1561.33"/>
+    </edge>
+    <edge id="abovyan_3_to_abovyan_2_to_abovyan_3" from="abovyan_3" to="abovyan_2_to_abovyan_3" priority="1">
+        <lane id="abovyan_3_to_abovyan_2_to_abovyan_3_0" index="0" speed="13.89" length="134.30" shape="678.91,1608.36 773.01,1704.18"/>
+    </edge>
+    <edge id="abovyan_3_to_abovyan_3_to_abovyan_4" from="abovyan_3" to="abovyan_3_to_abovyan_4" priority="1">
+        <lane id="abovyan_3_to_abovyan_3_to_abovyan_4_0" index="0" speed="13.89" length="0.20" shape="676.26,1602.40 676.41,1602.27"/>
+    </edge>
+    <edge id="abovyan_3_to_abovyan_3_to_moskovyan_4" from="abovyan_3" to="abovyan_3_to_moskovyan_4" priority="1">
+        <lane id="abovyan_3_to_abovyan_3_to_moskovyan_4_0" index="0" speed="13.89" length="48.72" shape="670.35,1603.25 641.44,1564.03"/>
+    </edge>
+    <edge id="abovyan_3_to_isahakyan_1_to_abovyan_3" from="abovyan_3" to="isahakyan_1_to_abovyan_3" priority="1">
+        <lane id="abovyan_3_to_isahakyan_1_to_abovyan_3_0" index="0" speed="13.89" length="180.36" shape="673.00,1611.03 571.35,1760.01"/>
+    </edge>
+    <edge id="abovyan_4_to_abovyan_3_to_abovyan_4" from="abovyan_4" to="abovyan_3_to_abovyan_4" priority="1">
+        <lane id="abovyan_4_to_abovyan_3_to_abovyan_4_0" index="0" speed="13.89" length="221.84" shape="527.64,1433.55 676.05,1598.44"/>
+    </edge>
+    <edge id="abovyan_4_to_abovyan_4_to_abovyan_5" from="abovyan_4" to="abovyan_4_to_abovyan_5" priority="1">
+        <lane id="abovyan_4_to_abovyan_4_to_abovyan_5_0" index="0" speed="13.89" length="0.20" shape="525.65,1431.17 525.79,1431.04"/>
+    </edge>
+    <edge id="abovyan_4_to_abovyan_4_to_sayat_nova_4-" from="abovyan_4" to="abovyan_4_to_sayat_nova_4-" priority="1">
+        <lane id="abovyan_4_to_abovyan_4_to_sayat_nova_4-_0" index="0" speed="13.89" length="168.65" shape="521.15,1431.04 409.71,1304.46"/>
+    </edge>
+    <edge id="abovyan_4_to_abovyan_4_to_sayat_nova_5" from="abovyan_4" to="abovyan_4_to_sayat_nova_5" priority="1">
+        <lane id="abovyan_4_to_abovyan_4_to_sayat_nova_5_0" index="0" speed="13.89" length="171.51" shape="521.15,1431.04 407.82,1302.31"/>
+    </edge>
+    <edge id="abovyan_4_to_moskovyan_3_to_abovyan_4" from="abovyan_4" to="moskovyan_3_to_abovyan_4" priority="1">
+        <lane id="abovyan_4_to_moskovyan_3_to_abovyan_4_0" index="0" speed="13.89" length="163.70" shape="527.65,1433.54 637.85,1554.60"/>
+    </edge>
+    <edge id="abovyan_5_to_abovyan_4_to_abovyan_5" from="abovyan_5" to="abovyan_4_to_abovyan_5" priority="1">
+        <lane id="abovyan_5_to_abovyan_4_to_abovyan_5_0" index="0" speed="13.89" length="187.60" shape="396.45,1290.89 523.77,1428.67"/>
+    </edge>
+    <edge id="abovyan_5_to_sayat_nova_4_to_abovyan_5" from="abovyan_5" to="sayat_nova_4_to_abovyan_5" priority="1">
+        <lane id="abovyan_5_to_sayat_nova_4_to_abovyan_5_0" index="0" speed="13.89" length="12.76" shape="398.80,1288.63 407.83,1297.64"/>
+    </edge>
+    <edge id="abovyan_5_to_sayat_nova_5-_to_abovyan_5" from="abovyan_5" to="sayat_nova_5-_to_abovyan_5" priority="1">
+        <lane id="abovyan_5_to_sayat_nova_5-_to_abovyan_5_0" index="0" speed="13.89" length="9.60" shape="398.80,1288.63 405.60,1295.41"/>
+    </edge>
+    <edge id="alek_manukyan_1-_to_sayat_nova_1_to_alek_manukyan_1-" from="alek_manukyan_1-" to="sayat_nova_1_to_alek_manukyan_1-" priority="1">
+        <lane id="alek_manukyan_1-_to_sayat_nova_1_to_alek_manukyan_1-_0" index="0" speed="13.89" length="311.85" shape="810.96,478.12 909.30,774.06"/>
+    </edge>
+    <edge id="alek_manukyan_1-_to_sayat_nova_2-_to_alek_manukyan_1-" from="alek_manukyan_1-" to="sayat_nova_2-_to_alek_manukyan_1-" priority="1">
+        <lane id="alek_manukyan_1-_to_sayat_nova_2-_to_alek_manukyan_1-_0" index="0" speed="13.89" length="310.04" shape="810.96,478.12 908.73,772.34"/>
+    </edge>
+    <edge id="alek_manukyan_1_to_alek_manukyan_1_to_alek_manukyan_2" from="alek_manukyan_1" to="alek_manukyan_1_to_alek_manukyan_2" priority="1">
+        <lane id="alek_manukyan_1_to_alek_manukyan_1_to_alek_manukyan_2_0" index="0" speed="13.89" length="0.20" shape="812.67,479.78 812.49,479.86"/>
+    </edge>
+    <edge id="alek_manukyan_1_to_alek_manukyan_1_to_sayat_nova_1-" from="alek_manukyan_1" to="alek_manukyan_1_to_sayat_nova_1-" priority="1">
+        <lane id="alek_manukyan_1_to_alek_manukyan_1_to_sayat_nova_1-_0" index="0" speed="13.89" length="306.65" shape="816.06,481.84 909.31,773.97"/>
+    </edge>
+    <edge id="alek_manukyan_1_to_alek_manukyan_1_to_sayat_nova_2" from="alek_manukyan_1" to="alek_manukyan_1_to_sayat_nova_2" priority="1">
+        <lane id="alek_manukyan_1_to_alek_manukyan_1_to_sayat_nova_2_0" index="0" speed="13.89" length="304.86" shape="816.06,481.84 908.77,772.26"/>
+    </edge>
+    <edge id="alek_manukyan_2_to_alek_manukyan_1_to_alek_manukyan_2" from="alek_manukyan_2" to="alek_manukyan_1_to_alek_manukyan_2" priority="1">
+        <lane id="alek_manukyan_2_to_alek_manukyan_1_to_alek_manukyan_2_0" index="0" speed="13.89" length="528.22" shape="934.54,997.10 811.19,483.49"/>
+    </edge>
+    <edge id="alek_manukyan_2_to_alek_manukyan_2_to_charents_2-" from="alek_manukyan_2" to="alek_manukyan_2_to_charents_2-" priority="1">
+        <lane id="alek_manukyan_2_to_alek_manukyan_2_to_charents_2-_0" index="0" speed="13.89" length="60.64" shape="945.22,1043.59 942.55,1104.18"/>
+    </edge>
+    <edge id="alek_manukyan_2_to_alek_manukyan_2_to_heratsi_2" from="alek_manukyan_2" to="alek_manukyan_2_to_heratsi_2" priority="1">
+        <lane id="alek_manukyan_2_to_alek_manukyan_2_to_heratsi_2_0" index="0" speed="13.89" length="272.88" shape="948.90,1041.50 1021.31,1304.59"/>
+    </edge>
+    <edge id="alek_manukyan_2_to_alek_manukyan_2_to_isahakyan_1" from="alek_manukyan_2" to="alek_manukyan_2_to_isahakyan_1" priority="1">
+        <lane id="alek_manukyan_2_to_alek_manukyan_2_to_isahakyan_1_0" index="0" speed="13.89" length="48.95" shape="945.22,1043.59 943.06,1092.50"/>
+    </edge>
+    <edge id="alek_manukyan_2_to_sayat_nova_1_to_alek_manukyan_2" from="alek_manukyan_2" to="sayat_nova_1_to_alek_manukyan_2" priority="1">
+        <lane id="alek_manukyan_2_to_sayat_nova_1_to_alek_manukyan_2_0" index="0" speed="13.89" length="215.17" shape="937.82,996.48 907.99,783.39"/>
+    </edge>
+    <edge id="alek_manukyan_2_to_sayat_nova_2-_to_alek_manukyan_2" from="alek_manukyan_2" to="sayat_nova_2-_to_alek_manukyan_2" priority="1">
+        <lane id="alek_manukyan_2_to_sayat_nova_2-_to_alek_manukyan_2_0" index="0" speed="13.89" length="216.99" shape="937.82,996.48 907.74,781.58"/>
+    </edge>
+    <edge id="baghramyan_1-_to_baghramyan_1-_to_mesrop_mashtoc_3-" from="baghramyan_1-" to="baghramyan_1-_to_mesrop_mashtoc_3-" priority="1">
+        <lane id="baghramyan_1-_to_baghramyan_1-_to_mesrop_mashtoc_3-_0" index="0" speed="13.89" length="46.76" shape="34.57,1769.96 63.30,1733.07"/>
+    </edge>
+    <edge id="baghramyan_1-_to_baghramyan_1-_to_mesrop_mashtoc_4" from="baghramyan_1-" to="baghramyan_1-_to_mesrop_mashtoc_4" priority="1">
+        <lane id="baghramyan_1-_to_baghramyan_1-_to_mesrop_mashtoc_4_0" index="0" speed="13.89" length="51.75" shape="34.57,1769.96 66.37,1729.13"/>
+    </edge>
+    <edge id="baghramyan_1-_to_baghramyan_1-_to_sayat_nova_6-" from="baghramyan_1-" to="baghramyan_1-_to_sayat_nova_6-" priority="1">
+        <lane id="baghramyan_1-_to_baghramyan_1-_to_sayat_nova_6-_0" index="0" speed="13.89" length="50.65" shape="34.57,1769.96 65.69,1729.99"/>
+    </edge>
+    <edge id="baghramyan_1_to_mesrop_mashtoc_3_to_baghramyan_1" from="baghramyan_1" to="mesrop_mashtoc_3_to_baghramyan_1" priority="1">
+        <lane id="baghramyan_1_to_mesrop_mashtoc_3_to_baghramyan_1_0" index="0" speed="13.89" length="75.84" shape="57.27,1775.23 122.05,1735.77"/>
+    </edge>
+    <edge id="baghramyan_1_to_mesrop_mashtoc_4-_to_baghramyan_1" from="baghramyan_1" to="mesrop_mashtoc_4-_to_baghramyan_1" priority="1">
+        <lane id="baghramyan_1_to_mesrop_mashtoc_4-_to_baghramyan_1_0" index="0" speed="13.89" length="119.13" shape="50.42,1772.20 62.77,1653.71"/>
+    </edge>
+    <edge id="baghramyan_1_to_sayat_nova_6_to_baghramyan_1" from="baghramyan_1" to="sayat_nova_6_to_baghramyan_1" priority="1">
+        <lane id="baghramyan_1_to_sayat_nova_6_to_baghramyan_1_0" index="0" speed="13.89" length="132.73" shape="54.64,1772.51 126.98,1661.23"/>
+    </edge>
+    <edge id="charents_1-_to_charents_2-_to_charents_1-" from="charents_1-" to="charents_2-_to_charents_1-" priority="1">
+        <lane id="charents_1-_to_charents_2-_to_charents_1-_0" index="0" speed="13.89" length="1043.61" shape="1144.79,37.95 1158.14,1081.48"/>
+    </edge>
+    <edge id="charents_1-_to_sayat_nova_1-_to_charents_1-" from="charents_1-" to="sayat_nova_1-_to_charents_1-" priority="1">
+        <lane id="charents_1-_to_sayat_nova_1-_to_charents_1-_0" index="0" speed="13.89" length="517.38" shape="1141.46,37.85 1102.67,553.77"/>
+    </edge>
+    <edge id="charents_1_to_charents_1_to_charents_2" from="charents_1" to="charents_1_to_charents_2" priority="1">
+        <lane id="charents_1_to_charents_1_to_charents_2_0" index="0" speed="13.89" length="0.20" shape="1144.77,2.17 1144.57,2.18"/>
+    </edge>
+    <edge id="charents_1_to_charents_1_to_sayat_nova_1" from="charents_1" to="charents_1_to_sayat_nova_1" priority="1">
+        <lane id="charents_1_to_charents_1_to_sayat_nova_1_0" index="0" speed="13.89" length="539.93" shape="1146.71,5.27 1139.83,545.15"/>
+    </edge>
+    <edge id="charents_2-_to_alek_manukyan_2_to_charents_2-" from="charents_2-" to="alek_manukyan_2_to_charents_2-" priority="1">
+        <lane id="charents_2-_to_alek_manukyan_2_to_charents_2-_0" index="0" speed="13.89" length="205.37" shape="1150.22,1088.24 945.72,1107.20"/>
+    </edge>
+    <edge id="charents_2-_to_charents_2-_to_charents_1-" from="charents_2-" to="charents_2-_to_charents_1-" priority="1">
+        <lane id="charents_2-_to_charents_2-_to_charents_1-_0" index="0" speed="13.89" length="0.20" shape="1157.50,1084.64 1157.70,1084.64"/>
+    </edge>
+    <edge id="charents_2-_to_charents_2-_to_sayat_nova_1" from="charents_2-" to="charents_2-_to_sayat_nova_1" priority="1">
+        <lane id="charents_2-_to_charents_2-_to_sayat_nova_1_0" index="0" speed="13.89" length="483.35" shape="1153.49,1080.31 1130.26,597.52"/>
+    </edge>
+    <edge id="charents_2-_to_heratsi_2-_to_charents_2-" from="charents_2-" to="heratsi_2-_to_charents_2-" priority="1">
+        <lane id="charents_2-_to_heratsi_2-_to_charents_2-_0" index="0" speed="13.89" length="548.98" shape="1155.41,1091.29 987.81,1614.07"/>
+    </edge>
+    <edge id="charents_2-_to_koryun_1-_to_charents_2-" from="charents_2-" to="koryun_1-_to_charents_2-" priority="1">
+        <lane id="charents_2-_to_koryun_1-_to_charents_2-_0" index="0" speed="13.89" length="472.20" shape="1155.55,1091.33 1024.86,1545.08"/>
+    </edge>
+    <edge id="charents_2-_to_nalbandyan_1-_to_charents_2-" from="charents_2-" to="nalbandyan_1-_to_charents_2-" priority="1">
+        <lane id="charents_2-_to_nalbandyan_1-_to_charents_2-_0" index="0" speed="13.89" length="402.43" shape="1155.70,1091.37 1056.84,1481.46"/>
+    </edge>
+    <edge id="charents_2-_to_sayat_nova_1-_to_charents_2-" from="charents_2-" to="sayat_nova_1-_to_charents_2-" priority="1">
+        <lane id="charents_2-_to_sayat_nova_1-_to_charents_2-_0" index="0" speed="13.89" length="383.26" shape="1149.78,1081.71 910.51,782.32"/>
+    </edge>
+    <edge id="charents_2_to_charents_1_to_charents_2" from="charents_2" to="charents_1_to_charents_2" priority="1">
+        <lane id="charents_2_to_charents_1_to_charents_2_0" index="0" speed="13.89" length="1091.65" shape="1164.12,1096.77 1142.83,5.32"/>
+    </edge>
+    <edge id="charents_2_to_charents_2_to_heratsi_2" from="charents_2" to="charents_2_to_heratsi_2" priority="1">
+        <lane id="charents_2_to_charents_2_to_heratsi_2_0" index="0" speed="13.89" length="384.01" shape="1163.41,1103.10 1081.63,1478.29"/>
+    </edge>
+    <edge id="charents_2_to_charents_2_to_koryun_1" from="charents_2" to="charents_2_to_koryun_1" priority="1">
+        <lane id="charents_2_to_charents_2_to_koryun_1_0" index="0" speed="13.89" length="346.58" shape="1163.06,1103.02 1082.01,1439.99"/>
+    </edge>
+    <edge id="heratsi_1-_to_heratsi_1-_to_khanjyan_1" from="heratsi_1-" to="heratsi_1-_to_khanjyan_1" priority="1">
+        <lane id="heratsi_1-_to_heratsi_1-_to_khanjyan_1_0" index="0" speed="13.89" length="2.01" shape="869.75,1163.16 869.06,1161.27"/>
+    </edge>
+    <edge id="heratsi_1-_to_heratsi_1-_to_khanjyan_2-" from="heratsi_1-" to="heratsi_1-_to_khanjyan_2-" priority="1">
+        <lane id="heratsi_1-_to_heratsi_1-_to_khanjyan_2-_0" index="0" speed="13.89" length="459.45" shape="869.87,1163.11 750.07,719.56"/>
+    </edge>
+    <edge id="heratsi_1-_to_heratsi_2-_to_heratsi_1-" from="heratsi_1-" to="heratsi_2-_to_heratsi_1-" priority="1">
+        <lane id="heratsi_1-_to_heratsi_2-_to_heratsi_1-_0" index="0" speed="13.89" length="583.69" shape="873.76,1164.95 1052.65,1720.55"/>
+    </edge>
+    <edge id="heratsi_1_to_heratsi_1_to_heratsi_2" from="heratsi_1" to="heratsi_1_to_heratsi_2" priority="1">
+        <lane id="heratsi_1_to_heratsi_1_to_heratsi_2_0" index="0" speed="13.89" length="607.19" shape="867.31,1141.27 1052.33,1719.58"/>
+    </edge>
+    <edge id="heratsi_2-_to_heratsi_2-_to_charents_2-" from="heratsi_2-" to="heratsi_2-_to_charents_2-" priority="1">
+        <lane id="heratsi_2-_to_heratsi_2-_to_charents_2-_0" index="0" speed="13.89" length="206.19" shape="1107.09,1786.76 988.44,1618.13"/>
+    </edge>
+    <edge id="heratsi_2-_to_heratsi_2-_to_heratsi_1-" from="heratsi_2-" to="heratsi_2-_to_heratsi_1-" priority="1">
+        <lane id="heratsi_2-_to_heratsi_2-_to_heratsi_1-_0" index="0" speed="13.89" length="82.14" shape="1104.46,1788.70 1054.28,1723.66"/>
+    </edge>
+    <edge id="heratsi_2-_to_heratsi_2-_to_koryun_1" from="heratsi_2-" to="heratsi_2-_to_koryun_1" priority="1">
+        <lane id="heratsi_2-_to_heratsi_2-_to_koryun_1_0" index="0" speed="13.89" length="233.58" shape="1132.01,1829.96 965.80,1665.85"/>
+    </edge>
+    <edge id="heratsi_2_to_alek_manukyan_2_to_heratsi_2" from="heratsi_2" to="alek_manukyan_2_to_heratsi_2" priority="1">
+        <lane id="heratsi_2_to_alek_manukyan_2_to_heratsi_2_0" index="0" speed="13.89" length="547.75" shape="1155.82,1838.69 1018.98,1308.30"/>
+    </edge>
+    <edge id="heratsi_2_to_charents_2_to_heratsi_2" from="heratsi_2" to="charents_2_to_heratsi_2" priority="1">
+        <lane id="heratsi_2_to_charents_2_to_heratsi_2_0" index="0" speed="13.89" length="364.41" shape="1156.19,1838.60 1081.62,1481.90"/>
+    </edge>
+    <edge id="heratsi_2_to_heratsi_1_to_heratsi_2" from="heratsi_2" to="heratsi_1_to_heratsi_2" priority="1">
+        <lane id="heratsi_2_to_heratsi_1_to_heratsi_2_0" index="0" speed="13.89" length="153.42" shape="1152.45,1840.40 1054.04,1722.70"/>
+    </edge>
+    <edge id="heratsi_2_to_koryun_1-_to_heratsi_2" from="heratsi_2" to="koryun_1-_to_heratsi_2" priority="1">
+        <lane id="heratsi_2_to_koryun_1-_to_heratsi_2_0" index="0" speed="13.89" length="444.27" shape="1156.61,1838.49 1089.06,1399.39"/>
+    </edge>
+    <edge id="heratsi_2_to_nalbandyan_1-_to_heratsi_2" from="heratsi_2" to="nalbandyan_1-_to_heratsi_2" priority="1">
+        <lane id="heratsi_2_to_nalbandyan_1-_to_heratsi_2_0" index="0" speed="13.89" length="447.96" shape="1156.61,1838.49 1088.50,1395.74"/>
+    </edge>
+    <edge id="isahakyan_1_to_alek_manukyan_2_to_isahakyan_1" from="isahakyan_1" to="alek_manukyan_2_to_isahakyan_1" priority="1">
+        <lane id="isahakyan_1_to_alek_manukyan_2_to_isahakyan_1_0" index="0" speed="13.89" length="411.68" shape="816.43,1487.77 942.46,1095.85"/>
+    </edge>
+    <edge id="isahakyan_1_to_isahakyan_1_to_abovyan_2-" from="isahakyan_1" to="isahakyan_1_to_abovyan_2-" priority="1">
+        <lane id="isahakyan_1_to_isahakyan_1_to_abovyan_2-_0" index="0" speed="13.89" length="129.57" shape="792.03,1537.76 712.89,1640.36"/>
+    </edge>
+    <edge id="isahakyan_1_to_isahakyan_1_to_abovyan_3" from="isahakyan_1" to="isahakyan_1_to_abovyan_3" priority="1">
+        <lane id="isahakyan_1_to_isahakyan_1_to_abovyan_3_0" index="0" speed="13.89" length="312.68" shape="789.48,1535.58 574.02,1762.17"/>
+    </edge>
+    <edge id="isahakyan_1_to_isahakyan_1_to_isahakyan_2" from="isahakyan_1" to="isahakyan_1_to_isahakyan_2" priority="1">
+        <lane id="isahakyan_1_to_isahakyan_1_to_isahakyan_2_0" index="0" speed="13.89" length="0.20" shape="807.39,1511.03 807.21,1510.93"/>
+    </edge>
+    <edge id="isahakyan_1_to_nalbandyan_1_to_isahakyan_1" from="isahakyan_1" to="nalbandyan_1_to_isahakyan_1" priority="1">
+        <lane id="isahakyan_1_to_nalbandyan_1_to_isahakyan_1_0" index="0" speed="13.89" length="127.31" shape="819.59,1489.04 875.48,1374.66"/>
+    </edge>
+    <edge id="isahakyan_1_to_nalbandyan_2-_to_isahakyan_1" from="isahakyan_1" to="nalbandyan_2-_to_isahakyan_1" priority="1">
+        <lane id="isahakyan_1_to_nalbandyan_2-_to_isahakyan_1_0" index="0" speed="13.89" length="131.47" shape="819.59,1489.04 877.31,1370.91"/>
+    </edge>
+    <edge id="isahakyan_2_to_abovyan_2_to_isahakyan_2" from="isahakyan_2" to="abovyan_2_to_isahakyan_2" priority="1">
+        <lane id="isahakyan_2_to_abovyan_2_to_isahakyan_2_0" index="0" speed="13.89" length="61.22" shape="662.94,1685.58 706.44,1642.49"/>
+    </edge>
+    <edge id="isahakyan_2_to_isahakyan_1_to_isahakyan_2" from="isahakyan_2" to="isahakyan_1_to_isahakyan_2" priority="1">
+        <lane id="isahakyan_2_to_isahakyan_1_to_isahakyan_2_0" index="0" speed="13.89" length="223.38" shape="660.50,1683.32 804.62,1512.66"/>
+    </edge>
+    <edge id="isahakyan_2_to_isahakyan_2_to_isahakyan_3" from="isahakyan_2" to="isahakyan_2_to_isahakyan_3" priority="1">
+        <lane id="isahakyan_2_to_isahakyan_2_to_isahakyan_3_0" index="0" speed="13.89" length="0.20" shape="636.71,1709.91 636.84,1710.06"/>
+    </edge>
+    <edge id="isahakyan_2_to_isahakyan_2_to_teryan_2-" from="isahakyan_2" to="isahakyan_2_to_teryan_2-" priority="1">
+        <lane id="isahakyan_2_to_isahakyan_2_to_teryan_2-_0" index="0" speed="13.89" length="95.51" shape="635.15,1716.97 560.57,1776.65"/>
+    </edge>
+    <edge id="isahakyan_2_to_isahakyan_2_to_teryan_3" from="isahakyan_2" to="isahakyan_2_to_teryan_3" priority="1">
+        <lane id="isahakyan_2_to_isahakyan_2_to_teryan_3_0" index="0" speed="13.89" length="92.66" shape="635.15,1716.97 562.80,1774.87"/>
+    </edge>
+    <edge id="isahakyan_3_to_isahakyan_2_to_isahakyan_3" from="isahakyan_3" to="isahakyan_2_to_isahakyan_3" priority="1">
+        <lane id="isahakyan_3_to_isahakyan_2_to_isahakyan_3_0" index="0" speed="13.89" length="247.36" shape="427.22,1846.97 635.55,1713.60"/>
+    </edge>
+    <edge id="isahakyan_3_to_isahakyan_3_to_isahakyan_4" from="isahakyan_3" to="isahakyan_3_to_isahakyan_4" priority="1">
+        <lane id="isahakyan_3_to_isahakyan_3_to_isahakyan_4_0" index="0" speed="13.89" length="0.20" shape="425.70,1850.51 425.78,1850.69"/>
+    </edge>
+    <edge id="isahakyan_3_to_isahakyan_3_to_mesrop_mashtoc_1-" from="isahakyan_3" to="isahakyan_3_to_mesrop_mashtoc_1-" priority="1">
+        <lane id="isahakyan_3_to_isahakyan_3_to_mesrop_mashtoc_1-_0" index="0" speed="13.89" length="134.12" shape="423.41,1852.81 297.13,1897.98"/>
+    </edge>
+    <edge id="isahakyan_3_to_isahakyan_3_to_mesrop_mashtoc_2" from="isahakyan_3" to="isahakyan_3_to_mesrop_mashtoc_2" priority="1">
+        <lane id="isahakyan_3_to_isahakyan_3_to_mesrop_mashtoc_2_0" index="0" speed="13.89" length="131.68" shape="423.41,1852.81 299.43,1897.16"/>
+    </edge>
+    <edge id="isahakyan_3_to_teryan_2_to_isahakyan_3" from="isahakyan_3" to="teryan_2_to_isahakyan_3" priority="1">
+        <lane id="isahakyan_3_to_teryan_2_to_isahakyan_3_0" index="0" speed="13.89" length="143.82" shape="427.38,1847.22 553.16,1777.49"/>
+    </edge>
+    <edge id="isahakyan_3_to_teryan_3-_to_isahakyan_3" from="isahakyan_3" to="teryan_3-_to_isahakyan_3" priority="1">
+        <lane id="isahakyan_3_to_teryan_3-_to_isahakyan_3_0" index="0" speed="13.89" length="146.70" shape="427.38,1847.22 555.69,1776.09"/>
+    </edge>
+    <edge id="isahakyan_4_to_isahakyan_3_to_isahakyan_4" from="isahakyan_4" to="isahakyan_3_to_isahakyan_4" priority="1">
+        <lane id="isahakyan_4_to_isahakyan_3_to_isahakyan_4_0" index="0" speed="13.89" length="237.57" shape="194.03,1916.84 422.18,1850.60"/>
+    </edge>
+    <edge id="isahakyan_4_to_mesrop_mashtoc_1_to_isahakyan_4" from="isahakyan_4" to="mesrop_mashtoc_1_to_isahakyan_4" priority="1">
+        <lane id="isahakyan_4_to_mesrop_mashtoc_1_to_isahakyan_4_0" index="0" speed="13.89" length="83.38" shape="195.04,1920.67 276.22,1901.64"/>
+    </edge>
+    <edge id="isahakyan_4_to_mesrop_mashtoc_2-_to_isahakyan_4" from="isahakyan_4" to="mesrop_mashtoc_2-_to_isahakyan_4" priority="1">
+        <lane id="isahakyan_4_to_mesrop_mashtoc_2-_to_isahakyan_4_0" index="0" speed="13.89" length="98.28" shape="194.87,1919.99 290.35,1896.67"/>
+    </edge>
+    <edge id="khanjyan_1-_to_khanjyan_1-_to_khanjyan_2-" from="khanjyan_1-" to="khanjyan_1-_to_khanjyan_2-" priority="1">
+        <lane id="khanjyan_1-_to_khanjyan_1-_to_khanjyan_2-_0" index="0" speed="13.89" length="0.20" shape="818.02,1189.21 818.22,1189.24"/>
+    </edge>
+    <edge id="khanjyan_1-_to_khanjyan_1-_to_sayat_nova_2-" from="khanjyan_1-" to="khanjyan_1-_to_sayat_nova_2-" priority="1">
+        <lane id="khanjyan_1-_to_khanjyan_1-_to_sayat_nova_2-_0" index="0" speed="13.89" length="304.31" shape="813.60,1185.71 806.69,881.48"/>
+    </edge>
+    <edge id="khanjyan_1-_to_khanjyan_1-_to_sayat_nova_3" from="khanjyan_1-" to="khanjyan_1-_to_sayat_nova_3" priority="1">
+        <lane id="khanjyan_1-_to_khanjyan_1-_to_sayat_nova_3_0" index="0" speed="13.89" length="305.43" shape="813.60,1185.71 806.67,880.36"/>
+    </edge>
+    <edge id="khanjyan_1-_to_moskovyan_4_to_khanjyan_1-" from="khanjyan_1-" to="moskovyan_4_to_khanjyan_1-" priority="1">
+        <lane id="khanjyan_1-_to_moskovyan_4_to_khanjyan_1-_0" index="0" speed="13.89" length="100.72" shape="816.63,1192.10 798.94,1291.25"/>
+    </edge>
+    <edge id="khanjyan_1-_to_nalbandyan_2_to_khanjyan_1-" from="khanjyan_1-" to="nalbandyan_2_to_khanjyan_1-" priority="1">
+        <lane id="khanjyan_1-_to_nalbandyan_2_to_khanjyan_1-_0" index="0" speed="13.89" length="113.38" shape="816.63,1192.10 796.72,1303.71"/>
+    </edge>
+    <edge id="khanjyan_1-_to_nalbandyan_3-_to_khanjyan_1-" from="khanjyan_1-" to="nalbandyan_3-_to_khanjyan_1-" priority="1">
+        <lane id="khanjyan_1-_to_nalbandyan_3-_to_khanjyan_1-_0" index="0" speed="13.89" length="107.65" shape="816.63,1192.10 797.73,1298.07"/>
+    </edge>
+    <edge id="khanjyan_1_to_heratsi_1-_to_khanjyan_1" from="khanjyan_1" to="heratsi_1-_to_khanjyan_1" priority="1">
+        <lane id="khanjyan_1_to_heratsi_1-_to_khanjyan_1_0" index="0" speed="13.89" length="53.34" shape="823.29,1193.52 864.87,1160.10"/>
+    </edge>
+    <edge id="khanjyan_1_to_khanjyan_1_to_nalbandyan_2-" from="khanjyan_1" to="khanjyan_1_to_nalbandyan_2-" priority="1">
+        <lane id="khanjyan_1_to_khanjyan_1_to_nalbandyan_2-_0" index="0" speed="13.89" length="109.20" shape="821.22,1196.87 796.79,1303.30"/>
+    </edge>
+    <edge id="khanjyan_1_to_khanjyan_1_to_nalbandyan_3" from="khanjyan_1" to="khanjyan_1_to_nalbandyan_3" priority="1">
+        <lane id="khanjyan_1_to_khanjyan_1_to_nalbandyan_3_0" index="0" speed="13.89" length="104.16" shape="821.22,1196.87 797.92,1298.39"/>
+    </edge>
+    <edge id="khanjyan_1_to_sayat_nova_2_to_khanjyan_1" from="khanjyan_1" to="sayat_nova_2_to_khanjyan_1" priority="1">
+        <lane id="khanjyan_1_to_sayat_nova_2_to_khanjyan_1_0" index="0" speed="13.89" length="312.34" shape="817.31,1193.50 806.76,881.34"/>
+    </edge>
+    <edge id="khanjyan_2-_to_heratsi_1-_to_khanjyan_2-" from="khanjyan_2-" to="heratsi_1-_to_khanjyan_2-" priority="1">
+        <lane id="khanjyan_2-_to_heratsi_1-_to_khanjyan_2-_0" index="0" speed="13.89" length="76.28" shape="720.98,647.43 752.48,716.90"/>
+    </edge>
+    <edge id="khanjyan_2-_to_khanjyan_1-_to_khanjyan_2-" from="khanjyan_2-" to="khanjyan_1-_to_khanjyan_2-" priority="1">
+        <lane id="khanjyan_2-_to_khanjyan_1-_to_khanjyan_2-_0" index="0" speed="13.89" length="605.17" shape="692.12,594.04 819.02,1185.76"/>
+    </edge>
+    <edge id="khanjyan_2-_to_sayat_nova_2_to_khanjyan_2-" from="khanjyan_2-" to="sayat_nova_2_to_khanjyan_2-" priority="1">
+        <lane id="khanjyan_2-_to_sayat_nova_2_to_khanjyan_2-_0" index="0" speed="13.89" length="241.33" shape="717.98,648.71 808.61,872.38"/>
+    </edge>
+    <edge id="khanjyan_2-_to_sayat_nova_3-_to_khanjyan_2-" from="khanjyan_2-" to="sayat_nova_3-_to_khanjyan_2-" priority="1">
+        <lane id="khanjyan_2-_to_sayat_nova_3-_to_khanjyan_2-_0" index="0" speed="13.89" length="239.07" shape="717.98,648.71 807.76,870.28"/>
+    </edge>
+    <edge id="koryun_1-_to_abovyan_1_to_koryun_1-" from="koryun_1-" to="abovyan_1_to_koryun_1-" priority="1">
+        <lane id="koryun_1-_to_abovyan_1_to_koryun_1-_0" index="0" speed="13.89" length="85.74" shape="898.85,1731.47 853.54,1804.26"/>
+    </edge>
+    <edge id="koryun_1-_to_abovyan_2-_to_koryun_1-" from="koryun_1-" to="abovyan_2-_to_koryun_1-" priority="1">
+        <lane id="koryun_1-_to_abovyan_2-_to_koryun_1-_0" index="0" speed="13.89" length="72.64" shape="895.92,1729.22 846.34,1782.31"/>
+    </edge>
+    <edge id="koryun_1-_to_koryun_1-_to_charents_2-" from="koryun_1-" to="koryun_1-_to_charents_2-" priority="1">
+        <lane id="koryun_1-_to_koryun_1-_to_charents_2-_0" index="0" speed="13.89" length="169.01" shape="925.64,1686.14 1023.34,1548.23"/>
+    </edge>
+    <edge id="koryun_1-_to_koryun_1-_to_heratsi_2" from="koryun_1-" to="koryun_1-_to_heratsi_2" priority="1">
+        <lane id="koryun_1-_to_koryun_1-_to_heratsi_2_0" index="0" speed="13.89" length="328.56" shape="922.82,1684.34 1085.12,1398.66"/>
+    </edge>
+    <edge id="koryun_1-_to_koryun_1-_to_nalbandyan_1" from="koryun_1-" to="koryun_1-_to_nalbandyan_1" priority="1">
+        <lane id="koryun_1-_to_koryun_1-_to_nalbandyan_1_0" index="0" speed="13.89" length="161.35" shape="925.64,1686.14 1018.91,1554.48"/>
+    </edge>
+    <edge id="koryun_1-_to_koryun_2-_to_koryun_1-" from="koryun_1-" to="koryun_2-_to_koryun_1-" priority="1">
+        <lane id="koryun_1-_to_koryun_2-_to_koryun_1-_0" index="0" speed="13.89" length="183.68" shape="896.09,1729.38 772.32,1865.10"/>
+    </edge>
+    <edge id="koryun_1_to_charents_2_to_koryun_1" from="koryun_1" to="charents_2_to_koryun_1" priority="1">
+        <lane id="koryun_1_to_charents_2_to_koryun_1_0" index="0" speed="13.89" length="284.13" shape="940.62,1690.33 1080.76,1443.16"/>
+    </edge>
+    <edge id="koryun_1_to_heratsi_2-_to_koryun_1" from="koryun_1" to="heratsi_2-_to_koryun_1" priority="1">
+        <lane id="koryun_1_to_heratsi_2-_to_koryun_1_0" index="0" speed="13.89" length="31.51" shape="943.44,1692.11 961.44,1666.25"/>
+    </edge>
+    <edge id="koryun_1_to_koryun_1_to_abovyan_1-" from="koryun_1" to="koryun_1_to_abovyan_1-" priority="1">
+        <lane id="koryun_1_to_koryun_1_to_abovyan_1-_0" index="0" speed="13.89" length="89.10" shape="922.23,1727.21 863.22,1793.96"/>
+    </edge>
+    <edge id="koryun_1_to_koryun_1_to_koryun_2" from="koryun_1" to="koryun_1_to_koryun_2" priority="1">
+        <lane id="koryun_1_to_koryun_1_to_koryun_2_0" index="0" speed="13.89" length="0.20" shape="921.36,1722.45 921.20,1722.33"/>
+    </edge>
+    <edge id="koryun_2-_to_koryun_2-_to_abovyan_1-" from="koryun_2-" to="koryun_2-_to_abovyan_1-" priority="1">
+        <lane id="koryun_2-_to_koryun_2-_to_abovyan_1-_0" index="0" speed="13.89" length="95.78" shape="768.38,1860.81 840.48,1797.76"/>
+    </edge>
+    <edge id="koryun_2-_to_koryun_2-_to_abovyan_2" from="koryun_2-" to="koryun_2-_to_abovyan_2" priority="1">
+        <lane id="koryun_2-_to_koryun_2-_to_abovyan_2_0" index="0" speed="13.89" length="99.02" shape="768.38,1860.81 842.92,1795.63"/>
+    </edge>
+    <edge id="koryun_2-_to_koryun_2-_to_koryun_1-" from="koryun_2-" to="koryun_2-_to_koryun_1-" priority="1">
+        <lane id="koryun_2-_to_koryun_2-_to_koryun_1-_0" index="0" speed="13.89" length="0.20" shape="768.99,1866.26 769.12,1866.41"/>
+    </edge>
+    <edge id="koryun_2-_to_koryun_3-_to_koryun_2-" from="koryun_2-" to="koryun_3-_to_koryun_2-" priority="1">
+        <lane id="koryun_2-_to_koryun_3-_to_koryun_2-_0" index="0" speed="13.89" length="181.86" shape="733.88,1889.58 585.13,1994.21"/>
+    </edge>
+    <edge id="koryun_2-_to_teryan_1_to_koryun_2-" from="koryun_2-" to="teryan_1_to_koryun_2-" priority="1">
+        <lane id="koryun_2-_to_teryan_1_to_koryun_2-_0" index="0" speed="13.89" length="47.95" shape="735.90,1892.22 699.08,1922.94"/>
+    </edge>
+    <edge id="koryun_2-_to_teryan_2-_to_koryun_2-" from="koryun_2-" to="teryan_2-_to_koryun_2-" priority="1">
+        <lane id="koryun_2-_to_teryan_2-_to_koryun_2-_0" index="0" speed="13.89" length="44.81" shape="735.90,1892.22 701.49,1920.93"/>
+    </edge>
+    <edge id="koryun_2_to_abovyan_1_to_koryun_2" from="koryun_2" to="abovyan_1_to_koryun_2" priority="1">
+        <lane id="koryun_2_to_abovyan_1_to_koryun_2_0" index="0" speed="13.89" length="97.42" shape="779.04,1875.46 847.45,1806.10"/>
+    </edge>
+    <edge id="koryun_2_to_koryun_1_to_koryun_2" from="koryun_2" to="koryun_1_to_koryun_2" priority="1">
+        <lane id="koryun_2_to_koryun_1_to_koryun_2_0" index="0" speed="13.89" length="205.92" shape="779.00,1875.43 918.75,1724.18"/>
+    </edge>
+    <edge id="koryun_2_to_koryun_2_to_koryun_3" from="koryun_2" to="koryun_2_to_koryun_3" priority="1">
+        <lane id="koryun_2_to_koryun_2_to_koryun_3_0" index="0" speed="13.89" length="0.20" shape="775.46,1876.34 775.33,1876.19"/>
+    </edge>
+    <edge id="koryun_2_to_koryun_2_to_teryan_1-" from="koryun_2" to="koryun_2_to_teryan_1-" priority="1">
+        <lane id="koryun_2_to_koryun_2_to_teryan_1-_0" index="0" speed="13.89" length="84.77" shape="776.07,1881.85 707.08,1931.10"/>
+    </edge>
+    <edge id="koryun_2_to_koryun_2_to_teryan_2" from="koryun_2" to="koryun_2_to_teryan_2" priority="1">
+        <lane id="koryun_2_to_koryun_2_to_teryan_2_0" index="0" speed="13.89" length="81.89" shape="776.07,1881.85 709.42,1929.43"/>
+    </edge>
+    <edge id="koryun_3-_to_koryun_3-_to_koryun_2-" from="koryun_3-" to="koryun_3-_to_koryun_2-" priority="1">
+        <lane id="koryun_3-_to_koryun_3-_to_koryun_2-_0" index="0" speed="13.89" length="0.20" shape="582.04,1995.27 582.15,1995.44"/>
+    </edge>
+    <edge id="koryun_3-_to_koryun_3-_to_teryan_1-" from="koryun_3-" to="koryun_3-_to_teryan_1-" priority="1">
+        <lane id="koryun_3-_to_koryun_3-_to_teryan_1-_0" index="0" speed="13.89" length="127.98" shape="582.66,1990.39 691.96,1923.82"/>
+    </edge>
+    <edge id="koryun_3-_to_koryun_3-_to_teryan_2" from="koryun_3-" to="koryun_3-_to_teryan_2" priority="1">
+        <lane id="koryun_3-_to_koryun_3-_to_teryan_2_0" index="0" speed="13.89" length="130.38" shape="582.66,1990.39 694.01,1922.57"/>
+    </edge>
+    <edge id="koryun_3-_to_mesrop_mashtoc_1-_to_koryun_3-" from="koryun_3-" to="mesrop_mashtoc_1-_to_koryun_3-" priority="1">
+        <lane id="koryun_3-_to_mesrop_mashtoc_1-_to_koryun_3-_0" index="0" speed="13.89" length="131.78" shape="579.19,1996.08 458.48,2048.96"/>
+    </edge>
+    <edge id="koryun_3_to_koryun_2_to_koryun_3" from="koryun_3" to="koryun_2_to_koryun_3" priority="1">
+        <lane id="koryun_3_to_koryun_2_to_koryun_3_0" index="0" speed="13.89" length="247.16" shape="569.50,2018.60 771.83,1876.65"/>
+    </edge>
+    <edge id="koryun_3_to_koryun_3_to_mesrop_mashtoc_1" from="koryun_3" to="koryun_3_to_mesrop_mashtoc_1" priority="1">
+        <lane id="koryun_3_to_koryun_3_to_mesrop_mashtoc_1_0" index="0" speed="13.89" length="113.55" shape="566.36,2019.78 461.53,2063.42"/>
+    </edge>
+    <edge id="koryun_3_to_teryan_1_to_koryun_3" from="koryun_3" to="teryan_1_to_koryun_3" priority="1">
+        <lane id="koryun_3_to_teryan_1_to_koryun_3_0" index="0" speed="13.89" length="156.36" shape="569.26,2018.24 699.80,1932.16"/>
+    </edge>
+    <edge id="mesrop_mashtoc_1-_to_isahakyan_3_to_mesrop_mashtoc_1-" from="mesrop_mashtoc_1-" to="isahakyan_3_to_mesrop_mashtoc_1-" priority="1">
+        <lane id="mesrop_mashtoc_1-_to_isahakyan_3_to_mesrop_mashtoc_1-_0" index="0" speed="13.89" length="112.23" shape="374.90,1982.17 296.17,1902.19"/>
+    </edge>
+    <edge id="mesrop_mashtoc_1-_to_mesrop_mashtoc_1-_to_koryun_3-" from="mesrop_mashtoc_1-" to="mesrop_mashtoc_1-_to_koryun_3-" priority="1">
+        <lane id="mesrop_mashtoc_1-_to_mesrop_mashtoc_1-_to_koryun_3-_0" index="0" speed="13.89" length="100.42" shape="379.10,1981.75 454.30,2048.31"/>
+    </edge>
+    <edge id="mesrop_mashtoc_1-_to_mesrop_mashtoc_2-_to_mesrop_mashtoc_1-" from="mesrop_mashtoc_1-" to="mesrop_mashtoc_2-_to_mesrop_mashtoc_1-" priority="1">
+        <lane id="mesrop_mashtoc_1-_to_mesrop_mashtoc_2-_to_mesrop_mashtoc_1-_0" index="0" speed="13.89" length="174.16" shape="374.91,1982.16 253.99,1856.83"/>
+    </edge>
+    <edge id="mesrop_mashtoc_1_to_koryun_3_to_mesrop_mashtoc_1" from="mesrop_mashtoc_1" to="koryun_3_to_mesrop_mashtoc_1" priority="1">
+        <lane id="mesrop_mashtoc_1_to_koryun_3_to_mesrop_mashtoc_1_0" index="0" speed="13.89" length="108.01" shape="371.25,1997.70 457.37,2062.89"/>
+    </edge>
+    <edge id="mesrop_mashtoc_1_to_mesrop_mashtoc_1_to_isahakyan_4" from="mesrop_mashtoc_1" to="mesrop_mashtoc_1_to_isahakyan_4" priority="1">
+        <lane id="mesrop_mashtoc_1_to_mesrop_mashtoc_1_to_isahakyan_4_0" index="0" speed="13.89" length="121.91" shape="361.94,1993.38 280.23,1902.90"/>
+    </edge>
+    <edge id="mesrop_mashtoc_1_to_mesrop_mashtoc_1_to_mesrop_mashtoc_2" from="mesrop_mashtoc_1" to="mesrop_mashtoc_1_to_mesrop_mashtoc_2" priority="1">
+        <lane id="mesrop_mashtoc_1_to_mesrop_mashtoc_1_to_mesrop_mashtoc_2_0" index="0" speed="13.89" length="0.20" shape="369.01,1994.23 369.21,1994.20"/>
+    </edge>
+    <edge id="mesrop_mashtoc_2-_to_mesrop_mashtoc_2-_to_isahakyan_4" from="mesrop_mashtoc_2-" to="mesrop_mashtoc_2-_to_isahakyan_4" priority="1">
+        <lane id="mesrop_mashtoc_2-_to_mesrop_mashtoc_2-_to_isahakyan_4_0" index="0" speed="13.89" length="51.83" shape="257.72,1853.40 291.65,1892.58"/>
+    </edge>
+    <edge id="mesrop_mashtoc_2-_to_mesrop_mashtoc_2-_to_mesrop_mashtoc_1-" from="mesrop_mashtoc_2-" to="mesrop_mashtoc_2-_to_mesrop_mashtoc_1-" priority="1">
+        <lane id="mesrop_mashtoc_2-_to_mesrop_mashtoc_2-_to_mesrop_mashtoc_1-_0" index="0" speed="13.89" length="0.20" shape="252.63,1853.82 252.48,1853.95"/>
+    </edge>
+    <edge id="mesrop_mashtoc_2-_to_mesrop_mashtoc_3-_to_mesrop_mashtoc_2-" from="mesrop_mashtoc_2-" to="mesrop_mashtoc_3-_to_mesrop_mashtoc_2-" priority="1">
+        <lane id="mesrop_mashtoc_2-_to_mesrop_mashtoc_3-_to_mesrop_mashtoc_2-_0" index="0" speed="13.89" length="108.39" shape="240.77,1840.14 165.30,1762.34"/>
+    </edge>
+    <edge id="mesrop_mashtoc_2-_to_moskovyan_1_to_mesrop_mashtoc_2-" from="mesrop_mashtoc_2-" to="moskovyan_1_to_mesrop_mashtoc_2-" priority="1">
+        <lane id="mesrop_mashtoc_2-_to_moskovyan_1_to_mesrop_mashtoc_2-_0" index="0" speed="13.89" length="56.42" shape="238.53,1842.82 191.67,1811.39"/>
+    </edge>
+    <edge id="mesrop_mashtoc_2_to_isahakyan_3_to_mesrop_mashtoc_2" from="mesrop_mashtoc_2" to="isahakyan_3_to_mesrop_mashtoc_2" priority="1">
+        <lane id="mesrop_mashtoc_2_to_isahakyan_3_to_mesrop_mashtoc_2_0" index="0" speed="13.89" length="53.35" shape="251.55,1866.14 295.34,1896.62"/>
+    </edge>
+    <edge id="mesrop_mashtoc_2_to_mesrop_mashtoc_1_to_mesrop_mashtoc_2" from="mesrop_mashtoc_2" to="mesrop_mashtoc_1_to_mesrop_mashtoc_2" priority="1">
+        <lane id="mesrop_mashtoc_2_to_mesrop_mashtoc_1_to_mesrop_mashtoc_2_0" index="0" speed="13.89" length="169.69" shape="249.30,1868.78 367.30,1990.72"/>
+    </edge>
+    <edge id="mesrop_mashtoc_2_to_mesrop_mashtoc_2_to_mesrop_mashtoc_3" from="mesrop_mashtoc_2" to="mesrop_mashtoc_2_to_mesrop_mashtoc_3" priority="1">
+        <lane id="mesrop_mashtoc_2_to_mesrop_mashtoc_2_to_mesrop_mashtoc_3_0" index="0" speed="13.89" length="0.20" shape="236.48,1854.20 236.62,1854.06"/>
+    </edge>
+    <edge id="mesrop_mashtoc_2_to_mesrop_mashtoc_2_to_moskovyan_1-" from="mesrop_mashtoc_2" to="mesrop_mashtoc_2_to_moskovyan_1-" priority="1">
+        <lane id="mesrop_mashtoc_2_to_mesrop_mashtoc_2_to_moskovyan_1-_0" index="0" speed="13.89" length="57.41" shape="231.43,1854.67 193.01,1812.01"/>
+    </edge>
+    <edge id="mesrop_mashtoc_2_to_mesrop_mashtoc_2_to_moskovyan_2" from="mesrop_mashtoc_2" to="mesrop_mashtoc_2_to_moskovyan_2" priority="1">
+        <lane id="mesrop_mashtoc_2_to_mesrop_mashtoc_2_to_moskovyan_2_0" index="0" speed="13.89" length="51.66" shape="231.43,1854.67 196.85,1816.29"/>
+    </edge>
+    <edge id="mesrop_mashtoc_3-_to_baghramyan_1-_to_mesrop_mashtoc_3-" from="mesrop_mashtoc_3-" to="baghramyan_1-_to_mesrop_mashtoc_3-" priority="1">
+        <lane id="mesrop_mashtoc_3-_to_baghramyan_1-_to_mesrop_mashtoc_3-_0" index="0" speed="13.89" length="94.14" shape="158.48,1754.81 67.24,1731.66"/>
+    </edge>
+    <edge id="mesrop_mashtoc_3-_to_mesrop_mashtoc_3-_to_mesrop_mashtoc_2-" from="mesrop_mashtoc_3-" to="mesrop_mashtoc_3-_to_mesrop_mashtoc_2-" priority="1">
+        <lane id="mesrop_mashtoc_3-_to_mesrop_mashtoc_3-_to_mesrop_mashtoc_2-_0" index="0" speed="13.89" length="0.20" shape="164.45,1758.86 164.30,1758.99"/>
+    </edge>
+    <edge id="mesrop_mashtoc_3-_to_mesrop_mashtoc_3-_to_moskovyan_2" from="mesrop_mashtoc_3-" to="mesrop_mashtoc_3-_to_moskovyan_2" priority="1">
+        <lane id="mesrop_mashtoc_3-_to_mesrop_mashtoc_3-_to_moskovyan_2_0" index="0" speed="13.89" length="61.43" shape="170.49,1757.72 209.86,1804.88"/>
+    </edge>
+    <edge id="mesrop_mashtoc_3-_to_mesrop_mashtoc_4-_to_mesrop_mashtoc_3-" from="mesrop_mashtoc_3-" to="mesrop_mashtoc_4-_to_mesrop_mashtoc_3-" priority="1">
+        <lane id="mesrop_mashtoc_3-_to_mesrop_mashtoc_4-_to_mesrop_mashtoc_3-_0" index="0" speed="13.89" length="210.73" shape="158.28,1749.22 11.42,1598.10"/>
+    </edge>
+    <edge id="mesrop_mashtoc_3-_to_sayat_nova_6_to_mesrop_mashtoc_3-" from="mesrop_mashtoc_3-" to="sayat_nova_6_to_mesrop_mashtoc_3-" priority="1">
+        <lane id="mesrop_mashtoc_3-_to_sayat_nova_6_to_mesrop_mashtoc_3-_0" index="0" speed="13.89" length="84.35" shape="160.49,1744.87 129.59,1666.39"/>
+    </edge>
+    <edge id="mesrop_mashtoc_3_to_mesrop_mashtoc_2_to_mesrop_mashtoc_3" from="mesrop_mashtoc_3" to="mesrop_mashtoc_2_to_mesrop_mashtoc_3" priority="1">
+        <lane id="mesrop_mashtoc_3_to_mesrop_mashtoc_2_to_mesrop_mashtoc_3_0" index="0" speed="13.89" length="126.30" shape="148.52,1759.29 235.12,1851.23"/>
+    </edge>
+    <edge id="mesrop_mashtoc_3_to_mesrop_mashtoc_3_to_baghramyan_1" from="mesrop_mashtoc_3" to="mesrop_mashtoc_3_to_baghramyan_1" priority="1">
+        <lane id="mesrop_mashtoc_3_to_mesrop_mashtoc_3_to_baghramyan_1_0" index="0" speed="13.89" length="25.45" shape="142.10,1756.53 126.35,1736.55"/>
+    </edge>
+    <edge id="mesrop_mashtoc_3_to_mesrop_mashtoc_3_to_mesrop_mashtoc_4" from="mesrop_mashtoc_3" to="mesrop_mashtoc_3_to_mesrop_mashtoc_4" priority="1">
+        <lane id="mesrop_mashtoc_3_to_mesrop_mashtoc_3_to_mesrop_mashtoc_4_0" index="0" speed="13.89" length="0.20" shape="147.02,1756.43 147.17,1756.29"/>
+    </edge>
+    <edge id="mesrop_mashtoc_3_to_mesrop_mashtoc_3_to_sayat_nova_6-" from="mesrop_mashtoc_3" to="mesrop_mashtoc_3_to_sayat_nova_6-" priority="1">
+        <lane id="mesrop_mashtoc_3_to_mesrop_mashtoc_3_to_sayat_nova_6-_0" index="0" speed="13.89" length="20.91" shape="142.10,1756.53 129.16,1740.11"/>
+    </edge>
+    <edge id="mesrop_mashtoc_3_to_moskovyan_1_to_mesrop_mashtoc_3" from="mesrop_mashtoc_3" to="moskovyan_1_to_mesrop_mashtoc_3" priority="1">
+        <lane id="mesrop_mashtoc_3_to_moskovyan_1_to_mesrop_mashtoc_3_0" index="0" speed="13.89" length="64.07" shape="148.51,1759.30 192.06,1806.30"/>
+    </edge>
+    <edge id="mesrop_mashtoc_4-_to_mesrop_mashtoc_4-_to_baghramyan_1" from="mesrop_mashtoc_4-" to="mesrop_mashtoc_4-_to_baghramyan_1" priority="1">
+        <lane id="mesrop_mashtoc_4-_to_mesrop_mashtoc_4-_to_baghramyan_1_0" index="0" speed="13.89" length="72.11" shape="15.92,1594.10 61.62,1649.88"/>
+    </edge>
+    <edge id="mesrop_mashtoc_4-_to_mesrop_mashtoc_4-_to_mesrop_mashtoc_3-" from="mesrop_mashtoc_4-" to="mesrop_mashtoc_4-_to_mesrop_mashtoc_3-" priority="1">
+        <lane id="mesrop_mashtoc_4-_to_mesrop_mashtoc_4-_to_mesrop_mashtoc_3-_0" index="0" speed="13.89" length="0.20" shape="11.63,1593.68 11.48,1593.81"/>
+    </edge>
+    <edge id="mesrop_mashtoc_4-_to_mesrop_mashtoc_4-_to_sayat_nova_6-" from="mesrop_mashtoc_4-" to="mesrop_mashtoc_4-_to_sayat_nova_6-" priority="1">
+        <lane id="mesrop_mashtoc_4-_to_mesrop_mashtoc_4-_to_sayat_nova_6-_0" index="0" speed="13.89" length="76.65" shape="15.92,1594.10 64.50,1653.39"/>
+    </edge>
+    <edge id="mesrop_mashtoc_4_to_baghramyan_1-_to_mesrop_mashtoc_4" from="mesrop_mashtoc_4" to="baghramyan_1-_to_mesrop_mashtoc_4" priority="1">
+        <lane id="mesrop_mashtoc_4_to_baghramyan_1-_to_mesrop_mashtoc_4_0" index="0" speed="13.89" length="128.40" shape="7.40,1611.05 66.73,1724.92"/>
+    </edge>
+    <edge id="mesrop_mashtoc_4_to_mesrop_mashtoc_3_to_mesrop_mashtoc_4" from="mesrop_mashtoc_4" to="mesrop_mashtoc_3_to_mesrop_mashtoc_4" priority="1">
+        <lane id="mesrop_mashtoc_4_to_mesrop_mashtoc_3_to_mesrop_mashtoc_4_0" index="0" speed="13.89" length="197.95" shape="10.32,1608.98 145.68,1753.42"/>
+    </edge>
+    <edge id="mesrop_mashtoc_4_to_sayat_nova_6_to_mesrop_mashtoc_4" from="mesrop_mashtoc_4" to="sayat_nova_6_to_mesrop_mashtoc_4" priority="1">
+        <lane id="mesrop_mashtoc_4_to_sayat_nova_6_to_mesrop_mashtoc_4_0" index="0" speed="13.89" length="131.57" shape="9.86,1603.17 128.99,1659.02"/>
+    </edge>
+    <edge id="moskovyan_1-_to_mesrop_mashtoc_2_to_moskovyan_1-" from="moskovyan_1-" to="mesrop_mashtoc_2_to_moskovyan_1-" priority="1">
+        <lane id="moskovyan_1-_to_mesrop_mashtoc_2_to_moskovyan_1-_0" index="0" speed="13.89" length="82.70" shape="107.08,1821.02 189.12,1810.57"/>
+    </edge>
+    <edge id="moskovyan_1_to_moskovyan_1_to_mesrop_mashtoc_2-" from="moskovyan_1" to="moskovyan_1_to_mesrop_mashtoc_2-" priority="1">
+        <lane id="moskovyan_1_to_moskovyan_1_to_mesrop_mashtoc_2-_0" index="0" speed="13.89" length="76.59" shape="111.57,1816.43 187.92,1810.41"/>
+    </edge>
+    <edge id="moskovyan_1_to_moskovyan_1_to_mesrop_mashtoc_3" from="moskovyan_1" to="moskovyan_1_to_mesrop_mashtoc_3" priority="1">
+        <lane id="moskovyan_1_to_moskovyan_1_to_mesrop_mashtoc_3_0" index="0" speed="13.89" length="79.21" shape="111.57,1816.43 190.54,1810.20"/>
+    </edge>
+    <edge id="moskovyan_1_to_moskovyan_1_to_moskovyan_2" from="moskovyan_1" to="moskovyan_1_to_moskovyan_2" priority="1">
+        <lane id="moskovyan_1_to_moskovyan_1_to_moskovyan_2_0" index="0" speed="13.89" length="0.20" shape="108.65,1819.11 108.66,1819.31"/>
+    </edge>
+    <edge id="moskovyan_2_to_mesrop_mashtoc_2_to_moskovyan_2" from="moskovyan_2" to="mesrop_mashtoc_2_to_moskovyan_2" priority="1">
+        <lane id="moskovyan_2_to_mesrop_mashtoc_2_to_moskovyan_2_0" index="0" speed="13.89" length="97.45" shape="291.20,1783.64 198.01,1812.13"/>
+    </edge>
+    <edge id="moskovyan_2_to_mesrop_mashtoc_3-_to_moskovyan_2" from="moskovyan_2" to="mesrop_mashtoc_3-_to_moskovyan_2" priority="1">
+        <lane id="moskovyan_2_to_mesrop_mashtoc_3-_to_moskovyan_2_0" index="0" speed="13.89" length="80.46" shape="291.09,1783.26 213.94,1806.11"/>
+    </edge>
+    <edge id="moskovyan_2_to_moskovyan_1_to_moskovyan_2" from="moskovyan_2" to="moskovyan_1_to_moskovyan_2" priority="1">
+        <lane id="moskovyan_2_to_moskovyan_1_to_moskovyan_2_0" index="0" speed="13.89" length="182.86" shape="290.36,1780.44 112.13,1821.31"/>
+    </edge>
+    <edge id="moskovyan_2_to_moskovyan_2_to_moskovyan_3" from="moskovyan_2" to="moskovyan_2_to_moskovyan_3" priority="1">
+        <lane id="moskovyan_2_to_moskovyan_2_to_moskovyan_3_0" index="0" speed="13.89" length="0.20" shape="337.34,1770.04 337.41,1770.23"/>
+    </edge>
+    <edge id="moskovyan_2_to_moskovyan_2_to_teryan_3-" from="moskovyan_2" to="moskovyan_2_to_teryan_3-" priority="1">
+        <lane id="moskovyan_2_to_moskovyan_2_to_teryan_3-_0" index="0" speed="13.89" length="158.74" shape="338.68,1765.02 481.31,1695.34"/>
+    </edge>
+    <edge id="moskovyan_2_to_moskovyan_2_to_teryan_4" from="moskovyan_2" to="moskovyan_2_to_teryan_4" priority="1">
+        <lane id="moskovyan_2_to_moskovyan_2_to_teryan_4_0" index="0" speed="13.89" length="161.16" shape="338.68,1765.02 483.49,1694.28"/>
+    </edge>
+    <edge id="moskovyan_3_to_moskovyan_2_to_moskovyan_3" from="moskovyan_3" to="moskovyan_2_to_moskovyan_3" priority="1">
+        <lane id="moskovyan_3_to_moskovyan_2_to_moskovyan_3_0" index="0" speed="13.89" length="239.22" shape="545.24,1645.26 340.69,1769.30"/>
+    </edge>
+    <edge id="moskovyan_3_to_moskovyan_3_to_abovyan_3-" from="moskovyan_3" to="moskovyan_3_to_abovyan_3-" priority="1">
+        <lane id="moskovyan_3_to_moskovyan_3_to_abovyan_3-_0" index="0" speed="13.89" length="92.76" shape="568.88,1625.99 635.35,1561.29"/>
+    </edge>
+    <edge id="moskovyan_3_to_moskovyan_3_to_abovyan_4" from="moskovyan_3" to="moskovyan_3_to_abovyan_4" priority="1">
+        <lane id="moskovyan_3_to_moskovyan_3_to_abovyan_4_0" index="0" speed="13.89" length="96.07" shape="568.88,1625.99 637.72,1558.98"/>
+    </edge>
+    <edge id="moskovyan_3_to_moskovyan_3_to_moskovyan_4" from="moskovyan_3" to="moskovyan_3_to_moskovyan_4" priority="1">
+        <lane id="moskovyan_3_to_moskovyan_3_to_moskovyan_4_0" index="0" speed="13.89" length="0.20" shape="569.07,1630.84 569.20,1630.99"/>
+    </edge>
+    <edge id="moskovyan_3_to_teryan_3_to_moskovyan_3" from="moskovyan_3" to="teryan_3_to_moskovyan_3" priority="1">
+        <lane id="moskovyan_3_to_teryan_3_to_moskovyan_3_0" index="0" speed="13.89" length="75.20" shape="547.18,1648.03 488.48,1695.03"/>
+    </edge>
+    <edge id="moskovyan_3_to_teryan_4-_to_moskovyan_3" from="moskovyan_3" to="teryan_4-_to_moskovyan_3" priority="1">
+        <lane id="moskovyan_3_to_teryan_4-_to_moskovyan_3_0" index="0" speed="13.89" length="71.84" shape="547.18,1648.03 491.11,1692.93"/>
+    </edge>
+    <edge id="moskovyan_4_to_abovyan_3_to_moskovyan_4" from="moskovyan_4" to="abovyan_3_to_moskovyan_4" priority="1">
+        <lane id="moskovyan_4_to_abovyan_3_to_moskovyan_4_0" index="0" speed="13.89" length="108.18" shape="702.93,1470.77 641.37,1559.73"/>
+    </edge>
+    <edge id="moskovyan_4_to_moskovyan_3_to_moskovyan_4" from="moskovyan_4" to="moskovyan_3_to_moskovyan_4" priority="1">
+        <lane id="moskovyan_4_to_moskovyan_3_to_moskovyan_4_0" index="0" speed="13.89" length="205.22" shape="700.28,1468.79 571.76,1628.80"/>
+    </edge>
+    <edge id="moskovyan_4_to_moskovyan_4_to_khanjyan_1-" from="moskovyan_4" to="moskovyan_4_to_khanjyan_1-" priority="1">
+        <lane id="moskovyan_4_to_moskovyan_4_to_khanjyan_1-_0" index="0" speed="13.89" length="168.64" shape="719.78,1444.01 797.83,1294.51"/>
+    </edge>
+    <edge id="moskovyan_4_to_moskovyan_4_to_nalbandyan_2-" from="moskovyan_4" to="moskovyan_4_to_nalbandyan_2-" priority="1">
+        <lane id="moskovyan_4_to_moskovyan_4_to_nalbandyan_2-_0" index="0" speed="13.89" length="155.22" shape="719.78,1444.01 791.62,1306.41"/>
+    </edge>
+    <edge id="moskovyan_4_to_moskovyan_4_to_nalbandyan_3" from="moskovyan_4" to="moskovyan_4_to_nalbandyan_3" priority="1">
+        <lane id="moskovyan_4_to_moskovyan_4_to_nalbandyan_3_0" index="0" speed="13.89" length="159.07" shape="719.78,1444.01 793.40,1303.00"/>
+    </edge>
+    <edge id="nalbandyan_1-_to_nalbandyan_1-_to_charents_2-" from="nalbandyan_1-" to="nalbandyan_1-_to_charents_2-" priority="1">
+        <lane id="nalbandyan_1-_to_nalbandyan_1-_to_charents_2-_0" index="0" speed="13.89" length="106.28" shape="960.28,1430.92 1052.82,1483.18"/>
+    </edge>
+    <edge id="nalbandyan_1-_to_nalbandyan_1-_to_heratsi_2" from="nalbandyan_1-" to="nalbandyan_1-_to_heratsi_2" priority="1">
+        <lane id="nalbandyan_1-_to_nalbandyan_1-_to_heratsi_2_0" index="0" speed="13.89" length="128.48" shape="960.79,1426.86 1084.83,1393.35"/>
+    </edge>
+    <edge id="nalbandyan_1-_to_nalbandyan_2-_to_nalbandyan_1-" from="nalbandyan_1-" to="nalbandyan_2-_to_nalbandyan_1-" priority="1">
+        <lane id="nalbandyan_1-_to_nalbandyan_2-_to_nalbandyan_1-_0" index="0" speed="13.89" length="140.73" shape="950.06,1427.84 839.51,1340.74"/>
+    </edge>
+    <edge id="nalbandyan_1_to_koryun_1-_to_nalbandyan_1" from="nalbandyan_1" to="koryun_1-_to_nalbandyan_1" priority="1">
+        <lane id="nalbandyan_1_to_koryun_1-_to_nalbandyan_1_0" index="0" speed="13.89" length="132.79" shape="953.34,1434.88 1019.11,1550.24"/>
+    </edge>
+    <edge id="nalbandyan_1_to_nalbandyan_1_to_isahakyan_1" from="nalbandyan_1" to="nalbandyan_1_to_isahakyan_1" priority="1">
+        <lane id="nalbandyan_1_to_nalbandyan_1_to_isahakyan_1_0" index="0" speed="13.89" length="90.10" shape="947.23,1433.52 879.76,1373.81"/>
+    </edge>
+    <edge id="nalbandyan_1_to_nalbandyan_1_to_nalbandyan_2-" from="nalbandyan_1" to="nalbandyan_1_to_nalbandyan_2-" priority="1">
+        <lane id="nalbandyan_1_to_nalbandyan_1_to_nalbandyan_2-_0" index="0" speed="13.89" length="0.20" shape="952.68,1431.86 952.80,1431.70"/>
+    </edge>
+    <edge id="nalbandyan_2-_to_khanjyan_1_to_nalbandyan_2-" from="nalbandyan_2-" to="khanjyan_1_to_nalbandyan_2-" priority="1">
+        <lane id="nalbandyan_2-_to_khanjyan_1_to_nalbandyan_2-_0" index="0" speed="13.89" length="46.93" shape="835.58,1335.70 798.25,1307.26"/>
+    </edge>
+    <edge id="nalbandyan_2-_to_moskovyan_4_to_nalbandyan_2-" from="nalbandyan_2-" to="moskovyan_4_to_nalbandyan_2-" priority="1">
+        <lane id="nalbandyan_2-_to_moskovyan_4_to_nalbandyan_2-_0" index="0" speed="13.89" length="49.90" shape="835.58,1335.70 795.89,1305.46"/>
+    </edge>
+    <edge id="nalbandyan_2-_to_nalbandyan_1_to_nalbandyan_2-" from="nalbandyan_2-" to="nalbandyan_1_to_nalbandyan_2-" priority="1">
+        <lane id="nalbandyan_2-_to_nalbandyan_1_to_nalbandyan_2-_0" index="0" speed="13.89" length="142.20" shape="842.44,1337.18 951.38,1428.58"/>
+    </edge>
+    <edge id="nalbandyan_2-_to_nalbandyan_2-_to_isahakyan_1" from="nalbandyan_2-" to="nalbandyan_2-_to_isahakyan_1" priority="1">
+        <lane id="nalbandyan_2-_to_nalbandyan_2-_to_isahakyan_1_0" index="0" speed="13.89" length="45.01" shape="842.39,1337.24 876.44,1366.67"/>
+    </edge>
+    <edge id="nalbandyan_2-_to_nalbandyan_2-_to_nalbandyan_1-" from="nalbandyan_2-" to="nalbandyan_2-_to_nalbandyan_1-" priority="1">
+        <lane id="nalbandyan_2-_to_nalbandyan_2-_to_nalbandyan_1-_0" index="0" speed="13.89" length="0.20" shape="837.61,1338.13 837.49,1338.28"/>
+    </edge>
+    <edge id="nalbandyan_2-_to_nalbandyan_3-_to_nalbandyan_2-" from="nalbandyan_2-" to="nalbandyan_3-_to_nalbandyan_2-" priority="1">
+        <lane id="nalbandyan_2-_to_nalbandyan_3-_to_nalbandyan_2-_0" index="0" speed="13.89" length="192.27" shape="835.60,1335.67 685.73,1215.22"/>
+    </edge>
+    <edge id="nalbandyan_2_to_nalbandyan_2_to_khanjyan_1-" from="nalbandyan_2" to="nalbandyan_2_to_khanjyan_1-" priority="1">
+        <lane id="nalbandyan_2_to_nalbandyan_2_to_khanjyan_1-_0" index="0" speed="13.89" length="44.95" shape="831.46,1337.75 798.07,1307.66"/>
+    </edge>
+    <edge id="nalbandyan_2_to_nalbandyan_2_to_nalbandyan_3" from="nalbandyan_2" to="nalbandyan_2_to_nalbandyan_3" priority="1">
+        <lane id="nalbandyan_2_to_nalbandyan_2_to_nalbandyan_3_0" index="0" speed="13.89" length="0.28" shape="835.66,1337.63 835.84,1337.41"/>
+    </edge>
+    <edge id="nalbandyan_3-_to_nalbandyan_3-_to_khanjyan_1-" from="nalbandyan_3-" to="nalbandyan_3-_to_khanjyan_1-" priority="1">
+        <lane id="nalbandyan_3-_to_nalbandyan_3-_to_khanjyan_1-_0" index="0" speed="13.89" length="136.93" shape="690.84,1209.11 793.71,1299.48"/>
+    </edge>
+    <edge id="nalbandyan_3-_to_nalbandyan_3-_to_nalbandyan_2-" from="nalbandyan_3-" to="nalbandyan_3-_to_nalbandyan_2-" priority="1">
+        <lane id="nalbandyan_3-_to_nalbandyan_3-_to_nalbandyan_2-_0" index="0" speed="13.89" length="0.20" shape="684.94,1211.28 684.82,1211.43"/>
+    </edge>
+    <edge id="nalbandyan_3-_to_nalbandyan_4-_to_nalbandyan_3-" from="nalbandyan_3-" to="nalbandyan_4-_to_nalbandyan_3-" priority="1">
+        <lane id="nalbandyan_3-_to_nalbandyan_4-_to_nalbandyan_3-_0" index="0" speed="13.89" length="216.49" shape="684.00,1207.49 512.65,1075.17"/>
+    </edge>
+    <edge id="nalbandyan_3-_to_sayat_nova_3_to_nalbandyan_3-" from="nalbandyan_3-" to="sayat_nova_3_to_nalbandyan_3-" priority="1">
+        <lane id="nalbandyan_3-_to_sayat_nova_3_to_nalbandyan_3-_0" index="0" speed="13.89" length="132.08" shape="684.01,1207.49 580.02,1126.04"/>
+    </edge>
+    <edge id="nalbandyan_3-_to_sayat_nova_4-_to_nalbandyan_3-" from="nalbandyan_3-" to="sayat_nova_4-_to_nalbandyan_3-" priority="1">
+        <lane id="nalbandyan_3-_to_sayat_nova_4-_to_nalbandyan_3-_0" index="0" speed="13.89" length="135.65" shape="684.01,1207.49 577.22,1123.84"/>
+    </edge>
+    <edge id="nalbandyan_3_to_khanjyan_1_to_nalbandyan_3" from="nalbandyan_3" to="khanjyan_1_to_nalbandyan_3" priority="1">
+        <lane id="nalbandyan_3_to_khanjyan_1_to_nalbandyan_3_0" index="0" speed="13.89" length="141.20" shape="682.89,1212.51 793.85,1299.83"/>
+    </edge>
+    <edge id="nalbandyan_3_to_moskovyan_4_to_nalbandyan_3" from="nalbandyan_3" to="moskovyan_4_to_nalbandyan_3" priority="1">
+        <lane id="nalbandyan_3_to_moskovyan_4_to_nalbandyan_3_0" index="0" speed="13.89" length="139.46" shape="682.89,1212.51 792.48,1298.75"/>
+    </edge>
+    <edge id="nalbandyan_3_to_nalbandyan_2_to_nalbandyan_3" from="nalbandyan_3" to="nalbandyan_2_to_nalbandyan_3" priority="1">
+        <lane id="nalbandyan_3_to_nalbandyan_2_to_nalbandyan_3_0" index="0" speed="13.89" length="194.37" shape="682.89,1212.51 835.18,1333.27"/>
+    </edge>
+    <edge id="nalbandyan_3_to_nalbandyan_3_to_nalbandyan_4" from="nalbandyan_3" to="nalbandyan_3_to_nalbandyan_4" priority="1">
+        <lane id="nalbandyan_3_to_nalbandyan_3_to_nalbandyan_4_0" index="0" speed="13.89" length="0.20" shape="681.29,1209.53 681.42,1209.37"/>
+    </edge>
+    <edge id="nalbandyan_3_to_nalbandyan_3_to_sayat_nova_3-" from="nalbandyan_3" to="nalbandyan_3_to_sayat_nova_3-" priority="1">
+        <lane id="nalbandyan_3_to_nalbandyan_3_to_sayat_nova_3-_0" index="0" speed="13.89" length="128.25" shape="676.07,1210.88 579.77,1126.18"/>
+    </edge>
+    <edge id="nalbandyan_3_to_nalbandyan_3_to_sayat_nova_4" from="nalbandyan_3" to="nalbandyan_3_to_sayat_nova_4" priority="1">
+        <lane id="nalbandyan_3_to_nalbandyan_3_to_sayat_nova_4_0" index="0" speed="13.89" length="131.55" shape="676.07,1210.88 577.29,1124.00"/>
+    </edge>
+    <edge id="nalbandyan_4-_to_nalbandyan_4-_to_nalbandyan_3-" from="nalbandyan_4-" to="nalbandyan_4-_to_nalbandyan_3-" priority="1">
+        <lane id="nalbandyan_4-_to_nalbandyan_4-_to_nalbandyan_3-_0" index="0" speed="13.89" length="0.20" shape="511.80,1071.20 511.67,1071.36"/>
+    </edge>
+    <edge id="nalbandyan_4-_to_nalbandyan_4-_to_sayat_nova_3-" from="nalbandyan_4-" to="nalbandyan_4-_to_sayat_nova_3-" priority="1">
+        <lane id="nalbandyan_4-_to_nalbandyan_4-_to_sayat_nova_3-_0" index="0" speed="13.89" length="78.47" shape="515.74,1071.18 577.30,1119.83"/>
+    </edge>
+    <edge id="nalbandyan_4-_to_nalbandyan_4-_to_sayat_nova_4" from="nalbandyan_4-" to="nalbandyan_4-_to_sayat_nova_4" priority="1">
+        <lane id="nalbandyan_4-_to_nalbandyan_4-_to_sayat_nova_4_0" index="0" speed="13.89" length="75.02" shape="515.74,1071.18 574.60,1117.70"/>
+    </edge>
+    <edge id="nalbandyan_4_to_nalbandyan_3_to_nalbandyan_4" from="nalbandyan_4" to="nalbandyan_3_to_nalbandyan_4" priority="1">
+        <lane id="nalbandyan_4_to_nalbandyan_3_to_nalbandyan_4_0" index="0" speed="13.89" length="140.55" shape="570.04,1118.63 679.83,1206.38"/>
+    </edge>
+    <edge id="nalbandyan_4_to_sayat_nova_4-_to_nalbandyan_4" from="nalbandyan_4" to="sayat_nova_4-_to_nalbandyan_4" priority="1">
+        <lane id="nalbandyan_4_to_sayat_nova_4-_to_nalbandyan_4_0" index="0" speed="13.89" length="2.97" shape="572.02,1116.03 574.42,1117.79"/>
+    </edge>
+    <edge id="sayat_nova_1-_to_alek_manukyan_1_to_sayat_nova_1-" from="sayat_nova_1-" to="alek_manukyan_1_to_sayat_nova_1-" priority="1">
+        <lane id="sayat_nova_1-_to_alek_manukyan_1_to_sayat_nova_1-_0" index="0" speed="13.89" length="139.59" shape="1007.97,672.13 913.48,774.89"/>
+    </edge>
+    <edge id="sayat_nova_1-_to_sayat_nova_1-_to_charents_1-" from="sayat_nova_1-" to="sayat_nova_1-_to_charents_1-" priority="1">
+        <lane id="sayat_nova_1-_to_sayat_nova_1-_to_charents_1-_0" index="0" speed="13.89" length="144.88" shape="1007.51,667.82 1101.21,557.32"/>
+    </edge>
+    <edge id="sayat_nova_1-_to_sayat_nova_1-_to_charents_2-" from="sayat_nova_1-" to="sayat_nova_1-_to_charents_2-" priority="1">
+        <lane id="sayat_nova_1-_to_sayat_nova_1-_to_charents_2-_0" index="0" speed="13.89" length="143.77" shape="1007.97,672.13 910.66,777.96"/>
+    </edge>
+    <edge id="sayat_nova_1-_to_sayat_nova_2-_to_sayat_nova_1-" from="sayat_nova_1-" to="sayat_nova_2-_to_sayat_nova_1-" priority="1">
+        <lane id="sayat_nova_1-_to_sayat_nova_2-_to_sayat_nova_1-_0" index="0" speed="13.89" length="203.61" shape="1007.95,672.12 867.98,819.98"/>
+    </edge>
+    <edge id="sayat_nova_1_to_charents_1_to_sayat_nova_1" from="sayat_nova_1" to="charents_1_to_sayat_nova_1" priority="1">
+        <lane id="sayat_nova_1_to_charents_1_to_sayat_nova_1_0" index="0" speed="13.89" length="159.50" shape="1021.56,657.60 1138.21,548.82"/>
+    </edge>
+    <edge id="sayat_nova_1_to_charents_2-_to_sayat_nova_1" from="sayat_nova_1" to="charents_2-_to_sayat_nova_1" priority="1">
+        <lane id="sayat_nova_1_to_charents_2-_to_sayat_nova_1_0" index="0" speed="13.89" length="121.51" shape="1023.67,660.35 1126.46,595.55"/>
+    </edge>
+    <edge id="sayat_nova_1_to_sayat_nova_1_to_alek_manukyan_1-" from="sayat_nova_1" to="sayat_nova_1_to_alek_manukyan_1-" priority="1">
+        <lane id="sayat_nova_1_to_sayat_nova_1_to_alek_manukyan_1-_0" index="0" speed="13.89" length="136.16" shape="1006.96,675.99 913.48,774.99"/>
+    </edge>
+    <edge id="sayat_nova_1_to_sayat_nova_1_to_alek_manukyan_2" from="sayat_nova_1" to="sayat_nova_1_to_alek_manukyan_2" priority="1">
+        <lane id="sayat_nova_1_to_sayat_nova_1_to_alek_manukyan_2_0" index="0" speed="13.89" length="142.35" shape="1006.96,675.99 909.23,779.49"/>
+    </edge>
+    <edge id="sayat_nova_1_to_sayat_nova_1_to_sayat_nova_2" from="sayat_nova_1" to="sayat_nova_1_to_sayat_nova_2" priority="1">
+        <lane id="sayat_nova_1_to_sayat_nova_1_to_sayat_nova_2_0" index="0" speed="13.89" length="0.20" shape="1006.74,671.55 1006.59,671.41"/>
+    </edge>
+    <edge id="sayat_nova_2-_to_khanjyan_1-_to_sayat_nova_2-" from="sayat_nova_2-" to="khanjyan_1-_to_sayat_nova_2-" priority="1">
+        <lane id="sayat_nova_2-_to_khanjyan_1-_to_sayat_nova_2-_0" index="0" speed="13.89" length="76.83" shape="862.65,823.55 808.19,877.75"/>
+    </edge>
+    <edge id="sayat_nova_2-_to_sayat_nova_2-_to_alek_manukyan_1-" from="sayat_nova_2-" to="sayat_nova_2-_to_alek_manukyan_1-" priority="1">
+        <lane id="sayat_nova_2-_to_sayat_nova_2-_to_alek_manukyan_1-_0" index="0" speed="13.89" length="58.88" shape="864.94,816.93 907.70,776.46"/>
+    </edge>
+    <edge id="sayat_nova_2-_to_sayat_nova_2-_to_alek_manukyan_2" from="sayat_nova_2-" to="sayat_nova_2-_to_alek_manukyan_2" priority="1">
+        <lane id="sayat_nova_2-_to_sayat_nova_2-_to_alek_manukyan_2_0" index="0" speed="13.89" length="53.45" shape="864.94,816.93 903.76,780.19"/>
+    </edge>
+    <edge id="sayat_nova_2-_to_sayat_nova_2-_to_sayat_nova_1-" from="sayat_nova_2-" to="sayat_nova_2-_to_sayat_nova_1-" priority="1">
+        <lane id="sayat_nova_2-_to_sayat_nova_2-_to_sayat_nova_1-_0" index="0" speed="13.89" length="0.20" shape="865.26,821.71 865.40,821.86"/>
+    </edge>
+    <edge id="sayat_nova_2-_to_sayat_nova_3-_to_sayat_nova_2-" from="sayat_nova_2-" to="sayat_nova_3-_to_sayat_nova_2-" priority="1">
+        <lane id="sayat_nova_2-_to_sayat_nova_3-_to_sayat_nova_2-_0" index="0" speed="13.89" length="237.80" shape="862.68,823.57 697.68,994.81"/>
+    </edge>
+    <edge id="sayat_nova_2_to_alek_manukyan_1_to_sayat_nova_2" from="sayat_nova_2" to="alek_manukyan_1_to_sayat_nova_2" priority="1">
+        <lane id="sayat_nova_2_to_alek_manukyan_1_to_sayat_nova_2_0" index="0" speed="13.89" length="62.31" shape="863.94,820.64 907.78,776.37"/>
+    </edge>
+    <edge id="sayat_nova_2_to_sayat_nova_1_to_sayat_nova_2" from="sayat_nova_2" to="sayat_nova_1_to_sayat_nova_2" priority="1">
+        <lane id="sayat_nova_2_to_sayat_nova_1_to_sayat_nova_2_0" index="0" speed="13.89" length="203.38" shape="863.92,820.63 1004.48,673.63"/>
+    </edge>
+    <edge id="sayat_nova_2_to_sayat_nova_2_to_khanjyan_1" from="sayat_nova_2" to="sayat_nova_2_to_khanjyan_1" priority="1">
+        <lane id="sayat_nova_2_to_sayat_nova_2_to_khanjyan_1_0" index="0" speed="13.89" length="73.36" shape="861.67,827.26 808.30,877.59"/>
+    </edge>
+    <edge id="sayat_nova_2_to_sayat_nova_2_to_khanjyan_2-" from="sayat_nova_2" to="sayat_nova_2_to_khanjyan_2-" priority="1">
+        <lane id="sayat_nova_2_to_sayat_nova_2_to_khanjyan_2-_0" index="0" speed="13.89" length="67.11" shape="861.67,827.26 812.85,873.30"/>
+    </edge>
+    <edge id="sayat_nova_2_to_sayat_nova_2_to_sayat_nova_3" from="sayat_nova_2" to="sayat_nova_2_to_sayat_nova_3" priority="1">
+        <lane id="sayat_nova_2_to_sayat_nova_2_to_sayat_nova_3_0" index="0" speed="13.89" length="0.20" shape="861.57,822.71 861.43,822.57"/>
+    </edge>
+    <edge id="sayat_nova_3-_to_nalbandyan_3_to_sayat_nova_3-" from="sayat_nova_3-" to="nalbandyan_3_to_sayat_nova_3-" priority="1">
+        <lane id="sayat_nova_3-_to_nalbandyan_3_to_sayat_nova_3-_0" index="0" speed="13.89" length="167.27" shape="692.67,998.59 579.54,1121.80"/>
+    </edge>
+    <edge id="sayat_nova_3-_to_nalbandyan_4-_to_sayat_nova_3-" from="sayat_nova_3-" to="nalbandyan_4-_to_sayat_nova_3-" priority="1">
+        <lane id="sayat_nova_3-_to_nalbandyan_4-_to_sayat_nova_3-_0" index="0" speed="13.89" length="164.13" shape="692.67,998.59 581.66,1119.49"/>
+    </edge>
+    <edge id="sayat_nova_3-_to_sayat_nova_3-_to_khanjyan_2-" from="sayat_nova_3-" to="sayat_nova_3-_to_khanjyan_2-" priority="1">
+        <lane id="sayat_nova_3-_to_sayat_nova_3-_to_khanjyan_2-_0" index="0" speed="13.89" length="162.57" shape="694.61,991.89 807.00,874.42"/>
+    </edge>
+    <edge id="sayat_nova_3-_to_sayat_nova_3-_to_sayat_nova_2-" from="sayat_nova_3-" to="sayat_nova_3-_to_sayat_nova_2-" priority="1">
+        <lane id="sayat_nova_3-_to_sayat_nova_3-_to_sayat_nova_2-_0" index="0" speed="13.89" length="0.20" shape="695.10,996.61 695.24,996.75"/>
+    </edge>
+    <edge id="sayat_nova_3-_to_sayat_nova_4-_to_sayat_nova_3-" from="sayat_nova_3-" to="sayat_nova_4-_to_sayat_nova_3-" priority="1">
+        <lane id="sayat_nova_3-_to_sayat_nova_4-_to_sayat_nova_3-_0" index="0" speed="13.89" length="289.72" shape="692.67,998.58 494.89,1210.30"/>
+    </edge>
+    <edge id="sayat_nova_3_to_khanjyan_1-_to_sayat_nova_3" from="sayat_nova_3" to="khanjyan_1-_to_sayat_nova_3" priority="1">
+        <lane id="sayat_nova_3_to_khanjyan_1-_to_sayat_nova_3_0" index="0" speed="13.89" length="160.65" shape="693.66,996.75 802.84,878.91"/>
+    </edge>
+    <edge id="sayat_nova_3_to_sayat_nova_2_to_sayat_nova_3" from="sayat_nova_3" to="sayat_nova_2_to_sayat_nova_3" priority="1">
+        <lane id="sayat_nova_3_to_sayat_nova_2_to_sayat_nova_3_0" index="0" speed="13.89" length="238.71" shape="693.68,996.77 859.09,824.65"/>
+    </edge>
+    <edge id="sayat_nova_3_to_sayat_nova_3_to_nalbandyan_3-" from="sayat_nova_3" to="sayat_nova_3_to_nalbandyan_3-" priority="1">
+        <lane id="sayat_nova_3_to_sayat_nova_3_to_nalbandyan_3-_0" index="0" speed="13.89" length="162.87" shape="691.74,1003.45 579.70,1121.66"/>
+    </edge>
+    <edge id="sayat_nova_3_to_sayat_nova_3_to_sayat_nova_4" from="sayat_nova_3" to="sayat_nova_3_to_sayat_nova_4" priority="1">
+        <lane id="sayat_nova_3_to_sayat_nova_3_to_sayat_nova_4_0" index="0" speed="13.89" length="0.20" shape="691.02,998.50 690.88,998.37"/>
+    </edge>
+    <edge id="sayat_nova_4-_to_abovyan_4_to_sayat_nova_4-" from="sayat_nova_4-" to="abovyan_4_to_sayat_nova_4-" priority="1">
+        <lane id="sayat_nova_4-_to_abovyan_4_to_sayat_nova_4-_0" index="0" speed="13.89" length="117.53" shape="489.67,1213.90 409.77,1300.09"/>
+    </edge>
+    <edge id="sayat_nova_4-_to_sayat_nova_4-_to_nalbandyan_3-" from="sayat_nova_4-" to="sayat_nova_4-_to_nalbandyan_3-" priority="1">
+        <lane id="sayat_nova_4-_to_sayat_nova_4-_to_nalbandyan_3-_0" index="0" speed="13.89" length="116.18" shape="491.67,1207.23 572.86,1124.13"/>
+    </edge>
+    <edge id="sayat_nova_4-_to_sayat_nova_4-_to_nalbandyan_4" from="sayat_nova_4-" to="sayat_nova_4-_to_nalbandyan_4" priority="1">
+        <lane id="sayat_nova_4-_to_sayat_nova_4-_to_nalbandyan_4_0" index="0" speed="13.89" length="118.94" shape="491.67,1207.23 574.79,1122.16"/>
+    </edge>
+    <edge id="sayat_nova_4-_to_sayat_nova_4-_to_sayat_nova_3-" from="sayat_nova_4-" to="sayat_nova_4-_to_sayat_nova_3-" priority="1">
+        <lane id="sayat_nova_4-_to_sayat_nova_4-_to_sayat_nova_3-_0" index="0" speed="13.89" length="0.20" shape="492.20,1212.03 492.35,1212.17"/>
+    </edge>
+    <edge id="sayat_nova_4-_to_sayat_nova_5-_to_sayat_nova_4-" from="sayat_nova_4-" to="sayat_nova_5-_to_sayat_nova_4-" priority="1">
+        <lane id="sayat_nova_4-_to_sayat_nova_5-_to_sayat_nova_4-_0" index="0" speed="13.89" length="219.67" shape="489.66,1213.89 338.61,1373.39"/>
+    </edge>
+    <edge id="sayat_nova_4_to_nalbandyan_3_to_sayat_nova_4" from="sayat_nova_4" to="nalbandyan_3_to_sayat_nova_4" priority="1">
+        <lane id="sayat_nova_4_to_nalbandyan_3_to_sayat_nova_4_0" index="0" speed="13.89" length="117.04" shape="492.88,1209.61 572.92,1124.21"/>
+    </edge>
+    <edge id="sayat_nova_4_to_nalbandyan_4-_to_sayat_nova_4" from="sayat_nova_4" to="nalbandyan_4-_to_sayat_nova_4" priority="1">
+        <lane id="sayat_nova_4_to_nalbandyan_4-_to_sayat_nova_4_0" index="0" speed="13.89" length="119.97" shape="492.88,1209.61 574.92,1122.07"/>
+    </edge>
+    <edge id="sayat_nova_4_to_sayat_nova_3_to_sayat_nova_4" from="sayat_nova_4" to="sayat_nova_3_to_sayat_nova_4" priority="1">
+        <lane id="sayat_nova_4_to_sayat_nova_3_to_sayat_nova_4_0" index="0" speed="13.89" length="286.42" shape="492.88,1209.60 688.22,1000.13"/>
+    </edge>
+    <edge id="sayat_nova_4_to_sayat_nova_4_to_abovyan_5" from="sayat_nova_4" to="sayat_nova_4_to_abovyan_5" priority="1">
+        <lane id="sayat_nova_4_to_sayat_nova_4_to_abovyan_5_0" index="0" speed="13.89" length="113.14" shape="490.90,1216.29 412.22,1297.60"/>
+    </edge>
+    <edge id="sayat_nova_4_to_sayat_nova_4_to_sayat_nova_5-" from="sayat_nova_4" to="sayat_nova_4_to_sayat_nova_5-" priority="1">
+        <lane id="sayat_nova_4_to_sayat_nova_4_to_sayat_nova_5-_0" index="0" speed="13.89" length="0.20" shape="490.34,1211.48 490.19,1211.34"/>
+    </edge>
+    <edge id="sayat_nova_5-_to_sayat_nova_4_to_sayat_nova_5-" from="sayat_nova_5-" to="sayat_nova_4_to_sayat_nova_5-" priority="1">
+        <lane id="sayat_nova_5-_to_sayat_nova_4_to_sayat_nova_5-_0" index="0" speed="13.89" length="218.68" shape="333.49,1368.24 487.65,1213.15"/>
+    </edge>
+    <edge id="sayat_nova_5-_to_sayat_nova_5-_to_abovyan_5" from="sayat_nova_5-" to="sayat_nova_5-_to_abovyan_5" priority="1">
+        <lane id="sayat_nova_5-_to_sayat_nova_5-_to_abovyan_5_0" index="0" speed="13.89" length="99.38" shape="333.58,1368.34 405.55,1299.80"/>
+    </edge>
+    <edge id="sayat_nova_5-_to_sayat_nova_5-_to_sayat_nova_4-" from="sayat_nova_5-" to="sayat_nova_5-_to_sayat_nova_4-" priority="1">
+        <lane id="sayat_nova_5-_to_sayat_nova_5-_to_sayat_nova_4-_0" index="0" speed="13.89" length="0.20" shape="334.91,1374.13 335.05,1374.28"/>
+    </edge>
+    <edge id="sayat_nova_5-_to_sayat_nova_6-_to_sayat_nova_5-" from="sayat_nova_5-" to="sayat_nova_6-_to_sayat_nova_5-" priority="1">
+        <lane id="sayat_nova_5-_to_sayat_nova_6-_to_sayat_nova_5-_0" index="0" speed="13.89" length="260.44" shape="331.36,1375.18 166.81,1577.06"/>
+    </edge>
+    <edge id="sayat_nova_5-_to_teryan_5-_to_sayat_nova_5-" from="sayat_nova_5-" to="teryan_5-_to_sayat_nova_5-" priority="1">
+        <lane id="sayat_nova_5-_to_teryan_5-_to_sayat_nova_5-_0" index="0" speed="13.89" length="97.10" shape="331.29,1375.13 266.59,1447.52"/>
+    </edge>
+    <edge id="sayat_nova_5_to_abovyan_4_to_sayat_nova_5" from="sayat_nova_5" to="abovyan_4_to_sayat_nova_5" priority="1">
+        <lane id="sayat_nova_5_to_abovyan_4_to_sayat_nova_5_0" index="0" speed="13.89" length="98.16" shape="337.21,1374.72 403.43,1302.27"/>
+    </edge>
+    <edge id="sayat_nova_5_to_sayat_nova_5_to_sayat_nova_6" from="sayat_nova_5" to="sayat_nova_5_to_sayat_nova_6" priority="1">
+        <lane id="sayat_nova_5_to_sayat_nova_5_to_sayat_nova_6_0" index="0" speed="13.89" length="0.20" shape="334.18,1376.18 334.04,1376.04"/>
+    </edge>
+    <edge id="sayat_nova_5_to_sayat_nova_5_to_teryan_4-" from="sayat_nova_5" to="sayat_nova_5_to_teryan_4-" priority="1">
+        <lane id="sayat_nova_5_to_sayat_nova_5_to_teryan_4-_0" index="0" speed="13.89" length="98.49" shape="335.01,1381.46 264.40,1450.11"/>
+    </edge>
+    <edge id="sayat_nova_5_to_sayat_nova_5_to_teryan_5" from="sayat_nova_5" to="sayat_nova_5_to_teryan_5" priority="1">
+        <lane id="sayat_nova_5_to_sayat_nova_5_to_teryan_5_0" index="0" speed="13.89" length="95.24" shape="335.01,1381.46 266.73,1447.85"/>
+    </edge>
+    <edge id="sayat_nova_6-_to_baghramyan_1-_to_sayat_nova_6-" from="sayat_nova_6-" to="baghramyan_1-_to_sayat_nova_6-" priority="1">
+        <lane id="sayat_nova_6-_to_baghramyan_1-_to_sayat_nova_6-_0" index="0" speed="13.89" length="165.77" shape="156.26,1588.51 69.66,1729.86"/>
+    </edge>
+    <edge id="sayat_nova_6-_to_mesrop_mashtoc_3_to_sayat_nova_6-" from="sayat_nova_6-" to="mesrop_mashtoc_3_to_sayat_nova_6-" priority="1">
+        <lane id="sayat_nova_6-_to_mesrop_mashtoc_3_to_sayat_nova_6-_0" index="0" speed="13.89" length="149.90" shape="159.82,1589.60 128.24,1736.14"/>
+    </edge>
+    <edge id="sayat_nova_6-_to_mesrop_mashtoc_4-_to_sayat_nova_6-" from="sayat_nova_6-" to="mesrop_mashtoc_4-_to_sayat_nova_6-" priority="1">
+        <lane id="sayat_nova_6-_to_mesrop_mashtoc_4-_to_sayat_nova_6-_0" index="0" speed="13.89" length="103.03" shape="149.29,1589.46 68.86,1653.85"/>
+    </edge>
+    <edge id="sayat_nova_6-_to_sayat_nova_6-_to_sayat_nova_5-" from="sayat_nova_6-" to="sayat_nova_6-_to_sayat_nova_5-" priority="1">
+        <lane id="sayat_nova_6-_to_sayat_nova_6-_to_sayat_nova_5-_0" index="0" speed="13.89" length="0.20" shape="163.96,1578.69 164.13,1578.81"/>
+    </edge>
+    <edge id="sayat_nova_6-_to_sayat_nova_6-_to_teryan_4-" from="sayat_nova_6-" to="sayat_nova_6-_to_teryan_4-" priority="1">
+        <lane id="sayat_nova_6-_to_sayat_nova_6-_to_teryan_4-_0" index="0" speed="13.89" length="154.29" shape="162.27,1573.66 258.05,1452.70"/>
+    </edge>
+    <edge id="sayat_nova_6-_to_sayat_nova_6-_to_teryan_5" from="sayat_nova_6-" to="sayat_nova_6-_to_teryan_5" priority="1">
+        <lane id="sayat_nova_6-_to_sayat_nova_6-_to_teryan_5_0" index="0" speed="13.89" length="157.88" shape="162.27,1573.66 260.28,1449.88"/>
+    </edge>
+    <edge id="sayat_nova_6_to_sayat_nova_5_to_sayat_nova_6" from="sayat_nova_6" to="sayat_nova_5_to_sayat_nova_6" priority="1">
+        <lane id="sayat_nova_6_to_sayat_nova_5_to_sayat_nova_6_0" index="0" speed="13.89" length="224.17" shape="199.81,1559.50 331.03,1377.75"/>
+    </edge>
+    <edge id="sayat_nova_6_to_sayat_nova_6_to_baghramyan_1" from="sayat_nova_6" to="sayat_nova_6_to_baghramyan_1" priority="1">
+        <lane id="sayat_nova_6_to_sayat_nova_6_to_baghramyan_1_0" index="0" speed="13.89" length="48.86" shape="159.67,1620.88 131.26,1660.63"/>
+    </edge>
+    <edge id="sayat_nova_6_to_sayat_nova_6_to_mesrop_mashtoc_3-" from="sayat_nova_6" to="sayat_nova_6_to_mesrop_mashtoc_3-" priority="1">
+        <lane id="sayat_nova_6_to_sayat_nova_6_to_mesrop_mashtoc_3-_0" index="0" speed="13.89" length="50.85" shape="159.67,1620.88 130.10,1662.25"/>
+    </edge>
+    <edge id="sayat_nova_6_to_sayat_nova_6_to_mesrop_mashtoc_4" from="sayat_nova_6" to="sayat_nova_6_to_mesrop_mashtoc_4" priority="1">
+        <lane id="sayat_nova_6_to_sayat_nova_6_to_mesrop_mashtoc_4_0" index="0" speed="13.89" length="45.52" shape="159.67,1620.88 133.20,1657.92"/>
+    </edge>
+    <edge id="sayat_nova_6_to_teryan_4_to_sayat_nova_6" from="sayat_nova_6" to="teryan_4_to_sayat_nova_6" priority="1">
+        <lane id="sayat_nova_6_to_teryan_4_to_sayat_nova_6_0" index="0" speed="13.89" length="121.04" shape="197.02,1557.68 258.40,1453.36"/>
+    </edge>
+    <edge id="teryan_1-_to_koryun_2_to_teryan_1-" from="teryan_1-" to="koryun_2_to_teryan_1-" priority="1">
+        <lane id="teryan_1-_to_koryun_2_to_teryan_1-_0" index="0" speed="13.89" length="220.08" shape="854.48,2098.46 706.61,1935.46"/>
+    </edge>
+    <edge id="teryan_1-_to_koryun_3-_to_teryan_1-" from="teryan_1-" to="koryun_3-_to_teryan_1-" priority="1">
+        <lane id="teryan_1-_to_koryun_3-_to_teryan_1-_0" index="0" speed="13.89" length="235.20" shape="854.49,2098.46 696.27,1924.44"/>
+    </edge>
+    <edge id="teryan_1-_to_teryan_2-_to_teryan_1-" from="teryan_1-" to="teryan_2-_to_teryan_1-" priority="1">
+        <lane id="teryan_1-_to_teryan_2-_to_teryan_1-_0" index="0" speed="13.89" length="326.92" shape="854.49,2098.47 633.08,1857.94"/>
+    </edge>
+    <edge id="teryan_1_to_teryan_1_to_koryun_2-" from="teryan_1" to="teryan_1_to_koryun_2-" priority="1">
+        <lane id="teryan_1_to_teryan_1_to_koryun_2-_0" index="0" speed="13.89" length="226.73" shape="847.06,2098.78 698.72,1927.31"/>
+    </edge>
+    <edge id="teryan_1_to_teryan_1_to_koryun_3" from="teryan_1" to="teryan_1_to_koryun_3" priority="1">
+        <lane id="teryan_1_to_teryan_1_to_koryun_3_0" index="0" speed="13.89" length="219.08" shape="847.07,2098.78 704.12,1932.76"/>
+    </edge>
+    <edge id="teryan_1_to_teryan_1_to_teryan_2" from="teryan_1" to="teryan_1_to_teryan_2" priority="1">
+        <lane id="teryan_1_to_teryan_1_to_teryan_2_0" index="0" speed="13.89" length="0.20" shape="851.32,2099.16 851.47,2099.02"/>
+    </edge>
+    <edge id="teryan_2-_to_isahakyan_2_to_teryan_2-" from="teryan_2-" to="isahakyan_2_to_teryan_2-" priority="1">
+        <lane id="teryan_2-_to_isahakyan_2_to_teryan_2-_0" index="0" speed="13.89" length="99.73" shape="631.21,1851.21 560.34,1781.03"/>
+    </edge>
+    <edge id="teryan_2-_to_teryan_2-_to_koryun_2-" from="teryan_2-" to="teryan_2-_to_koryun_2-" priority="1">
+        <lane id="teryan_2-_to_teryan_2-_to_koryun_2-_0" index="0" speed="13.89" length="89.49" shape="637.76,1853.63 697.12,1920.60"/>
+    </edge>
+    <edge id="teryan_2-_to_teryan_2-_to_teryan_1-" from="teryan_2-" to="teryan_2-_to_teryan_1-" priority="1">
+        <lane id="teryan_2-_to_teryan_2-_to_teryan_1-_0" index="0" speed="13.89" length="0.20" shape="632.25,1854.49 632.10,1854.63"/>
+    </edge>
+    <edge id="teryan_2-_to_teryan_3-_to_teryan_2-" from="teryan_2-" to="teryan_3-_to_teryan_2-" priority="1">
+        <lane id="teryan_2-_to_teryan_3-_to_teryan_2-_0" index="0" speed="13.89" length="154.81" shape="631.24,1851.17 524.65,1738.91"/>
+    </edge>
+    <edge id="teryan_2_to_koryun_2_to_teryan_2" from="teryan_2" to="koryun_2_to_teryan_2" priority="1">
+        <lane id="teryan_2_to_koryun_2_to_teryan_2_0" index="0" speed="13.89" length="106.80" shape="628.28,1854.90 705.08,1929.11"/>
+    </edge>
+    <edge id="teryan_2_to_koryun_3-_to_teryan_2" from="teryan_2" to="koryun_3-_to_teryan_2" priority="1">
+        <lane id="teryan_2_to_koryun_3-_to_teryan_2_0" index="0" speed="13.89" length="91.62" shape="628.27,1854.90 694.49,1918.23"/>
+    </edge>
+    <edge id="teryan_2_to_teryan_1_to_teryan_2" from="teryan_2" to="teryan_1_to_teryan_2" priority="1">
+        <lane id="teryan_2_to_teryan_1_to_teryan_2_0" index="0" speed="13.89" length="327.68" shape="628.31,1854.87 851.56,2094.72"/>
+    </edge>
+    <edge id="teryan_2_to_teryan_2_to_isahakyan_3" from="teryan_2" to="teryan_2_to_isahakyan_3" priority="1">
+        <lane id="teryan_2_to_teryan_2_to_isahakyan_3_0" index="0" speed="13.89" length="99.54" shape="622.78,1853.34 557.44,1778.24"/>
+    </edge>
+    <edge id="teryan_2_to_teryan_2_to_teryan_3" from="teryan_2" to="teryan_2_to_teryan_3" priority="1">
+        <lane id="teryan_2_to_teryan_2_to_teryan_3_0" index="0" speed="13.89" length="1.47" shape="626.91,1851.01 627.10,1849.56"/>
+    </edge>
+    <edge id="teryan_3-_to_moskovyan_2_to_teryan_3-" from="teryan_3-" to="moskovyan_2_to_teryan_3-" priority="1">
+        <lane id="teryan_3-_to_moskovyan_2_to_teryan_3-_0" index="0" speed="13.89" length="51.83" shape="523.24,1731.57 485.55,1695.99"/>
+    </edge>
+    <edge id="teryan_3-_to_teryan_3-_to_isahakyan_3" from="teryan_3-" to="teryan_3-_to_isahakyan_3" priority="1">
+        <lane id="teryan_3-_to_teryan_3-_to_isahakyan_3_0" index="0" speed="13.89" length="46.12" shape="529.61,1734.44 556.64,1771.81"/>
+    </edge>
+    <edge id="teryan_3-_to_teryan_3-_to_teryan_2-" from="teryan_3-" to="teryan_3-_to_teryan_2-" priority="1">
+        <lane id="teryan_3-_to_teryan_3-_to_teryan_2-_0" index="0" speed="13.89" length="0.20" shape="524.08,1735.17 523.93,1735.31"/>
+    </edge>
+    <edge id="teryan_3-_to_teryan_4-_to_teryan_3-" from="teryan_3-" to="teryan_4-_to_teryan_3-" priority="1">
+        <lane id="teryan_3-_to_teryan_4-_to_teryan_3-_0" index="0" speed="13.89" length="199.45" shape="523.30,1731.51 386.08,1586.76"/>
+    </edge>
+    <edge id="teryan_3_to_isahakyan_2_to_teryan_3" from="teryan_3" to="isahakyan_2_to_teryan_3" priority="1">
+        <lane id="teryan_3_to_isahakyan_2_to_teryan_3_0" index="0" speed="13.89" length="52.48" shape="520.42,1738.50 558.44,1774.68"/>
+    </edge>
+    <edge id="teryan_3_to_teryan_2_to_teryan_3" from="teryan_3" to="teryan_2_to_teryan_3" priority="1">
+        <lane id="teryan_3_to_teryan_2_to_teryan_3_0" index="0" speed="13.89" length="150.30" shape="520.38,1738.54 625.80,1845.67"/>
+    </edge>
+    <edge id="teryan_3_to_teryan_3_to_moskovyan_3" from="teryan_3" to="teryan_3_to_moskovyan_3" priority="1">
+        <lane id="teryan_3_to_teryan_3_to_moskovyan_3_0" index="0" speed="13.89" length="44.77" shape="514.10,1735.67 487.89,1699.37"/>
+    </edge>
+    <edge id="teryan_3_to_teryan_3_to_teryan_4" from="teryan_3" to="teryan_3_to_teryan_4" priority="1">
+        <lane id="teryan_3_to_teryan_3_to_teryan_4_0" index="0" speed="13.89" length="0.20" shape="519.17,1735.38 519.31,1735.24"/>
+    </edge>
+    <edge id="teryan_4-_to_sayat_nova_5_to_teryan_4-" from="teryan_4-" to="sayat_nova_5_to_teryan_4-" priority="1">
+        <lane id="teryan_4-_to_sayat_nova_5_to_teryan_4-_0" index="0" speed="13.89" length="173.55" shape="383.39,1580.75 264.30,1454.50"/>
+    </edge>
+    <edge id="teryan_4-_to_sayat_nova_6-_to_teryan_4-" from="teryan_4-" to="sayat_nova_6-_to_teryan_4-" priority="1">
+        <lane id="teryan_4-_to_sayat_nova_6-_to_teryan_4-_0" index="0" speed="13.89" length="176.29" shape="383.39,1580.75 262.43,1452.51"/>
+    </edge>
+    <edge id="teryan_4-_to_teryan_4-_to_moskovyan_3" from="teryan_4-" to="teryan_4-_to_moskovyan_3" priority="1">
+        <lane id="teryan_4-_to_teryan_4-_to_moskovyan_3_0" index="0" speed="13.89" length="146.02" shape="389.93,1583.24 486.74,1692.56"/>
+    </edge>
+    <edge id="teryan_4-_to_teryan_4-_to_teryan_3-" from="teryan_4-" to="teryan_4-_to_teryan_3-" priority="1">
+        <lane id="teryan_4-_to_teryan_4-_to_teryan_3-_0" index="0" speed="13.89" length="0.20" shape="384.81,1583.69 384.66,1583.82"/>
+    </edge>
+    <edge id="teryan_4-_to_teryan_5-_to_teryan_4-" from="teryan_4-" to="teryan_5-_to_teryan_4-" priority="1">
+        <lane id="teryan_4-_to_teryan_5-_to_teryan_4-_0" index="0" speed="13.89" length="266.08" shape="383.39,1580.75 201.17,1386.86"/>
+    </edge>
+    <edge id="teryan_4_to_moskovyan_2_to_teryan_4" from="teryan_4" to="moskovyan_2_to_teryan_4" priority="1">
+        <lane id="teryan_4_to_moskovyan_2_to_teryan_4_0" index="0" speed="13.89" length="145.45" shape="384.37,1584.27 484.26,1690.00"/>
+    </edge>
+    <edge id="teryan_4_to_teryan_3_to_teryan_4" from="teryan_4" to="teryan_3_to_teryan_4" priority="1">
+        <lane id="teryan_4_to_teryan_3_to_teryan_4_0" index="0" speed="13.89" length="199.29" shape="384.37,1584.28 520.50,1729.83"/>
+    </edge>
+    <edge id="teryan_4_to_teryan_4_to_sayat_nova_6" from="teryan_4" to="teryan_4_to_sayat_nova_6" priority="1">
+        <lane id="teryan_4_to_teryan_4_to_sayat_nova_6_0" index="0" speed="13.89" length="172.79" shape="377.82,1581.81 262.73,1452.93"/>
+    </edge>
+    <edge id="teryan_4_to_teryan_4_to_teryan_5" from="teryan_4" to="teryan_4_to_teryan_5" priority="1">
+        <lane id="teryan_4_to_teryan_4_to_teryan_5_0" index="0" speed="13.89" length="0.20" shape="383.16,1581.16 383.31,1581.02"/>
+    </edge>
+    <edge id="teryan_5-_to_teryan_5-_to_sayat_nova_5-" from="teryan_5-" to="teryan_5-_to_sayat_nova_5-" priority="1">
+        <lane id="teryan_5-_to_teryan_5-_to_sayat_nova_5-_0" index="0" speed="13.89" length="85.96" shape="205.71,1382.71 262.20,1447.50"/>
+    </edge>
+    <edge id="teryan_5-_to_teryan_5-_to_teryan_4-" from="teryan_5-" to="teryan_5-_to_teryan_4-" priority="1">
+        <lane id="teryan_5-_to_teryan_5-_to_teryan_4-_0" index="0" speed="13.89" length="0.10" shape="201.33,1382.47 201.25,1382.54"/>
+    </edge>
+    <edge id="teryan_5_to_sayat_nova_5_to_teryan_5" from="teryan_5" to="sayat_nova_5_to_teryan_5" priority="1">
+        <lane id="teryan_5_to_sayat_nova_5_to_teryan_5_0" index="0" speed="13.89" length="91.96" shape="197.03,1383.10 262.35,1447.83"/>
+    </edge>
+    <edge id="teryan_5_to_sayat_nova_6-_to_teryan_5" from="teryan_5" to="sayat_nova_6-_to_teryan_5" priority="1">
+        <lane id="teryan_5_to_sayat_nova_6-_to_teryan_5_0" index="0" speed="13.89" length="88.68" shape="197.03,1383.10 260.02,1445.52"/>
+    </edge>
+    <edge id="teryan_5_to_teryan_4_to_teryan_5" from="teryan_5" to="teryan_4_to_teryan_5" priority="1">
+        <lane id="teryan_5_to_teryan_4_to_teryan_5_0" index="0" speed="13.89" length="268.64" shape="197.06,1383.14 382.08,1577.90"/>
+    </edge>
+
+    <junction id="abovyan_1" type="dead_end" x="1027.29" y="2003.01" incLanes="" intLanes="" shape="1028.43,2001.97 1026.28,1999.60 1025.55,2000.03 1025.20,2000.07 1024.85,2000.00 1024.51,1999.80 1024.18,1999.48 1021.78,2001.60 1023.91,2003.22 1025.01,2003.47 1026.13,2003.35 1027.27,2002.84"/>
+    <junction id="abovyan_1-" type="dead_end" x="1046.61" y="1987.70" incLanes="" intLanes="" shape="988.06,1926.47 985.25,1929.21 983.00,1931.57"/>
+    <junction id="abovyan_1_to_abovyan_2" type="dead_end" x="1030.98" y="1999.65" incLanes="abovyan_2_to_abovyan_1_to_abovyan_2_0 abovyan_1_to_abovyan_1_to_abovyan_2_0" intLanes="" shape="1030.23,1994.01 1027.84,1996.15 1028.28,1996.88 1028.32,1997.24 1028.24,1997.59 1028.05,1997.94 1027.74,1998.28 1029.89,2000.64 1031.46,1998.51 1031.70,1997.41 1031.58,1996.30 1031.08,1995.16"/>
+    <junction id="abovyan_1_to_koryun_1-" type="dead_end" x="851.90" y="1803.87" incLanes="abovyan_1_to_abovyan_1_to_koryun_1-_0 koryun_1-_to_abovyan_1_to_koryun_1-_0" intLanes="" shape="852.70,1809.62 855.10,1807.51 854.64,1806.74 854.55,1806.35 854.57,1805.94 854.69,1805.53 854.90,1805.11 852.18,1803.42 851.33,1805.57 851.29,1806.62 851.50,1807.64 851.97,1808.64"/>
+    <junction id="abovyan_1_to_koryun_2" type="dead_end" x="851.90" y="1803.87" incLanes="abovyan_1_to_abovyan_1_to_koryun_2_0 koryun_2_to_abovyan_1_to_koryun_2_0" intLanes="" shape="850.64,1807.28 853.04,1805.17 850.84,1803.50 849.73,1803.27 848.60,1803.44 847.46,1804.01 846.32,1804.98 848.59,1807.23 849.29,1806.76 849.63,1806.71 849.97,1806.78 850.31,1806.97"/>
+    <junction id="abovyan_2" type="dead_end" x="772.47" y="1711.23" incLanes="" intLanes="" shape="773.36,1712.22 775.76,1710.15 775.87,1707.98 773.66,1705.66 769.39,1707.68 766.97,1709.77 769.12,1710.99 770.15,1711.01 771.18,1711.03 772.25,1711.33"/>
+    <junction id="abovyan_2-" type="dead_end" x="779.42" y="1705.09" incLanes="" intLanes="" shape="782.33,1708.79 784.85,1706.82 782.71,1705.37 781.67,1705.26 780.59,1705.17 779.46,1704.81 778.25,1703.91 776.01,1706.27 776.50,1706.96 776.56,1707.30 776.50,1707.65 776.32,1707.99 776.02,1708.34 778.23,1710.65 780.10,1709.10 780.84,1708.67 781.46,1708.48 781.96,1708.52"/>
+    <junction id="abovyan_2-_to_abovyan_1-" type="dead_end" x="775.41" y="1708.92" incLanes="abovyan_1-_to_abovyan_2-_to_abovyan_1-_0 abovyan_2-_to_abovyan_2-_to_abovyan_1-_0" intLanes="" shape="776.40,1714.52 778.69,1712.28 778.23,1711.57 778.18,1711.22 778.24,1710.87 778.43,1710.52 778.73,1710.17 776.52,1707.86 774.98,1710.05 774.78,1711.16 774.94,1712.27 775.48,1713.39"/>
+    <junction id="abovyan_2-_to_koryun_1-" type="dead_end" x="841.94" y="1784.68" incLanes="koryun_1-_to_abovyan_2-_to_koryun_1-_0 abovyan_2-_to_abovyan_2-_to_koryun_1-_0" intLanes="" shape="847.51,1783.40 845.17,1781.22 844.50,1781.70 844.17,1781.75 843.85,1781.67 843.53,1781.46 843.22,1781.13 840.71,1783.11 842.90,1784.97 844.02,1785.24 845.17,1785.07 846.33,1784.46"/>
+    <junction id="abovyan_2_to_abovyan_3" type="dead_end" x="775.16" y="1708.65" incLanes="abovyan_3_to_abovyan_2_to_abovyan_3_0 abovyan_2_to_abovyan_2_to_abovyan_3_0" intLanes="" shape="774.15,1703.05 771.87,1705.30 772.33,1706.01 772.39,1706.36 772.32,1706.71 772.14,1707.06 771.84,1707.40 774.05,1709.72 775.58,1707.52 775.79,1706.41 775.62,1705.30 775.07,1704.18"/>
+    <junction id="abovyan_2_to_isahakyan_2" type="dead_end" x="710.91" y="1640.31" incLanes="abovyan_2_to_abovyan_2_to_isahakyan_2_0 isahakyan_2_to_abovyan_2_to_isahakyan_2_0" intLanes="" shape="709.61,1643.70 712.03,1641.60 709.85,1639.92 708.74,1639.68 707.61,1639.84 706.47,1640.40 705.31,1641.35 707.56,1643.62 708.27,1643.16 708.61,1643.11 708.95,1643.19 709.28,1643.38"/>
+    <junction id="abovyan_3" type="dead_end" x="674.43" y="1606.09" incLanes="" intLanes="" shape="677.77,1609.48 680.05,1607.24 678.00,1603.01 675.91,1600.59 671.64,1602.30 669.06,1604.20 670.89,1606.94 671.45,1608.02 671.76,1608.92 671.84,1609.62 671.68,1610.13 674.32,1611.93 675.77,1610.10 676.38,1609.56 676.92,1609.28 677.38,1609.25"/>
+    <junction id="abovyan_3-" type="dead_end" x="679.25" y="1598.96" incLanes="" intLanes="" shape="678.04,1597.73 675.76,1599.99 675.68,1602.03 677.77,1604.45"/>
+    <junction id="abovyan_3-_to_abovyan_2-" type="dead_end" x="676.53" y="1601.30" incLanes="abovyan_2-_to_abovyan_3-_to_abovyan_2-_0 abovyan_3-_to_abovyan_3-_to_abovyan_2-_0" intLanes="" shape="677.57,1606.90 679.84,1604.65 679.38,1603.94 679.33,1603.60 679.41,1603.26 679.60,1602.93 679.92,1602.60 677.83,1600.18 676.14,1602.36 675.90,1603.47 676.06,1604.60 676.61,1605.74"/>
+    <junction id="abovyan_3_to_abovyan_4" type="dead_end" x="678.01" y="1603.00" incLanes="abovyan_4_to_abovyan_3_to_abovyan_4_0 abovyan_3_to_abovyan_3_to_abovyan_4_0" intLanes="" shape="677.24,1597.37 674.86,1599.51 675.30,1600.24 675.33,1600.59 675.25,1600.94 675.05,1601.27 674.73,1601.60 676.82,1604.03 678.47,1601.90 678.73,1600.81 678.61,1599.68 678.12,1598.54"/>
+    <junction id="abovyan_3_to_moskovyan_4" type="dead_end" x="639.83" y="1559.15" incLanes="abovyan_3_to_abovyan_3_to_moskovyan_4_0 moskovyan_4_to_abovyan_3_to_moskovyan_4_0" intLanes="" shape="640.15,1564.98 642.73,1563.08 642.33,1562.28 642.27,1561.87 642.32,1561.46 642.45,1561.05 642.69,1560.64 640.06,1558.82 639.11,1560.89 639.01,1561.92 639.14,1562.94 639.53,1563.97"/>
+    <junction id="abovyan_4" type="dead_end" x="525.46" y="1433.51" incLanes="" intLanes="" shape="526.46,1434.62 528.83,1432.46 528.93,1430.34 526.77,1427.98 522.35,1429.98 519.95,1432.10 522.14,1433.34 523.19,1433.37 524.25,1433.40 525.33,1433.72"/>
+    <junction id="abovyan_4_to_abovyan_5" type="dead_end" x="525.79" y="1433.21" incLanes="abovyan_5_to_abovyan_4_to_abovyan_5_0 abovyan_4_to_abovyan_4_to_abovyan_5_0" intLanes="" shape="524.95,1427.59 522.60,1429.76 522.51,1431.87 524.67,1434.23"/>
+    <junction id="abovyan_4_to_sayat_nova_4-" type="dead_end" x="407.80" y="1299.86" incLanes="abovyan_4_to_abovyan_4_to_sayat_nova_4-_0 sayat_nova_4-_to_abovyan_4_to_sayat_nova_4-_0" intLanes="" shape="408.51,1305.52 410.91,1303.40 410.48,1302.66 410.43,1302.28 410.49,1301.91 410.66,1301.54 410.94,1301.18 408.60,1299.00 407.26,1301.16 407.08,1302.24 407.23,1303.33 407.71,1304.42"/>
+    <junction id="abovyan_4_to_sayat_nova_5" type="dead_end" x="407.80" y="1299.86" incLanes="abovyan_4_to_abovyan_4_to_sayat_nova_5_0 sayat_nova_5_to_abovyan_4_to_sayat_nova_5_0" intLanes="" shape="406.62,1303.37 409.02,1301.25 406.78,1299.55 405.65,1299.33 404.52,1299.53 403.39,1300.15 402.25,1301.19 404.61,1303.35 405.29,1302.86 405.62,1302.80 405.95,1302.86 406.29,1303.05"/>
+    <junction id="abovyan_5" type="dead_end" x="340.83" y="1233.05" incLanes="" intLanes="" shape="395.28,1291.97 397.63,1289.80 399.93,1287.49"/>
+    <junction id="alek_manukyan_1" type="dead_end" x="813.10" y="477.83" incLanes="" intLanes="" shape="814.54,482.33 817.59,481.35 811.40,478.60 812.71,481.51"/>
+    <junction id="alek_manukyan_1-" type="dead_end" x="809.45" y="478.62" incLanes="" intLanes="" shape="809.45,478.62 812.48,477.62 809.45,478.62 812.48,477.62"/>
+    <junction id="alek_manukyan_1_to_alek_manukyan_2" type="dead_end" x="811.63" y="478.49" incLanes="alek_manukyan_2_to_alek_manukyan_1_to_alek_manukyan_2_0 alek_manukyan_1_to_alek_manukyan_1_to_alek_manukyan_2_0" intLanes="" shape="809.63,483.86 812.74,483.12 812.70,482.24 812.82,481.87 813.04,481.55 813.35,481.27 813.76,481.04 812.44,478.12 810.45,479.52 809.85,480.41 809.51,481.43 809.44,482.58"/>
+    <junction id="alek_manukyan_1_to_sayat_nova_1-" type="dead_end" x="908.80" y="777.62" incLanes="sayat_nova_1-_to_alek_manukyan_1_to_sayat_nova_1-_0 alek_manukyan_1_to_alek_manukyan_1_to_sayat_nova_1-_0" intLanes="" shape="914.66,775.97 912.31,773.80 911.69,774.26 911.43,774.27 911.20,774.15 911.00,773.88 910.83,773.48 907.79,774.45 908.57,776.35 909.50,777.59 910.57,778.17 911.79,778.09 913.15,777.36"/>
+    <junction id="alek_manukyan_1_to_sayat_nova_2" type="dead_end" x="908.80" y="777.62" incLanes="alek_manukyan_1_to_alek_manukyan_1_to_sayat_nova_2_0 sayat_nova_2_to_alek_manukyan_1_to_sayat_nova_2_0" intLanes="" shape="910.29,771.78 907.24,772.75 907.38,773.66 907.32,774.09 907.18,774.49 906.95,774.88 906.64,775.25 908.92,777.50 910.15,775.78 910.47,774.85 910.60,773.87 910.54,772.85"/>
+    <junction id="alek_manukyan_2" type="dead_end" x="944.20" y="1030.45" incLanes="" intLanes="" shape="947.36,1041.93 950.44,1041.08 947.72,1031.62 945.57,1024.65 943.83,1018.89 942.33,1013.09 940.91,1005.97 939.41,996.26 936.24,996.70 936.10,996.73 932.99,997.48 935.76,1007.23 938.43,1014.38 940.76,1020.26 942.55,1026.20 943.58,1033.51 943.62,1043.52 946.82,1043.67 946.94,1042.06 947.02,1041.64 947.12,1041.48 947.23,1041.57"/>
+    <junction id="alek_manukyan_2_to_charents_2-" type="dead_end" x="940.86" y="1106.04" incLanes="charents_2-_to_alek_manukyan_2_to_charents_2-_0 alek_manukyan_2_to_alek_manukyan_2_to_charents_2-_0" intLanes="" shape="945.87,1108.79 945.57,1105.61 944.75,1105.52 944.47,1105.34 944.27,1105.07 944.17,1104.70 944.15,1104.25 940.95,1104.11 941.39,1106.92 942.06,1107.86 943.03,1108.49 944.30,1108.80"/>
+    <junction id="alek_manukyan_2_to_heratsi_2" type="dead_end" x="1020.16" y="1306.47" incLanes="heratsi_2_to_alek_manukyan_2_to_heratsi_2_0 alek_manukyan_2_to_alek_manukyan_2_to_heratsi_2_0" intLanes="" shape="1017.44,1308.70 1020.53,1307.90 1022.85,1304.17 1019.76,1305.02"/>
+    <junction id="alek_manukyan_2_to_isahakyan_1" type="dead_end" x="940.86" y="1106.04" incLanes="alek_manukyan_2_to_alek_manukyan_2_to_isahakyan_1_0 isahakyan_1_to_alek_manukyan_2_to_isahakyan_1_0" intLanes="" shape="944.66,1092.57 941.46,1092.43 941.40,1093.54 941.35,1093.92 941.26,1094.30 941.13,1094.75 940.94,1095.36 943.98,1096.34 944.40,1094.98 944.51,1094.49 944.58,1093.99 944.62,1093.39"/>
+    <junction id="baghramyan_1" type="dead_end" x="51.13" y="1780.85" incLanes="" intLanes="" shape="58.11,1776.60 56.44,1773.86 55.98,1773.39 53.30,1771.64 52.51,1772.71 52.26,1772.93 52.09,1772.95 52.01,1772.76 52.01,1772.36 48.83,1772.03 48.77,1775.19 49.36,1777.39 50.58,1778.63 52.45,1778.91 54.96,1778.23"/>
+    <junction id="baghramyan_1-" type="dead_end" x="35.84" y="1770.94" incLanes="" intLanes="" shape="35.84,1770.94 33.31,1768.98 35.84,1770.94 33.31,1768.98 35.84,1770.94 33.31,1768.98"/>
+    <junction id="baghramyan_1-_to_mesrop_mashtoc_3-" type="dead_end" x="67.63" y="1730.11" incLanes="mesrop_mashtoc_3-_to_baghramyan_1-_to_mesrop_mashtoc_3-_0 baghramyan_1-_to_baghramyan_1-_to_mesrop_mashtoc_3-_0" intLanes="" shape="66.94,1733.24 67.72,1730.13 65.55,1729.96 64.56,1730.18 63.65,1730.61 62.81,1731.24 62.04,1732.08 64.56,1734.05 65.24,1733.43 65.62,1733.25 66.03,1733.16 66.47,1733.16"/>
+    <junction id="baghramyan_1-_to_mesrop_mashtoc_4" type="dead_end" x="67.63" y="1730.11" incLanes="mesrop_mashtoc_4_to_baghramyan_1-_to_mesrop_mashtoc_4_0 baghramyan_1-_to_baghramyan_1-_to_mesrop_mashtoc_4_0" intLanes="" shape="68.15,1724.18 65.31,1725.66 65.59,1726.53 65.60,1726.95 65.52,1727.37 65.34,1727.77 65.08,1728.17 67.61,1730.14 68.64,1728.23 68.84,1727.25 68.82,1726.24 68.59,1725.22"/>
+    <junction id="baghramyan_1-_to_sayat_nova_6-" type="dead_end" x="67.63" y="1730.11" incLanes="sayat_nova_6-_to_baghramyan_1-_to_sayat_nova_6-_0 baghramyan_1-_to_baghramyan_1-_to_sayat_nova_6-_0" intLanes="" shape="71.03,1730.69 68.30,1729.02 64.43,1729.01 66.96,1730.98"/>
+    <junction id="charents_1" type="dead_end" x="1145.17" y="0.54" incLanes="" intLanes="" shape="1143.45,0.64 1143.64,3.84 1145.11,5.25 1148.31,5.29"/>
+    <junction id="charents_1-" type="dead_end" x="1142.70" y="0.00" incLanes="" intLanes="" shape="1143.19,37.97 1146.39,37.93 1145.94,17.28 1145.24,4.88 1144.28,0.73 1143.07,4.82 1141.59,17.15 1139.87,37.73 1143.06,37.97"/>
+    <junction id="charents_1_to_charents_2" type="dead_end" x="1144.34" y="0.59" incLanes="charents_2_to_charents_1_to_charents_2_0 charents_1_to_charents_1_to_charents_2_0" intLanes="" shape="1141.23,5.35 1144.43,5.29 1145.90,3.70 1145.71,0.51"/>
+    <junction id="charents_1_to_sayat_nova_1" type="dead_end" x="1138.16" y="551.06" incLanes="charents_1_to_charents_1_to_sayat_nova_1_0 sayat_nova_1_to_charents_1_to_sayat_nova_1_0" intLanes="" shape="1141.43,545.17 1138.23,545.13 1138.10,546.08 1137.94,546.51 1137.73,546.92 1137.45,547.30 1137.12,547.65 1139.30,549.99 1140.47,548.59 1140.88,547.81 1141.18,546.98 1141.36,546.10"/>
+    <junction id="charents_2" type="dead_end" x="1165.51" y="1085.99" incLanes="" intLanes="" shape="1165.72,1096.74 1162.52,1096.80 1162.43,1099.00 1162.29,1099.77 1162.08,1100.53 1161.81,1101.44 1161.49,1102.68 1164.98,1103.44 1165.50,1100.99 1165.64,1100.12 1165.71,1099.24 1165.73,1098.17"/>
+    <junction id="charents_2-" type="dead_end" x="1155.38" y="1086.15" incLanes="" intLanes="" shape="1160.14,1086.34 1160.27,1083.15 1155.09,1080.24 1151.89,1080.39 1151.83,1081.09 1151.71,1081.22 1151.54,1081.20 1151.31,1081.03 1151.03,1080.72 1148.53,1082.71 1150.05,1084.84 1150.43,1085.59 1150.56,1086.15 1150.44,1086.50 1150.07,1086.65 1150.36,1089.83 1152.51,1089.79 1153.21,1089.91 1153.67,1090.14 1153.89,1090.47 1153.86,1090.89 1157.25,1091.76"/>
+    <junction id="charents_2-_to_charents_1-" type="dead_end" x="1156.60" y="1086.20" incLanes="charents_1-_to_charents_2-_to_charents_1-_0 charents_2-_to_charents_2-_to_charents_1-_0" intLanes="" shape="1159.74,1081.46 1156.54,1081.50 1155.06,1082.94 1154.93,1086.14"/>
+    <junction id="charents_2-_to_sayat_nova_1" type="dead_end" x="1131.69" y="594.14" incLanes="charents_2-_to_charents_2-_to_sayat_nova_1_0 sayat_nova_1_to_charents_2-_to_sayat_nova_1_0" intLanes="" shape="1128.66,597.60 1131.85,597.44 1131.59,595.42 1131.01,593.98 1130.13,593.14 1128.93,592.90 1127.42,593.25 1125.61,594.19 1127.32,596.90 1128.03,596.62 1128.29,596.67 1128.48,596.85 1128.60,597.16"/>
+    <junction id="charents_2_to_heratsi_2" type="dead_end" x="1081.27" y="1472.43" incLanes="heratsi_2_to_charents_2_to_heratsi_2_0 charents_2_to_charents_2_to_heratsi_2_0" intLanes="" shape="1080.05,1482.22 1083.18,1481.57 1082.98,1480.49 1082.96,1480.10 1082.99,1479.71 1083.06,1479.25 1083.19,1478.63 1080.07,1477.95 1079.76,1479.52 1079.72,1480.09 1079.76,1480.65 1079.87,1481.33"/>
+    <junction id="charents_2_to_koryun_1" type="dead_end" x="1077.39" y="1452.34" incLanes="charents_2_to_charents_2_to_koryun_1_0 koryun_1_to_charents_2_to_koryun_1_0" intLanes="" shape="1083.57,1440.36 1080.45,1439.61 1080.18,1440.68 1080.05,1441.05 1079.89,1441.41 1079.67,1441.82 1079.36,1442.38 1082.15,1443.95 1082.84,1442.69 1083.04,1442.23 1083.21,1441.75 1083.37,1441.16"/>
+    <junction id="heratsi_1" type="dead_end" x="865.79" y="1141.75" incLanes="" intLanes="" shape="865.79,1141.75 868.83,1140.78"/>
+    <junction id="heratsi_1-" type="dead_end" x="871.78" y="1164.03" incLanes="" intLanes="" shape="872.23,1165.45 875.28,1164.46 871.38,1162.56 868.25,1163.71"/>
+    <junction id="heratsi_1-_to_khanjyan_1" type="dead_end" x="869.67" y="1158.29" incLanes="heratsi_1-_to_heratsi_1-_to_khanjyan_1_0 khanjyan_1_to_heratsi_1-_to_khanjyan_1_0" intLanes="" shape="867.56,1161.82 870.56,1160.71 868.90,1158.02 867.86,1157.46 866.67,1157.40 865.34,1157.87 863.87,1158.86 865.87,1161.35 866.58,1160.98 866.88,1161.00 867.14,1161.14 867.37,1161.41"/>
+    <junction id="heratsi_1-_to_khanjyan_2-" type="dead_end" x="751.42" y="718.45" incLanes="heratsi_1-_to_heratsi_1-_to_khanjyan_2-_0 khanjyan_2-_to_heratsi_1-_to_khanjyan_2-_0" intLanes="" shape="748.52,719.97 751.61,719.14 753.93,716.24 751.02,717.56"/>
+    <junction id="heratsi_1_to_heratsi_2" type="dead_end" x="1048.87" y="1714.01" incLanes="heratsi_2_to_heratsi_1_to_heratsi_2_0 heratsi_1_to_heratsi_1_to_heratsi_2_0" intLanes="" shape="1052.81,1723.72 1055.27,1721.67 1054.58,1720.81 1054.37,1720.48 1054.21,1720.13 1054.05,1719.69 1053.85,1719.09 1050.80,1720.07 1051.31,1721.54 1051.55,1722.04 1051.84,1722.51 1052.25,1723.04"/>
+    <junction id="heratsi_2" type="dead_end" x="1159.42" y="1846.24" incLanes="" intLanes="" shape="1158.17,1838.11 1154.26,1839.07 1153.68,1839.38 1151.22,1841.43 1153.95,1844.37 1156.05,1845.92 1157.53,1846.06 1158.37,1844.81 1158.58,1842.16"/>
+    <junction id="heratsi_2-" type="dead_end" x="1151.16" y="1846.62" incLanes="" intLanes="" shape="1108.40,1785.84 1105.78,1787.68 1103.19,1789.67 1111.28,1800.16 1118.59,1809.65 1124.77,1817.71 1129.48,1823.88 1132.39,1827.73 1133.14,1828.82 1130.89,1831.10 1138.77,1838.24 1142.01,1839.52 1140.59,1834.91 1134.51,1824.43 1123.78,1808.07"/>
+    <junction id="heratsi_2-_to_charents_2-" type="dead_end" x="986.57" y="1612.70" incLanes="heratsi_2-_to_heratsi_2-_to_charents_2-_0 charents_2-_to_heratsi_2-_to_charents_2-_0" intLanes="" shape="987.13,1619.05 989.74,1617.21 989.31,1616.37 989.21,1615.93 989.18,1615.49 989.22,1615.03 989.34,1614.56 986.29,1613.58 985.96,1615.50 986.03,1616.42 986.24,1617.32 986.61,1618.20"/>
+    <junction id="heratsi_2-_to_heratsi_1-" type="dead_end" x="1048.87" y="1714.01" incLanes="heratsi_2-_to_heratsi_2-_to_heratsi_1-_0 heratsi_1-_to_heratsi_2-_to_heratsi_1-_0" intLanes="" shape="1053.02,1724.63 1055.55,1722.68 1054.89,1721.79 1054.70,1721.46 1054.53,1721.11 1054.37,1720.66 1054.18,1720.06 1051.13,1721.04 1051.62,1722.48 1051.84,1722.96 1052.12,1723.42 1052.49,1723.94"/>
+    <junction id="heratsi_2-_to_koryun_1" type="dead_end" x="965.47" y="1663.27" incLanes="heratsi_2-_to_heratsi_2-_to_koryun_1_0 koryun_1_to_heratsi_2-_to_koryun_1_0" intLanes="" shape="964.68,1666.98 966.93,1664.71 964.49,1663.12 963.34,1663.00 962.23,1663.33 961.16,1664.11 960.13,1665.33 962.75,1667.16 963.35,1666.59 963.66,1666.50 963.99,1666.54 964.33,1666.70"/>
+    <junction id="isahakyan_1" type="dead_end" x="810.64" y="1511.01" incLanes="" intLanes="" shape="821.03,1489.74 818.16,1488.34 817.96,1488.26 814.91,1487.28 806.48,1508.70 804.93,1511.50 788.32,1534.48 790.64,1536.68 790.76,1536.78 793.29,1538.74 799.89,1529.79 804.83,1522.23 808.77,1515.24 812.36,1508.03 816.23,1499.80"/>
+    <junction id="isahakyan_1_to_abovyan_2-" type="dead_end" x="710.91" y="1640.31" incLanes="abovyan_2-_to_isahakyan_1_to_abovyan_2-_0 isahakyan_1_to_isahakyan_1_to_abovyan_2-_0" intLanes="" shape="712.14,1645.88 714.33,1643.55 713.83,1642.85 713.75,1642.48 713.77,1642.11 713.91,1641.72 714.16,1641.33 711.63,1639.38 710.49,1641.65 710.41,1642.74 710.66,1643.81 711.24,1644.86"/>
+    <junction id="isahakyan_1_to_abovyan_3" type="dead_end" x="558.11" y="1776.57" incLanes="isahakyan_1_to_isahakyan_1_to_abovyan_3_0 abovyan_3_to_isahakyan_1_to_abovyan_3_0" intLanes="" shape="575.18,1763.27 572.86,1761.07 572.67,1760.91 570.03,1759.11 563.75,1768.64 560.32,1774.64 559.75,1777.10 562.04,1776.03 567.18,1771.42"/>
+    <junction id="isahakyan_1_to_isahakyan_2" type="dead_end" x="808.92" y="1510.05" incLanes="isahakyan_1_to_isahakyan_1_to_isahakyan_2_0 isahakyan_2_to_isahakyan_1_to_isahakyan_2_0" intLanes="" shape="808.12,1513.27 809.68,1510.47 807.37,1509.71 806.30,1509.76 805.28,1510.09 804.31,1510.71 803.40,1511.62 805.84,1513.69 806.53,1513.13 806.90,1513.01 807.29,1512.99 807.70,1513.08"/>
+    <junction id="isahakyan_2" type="dead_end" x="637.47" y="1713.07" incLanes="" intLanes="" shape="636.29,1711.81 638.63,1709.62 638.73,1710.94 638.18,1711.87 637.23,1712.97 635.89,1714.26 634.15,1715.72 636.15,1718.22 642.88,1712.35 647.37,1707.50 650.66,1703.09 653.83,1698.54 657.95,1693.28 664.07,1686.71 661.82,1684.44 661.72,1684.35 659.27,1682.28 651.97,1691.00 646.05,1698.20 641.52,1703.88 638.39,1708.04 636.64,1710.68"/>
+    <junction id="isahakyan_2_to_isahakyan_3" type="dead_end" x="638.17" y="1713.82" incLanes="isahakyan_2_to_isahakyan_2_to_isahakyan_3_0 isahakyan_3_to_isahakyan_2_to_isahakyan_3_0" intLanes="" shape="637.26,1708.16 634.92,1710.34 634.68,1712.25 636.41,1714.94"/>
+    <junction id="isahakyan_2_to_teryan_2-" type="dead_end" x="558.11" y="1776.57" incLanes="teryan_2-_to_isahakyan_2_to_teryan_2-_0 isahakyan_2_to_isahakyan_2_to_teryan_2-_0" intLanes="" shape="559.22,1782.17 561.47,1779.90 561.00,1779.21 560.96,1778.87 561.04,1778.54 561.24,1778.22 561.57,1777.90 559.57,1775.40 557.77,1777.57 557.50,1778.69 557.65,1779.83 558.22,1780.99"/>
+    <junction id="isahakyan_2_to_teryan_3" type="dead_end" x="558.11" y="1776.57" incLanes="isahakyan_2_to_isahakyan_2_to_teryan_3_0 teryan_3_to_isahakyan_2_to_teryan_3_0" intLanes="" shape="563.80,1776.12 561.80,1773.62 561.03,1774.02 560.65,1774.06 560.28,1773.99 559.91,1773.81 559.55,1773.52 557.34,1775.84 559.44,1777.19 560.51,1777.39 561.60,1777.28 562.69,1776.85"/>
+    <junction id="isahakyan_3" type="dead_end" x="424.11" y="1850.86" incLanes="" intLanes="" shape="425.95,1855.19 428.90,1853.94 428.24,1848.57 426.36,1845.62 424.91,1847.64 424.74,1848.71 424.55,1849.73 424.03,1850.61 422.87,1851.30 423.95,1854.31"/>
+    <junction id="isahakyan_3_to_isahakyan_4" type="dead_end" x="424.43" y="1851.61" incLanes="isahakyan_3_to_isahakyan_3_to_isahakyan_4_0 isahakyan_4_to_isahakyan_3_to_isahakyan_4_0" intLanes="" shape="425.54,1846.01 422.59,1847.26 421.74,1849.06 422.63,1852.13"/>
+    <junction id="isahakyan_3_to_mesrop_mashtoc_1-" type="dead_end" x="293.78" y="1897.48" incLanes="mesrop_mashtoc_1-_to_isahakyan_3_to_mesrop_mashtoc_1-_0 isahakyan_3_to_isahakyan_3_to_mesrop_mashtoc_1-_0" intLanes="" shape="295.03,1903.31 297.31,1901.07 296.88,1900.42 296.87,1900.14 297.00,1899.89 297.27,1899.68 297.67,1899.49 296.59,1896.48 293.69,1898.21 293.14,1899.28 293.17,1900.49 293.80,1901.83"/>
+    <junction id="isahakyan_3_to_mesrop_mashtoc_2" type="dead_end" x="293.78" y="1897.48" incLanes="isahakyan_3_to_isahakyan_3_to_mesrop_mashtoc_2_0 mesrop_mashtoc_2_to_isahakyan_3_to_mesrop_mashtoc_2_0" intLanes="" shape="299.97,1898.67 298.89,1895.65 297.97,1895.84 297.53,1895.82 297.09,1895.72 296.67,1895.55 296.25,1895.30 294.42,1897.93 296.19,1898.81 297.10,1899.01 298.04,1899.06 298.99,1898.94"/>
+    <junction id="isahakyan_4" type="dead_end" x="121.63" y="1939.52" incLanes="" intLanes="" shape="195.42,1922.23 194.49,1918.44 193.58,1915.30"/>
+    <junction id="khanjyan_1" type="dead_end" x="819.10" y="1198.95" incLanes="" intLanes="" shape="824.29,1194.77 822.29,1192.28 820.44,1193.60 819.78,1193.91 819.31,1193.99 819.02,1193.83 818.91,1193.45 815.71,1193.56 819.66,1196.51 822.78,1197.23 823.06,1196.17 823.23,1195.81 823.47,1195.50 823.81,1195.17"/>
+    <junction id="khanjyan_1-" type="dead_end" x="815.31" y="1190.42" incLanes="" intLanes="" shape="819.95,1191.13 820.43,1187.96 815.20,1185.67 812.00,1185.75 812.96,1188.09 813.78,1188.80 814.55,1189.51 815.04,1190.44 815.06,1191.82 818.21,1192.38"/>
+    <junction id="khanjyan_1-_to_khanjyan_2-" type="dead_end" x="818.48" y="1190.90" incLanes="khanjyan_2-_to_khanjyan_1-_to_khanjyan_2-_0 khanjyan_1-_to_khanjyan_1-_to_khanjyan_2-_0" intLanes="" shape="820.58,1185.42 817.45,1186.09 817.46,1186.88 817.32,1187.13 817.07,1187.29 816.73,1187.36 816.28,1187.33 815.80,1190.50 819.03,1190.34 820.03,1189.69 820.62,1188.65 820.81,1187.23"/>
+    <junction id="khanjyan_1-_to_sayat_nova_2-" type="dead_end" x="808.16" y="875.53" incLanes="khanjyan_1-_to_khanjyan_1-_to_sayat_nova_2-_0 sayat_nova_2-_to_khanjyan_1-_to_sayat_nova_2-_0" intLanes="" shape="805.10,881.51 808.29,881.44 808.39,880.49 808.53,880.05 808.74,879.64 809.00,879.25 809.32,878.88 807.07,876.61 805.94,878.06 805.56,878.85 805.29,879.69 805.13,880.58"/>
+    <junction id="khanjyan_1-_to_sayat_nova_3" type="dead_end" x="808.16" y="875.53" incLanes="khanjyan_1-_to_khanjyan_1-_to_sayat_nova_3_0 sayat_nova_3_to_khanjyan_1-_to_sayat_nova_3_0" intLanes="" shape="805.07,880.40 808.27,880.32 808.03,877.65 807.44,875.87 806.51,875.00 805.24,875.04 803.63,875.98 801.67,877.82 804.02,880.00 804.59,879.55 804.79,879.55 804.94,879.69 805.03,879.97"/>
+    <junction id="khanjyan_1_to_nalbandyan_2-" type="dead_end" x="795.23" y="1302.95" incLanes="nalbandyan_2-_to_khanjyan_1_to_nalbandyan_2-_0 khanjyan_1_to_khanjyan_1_to_nalbandyan_2-_0" intLanes="" shape="797.28,1308.53 799.22,1305.98 798.59,1305.32 798.41,1304.94 798.31,1304.53 798.29,1304.09 798.36,1303.61 795.24,1302.90 795.11,1305.07 795.35,1306.04 795.79,1306.94 796.44,1307.77"/>
+    <junction id="khanjyan_1_to_nalbandyan_3" type="dead_end" x="795.23" y="1302.95" incLanes="khanjyan_1_to_khanjyan_1_to_nalbandyan_3_0 nalbandyan_3_to_khanjyan_1_to_nalbandyan_3_0" intLanes="" shape="799.48,1298.75 796.36,1298.04 796.04,1298.74 795.81,1298.90 795.54,1298.92 795.21,1298.81 794.84,1298.57 792.87,1301.08 795.89,1302.63 797.09,1302.53 798.09,1301.85 798.89,1300.59"/>
+    <junction id="khanjyan_2-" type="dead_end" x="686.42" y="575.08" incLanes="" intLanes="" shape="690.56,594.37 693.69,593.70 696.70,600.70 700.29,609.44 704.96,620.87 710.44,634.36 716.50,649.31 719.47,648.11 722.44,646.77 710.67,621.31 701.49,602.55 694.88,590.47 690.86,585.08 689.42,586.38"/>
+    <junction id="koryun_1" type="dead_end" x="924.15" y="1722.63" incLanes="" intLanes="" shape="944.75,1693.02 942.13,1691.19 942.01,1691.12 939.23,1689.54 920.44,1719.68 918.45,1722.18 921.03,1726.15 923.43,1728.27 928.93,1721.47 932.41,1716.03 934.79,1711.20 937.03,1706.24 940.04,1700.43"/>
+    <junction id="koryun_1-" type="dead_end" x="907.59" y="1714.39" incLanes="" intLanes="" shape="926.95,1687.06 924.34,1685.21 924.21,1685.13 921.43,1683.55 916.35,1693.13 912.81,1700.71 909.85,1707.15 906.50,1713.29 901.78,1720.01 894.74,1728.15 897.27,1730.45 897.49,1730.62 900.20,1732.31"/>
+    <junction id="koryun_1-_to_charents_2-" type="dead_end" x="1020.22" y="1555.41" incLanes="charents_2-_to_koryun_1-_to_charents_2-_0 koryun_1-_to_koryun_1-_to_charents_2-_0" intLanes="" shape="1026.39,1545.52 1023.32,1544.64 1022.99,1545.69 1022.84,1546.05 1022.66,1546.39 1022.40,1546.78 1022.04,1547.30 1024.65,1549.15 1025.49,1547.91 1025.75,1547.45 1025.95,1546.96 1026.15,1546.35"/>
+    <junction id="koryun_1-_to_heratsi_2" type="dead_end" x="1089.80" y="1393.67" incLanes="heratsi_2_to_koryun_1-_to_heratsi_2_0 koryun_1-_to_koryun_1-_to_heratsi_2_0" intLanes="" shape="1087.48,1399.63 1090.64,1399.15 1090.00,1396.17 1089.15,1394.30 1088.10,1393.54 1086.85,1393.88 1085.39,1395.32 1083.73,1397.87 1086.51,1399.45 1086.95,1398.89 1087.12,1398.85 1087.27,1398.95 1087.39,1399.22"/>
+    <junction id="koryun_1-_to_nalbandyan_1" type="dead_end" x="1020.22" y="1555.41" incLanes="nalbandyan_1_to_koryun_1-_to_nalbandyan_1_0 koryun_1-_to_koryun_1-_to_nalbandyan_1_0" intLanes="" shape="1020.50,1549.45 1017.72,1551.03 1018.04,1551.89 1018.06,1552.32 1018.00,1552.74 1017.84,1553.15 1017.60,1553.56 1020.21,1555.41 1021.15,1553.47 1021.31,1552.48 1021.25,1551.48 1020.98,1550.47"/>
+    <junction id="koryun_1_to_abovyan_1-" type="dead_end" x="861.20" y="1793.82" incLanes="abovyan_1-_to_koryun_1_to_abovyan_1-_0 koryun_1_to_koryun_1_to_abovyan_1-_0" intLanes="" shape="862.14,1799.44 864.46,1797.23 863.99,1796.50 863.93,1796.13 863.98,1795.77 864.14,1795.39 864.41,1795.02 862.02,1792.90 860.72,1795.11 860.58,1796.20 860.77,1797.29 861.29,1798.37"/>
+    <junction id="koryun_1_to_koryun_2" type="dead_end" x="923.12" y="1721.81" incLanes="koryun_1_to_koryun_1_to_koryun_2_0 koryun_2_to_koryun_1_to_koryun_2_0" intLanes="" shape="922.12,1725.10 924.11,1722.60 917.57,1723.10 919.93,1725.27"/>
+    <junction id="koryun_2" type="dead_end" x="778.98" y="1877.80" incLanes="" intLanes="" shape="780.22,1876.55 777.83,1874.34 775.79,1874.34 773.44,1876.51 775.14,1880.55 777.00,1883.15 778.59,1881.07 778.76,1880.03 778.90,1878.95 779.29,1877.80"/>
+    <junction id="koryun_2-" type="dead_end" x="765.89" y="1865.11" incLanes="" intLanes="" shape="768.95,1868.68 771.38,1866.59 769.43,1862.01 767.32,1859.60 760.20,1865.95 754.99,1870.72 750.69,1874.64 746.26,1878.39 740.69,1882.70 732.96,1888.27 734.80,1890.89 734.87,1890.99 736.92,1893.45"/>
+    <junction id="koryun_2-_to_abovyan_1-" type="dead_end" x="845.08" y="1795.86" incLanes="abovyan_1-_to_koryun_2-_to_abovyan_1-_0 koryun_2-_to_koryun_2-_to_abovyan_1-_0" intLanes="" shape="843.75,1799.01 845.95,1796.70 843.81,1795.33 842.72,1795.14 841.63,1795.28 840.53,1795.75 839.43,1796.56 841.53,1798.97 842.28,1798.53 842.65,1798.48 843.02,1798.55 843.38,1798.72"/>
+    <junction id="koryun_2-_to_abovyan_2" type="dead_end" x="845.08" y="1795.86" incLanes="abovyan_2_to_koryun_2-_to_abovyan_2_0 koryun_2-_to_koryun_2-_to_abovyan_2_0" intLanes="" shape="844.45,1790.21 842.02,1792.30 842.44,1793.04 842.47,1793.40 842.39,1793.75 842.19,1794.09 841.87,1794.42 843.97,1796.83 845.59,1794.73 845.85,1793.64 845.75,1792.52 845.28,1791.38"/>
+    <junction id="koryun_2-_to_koryun_1-" type="dead_end" x="767.96" y="1867.52" incLanes="koryun_1-_to_koryun_2-_to_koryun_1-_0 koryun_2-_to_koryun_2-_to_koryun_1-_0" intLanes="" shape="773.50,1866.18 771.14,1864.03 770.47,1864.51 770.14,1864.57 769.81,1864.50 769.48,1864.31 769.15,1863.99 766.72,1866.08 768.96,1867.82 770.08,1868.05 771.22,1867.85 772.36,1867.23"/>
+    <junction id="koryun_2_to_koryun_3" type="dead_end" x="776.62" y="1875.24" incLanes="koryun_2_to_koryun_2_to_koryun_3_0 koryun_3_to_koryun_2_to_koryun_3_0" intLanes="" shape="775.00,1878.20 777.35,1876.03 775.34,1874.55 774.28,1874.27 773.19,1874.31 772.07,1874.67 770.91,1875.34 772.75,1877.96 773.55,1877.60 773.93,1877.58 774.29,1877.68 774.65,1877.88"/>
+    <junction id="koryun_2_to_teryan_1-" type="dead_end" x="704.62" y="1930.89" incLanes="teryan_1-_to_koryun_2_to_teryan_1-_0 koryun_2_to_koryun_2_to_teryan_1-_0" intLanes="" shape="705.42,1936.54 707.79,1934.39 707.37,1933.68 707.34,1933.34 707.44,1933.01 707.66,1932.70 708.01,1932.41 706.15,1929.80 704.22,1931.87 703.89,1932.97 703.98,1934.11 704.49,1935.30"/>
+    <junction id="koryun_2_to_teryan_2" type="dead_end" x="704.62" y="1930.89" incLanes="koryun_2_to_koryun_2_to_teryan_2_0 teryan_2_to_koryun_2_to_teryan_2_0" intLanes="" shape="710.35,1930.73 708.49,1928.13 707.69,1928.50 707.31,1928.52 706.93,1928.44 706.56,1928.25 706.19,1927.96 703.97,1930.26 706.01,1931.60 707.06,1931.83 708.14,1931.76 709.23,1931.39"/>
+    <junction id="koryun_3" type="dead_end" x="582.89" y="2011.17" incLanes="" intLanes="" shape="570.39,2019.94 568.38,2016.90 567.45,2017.50 567.11,2017.70 566.76,2017.87 566.33,2018.06 565.74,2018.31 566.97,2021.26 568.28,2020.84 568.75,2020.73 569.21,2020.59 569.73,2020.35"/>
+    <junction id="koryun_3-" type="dead_end" x="579.48" y="1994.20" incLanes="" intLanes="" shape="582.00,1998.21 584.71,1996.51 583.49,1991.76 581.83,1989.02 580.41,1990.93 580.26,1991.96 580.10,1992.96 579.63,1993.86 578.54,1994.61 579.83,1997.54"/>
+    <junction id="koryun_3-_to_koryun_2-" type="dead_end" x="580.36" y="1995.61" incLanes="koryun_2-_to_koryun_3-_to_koryun_2-_0 koryun_3-_to_koryun_3-_to_koryun_2-_0" intLanes="" shape="586.05,1995.52 584.21,1992.90 582.18,1992.49 579.48,1994.20"/>
+    <junction id="koryun_3-_to_teryan_1-" type="dead_end" x="696.86" y="1922.71" incLanes="teryan_1-_to_koryun_3-_to_teryan_1-_0 koryun_3-_to_koryun_3-_to_teryan_1-_0" intLanes="" shape="695.08,1925.51 697.45,1923.36 695.51,1921.90 694.48,1921.60 693.40,1921.60 692.29,1921.88 691.13,1922.45 692.79,1925.18 693.62,1924.87 694.01,1924.88 694.38,1924.98 694.74,1925.20"/>
+    <junction id="koryun_3-_to_teryan_2" type="dead_end" x="696.86" y="1922.71" incLanes="teryan_2_to_koryun_3-_to_teryan_2_0 koryun_3-_to_koryun_3-_to_teryan_2_0" intLanes="" shape="695.59,1917.07 693.38,1919.38 693.84,1920.05 693.87,1920.36 693.77,1920.65 693.54,1920.93 693.18,1921.20 694.85,1923.93 697.08,1921.86 697.45,1920.74 697.33,1919.57 696.71,1918.35"/>
+    <junction id="koryun_3_to_mesrop_mashtoc_1" type="dead_end" x="456.11" y="2063.94" incLanes="koryun_3_to_koryun_3_to_mesrop_mashtoc_1_0 mesrop_mashtoc_1_to_koryun_3_to_mesrop_mashtoc_1_0" intLanes="" shape="462.14,2064.90 460.91,2061.94 460.01,2062.16 459.58,2062.15 459.15,2062.05 458.74,2061.87 458.33,2061.61 456.40,2064.17 458.22,2065.14 459.17,2065.36 460.14,2065.39 461.13,2065.23"/>
+    <junction id="mesrop_mashtoc_1" type="dead_end" x="366.68" y="1996.24" incLanes="" intLanes="" shape="370.28,1998.97 372.21,1996.42 372.50,1995.27 371.97,1992.11 363.13,1992.31 360.75,1994.45 362.39,1995.93 363.86,1996.66 365.26,1996.99 366.73,1997.26 368.36,1997.80"/>
+    <junction id="mesrop_mashtoc_1-" type="dead_end" x="377.07" y="1982.09" incLanes="" intLanes="" shape="378.04,1982.95 380.16,1980.55 376.05,1981.06 373.76,1983.27"/>
+    <junction id="mesrop_mashtoc_1-_to_koryun_3-" type="dead_end" x="453.24" y="2049.51" incLanes="koryun_3-_to_mesrop_mashtoc_1-_to_koryun_3-_0 mesrop_mashtoc_1-_to_mesrop_mashtoc_1-_to_koryun_3-_0" intLanes="" shape="459.13,2050.42 457.84,2047.49 456.95,2047.71 456.53,2047.69 456.12,2047.58 455.73,2047.38 455.35,2047.10 453.22,2049.49 455.06,2050.64 456.03,2050.90 457.03,2050.95 458.06,2050.79"/>
+    <junction id="mesrop_mashtoc_1_to_isahakyan_4" type="dead_end" x="281.60" y="1902.02" incLanes="mesrop_mashtoc_1_to_mesrop_mashtoc_1_to_isahakyan_4_0 isahakyan_4_to_mesrop_mashtoc_1_to_isahakyan_4_0" intLanes="" shape="279.05,1903.97 281.42,1901.83 279.79,1900.51 278.89,1900.13 277.94,1899.93 276.92,1899.92 275.85,1900.08 276.58,1903.20 277.50,1903.13 277.93,1903.22 278.33,1903.39 278.70,1903.64"/>
+    <junction id="mesrop_mashtoc_1_to_mesrop_mashtoc_2" type="dead_end" x="369.90" y="1995.70" incLanes="mesrop_mashtoc_2_to_mesrop_mashtoc_1_to_mesrop_mashtoc_2_0 mesrop_mashtoc_1_to_mesrop_mashtoc_1_to_mesrop_mashtoc_2_0" intLanes="" shape="368.45,1989.61 366.15,1991.83 365.72,1993.16 366.24,1996.31"/>
+    <junction id="mesrop_mashtoc_2" type="dead_end" x="235.76" y="1857.10" incLanes="" intLanes="" shape="248.15,1869.90 250.45,1867.67 250.64,1867.45 252.47,1864.82 239.21,1853.80 237.00,1851.49 232.61,1853.60 230.24,1855.74 233.66,1859.17 236.51,1861.36 239.08,1862.93 241.67,1864.47 244.60,1866.59"/>
+    <junction id="mesrop_mashtoc_2-" type="dead_end" x="253.43" y="1850.89" incLanes="" intLanes="" shape="256.51,1854.45 258.93,1852.35 255.74,1849.07 253.05,1846.99 250.59,1845.54 248.10,1844.11 245.30,1842.14 241.92,1839.03 239.62,1841.25 239.42,1841.50 237.64,1844.15 249.92,1854.15 252.09,1856.50"/>
+    <junction id="mesrop_mashtoc_2-_to_isahakyan_4" type="dead_end" x="293.78" y="1897.48" incLanes="mesrop_mashtoc_2-_to_mesrop_mashtoc_2-_to_isahakyan_4_0 isahakyan_4_to_mesrop_mashtoc_2-_to_isahakyan_4_0" intLanes="" shape="292.86,1891.54 290.45,1893.63 290.83,1894.30 290.82,1894.57 290.67,1894.80 290.39,1894.98 289.97,1895.12 290.73,1898.23 293.88,1896.77 294.54,1895.76 294.59,1894.54 294.03,1893.14"/>
+    <junction id="mesrop_mashtoc_2-_to_mesrop_mashtoc_1-" type="dead_end" x="251.88" y="1852.34" incLanes="mesrop_mashtoc_1-_to_mesrop_mashtoc_2-_to_mesrop_mashtoc_1-_0 mesrop_mashtoc_2-_to_mesrop_mashtoc_2-_to_mesrop_mashtoc_1-_0" intLanes="" shape="252.84,1857.94 255.14,1855.72 254.68,1855.01 254.63,1854.65 254.70,1854.31 254.89,1853.96 255.20,1853.62 253.03,1851.27 251.45,1853.45 251.23,1854.56 251.39,1855.67 251.92,1856.80"/>
+    <junction id="mesrop_mashtoc_2_to_mesrop_mashtoc_3" type="dead_end" x="237.18" y="1855.75" incLanes="mesrop_mashtoc_3_to_mesrop_mashtoc_2_to_mesrop_mashtoc_3_0 mesrop_mashtoc_2_to_mesrop_mashtoc_2_to_mesrop_mashtoc_3_0" intLanes="" shape="236.28,1850.13 233.95,1852.32 234.40,1853.05 234.45,1853.40 234.38,1853.75 234.20,1854.10 233.90,1854.45 236.11,1856.77 237.63,1854.59 237.84,1853.49 237.69,1852.38 237.17,1851.26"/>
+    <junction id="mesrop_mashtoc_2_to_moskovyan_1-" type="dead_end" x="194.68" y="1811.48" incLanes="mesrop_mashtoc_2_to_mesrop_mashtoc_2_to_moskovyan_1-_0 moskovyan_1-_to_mesrop_mashtoc_2_to_moskovyan_1-_0" intLanes="" shape="191.82,1813.08 194.20,1810.94 192.67,1809.68 191.81,1809.27 190.91,1809.02 189.94,1808.93 188.92,1808.98 189.33,1812.16 190.26,1812.18 190.69,1812.30 191.09,1812.49 191.47,1812.75"/>
+    <junction id="mesrop_mashtoc_2_to_moskovyan_2" type="dead_end" x="194.68" y="1811.48" incLanes="mesrop_mashtoc_2_to_mesrop_mashtoc_2_to_moskovyan_2_0 moskovyan_2_to_mesrop_mashtoc_2_to_moskovyan_2_0" intLanes="" shape="195.67,1817.36 198.04,1815.22 197.65,1814.55 197.65,1814.27 197.79,1814.03 198.06,1813.83 198.47,1813.66 197.54,1810.60 194.56,1812.20 193.95,1813.24 193.93,1814.45 194.51,1815.82"/>
+    <junction id="mesrop_mashtoc_3" type="dead_end" x="146.27" y="1759.24" incLanes="" intLanes="" shape="147.34,1760.38 149.68,1758.21 149.78,1756.12 147.66,1753.72 143.36,1755.54 140.84,1757.52 142.96,1758.93 144.00,1759.03 145.06,1759.11 146.17,1759.46"/>
+    <junction id="mesrop_mashtoc_3-" type="dead_end" x="166.25" y="1755.13" incLanes="" intLanes="" shape="169.26,1758.74 171.72,1756.69 169.45,1754.18 167.59,1752.42 166.04,1750.97 164.67,1749.42 163.36,1747.33 161.98,1744.29 159.00,1745.46 159.70,1747.41 159.84,1747.99 159.84,1748.29 159.70,1748.33 159.43,1748.11 157.13,1750.34 158.75,1752.13 159.17,1752.72 159.33,1753.10 159.23,1753.28 158.88,1753.26 158.09,1756.36 162.22,1758.69 164.34,1761.09"/>
+    <junction id="mesrop_mashtoc_3-_to_mesrop_mashtoc_2-" type="dead_end" x="163.18" y="1757.85" incLanes="mesrop_mashtoc_2-_to_mesrop_mashtoc_3-_to_mesrop_mashtoc_2-_0 mesrop_mashtoc_3-_to_mesrop_mashtoc_3-_to_mesrop_mashtoc_2-_0" intLanes="" shape="164.15,1763.45 166.45,1761.22 166.00,1760.52 165.95,1760.17 166.02,1759.83 166.22,1759.49 166.53,1759.16 164.41,1756.76 162.77,1758.93 162.53,1760.04 162.68,1761.16 163.22,1762.30"/>
+    <junction id="mesrop_mashtoc_3-_to_moskovyan_2" type="dead_end" x="208.71" y="1806.00" incLanes="moskovyan_2_to_mesrop_mashtoc_3-_to_moskovyan_2_0 mesrop_mashtoc_3-_to_mesrop_mashtoc_3-_to_moskovyan_2_0" intLanes="" shape="214.40,1807.65 213.49,1804.58 212.58,1804.69 212.17,1804.61 211.78,1804.45 211.42,1804.19 211.09,1803.85 208.63,1805.90 210.30,1807.33 211.23,1807.72 212.22,1807.91 213.28,1807.88"/>
+    <junction id="mesrop_mashtoc_3_to_baghramyan_1" type="dead_end" x="126.91" y="1734.68" incLanes="mesrop_mashtoc_3_to_mesrop_mashtoc_3_to_baghramyan_1_0 baghramyan_1_to_mesrop_mashtoc_3_to_baghramyan_1_0" intLanes="" shape="125.09,1737.54 127.60,1735.56 125.70,1733.91 124.66,1733.57 123.57,1733.53 122.42,1733.81 121.21,1734.41 122.88,1737.14 123.69,1736.84 124.07,1736.85 124.43,1736.97 124.77,1737.20"/>
+    <junction id="mesrop_mashtoc_3_to_mesrop_mashtoc_4" type="dead_end" x="147.73" y="1757.94" incLanes="mesrop_mashtoc_4_to_mesrop_mashtoc_3_to_mesrop_mashtoc_4_0 mesrop_mashtoc_3_to_mesrop_mashtoc_3_to_mesrop_mashtoc_4_0" intLanes="" shape="146.85,1752.33 144.51,1754.51 144.96,1755.23 145.00,1755.58 144.93,1755.93 144.73,1756.27 144.42,1756.60 146.54,1759.00 148.17,1756.84 148.41,1755.74 148.27,1754.62 147.75,1753.48"/>
+    <junction id="mesrop_mashtoc_3_to_sayat_nova_6-" type="dead_end" x="126.91" y="1734.68" incLanes="mesrop_mashtoc_3_to_mesrop_mashtoc_3_to_sayat_nova_6-_0 sayat_nova_6-_to_mesrop_mashtoc_3_to_sayat_nova_6-_0" intLanes="" shape="127.90,1741.10 130.41,1739.12 129.93,1738.30 129.79,1737.87 129.73,1737.42 129.73,1736.96 129.80,1736.48 126.67,1735.80 126.53,1737.70 126.66,1738.60 126.94,1739.46 127.35,1740.30"/>
+    <junction id="mesrop_mashtoc_4" type="dead_end" x="0.00" y="1600.31" incLanes="" intLanes="" shape="5.98,1611.79 8.82,1610.31 9.15,1610.08 11.49,1607.89 9.60,1605.79 9.08,1605.12 8.83,1604.70 8.87,1604.53 9.18,1604.62 10.54,1601.72 6.81,1600.31 4.27,1600.14 2.91,1601.20 2.75,1603.49 3.77,1607.03"/>
+    <junction id="mesrop_mashtoc_4-" type="dead_end" x="11.70" y="1591.48" incLanes="" intLanes="" shape="14.68,1595.12 17.16,1593.09 15.06,1591.37 13.96,1591.09 12.83,1591.19 11.68,1591.68 10.49,1592.55 12.61,1594.95 13.34,1594.53 13.69,1594.49 14.03,1594.58 14.36,1594.79"/>
+    <junction id="mesrop_mashtoc_4-_to_baghramyan_1" type="dead_end" x="64.19" y="1655.54" incLanes="mesrop_mashtoc_4-_to_mesrop_mashtoc_4-_to_baghramyan_1_0 baghramyan_1_to_mesrop_mashtoc_4-_to_baghramyan_1_0" intLanes="" shape="62.86,1648.87 60.39,1650.89 60.90,1651.71 61.06,1652.14 61.16,1652.59 61.20,1653.06 61.18,1653.55 64.37,1653.88 64.33,1652.07 64.14,1651.22 63.83,1650.40 63.40,1649.61"/>
+    <junction id="mesrop_mashtoc_4-_to_mesrop_mashtoc_3-" type="dead_end" x="9.29" y="1593.61" incLanes="mesrop_mashtoc_3-_to_mesrop_mashtoc_4-_to_mesrop_mashtoc_3-_0 mesrop_mashtoc_4-_to_mesrop_mashtoc_4-_to_mesrop_mashtoc_3-_0" intLanes="" shape="10.27,1599.22 12.56,1596.99 12.11,1596.28 12.06,1595.93 12.13,1595.59 12.33,1595.25 12.64,1594.92 10.52,1592.52 8.88,1594.69 8.64,1595.80 8.79,1596.92 9.34,1598.06"/>
+    <junction id="mesrop_mashtoc_4-_to_sayat_nova_6-" type="dead_end" x="64.19" y="1655.54" incLanes="sayat_nova_6-_to_mesrop_mashtoc_4-_to_sayat_nova_6-_0 mesrop_mashtoc_4-_to_mesrop_mashtoc_4-_to_sayat_nova_6-_0" intLanes="" shape="69.86,1655.10 67.86,1652.60 67.10,1652.99 66.75,1653.01 66.40,1652.92 66.06,1652.71 65.74,1652.38 63.26,1654.41 65.31,1656.09 66.39,1656.38 67.51,1656.32 68.67,1655.89"/>
+    <junction id="moskovyan_1" type="dead_end" x="107.01" y="1818.39" incLanes="" intLanes="" shape="107.09,1819.83 110.29,1819.64 110.40,1818.79 110.59,1818.49 110.87,1818.26 111.24,1818.10 111.69,1818.02 111.44,1814.83 108.90,1815.55 108.04,1816.26 107.45,1817.21 107.14,1818.40"/>
+    <junction id="moskovyan_1-" type="dead_end" x="107.29" y="1822.61" incLanes="" intLanes="" shape="107.29,1822.61 106.88,1819.44"/>
+    <junction id="moskovyan_1_to_mesrop_mashtoc_2-" type="dead_end" x="194.68" y="1811.48" incLanes="mesrop_mashtoc_2-_to_moskovyan_1_to_mesrop_mashtoc_2-_0 moskovyan_1_to_moskovyan_1_to_mesrop_mashtoc_2-_0" intLanes="" shape="190.78,1812.72 192.57,1810.06 190.96,1809.08 190.33,1808.85 189.67,1808.74 188.86,1808.74 187.79,1808.81 188.04,1812.00 189.12,1811.96 189.50,1812.02 189.86,1812.16 190.27,1812.38"/>
+    <junction id="moskovyan_1_to_mesrop_mashtoc_3" type="dead_end" x="194.68" y="1811.48" incLanes="mesrop_mashtoc_3_to_moskovyan_1_to_mesrop_mashtoc_3_0 moskovyan_1_to_moskovyan_1_to_mesrop_mashtoc_3_0" intLanes="" shape="193.23,1805.21 190.89,1807.39 191.29,1808.01 191.28,1808.24 191.13,1808.42 190.84,1808.54 190.41,1808.60 190.66,1811.79 192.98,1811.43 194.54,1810.78 195.34,1809.83 195.40,1808.59 194.69,1807.05"/>
+    <junction id="moskovyan_1_to_moskovyan_2" type="dead_end" x="107.15" y="1820.81" incLanes="moskovyan_2_to_moskovyan_1_to_moskovyan_2_0 moskovyan_1_to_moskovyan_1_to_moskovyan_2_0" intLanes="" shape="112.49,1822.87 111.77,1819.75 110.95,1819.77 110.66,1819.63 110.44,1819.38 110.29,1819.04 110.22,1818.59 107.03,1818.78 107.77,1821.58 108.55,1822.44 109.59,1822.94 110.91,1823.09"/>
+    <junction id="moskovyan_2" type="dead_end" x="335.13" y="1768.53" incLanes="" intLanes="" shape="336.66,1772.98 339.68,1771.95 339.38,1766.46 337.98,1763.59 328.31,1768.14 320.97,1771.19 314.70,1773.25 308.28,1774.87 300.46,1776.57 290.00,1778.88 290.72,1782.00 290.75,1782.11 291.54,1784.79"/>
+    <junction id="moskovyan_2_to_moskovyan_3" type="dead_end" x="335.77" y="1770.41" incLanes="moskovyan_3_to_moskovyan_2_to_moskovyan_3_0 moskovyan_2_to_moskovyan_2_to_moskovyan_3_0" intLanes="" shape="341.52,1770.67 339.86,1767.93 338.09,1767.29 335.06,1768.32"/>
+    <junction id="moskovyan_2_to_teryan_3-" type="dead_end" x="486.43" y="1694.62" incLanes="teryan_3-_to_moskovyan_2_to_teryan_3-_0 moskovyan_2_to_moskovyan_2_to_teryan_3-_0" intLanes="" shape="484.45,1697.15 486.65,1694.83 484.78,1693.59 483.79,1693.32 482.76,1693.28 481.70,1693.48 480.61,1693.91 482.01,1696.78 482.88,1696.53 483.30,1696.55 483.70,1696.65 484.08,1696.86"/>
+    <junction id="moskovyan_2_to_teryan_4" type="dead_end" x="486.43" y="1694.62" incLanes="teryan_4_to_moskovyan_2_to_teryan_4_0 moskovyan_2_to_moskovyan_2_to_teryan_4_0" intLanes="" shape="485.43,1688.90 483.10,1691.10 483.52,1691.77 483.54,1692.08 483.42,1692.36 483.17,1692.61 482.78,1692.84 484.19,1695.72 486.66,1693.82 487.13,1692.73 487.08,1691.55 486.51,1690.27"/>
+    <junction id="moskovyan_3" type="dead_end" x="566.62" y="1630.42" incLanes="" intLanes="" shape="569.66,1634.01 572.10,1631.94 569.99,1627.14 567.76,1624.84 559.77,1632.72 556.87,1635.38 553.79,1637.81 549.86,1640.49 544.41,1643.89 546.07,1646.62 546.18,1646.78 548.18,1649.28"/>
+    <junction id="moskovyan_3_to_abovyan_3-" type="dead_end" x="639.83" y="1559.15" incLanes="abovyan_3-_to_moskovyan_3_to_abovyan_3-_0 moskovyan_3_to_moskovyan_3_to_abovyan_3-_0" intLanes="" shape="638.59,1562.45 640.87,1560.20 638.67,1558.72 637.56,1558.53 636.46,1558.70 635.34,1559.24 634.23,1560.14 636.46,1562.43 637.18,1561.97 637.53,1561.91 637.89,1561.98 638.24,1562.16"/>
+    <junction id="moskovyan_3_to_abovyan_4" type="dead_end" x="639.83" y="1559.15" incLanes="abovyan_4_to_moskovyan_3_to_abovyan_4_0 moskovyan_3_to_moskovyan_3_to_abovyan_4_0" intLanes="" shape="639.03,1553.52 636.66,1555.68 637.11,1556.41 637.15,1556.77 637.08,1557.13 636.90,1557.48 636.60,1557.83 638.83,1560.13 640.32,1557.97 640.53,1556.87 640.38,1555.77 639.88,1554.65"/>
+    <junction id="moskovyan_3_to_moskovyan_4" type="dead_end" x="567.54" y="1631.50" incLanes="moskovyan_4_to_moskovyan_3_to_moskovyan_4_0 moskovyan_3_to_moskovyan_3_to_moskovyan_4_0" intLanes="" shape="573.01,1629.80 570.52,1627.79 568.61,1627.82 566.17,1629.89"/>
+    <junction id="moskovyan_4" type="dead_end" x="727.98" y="1431.75" incLanes="" intLanes="" shape="721.19,1444.75 718.36,1443.27 715.10,1449.04 712.31,1453.07 709.65,1456.15 706.78,1459.10 703.36,1462.71 699.03,1467.79 701.53,1469.80 701.61,1469.86 704.24,1471.68 708.13,1466.12 711.03,1462.02 713.35,1458.60 715.54,1455.09 718.01,1450.73"/>
+    <junction id="moskovyan_4_to_khanjyan_1-" type="dead_end" x="795.23" y="1302.95" incLanes="khanjyan_1-_to_moskovyan_4_to_khanjyan_1-_0 moskovyan_4_to_moskovyan_4_to_khanjyan_1-_0" intLanes="" shape="800.52,1291.53 797.37,1290.97 797.16,1292.05 797.05,1292.42 796.91,1292.79 796.70,1293.21 796.41,1293.77 799.25,1295.25 799.90,1293.94 800.09,1293.46 800.24,1292.97 800.37,1292.36"/>
+    <junction id="moskovyan_4_to_nalbandyan_2-" type="dead_end" x="795.23" y="1302.95" incLanes="nalbandyan_2-_to_moskovyan_4_to_nalbandyan_2-_0 moskovyan_4_to_moskovyan_4_to_nalbandyan_2-_0" intLanes="" shape="794.92,1306.73 796.86,1304.19 794.25,1302.93 793.09,1302.95 792.03,1303.42 791.06,1304.33 790.20,1305.67 793.03,1307.15 793.55,1306.52 793.85,1306.38 794.18,1306.38 794.54,1306.49"/>
+    <junction id="moskovyan_4_to_nalbandyan_3" type="dead_end" x="795.23" y="1302.95" incLanes="nalbandyan_3_to_moskovyan_4_to_nalbandyan_3_0 moskovyan_4_to_moskovyan_4_to_nalbandyan_3_0" intLanes="" shape="793.47,1297.49 791.49,1300.01 792.07,1300.67 792.20,1301.03 792.23,1301.42 792.16,1301.83 791.98,1302.26 794.81,1303.74 795.52,1301.41 795.44,1300.34 795.07,1299.33 794.42,1298.38"/>
+    <junction id="nalbandyan_1" type="dead_end" x="951.81" y="1435.44" incLanes="" intLanes="" shape="951.95,1435.68 954.73,1434.09 954.93,1431.63 952.46,1429.60 948.29,1432.32 946.17,1434.72"/>
+    <junction id="nalbandyan_1-" type="dead_end" x="955.36" y="1429.98" incLanes="" intLanes="" shape="959.49,1432.32 961.07,1429.53 960.50,1429.08 960.45,1428.88 960.55,1428.70 960.80,1428.54 961.21,1428.40 960.37,1425.31 957.85,1425.96 955.71,1426.43 953.97,1426.73 952.61,1426.85 951.63,1426.81 951.05,1426.58 949.07,1429.10 951.00,1430.32 952.62,1430.84 954.10,1430.97 955.63,1431.04 957.37,1431.38"/>
+    <junction id="nalbandyan_1-_to_charents_2-" type="dead_end" x="1054.10" y="1485.74" incLanes="charents_2-_to_nalbandyan_1-_to_charents_2-_0 nalbandyan_1-_to_nalbandyan_1-_to_charents_2-_0" intLanes="" shape="1058.39,1481.86 1055.28,1481.07 1054.93,1481.80 1054.68,1481.98 1054.38,1482.04 1054.02,1481.97 1053.61,1481.79 1052.04,1484.57 1054.94,1485.51 1056.10,1485.29 1057.06,1484.61 1057.82,1483.46"/>
+    <junction id="nalbandyan_1-_to_heratsi_2" type="dead_end" x="1089.80" y="1393.67" incLanes="heratsi_2_to_nalbandyan_1-_to_heratsi_2_0 nalbandyan_1-_to_nalbandyan_1-_to_heratsi_2_0" intLanes="" shape="1086.92,1395.99 1090.08,1395.50 1089.11,1392.86 1088.28,1392.07 1087.22,1391.63 1085.93,1391.54 1084.41,1391.81 1085.24,1394.90 1086.07,1394.84 1086.39,1394.97 1086.63,1395.21 1086.81,1395.55"/>
+    <junction id="nalbandyan_1_to_isahakyan_1" type="dead_end" x="879.04" y="1371.03" incLanes="nalbandyan_1_to_nalbandyan_1_to_isahakyan_1_0 isahakyan_1_to_nalbandyan_1_to_isahakyan_1_0" intLanes="" shape="878.70,1375.00 880.82,1372.61 878.17,1371.08 876.99,1371.05 875.91,1371.53 874.93,1372.49 874.04,1373.95 876.92,1375.36 877.41,1374.72 877.69,1374.60 878.00,1374.60 878.34,1374.74"/>
+    <junction id="nalbandyan_1_to_nalbandyan_2-" type="dead_end" x="953.95" y="1432.83" incLanes="nalbandyan_2-_to_nalbandyan_1_to_nalbandyan_2-_0 nalbandyan_1_to_nalbandyan_1_to_nalbandyan_2-_0" intLanes="" shape="952.41,1427.36 950.35,1429.81 950.88,1430.47 950.97,1430.82 950.95,1431.18 950.81,1431.55 950.55,1431.93 953.02,1433.96 954.27,1431.62 954.35,1430.51 954.06,1429.42 953.42,1428.37"/>
+    <junction id="nalbandyan_2" type="dead_end" x="836.03" y="1339.71" incLanes="" intLanes="" shape="837.08,1338.43 834.60,1336.40 833.95,1336.94 833.61,1337.03 833.26,1336.99 832.90,1336.84 832.53,1336.56 830.39,1338.94 832.74,1340.33 833.87,1340.44 834.97,1340.16 836.04,1339.49"/>
+    <junction id="nalbandyan_2-" type="dead_end" x="837.79" y="1335.37" incLanes="" intLanes="" shape="841.39,1338.39 843.44,1336.03 841.10,1335.07 840.06,1335.18 839.01,1335.30 837.88,1335.15 836.58,1334.45 834.60,1336.91 834.82,1339.02 837.30,1341.04"/>
+    <junction id="nalbandyan_2-_to_isahakyan_1" type="dead_end" x="879.04" y="1371.03" incLanes="nalbandyan_2-_to_nalbandyan_2-_to_isahakyan_1_0 isahakyan_1_to_nalbandyan_2-_to_isahakyan_1_0" intLanes="" shape="877.49,1365.46 875.40,1367.88 875.95,1368.58 876.08,1368.95 876.11,1369.35 876.04,1369.77 875.87,1370.21 878.75,1371.61 879.38,1369.35 879.30,1368.30 878.96,1367.30 878.36,1366.35"/>
+    <junction id="nalbandyan_2-_to_nalbandyan_1-" type="dead_end" x="836.81" y="1336.58" incLanes="nalbandyan_1-_to_nalbandyan_2-_to_nalbandyan_1-_0 nalbandyan_2-_to_nalbandyan_2-_to_nalbandyan_1-_0" intLanes="" shape="838.52,1342.00 840.50,1339.49 840.27,1337.40 837.79,1335.37"/>
+    <junction id="nalbandyan_2_to_khanjyan_1-" type="dead_end" x="795.23" y="1302.95" incLanes="nalbandyan_2_to_nalbandyan_2_to_khanjyan_1-_0 khanjyan_1-_to_nalbandyan_2_to_khanjyan_1-_0" intLanes="" shape="797.00,1308.85 799.15,1306.47 798.56,1305.75 798.38,1305.35 798.27,1304.93 798.25,1304.47 798.29,1303.99 795.14,1303.43 795.10,1305.47 795.32,1306.40 795.72,1307.27 796.28,1308.09"/>
+    <junction id="nalbandyan_2_to_nalbandyan_3" type="dead_end" x="837.87" y="1337.45" incLanes="nalbandyan_3_to_nalbandyan_2_to_nalbandyan_3_0 nalbandyan_2_to_nalbandyan_2_to_nalbandyan_3_0" intLanes="" shape="836.18,1332.02 834.19,1334.53 834.74,1335.18 834.83,1335.52 834.81,1335.87 834.67,1336.24 834.42,1336.62 836.90,1338.64 838.15,1336.27 838.22,1335.15 837.91,1334.07 837.23,1333.02"/>
+    <junction id="nalbandyan_3" type="dead_end" x="680.66" y="1212.79" incLanes="" intLanes="" shape="681.90,1213.76 683.88,1211.26 683.66,1209.17 681.20,1207.13 677.13,1209.68 675.02,1212.09 677.36,1213.07 678.41,1212.98 679.47,1212.87 680.60,1213.04"/>
+    <junction id="nalbandyan_3-" type="dead_end" x="686.25" y="1207.21" incLanes="" intLanes="" shape="689.78,1210.31 691.89,1207.91 689.54,1206.91 688.49,1207.01 687.43,1207.11 686.29,1206.95 684.99,1206.23 683.02,1208.74 683.57,1209.39 683.67,1209.73 683.64,1210.08 683.50,1210.45 683.24,1210.82 685.70,1212.87 687.47,1211.01 688.20,1210.46 688.83,1210.16 689.35,1210.11"/>
+    <junction id="nalbandyan_3-_to_khanjyan_1-" type="dead_end" x="795.23" y="1302.95" incLanes="khanjyan_1-_to_nalbandyan_3-_to_khanjyan_1-_0 nalbandyan_3-_to_nalbandyan_3-_to_khanjyan_1-_0" intLanes="" shape="799.30,1298.35 796.15,1297.79 795.88,1298.50 795.67,1298.65 795.42,1298.66 795.11,1298.54 794.76,1298.27 792.65,1300.68 794.33,1301.93 795.78,1302.52 797.01,1302.46 798.00,1301.75 798.77,1300.38"/>
+    <junction id="nalbandyan_3-_to_nalbandyan_2-" type="dead_end" x="683.07" y="1211.03" incLanes="nalbandyan_2-_to_nalbandyan_3-_to_nalbandyan_2-_0 nalbandyan_3-_to_nalbandyan_3-_to_nalbandyan_2-_0" intLanes="" shape="684.73,1216.47 686.73,1213.98 686.19,1213.33 686.09,1212.98 686.12,1212.63 686.26,1212.26 686.52,1211.88 684.06,1209.84 682.78,1212.20 682.71,1213.32 683.01,1214.41 683.68,1215.46"/>
+    <junction id="nalbandyan_3_to_nalbandyan_4" type="dead_end" x="682.50" y="1210.57" incLanes="nalbandyan_4_to_nalbandyan_3_to_nalbandyan_4_0 nalbandyan_3_to_nalbandyan_3_to_nalbandyan_4_0" intLanes="" shape="680.83,1205.14 678.83,1207.63 679.38,1208.28 679.47,1208.63 679.45,1208.98 679.30,1209.35 679.04,1209.72 681.50,1211.77 682.78,1209.41 682.86,1208.28 682.56,1207.19 681.88,1206.15"/>
+    <junction id="nalbandyan_3_to_sayat_nova_3-" type="dead_end" x="577.30" y="1121.87" incLanes="nalbandyan_3_to_nalbandyan_3_to_sayat_nova_3-_0 sayat_nova_3-_to_nalbandyan_3_to_sayat_nova_3-_0" intLanes="" shape="578.72,1127.38 580.83,1124.98 580.32,1124.30 580.24,1123.96 580.28,1123.61 580.44,1123.25 580.72,1122.88 578.36,1120.72 576.97,1123.02 576.84,1124.14 577.09,1125.24 577.71,1126.32"/>
+    <junction id="nalbandyan_3_to_sayat_nova_4" type="dead_end" x="577.30" y="1121.87" incLanes="nalbandyan_3_to_nalbandyan_3_to_sayat_nova_4_0 sayat_nova_4_to_nalbandyan_3_to_sayat_nova_4_0" intLanes="" shape="576.24,1125.20 578.35,1122.80 576.08,1121.48 574.97,1121.36 573.88,1121.59 572.81,1122.17 571.75,1123.11 574.08,1125.30 574.78,1124.80 575.14,1124.73 575.50,1124.77 575.86,1124.93"/>
+    <junction id="nalbandyan_4" type="dead_end" x="509.80" y="1072.52" incLanes="" intLanes="" shape="569.04,1119.88 571.04,1117.38 572.97,1114.74"/>
+    <junction id="nalbandyan_4-" type="dead_end" x="511.06" y="1069.52" incLanes="" intLanes="" shape="514.75,1072.43 516.73,1069.92 514.34,1068.70 513.21,1068.65 512.13,1068.98 511.10,1069.69 510.12,1070.76 512.67,1072.70 513.30,1072.14 513.64,1072.03 514.00,1072.05 514.37,1072.18"/>
+    <junction id="nalbandyan_4-_to_nalbandyan_3-" type="dead_end" x="509.91" y="1071.03" incLanes="nalbandyan_3-_to_nalbandyan_4-_to_nalbandyan_3-_0 nalbandyan_4-_to_nalbandyan_4-_to_nalbandyan_3-_0" intLanes="" shape="511.68,1076.44 513.63,1073.91 513.07,1073.26 512.97,1072.92 512.98,1072.56 513.11,1072.18 513.35,1071.79 510.80,1069.86 509.64,1072.25 509.61,1073.37 509.94,1074.44 510.63,1075.46"/>
+    <junction id="nalbandyan_4-_to_sayat_nova_3-" type="dead_end" x="577.30" y="1121.87" incLanes="sayat_nova_3-_to_nalbandyan_4-_to_sayat_nova_3-_0 nalbandyan_4-_to_nalbandyan_4-_to_sayat_nova_3-_0" intLanes="" shape="582.84,1120.57 580.48,1118.40 579.79,1118.91 579.43,1119.00 579.06,1118.97 578.68,1118.83 578.29,1118.58 576.31,1121.09 578.59,1122.26 579.70,1122.35 580.77,1122.09 581.82,1121.50"/>
+    <junction id="nalbandyan_4-_to_sayat_nova_4" type="dead_end" x="577.30" y="1121.87" incLanes="nalbandyan_4-_to_nalbandyan_4-_to_sayat_nova_4_0 sayat_nova_4_to_nalbandyan_4-_to_sayat_nova_4_0" intLanes="" shape="575.59,1116.44 573.60,1118.95 574.14,1119.59 574.23,1119.92 574.19,1120.26 574.04,1120.62 573.75,1120.98 576.09,1123.16 577.55,1120.80 577.67,1119.67 577.38,1118.56 576.69,1117.49"/>
+    <junction id="sayat_nova_1" type="dead_end" x="1009.03" y="671.47" incLanes="" intLanes="" shape="1024.53,661.70 1022.82,658.99 1022.65,658.77 1020.47,656.43 1005.54,668.30 1003.39,670.66 1005.80,674.89 1008.13,677.08 1011.36,673.52 1013.70,670.79 1015.65,668.57 1017.76,666.54 1020.54,664.35"/>
+    <junction id="sayat_nova_1-" type="dead_end" x="1007.83" y="669.92" incLanes="" intLanes="" shape="1008.73,668.86 1006.29,666.79 1006.81,671.03 1009.12,673.22"/>
+    <junction id="sayat_nova_1-_to_charents_1-" type="dead_end" x="1100.55" y="560.57" incLanes="charents_1-_to_sayat_nova_1-_to_charents_1-_0 sayat_nova_1-_to_sayat_nova_1-_to_charents_1-_0" intLanes="" shape="1104.26,553.89 1101.07,553.65 1100.95,554.72 1100.84,555.09 1100.66,555.44 1100.38,555.81 1099.99,556.29 1102.43,558.36 1103.56,556.91 1103.86,556.33 1104.05,555.71 1104.17,554.93"/>
+    <junction id="sayat_nova_1-_to_charents_2-" type="dead_end" x="908.80" y="777.62" incLanes="charents_2-_to_sayat_nova_1-_to_charents_2-_0 sayat_nova_1-_to_sayat_nova_1-_to_charents_2-_0" intLanes="" shape="909.26,783.32 911.76,781.32 911.35,780.55 911.31,780.17 911.37,779.79 911.55,779.41 911.83,779.04 909.48,776.88 908.18,778.98 907.99,780.05 908.10,781.13 908.53,782.22"/>
+    <junction id="sayat_nova_1_to_alek_manukyan_1-" type="dead_end" x="908.80" y="777.62" incLanes="sayat_nova_1_to_sayat_nova_1_to_alek_manukyan_1-_0 alek_manukyan_1-_to_sayat_nova_1_to_alek_manukyan_1-_0" intLanes="" shape="914.65,776.08 912.32,773.89 911.70,774.33 911.43,774.35 911.20,774.22 910.99,773.96 910.82,773.55 907.78,774.56 908.57,776.41 909.51,777.62 910.58,778.20 911.79,778.13 913.15,777.43"/>
+    <junction id="sayat_nova_1_to_alek_manukyan_2" type="dead_end" x="908.80" y="777.62" incLanes="alek_manukyan_2_to_sayat_nova_1_to_alek_manukyan_2_0 sayat_nova_1_to_sayat_nova_1_to_alek_manukyan_2_0" intLanes="" shape="906.40,783.61 909.57,783.16 909.57,782.22 909.68,781.78 909.85,781.36 910.09,780.96 910.40,780.59 908.07,778.39 906.96,779.95 906.61,780.80 906.40,781.69 906.33,782.63"/>
+    <junction id="sayat_nova_1_to_sayat_nova_2" type="dead_end" x="1008.88" y="671.34" incLanes="sayat_nova_1_to_sayat_nova_1_to_sayat_nova_2_0 sayat_nova_2_to_sayat_nova_1_to_sayat_nova_2_0" intLanes="" shape="1007.78,674.66 1009.93,672.29 1003.32,672.52 1005.63,674.73"/>
+    <junction id="sayat_nova_2" type="dead_end" x="863.99" y="822.87" incLanes="" intLanes="" shape="865.10,821.75 862.77,819.52 860.67,819.54 858.41,821.81 860.57,826.09 862.77,828.42 863.96,826.17 863.97,825.12 863.96,824.06 864.24,822.95"/>
+    <junction id="sayat_nova_2-" type="dead_end" x="862.62" y="821.32" incLanes="" intLanes="" shape="865.92,824.67 868.20,822.42 866.04,818.09 863.84,815.77 862.65,818.02 862.65,819.08 862.65,820.14 862.37,821.25 861.50,822.44 863.83,824.68"/>
+    <junction id="sayat_nova_2-_to_alek_manukyan_1-" type="dead_end" x="908.80" y="777.62" incLanes="alek_manukyan_1-_to_sayat_nova_2-_to_alek_manukyan_1-_0 sayat_nova_2-_to_sayat_nova_2-_to_alek_manukyan_1-_0" intLanes="" shape="910.25,771.83 907.21,772.84 907.35,773.75 907.29,774.17 907.15,774.57 906.91,774.94 906.59,775.30 908.79,777.62 910.10,775.90 910.44,774.96 910.58,773.97 910.52,772.93"/>
+    <junction id="sayat_nova_2-_to_alek_manukyan_2" type="dead_end" x="908.80" y="777.62" incLanes="alek_manukyan_2_to_sayat_nova_2-_to_alek_manukyan_2_0 sayat_nova_2-_to_sayat_nova_2-_to_alek_manukyan_2_0" intLanes="" shape="906.15,781.81 909.32,781.36 908.84,779.18 908.11,777.71 907.12,776.96 905.88,776.93 904.40,777.62 902.66,779.03 904.85,781.35 905.48,780.94 905.72,780.95 905.92,781.09 906.06,781.38"/>
+    <junction id="sayat_nova_2-_to_sayat_nova_1-" type="dead_end" x="863.58" y="822.29" incLanes="sayat_nova_1-_to_sayat_nova_2-_to_sayat_nova_1-_0 sayat_nova_2-_to_sayat_nova_2-_to_sayat_nova_1-_0" intLanes="" shape="869.14,821.08 866.81,818.88 864.73,818.90 862.45,821.15"/>
+    <junction id="sayat_nova_2_to_khanjyan_1" type="dead_end" x="808.16" y="875.53" incLanes="khanjyan_1_to_sayat_nova_2_to_khanjyan_1_0 sayat_nova_2_to_sayat_nova_2_to_khanjyan_1_0" intLanes="" shape="805.16,881.40 808.35,881.29 808.45,880.34 808.59,879.91 808.79,879.50 809.06,879.12 809.40,878.76 807.20,876.43 806.02,877.88 805.62,878.68 805.34,879.54 805.19,880.44"/>
+    <junction id="sayat_nova_2_to_khanjyan_2-" type="dead_end" x="808.16" y="875.53" incLanes="sayat_nova_2_to_sayat_nova_2_to_khanjyan_2-_0 khanjyan_2-_to_sayat_nova_2_to_khanjyan_2-_0" intLanes="" shape="813.94,874.47 811.75,872.14 811.08,872.56 810.79,872.56 810.53,872.44 810.30,872.18 810.09,871.78 807.13,872.98 808.92,875.69 809.99,876.22 811.19,876.19 812.51,875.60"/>
+    <junction id="sayat_nova_2_to_sayat_nova_3" type="dead_end" x="863.50" y="822.37" incLanes="sayat_nova_2_to_sayat_nova_2_to_sayat_nova_3_0 sayat_nova_3_to_sayat_nova_2_to_sayat_nova_3_0" intLanes="" shape="862.34,825.74 864.60,823.48 857.93,823.54 860.24,825.76"/>
+    <junction id="sayat_nova_3" type="dead_end" x="693.81" y="998.94" incLanes="" intLanes="" shape="694.81,997.86 692.52,995.66 690.39,995.71 688.20,998.03 690.58,1002.35 692.90,1004.55 693.93,1002.26 693.87,1001.21 693.80,1000.16 694.01,999.06"/>
+    <junction id="sayat_nova_3-" type="dead_end" x="692.52" y="996.39" incLanes="" intLanes="" shape="695.95,999.60 698.14,997.26 695.77,992.99 693.46,990.78 692.40,993.07 692.46,994.12 692.53,995.17 692.30,996.28 691.51,997.49 693.83,999.67"/>
+    <junction id="sayat_nova_3-_to_khanjyan_2-" type="dead_end" x="808.16" y="875.53" incLanes="khanjyan_2-_to_sayat_nova_3-_to_khanjyan_2-_0 sayat_nova_3-_to_sayat_nova_3-_to_khanjyan_2-_0" intLanes="" shape="809.24,869.68 806.28,870.88 806.48,871.78 806.44,872.20 806.32,872.60 806.11,872.99 805.81,873.36 808.12,875.57 809.34,873.77 809.63,872.81 809.72,871.81 809.59,870.76"/>
+    <junction id="sayat_nova_3-_to_sayat_nova_2-" type="dead_end" x="693.26" y="997.09" incLanes="sayat_nova_2-_to_sayat_nova_3-_to_sayat_nova_2-_0 sayat_nova_3-_to_sayat_nova_3-_to_sayat_nova_2-_0" intLanes="" shape="698.83,995.92 696.53,993.70 694.39,993.76 692.20,996.10"/>
+    <junction id="sayat_nova_3_to_nalbandyan_3-" type="dead_end" x="577.30" y="1121.87" incLanes="nalbandyan_3-_to_sayat_nova_3_to_nalbandyan_3-_0 sayat_nova_3_to_sayat_nova_3_to_nalbandyan_3-_0" intLanes="" shape="579.04,1127.30 581.01,1124.78 580.47,1124.14 580.38,1123.81 580.42,1123.47 580.58,1123.12 580.86,1122.77 578.54,1120.56 577.06,1122.93 576.94,1124.07 577.23,1125.18 577.93,1126.25"/>
+    <junction id="sayat_nova_3_to_sayat_nova_4" type="dead_end" x="692.60" y="997.79" incLanes="sayat_nova_3_to_sayat_nova_3_to_sayat_nova_4_0 sayat_nova_4_to_sayat_nova_3_to_sayat_nova_4_0" intLanes="" shape="691.50,1001.16 693.70,998.83 691.44,997.42 690.32,997.26 689.22,997.49 688.13,998.08 687.05,999.04 689.39,1001.23 690.08,1000.73 690.43,1000.66 690.78,1000.71 691.14,1000.87"/>
+    <junction id="sayat_nova_4" type="dead_end" x="493.02" y="1211.80" incLanes="" intLanes="" shape="494.05,1210.70 491.71,1208.51 489.59,1208.58 487.40,1210.91 489.75,1215.18 492.05,1217.41 493.12,1215.12 493.06,1214.07 493.01,1213.01 493.24,1211.91"/>
+    <junction id="sayat_nova_4-" type="dead_end" x="489.53" y="1211.71" incLanes="" intLanes="" shape="492.95,1214.93 495.14,1212.60 492.81,1208.35 490.52,1206.11 489.44,1208.39 489.49,1209.43 489.55,1210.49 489.32,1211.59 488.51,1212.80 490.82,1214.99"/>
+    <junction id="sayat_nova_4-_to_nalbandyan_3-" type="dead_end" x="577.30" y="1121.87" incLanes="nalbandyan_3-_to_sayat_nova_4-_to_nalbandyan_3-_0 sayat_nova_4-_to_sayat_nova_4-_to_nalbandyan_3-_0" intLanes="" shape="576.23,1125.10 578.20,1122.58 575.95,1121.43 574.86,1121.34 573.79,1121.58 572.74,1122.13 571.71,1123.01 574.00,1125.25 574.72,1124.75 575.08,1124.67 575.46,1124.71 575.84,1124.85"/>
+    <junction id="sayat_nova_4-_to_nalbandyan_4" type="dead_end" x="577.30" y="1121.87" incLanes="nalbandyan_4_to_sayat_nova_4-_to_nalbandyan_4_0 sayat_nova_4-_to_sayat_nova_4-_to_nalbandyan_4_0" intLanes="" shape="575.37,1116.50 573.48,1119.08 574.04,1119.69 574.13,1120.01 574.09,1120.34 573.93,1120.68 573.64,1121.04 575.93,1123.27 577.48,1120.87 577.60,1119.72 577.29,1118.61 576.55,1117.54"/>
+    <junction id="sayat_nova_4-_to_sayat_nova_3-" type="dead_end" x="490.51" y="1212.64" incLanes="sayat_nova_3-_to_sayat_nova_4-_to_sayat_nova_3-_0 sayat_nova_4-_to_sayat_nova_4-_to_sayat_nova_3-_0" intLanes="" shape="496.06,1211.39 493.72,1209.20 491.60,1209.27 489.41,1211.60"/>
+    <junction id="sayat_nova_4_to_abovyan_5" type="dead_end" x="407.80" y="1299.86" incLanes="sayat_nova_4_to_sayat_nova_4_to_abovyan_5_0 abovyan_5_to_sayat_nova_4_to_abovyan_5_0" intLanes="" shape="413.37,1298.71 411.07,1296.49 410.37,1296.97 410.02,1297.03 409.67,1296.97 409.31,1296.80 408.96,1296.50 406.70,1298.77 408.94,1300.25 410.05,1300.43 411.16,1300.23 412.26,1299.66"/>
+    <junction id="sayat_nova_4_to_sayat_nova_5-" type="dead_end" x="492.10" y="1210.94" incLanes="sayat_nova_4_to_sayat_nova_4_to_sayat_nova_5-_0 sayat_nova_5-_to_sayat_nova_4_to_sayat_nova_5-_0" intLanes="" shape="490.94,1214.24 493.13,1211.91 486.52,1212.02 488.79,1214.28"/>
+    <junction id="sayat_nova_5" type="dead_end" x="337.27" y="1377.03" incLanes="" intLanes="" shape="338.39,1375.80 336.03,1373.64 333.96,1373.68 331.68,1375.93 333.90,1380.31 336.13,1382.60 337.32,1380.32 337.32,1379.26 337.30,1378.19 337.56,1377.05"/>
+    <junction id="sayat_nova_5-" type="dead_end" x="331.28" y="1372.74" incLanes="" intLanes="" shape="334.60,1376.09 336.88,1373.84 334.60,1369.40 332.48,1367.18 331.21,1369.49 331.19,1370.57 331.18,1371.66 330.90,1372.82 330.05,1374.11 332.60,1376.19"/>
+    <junction id="sayat_nova_5-_to_abovyan_5" type="dead_end" x="407.80" y="1299.86" incLanes="abovyan_5_to_sayat_nova_5-_to_abovyan_5_0 sayat_nova_5-_to_sayat_nova_5-_to_abovyan_5_0" intLanes="" shape="406.73,1294.28 404.47,1296.54 404.94,1297.25 404.99,1297.60 404.93,1297.94 404.75,1298.29 404.45,1298.64 406.65,1300.95 408.20,1298.75 408.40,1297.64 408.23,1296.52 407.67,1295.40"/>
+    <junction id="sayat_nova_5-_to_sayat_nova_4-" type="dead_end" x="334.22" y="1375.71" incLanes="sayat_nova_4-_to_sayat_nova_5-_to_sayat_nova_4-_0 sayat_nova_5-_to_sayat_nova_5-_to_sayat_nova_4-_0" intLanes="" shape="339.78,1374.49 337.45,1372.29 336.76,1372.78 336.42,1372.84 336.07,1372.79 335.72,1372.61 335.37,1372.32 333.09,1374.57 335.34,1376.08 336.45,1376.26 337.56,1376.05 338.67,1375.47"/>
+    <junction id="sayat_nova_5_to_sayat_nova_6" type="dead_end" x="335.10" y="1374.84" incLanes="sayat_nova_5_to_sayat_nova_5_to_sayat_nova_6_0 sayat_nova_6_to_sayat_nova_5_to_sayat_nova_6_0" intLanes="" shape="334.25,1378.54 336.53,1376.29 334.13,1374.67 332.98,1374.54 331.86,1374.85 330.78,1375.61 329.73,1376.81 332.32,1378.68 332.93,1378.13 333.24,1378.04 333.57,1378.08 333.91,1378.24"/>
+    <junction id="sayat_nova_5_to_teryan_4-" type="dead_end" x="262.24" y="1449.98" incLanes="teryan_4-_to_sayat_nova_5_to_teryan_4-_0 sayat_nova_5_to_sayat_nova_5_to_teryan_4-_0" intLanes="" shape="263.14,1455.59 265.47,1453.40 265.02,1452.68 264.97,1452.32 265.03,1451.96 265.21,1451.61 265.51,1451.26 263.28,1448.97 261.79,1451.14 261.58,1452.24 261.74,1453.35 262.26,1454.47"/>
+    <junction id="sayat_nova_5_to_teryan_5" type="dead_end" x="262.24" y="1449.98" incLanes="sayat_nova_5_to_sayat_nova_5_to_teryan_5_0 teryan_5_to_sayat_nova_5_to_teryan_5_0" intLanes="" shape="267.84,1449.00 265.61,1446.70 264.90,1447.17 264.54,1447.22 264.18,1447.16 263.83,1446.99 263.47,1446.69 261.22,1448.96 263.42,1450.42 264.52,1450.61 265.63,1450.43 266.74,1449.89"/>
+    <junction id="sayat_nova_6" type="dead_end" x="180.25" y="1589.34" incLanes="" intLanes="" shape="201.11,1560.44 198.51,1558.57 198.40,1558.49 195.64,1556.87 189.49,1567.61 183.57,1578.28 177.70,1588.86 171.67,1599.34 165.30,1609.71 158.37,1619.95 160.97,1621.81"/>
+    <junction id="sayat_nova_6-" type="dead_end" x="160.61" y="1578.35" incLanes="" intLanes="" shape="164.70,1581.13 166.50,1578.49 163.53,1574.65 161.02,1572.67 158.46,1576.12 156.69,1578.80 155.26,1581.04 153.69,1583.14 151.52,1585.43 148.29,1588.21 150.29,1590.71 151.91,1589.42 153.19,1588.45 154.13,1587.79 154.73,1587.44 154.98,1587.40 154.89,1587.67 157.62,1589.34 158.25,1589.26 161.38,1589.94"/>
+    <junction id="sayat_nova_6-_to_sayat_nova_5-" type="dead_end" x="162.60" y="1579.70" incLanes="sayat_nova_5-_to_sayat_nova_6-_to_sayat_nova_5-_0 sayat_nova_6-_to_sayat_nova_6-_to_sayat_nova_5-_0" intLanes="" shape="168.05,1578.07 165.57,1576.05 164.91,1576.60 164.55,1576.71 164.18,1576.71 163.79,1576.59 163.39,1576.37 161.59,1579.01 163.93,1580.02 165.04,1580.02 166.09,1579.70 167.10,1579.05"/>
+    <junction id="sayat_nova_6-_to_teryan_4-" type="dead_end" x="262.24" y="1449.98" incLanes="teryan_4-_to_sayat_nova_6-_to_teryan_4-_0 sayat_nova_6-_to_sayat_nova_6-_to_teryan_4-_0" intLanes="" shape="261.27,1453.61 263.59,1451.41 261.25,1449.76 260.11,1449.59 258.99,1449.86 257.88,1450.56 256.80,1451.70 259.30,1453.69 259.94,1453.16 260.26,1453.08 260.59,1453.13 260.92,1453.30"/>
+    <junction id="sayat_nova_6-_to_teryan_5" type="dead_end" x="262.24" y="1449.98" incLanes="teryan_5_to_sayat_nova_6-_to_teryan_5_0 sayat_nova_6-_to_sayat_nova_6-_to_teryan_5_0" intLanes="" shape="261.14,1444.38 258.89,1446.66 259.38,1447.37 259.46,1447.74 259.42,1448.12 259.28,1448.50 259.03,1448.89 261.53,1450.87 262.69,1448.63 262.79,1447.54 262.56,1446.47 262.01,1445.42"/>
+    <junction id="sayat_nova_6_to_baghramyan_1" type="dead_end" x="129.13" y="1660.86" incLanes="sayat_nova_6_to_sayat_nova_6_to_baghramyan_1_0 baghramyan_1_to_sayat_nova_6_to_baghramyan_1_0" intLanes="" shape="132.56,1661.56 129.96,1659.70 125.64,1660.36 128.32,1662.10"/>
+    <junction id="sayat_nova_6_to_mesrop_mashtoc_3-" type="dead_end" x="129.13" y="1660.86" incLanes="mesrop_mashtoc_3-_to_sayat_nova_6_to_mesrop_mashtoc_3-_0 sayat_nova_6_to_sayat_nova_6_to_mesrop_mashtoc_3-_0" intLanes="" shape="128.10,1666.97 131.08,1665.80 130.87,1664.89 130.88,1664.45 130.98,1664.02 131.15,1663.60 131.40,1663.18 128.80,1661.32 127.88,1663.12 127.68,1664.05 127.65,1665.00 127.79,1665.98"/>
+    <junction id="sayat_nova_6_to_mesrop_mashtoc_4" type="dead_end" x="129.13" y="1660.86" incLanes="sayat_nova_6_to_sayat_nova_6_to_mesrop_mashtoc_4_0 mesrop_mashtoc_4_to_sayat_nova_6_to_mesrop_mashtoc_4_0" intLanes="" shape="134.50,1658.85 131.90,1656.99 131.26,1657.60 130.90,1657.74 130.52,1657.79 130.11,1657.73 129.67,1657.57 128.31,1660.47 130.67,1661.07 131.74,1660.95 132.74,1660.53 133.66,1659.83"/>
+    <junction id="teryan_1" type="dead_end" x="851.35" y="2101.30" incLanes="" intLanes="" shape="852.52,2100.23 850.36,2097.87 849.64,2098.30 849.29,2098.34 848.94,2098.26 848.60,2098.06 848.27,2097.74 845.86,2099.82 847.99,2101.48 849.08,2101.74 850.21,2101.62 851.35,2101.11"/>
+    <junction id="teryan_1-" type="dead_end" x="855.67" y="2097.39" incLanes="" intLanes="" shape="855.67,2097.39 853.30,2099.54 855.67,2097.39 853.30,2099.54 855.67,2097.39 853.31,2099.55"/>
+    <junction id="teryan_1_to_koryun_2-" type="dead_end" x="696.86" y="1922.71" incLanes="teryan_1_to_teryan_1_to_koryun_2-_0 koryun_2-_to_teryan_1_to_koryun_2-_0" intLanes="" shape="697.51,1928.36 699.93,1926.26 699.52,1925.53 699.48,1925.17 699.57,1924.83 699.78,1924.49 700.10,1924.17 698.05,1921.71 696.37,1923.80 696.09,1924.90 696.19,1926.02 696.66,1927.17"/>
+    <junction id="teryan_1_to_koryun_3" type="dead_end" x="704.62" y="1930.89" incLanes="teryan_1_to_teryan_1_to_koryun_3_0 koryun_3_to_teryan_1_to_koryun_3_0" intLanes="" shape="702.91,1933.80 705.33,1931.72 703.37,1930.16 702.32,1929.86 701.23,1929.87 700.09,1930.19 698.91,1930.82 700.68,1933.49 701.48,1933.16 701.86,1933.16 702.22,1933.27 702.57,1933.48"/>
+    <junction id="teryan_1_to_teryan_2" type="dead_end" x="853.59" y="2099.25" incLanes="teryan_2_to_teryan_1_to_teryan_2_0 teryan_1_to_teryan_1_to_teryan_2_0" intLanes="" shape="852.73,2093.63 850.39,2095.81 850.84,2096.53 850.88,2096.89 850.81,2097.24 850.61,2097.58 850.30,2097.92 852.46,2100.29 854.04,2098.13 854.28,2097.03 854.14,2095.91 853.62,2094.78"/>
+    <junction id="teryan_2" type="dead_end" x="627.77" y="1856.64" incLanes="" intLanes="" shape="627.20,1856.03 629.38,1853.75 628.80,1853.01 628.61,1852.60 628.50,1852.17 628.46,1851.71 628.49,1851.22 625.32,1850.80 625.02,1852.13 624.81,1852.48 624.57,1852.63 624.30,1852.56 623.99,1852.29 621.57,1854.39 623.44,1855.32 624.36,1855.23 625.28,1855.14 626.22,1855.31"/>
+    <junction id="teryan_2-" type="dead_end" x="633.44" y="1851.17" incLanes="" intLanes="" shape="636.56,1854.69 638.96,1852.56 636.77,1851.31 635.72,1851.27 634.67,1851.26 633.56,1850.96 632.37,1850.10 630.08,1852.27 630.02,1854.39 632.22,1856.72"/>
+    <junction id="teryan_2-_to_koryun_2-" type="dead_end" x="696.86" y="1922.71" incLanes="koryun_2-_to_teryan_2-_to_koryun_2-_0 teryan_2-_to_teryan_2-_to_koryun_2-_0" intLanes="" shape="702.52,1922.15 700.47,1919.70 699.72,1920.11 699.35,1920.14 699.00,1920.05 698.66,1919.85 698.32,1919.54 695.93,1921.66 698.02,1923.24 699.10,1923.51 700.21,1923.41 701.35,1922.96"/>
+    <junction id="teryan_2-_to_teryan_1-" type="dead_end" x="631.07" y="1853.40" incLanes="teryan_1-_to_teryan_2-_to_teryan_1-_0 teryan_2-_to_teryan_2-_to_teryan_1-_0" intLanes="" shape="631.90,1859.03 634.26,1856.86 633.81,1856.13 633.77,1855.77 633.84,1855.42 634.03,1855.07 634.33,1854.73 632.14,1852.40 630.60,1854.55 630.38,1855.65 630.52,1856.76 631.03,1857.89"/>
+    <junction id="teryan_2_to_isahakyan_3" type="dead_end" x="558.11" y="1776.57" incLanes="teryan_2_to_teryan_2_to_isahakyan_3_0 isahakyan_3_to_teryan_2_to_isahakyan_3_0" intLanes="" shape="556.24,1779.29 558.65,1777.19 556.76,1775.70 555.74,1775.37 554.67,1775.33 553.55,1775.57 552.39,1776.09 553.94,1778.89 554.78,1778.61 555.17,1778.62 555.54,1778.74 555.90,1778.97"/>
+    <junction id="teryan_2_to_teryan_3" type="dead_end" x="628.56" y="1850.75" incLanes="teryan_3_to_teryan_2_to_teryan_3_0 teryan_2_to_teryan_2_to_teryan_3_0" intLanes="" shape="626.94,1844.55 624.66,1846.79 625.22,1847.55 625.40,1847.97 625.51,1848.40 625.55,1848.86 625.51,1849.35 628.69,1849.77 628.67,1847.84 628.45,1846.95 628.09,1846.10 627.59,1845.30"/>
+    <junction id="teryan_3" type="dead_end" x="518.17" y="1738.57" incLanes="" intLanes="" shape="519.28,1739.63 521.52,1737.42 521.06,1736.71 521.00,1736.36 521.07,1736.01 521.25,1735.66 521.55,1735.31 519.33,1733.01 517.53,1734.51 516.82,1734.91 516.22,1735.08 515.75,1735.03 515.40,1734.74 512.80,1736.61 514.84,1738.13 515.85,1738.28 516.91,1738.39 518.04,1738.75"/>
+    <junction id="teryan_3-" type="dead_end" x="525.54" y="1731.54" incLanes="" intLanes="" shape="528.31,1735.37 530.90,1733.50 528.83,1731.96 527.79,1731.81 526.72,1731.68 525.60,1731.28 524.40,1730.34 522.14,1732.73 522.15,1734.80 524.37,1737.11"/>
+    <junction id="teryan_3-_to_isahakyan_3" type="dead_end" x="558.11" y="1776.57" incLanes="teryan_3-_to_teryan_3-_to_isahakyan_3_0 isahakyan_3_to_teryan_3-_to_isahakyan_3_0" intLanes="" shape="557.94,1770.87 555.34,1772.75 555.69,1773.50 555.68,1773.84 555.54,1774.15 555.29,1774.43 554.91,1774.69 556.46,1777.49 558.61,1775.65 559.07,1774.60 559.10,1773.45 558.73,1772.20"/>
+    <junction id="teryan_3-_to_teryan_2-" type="dead_end" x="522.57" y="1734.40" incLanes="teryan_2-_to_teryan_3-_to_teryan_2-_0 teryan_3-_to_teryan_3-_to_teryan_2-_0" intLanes="" shape="523.49,1740.01 525.81,1737.81 525.36,1737.09 525.30,1736.73 525.37,1736.38 525.55,1736.03 525.86,1735.68 523.64,1733.37 522.12,1735.55 521.92,1736.66 522.07,1737.77 522.60,1738.88"/>
+    <junction id="teryan_3_to_moskovyan_3" type="dead_end" x="486.43" y="1694.62" incLanes="teryan_3_to_teryan_3_to_moskovyan_3_0 moskovyan_3_to_teryan_3_to_moskovyan_3_0" intLanes="" shape="486.59,1700.31 489.19,1698.44 488.83,1697.66 488.82,1697.29 488.93,1696.94 489.15,1696.60 489.48,1696.28 487.48,1693.78 485.80,1695.77 485.48,1696.84 485.51,1697.95 485.88,1699.10"/>
+    <junction id="teryan_3_to_teryan_4" type="dead_end" x="522.54" y="1734.35" incLanes="teryan_4_to_teryan_3_to_teryan_4_0 teryan_3_to_teryan_3_to_teryan_4_0" intLanes="" shape="521.66,1728.73 519.33,1730.92 519.78,1731.64 519.83,1732.00 519.76,1732.36 519.57,1732.71 519.27,1733.06 521.50,1735.36 523.00,1733.19 523.21,1732.09 523.06,1730.98 522.54,1729.86"/>
+    <junction id="teryan_4" type="dead_end" x="382.15" y="1584.25" incLanes="" intLanes="" shape="383.21,1585.36 385.54,1583.18 385.62,1581.08 383.46,1578.71 379.02,1580.74 376.63,1582.87 378.84,1584.12 379.89,1584.14 380.95,1584.16 382.04,1584.47"/>
+    <junction id="teryan_4-" type="dead_end" x="385.62" y="1580.79" incLanes="" intLanes="" shape="388.74,1584.30 391.13,1582.18 388.92,1580.92 387.87,1580.89 386.81,1580.86 385.72,1580.55 384.55,1579.66 382.22,1581.84 382.14,1583.95 384.29,1586.31"/>
+    <junction id="teryan_4-_to_moskovyan_3" type="dead_end" x="486.43" y="1694.62" incLanes="moskovyan_3_to_teryan_4-_to_moskovyan_3_0 teryan_4-_to_teryan_4-_to_moskovyan_3_0" intLanes="" shape="492.11,1694.18 490.11,1691.68 489.34,1692.08 488.98,1692.11 488.62,1692.02 488.28,1691.81 487.94,1691.50 485.54,1693.62 487.61,1695.19 488.69,1695.46 489.80,1695.38 490.94,1694.95"/>
+    <junction id="teryan_4-_to_teryan_3-" type="dead_end" x="384.01" y="1582.25" incLanes="teryan_3-_to_teryan_4-_to_teryan_3-_0 teryan_4-_to_teryan_4-_to_teryan_3-_0" intLanes="" shape="384.92,1587.86 387.24,1585.66 386.79,1584.94 386.75,1584.59 386.82,1584.24 387.01,1583.90 387.32,1583.56 385.17,1581.19 383.57,1583.36 383.34,1584.46 383.49,1585.58 384.02,1586.71"/>
+    <junction id="teryan_4_to_sayat_nova_6" type="dead_end" x="262.24" y="1449.98" incLanes="teryan_4_to_teryan_4_to_sayat_nova_6_0 sayat_nova_6_to_teryan_4_to_sayat_nova_6_0" intLanes="" shape="261.54,1453.99 263.93,1451.86 261.42,1449.99 260.24,1449.84 259.11,1450.21 258.04,1451.12 257.02,1452.54 259.78,1454.17 260.31,1453.57 260.60,1453.48 260.90,1453.52 261.21,1453.69"/>
+    <junction id="teryan_4_to_teryan_5" type="dead_end" x="384.16" y="1582.41" incLanes="teryan_5_to_teryan_4_to_teryan_5_0 teryan_4_to_teryan_4_to_teryan_5_0" intLanes="" shape="383.24,1576.80 380.92,1579.01 381.37,1579.72 381.42,1580.07 381.34,1580.42 381.15,1580.77 380.84,1581.10 383.00,1583.47 384.59,1581.30 384.82,1580.20 384.67,1579.08 384.14,1577.95"/>
+    <junction id="teryan_5" type="dead_end" x="195.90" y="1384.24" incLanes="" intLanes="" shape="195.90,1384.24 198.22,1382.04 195.90,1384.24 198.15,1381.97 195.90,1384.24 198.15,1381.97"/>
+    <junction id="teryan_5-" type="dead_end" x="201.41" y="1380.21" incLanes="" intLanes="" shape="204.50,1383.76 206.91,1381.65 204.77,1380.01 203.67,1379.76 202.55,1379.89 201.41,1380.40 200.24,1381.30 202.41,1383.65 203.14,1383.21 203.49,1383.16 203.83,1383.24 204.17,1383.44"/>
+    <junction id="teryan_5-_to_sayat_nova_5-" type="dead_end" x="262.24" y="1449.98" incLanes="sayat_nova_5-_to_teryan_5-_to_sayat_nova_5-_0 teryan_5-_to_teryan_5-_to_sayat_nova_5-_0" intLanes="" shape="267.78,1448.59 265.39,1446.46 264.73,1446.95 264.40,1447.01 264.07,1446.95 263.74,1446.76 263.41,1446.44 260.99,1448.55 263.25,1450.27 264.37,1450.49 265.51,1450.28 266.64,1449.65"/>
+    <junction id="teryan_5-_to_teryan_4-" type="dead_end" x="199.12" y="1382.34" incLanes="teryan_4-_to_teryan_5-_to_teryan_4-_0 teryan_5-_to_teryan_5-_to_teryan_4-_0" intLanes="" shape="200.00,1387.95 202.33,1385.76 201.89,1385.04 201.84,1384.69 201.91,1384.34 202.10,1383.99 202.41,1383.65 200.24,1381.30 198.67,1383.46 198.44,1384.57 198.59,1385.68 199.11,1386.81"/>
+
+</net>

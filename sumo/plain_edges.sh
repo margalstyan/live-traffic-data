@@ -1,0 +1,1 @@
+netconvert -n nodes.xml -e edges.xml -o your.net.xml --plain-output-prefix plain

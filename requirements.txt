@@ -1,7 +1,12 @@
-fastapi
+fastapi~=0.115.12
 mangum
 jinja2
-pandas
-apscheduler
-googlemaps
+pandas~=2.2.3
+apscheduler~=3.11.0
+googlemaps~=4.10.0
 uvicorn
+sumolib~=1.22.0
+pytz~=2025.2
+pyproj~=3.7.1
+requests~=2.32.3
+osmnx~=2.0.2
