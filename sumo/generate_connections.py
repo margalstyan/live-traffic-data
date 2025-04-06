@@ -23,22 +23,22 @@ def map_direction(direction):
 def normalize_street_name(name):
     return name.strip().rstrip("-")
 
-def is_opposite(name):
-    return name.strip().endswith("-")
-
-def find_edges_for_street(edge_info, street_name, is_opposite_direction):
+def find_edges_for_origin(edge_info, street_name):
     edges = []
     for eid, info in edge_info.items():
         if street_name in eid:
-            if is_opposite_direction:
-                if info["from"].startswith("mid_") and info["to"].startswith("junc"):
-                    edges.append((eid, info["from"], info["to"]))
-            else:
-                if info["from"].startswith("junc") and info["to"].startswith("mid_"):
-                    edges.append((eid, info["from"], info["to"]))
-    if len(edges) > 1:
-        print(f"Warning: Found multiple edges for street '{street_name}': {edges}")
+            if info["from"].startswith("mid_") and info["to"].startswith("junc"):
+                edges.append((eid, info["from"], info["to"]))
+
     return edges
+def find_edges_for_destination(edge_info, street_name):
+    edges = []
+    for eid, info in edge_info.items():
+        if street_name in eid:
+            if info["from"].startswith("junc") and info["to"].startswith("mid_"):
+                edges.append((eid, info["from"], info["to"]))
+    return edges
+
 def generate_connections_from_routes_csv(edges_path, routes_path):
     edge_info = parse_edges_with_junctions(edges_path)
     routes_df = pd.read_csv(routes_path)
@@ -52,16 +52,12 @@ def generate_connections_from_routes_csv(edges_path, routes_path):
 
         origin_name = normalize_street_name(origin_raw)
         destination_name = normalize_street_name(destination_raw)
-        origin_opposite = is_opposite(origin_raw)
-        destination_opposite = is_opposite(destination_raw)
 
-        from_edges = find_edges_for_street(edge_info, origin_name, origin_opposite)
-        to_edges = find_edges_for_street(edge_info, destination_name, destination_opposite)
+        from_edges = find_edges_for_origin(edge_info, origin_name)
+        to_edges = find_edges_for_destination(edge_info, destination_name)
 
         for from_edge, from_from, from_to in from_edges:
             for to_edge, to_from, to_to in to_edges:
-                # Ensure valid direction: from_to (junction) must match to_from (same junction)
-                # and avoid reverse direction (from destination to origin)
                 if from_to == to_from and from_edge != to_edge:
                     connection = {
                         "from": from_edge,

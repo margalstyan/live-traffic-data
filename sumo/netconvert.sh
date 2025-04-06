@@ -1,1 +1,1 @@
-netconvert --node-files nodes.xml --edge-files edges.xml --output-file net.net.xml
+netconvert -n nodes.xml -e edges.xml --connection-files connections.xml -o net.net.xml
