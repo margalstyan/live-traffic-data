@@ -1,1 +1,1 @@
-netconvert -n nodes.xml -e edges.xml --connection-files connections.xml -o net.net.xml
+netconvert -n nodes.xml -e edges_filtered.xml --connection-files connections.xml -o net.net.xml

@@ -29,8 +29,8 @@ def find_edges_for_origin(edge_info, street_name):
         if street_name in eid:
             if info["from"].startswith("mid_") and info["to"].startswith("junc"):
                 edges.append((eid, info["from"], info["to"]))
-
     return edges
+
 def find_edges_for_destination(edge_info, street_name):
     edges = []
     for eid, info in edge_info.items():
@@ -68,12 +68,8 @@ def generate_connections_from_routes_csv(edges_path, routes_path):
                         "state": "M"
                     }
                     connections.append(connection)
-                else:
-                    # This line ensures we skip reverse direction edges
-                    continue
 
     return connections
-
 
 def write_connections(connections, output_file):
     root = ET.Element("connections")
@@ -82,12 +78,37 @@ def write_connections(connections, output_file):
     tree = ET.ElementTree(root)
     tree.write(output_file, encoding="utf-8", xml_declaration=True)
 
+def filter_edges_by_connections(edges_file, connections_file, output_file):
+    # Parse connections to find used edges
+    tree_conn = ET.parse(connections_file)
+    root_conn = tree_conn.getroot()
+
+    used_edges = set()
+    for conn in root_conn.findall("connection"):
+        used_edges.add(conn.get("from"))
+        used_edges.add(conn.get("to"))
+
+    # Parse and filter edges
+    tree_edges = ET.parse(edges_file)
+    root_edges = tree_edges.getroot()
+
+    for edge in list(root_edges.findall("edge")):
+        if edge.get("id") not in used_edges:
+            root_edges.remove(edge)
+
+    tree_edges.write(output_file, encoding="utf-8", xml_declaration=True)
+
 # Usage
 if __name__ == "__main__":
     edges_path = "edges.xml"
     routes_path = "../data/routes.csv"
-    output_file = "connections.xml"
+    connections_output = "connections.xml"
+    filtered_edges_output = "edges_filtered.xml"  # You can overwrite edges.xml if desired
 
     connections = generate_connections_from_routes_csv(edges_path, routes_path)
-    write_connections(connections, output_file)
-    print(f"✅ Generated {len(connections)} valid connections to {output_file}.")
+    write_connections(connections, connections_output)
+
+    # print(f"✅ Generated {len(connections)} valid connections to {connections_output}.")
+
+    filter_edges_by_connections(edges_path, connections_output, filtered_edges_output)
+    # print(f"✅ Filtered edges saved to {filtered_edges_output}.")
