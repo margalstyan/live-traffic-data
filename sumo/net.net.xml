@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2025-04-07 14:19:26 by Eclipse SUMO netconvert Version 1.20.0
+<!-- generated on 2025-04-08 19:33:27 by Eclipse SUMO netconvert Version 1.20.0
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
 
     <input>
@@ -240,64 +240,70 @@
         <lane id=":junc14_5_0" index="0" speed="8.48" length="10.36" shape="878.13,1369.23 878.95,1371.75 878.67,1375.18 877.18,1379.17"/>
     </edge>
     <edge id=":junc15_0" function="internal">
-        <lane id=":junc15_0_0" index="0" speed="5.50" length="9.58" shape="1048.30,1519.50 1047.01,1516.77 1045.55,1515.76 1043.93,1516.47 1042.13,1518.89"/>
+        <lane id=":junc15_0_0" index="0" speed="5.46" length="10.04" shape="1048.80,1521.01 1047.44,1518.02 1046.03,1517.00 1044.57,1517.94 1043.05,1520.85"/>
     </edge>
     <edge id=":junc15_1" function="internal">
-        <lane id=":junc15_1_0" index="0" speed="13.90" length="20.13" shape="1048.30,1519.50 1047.25,1515.06 1046.60,1509.56 1046.50,1504.04 1047.11,1499.57"/>
+        <lane id=":junc15_1_0" index="0" speed="13.90" length="19.79" shape="1050.19,1500.43 1049.65,1504.85 1049.91,1510.24 1050.72,1515.61 1051.84,1519.99"/>
     </edge>
     <edge id=":junc15_2" function="internal">
-        <lane id=":junc15_2_0" index="0" speed="13.90" length="18.26" shape="1050.19,1500.43 1049.57,1504.62 1049.65,1509.48 1050.29,1514.34 1051.33,1518.48"/>
+        <lane id=":junc15_2_0" index="0" speed="13.90" length="21.63" shape="1050.19,1500.43 1048.76,1505.00 1046.80,1510.70 1044.75,1516.37 1043.05,1520.85"/>
     </edge>
     <edge id=":junc15_3" function="internal">
-        <lane id=":junc15_3_0" index="0" speed="13.90" length="20.17" shape="1050.19,1500.43 1048.70,1504.74 1046.58,1509.84 1044.25,1514.85 1042.13,1518.89"/>
+        <lane id=":junc15_3_0" index="0" speed="5.83" length="9.13" shape="1040.34,1501.79 1042.65,1503.12 1044.55,1503.19 1046.03,1502.01 1047.11,1499.57"/>
     </edge>
     <edge id=":junc15_4" function="internal">
-        <lane id=":junc15_4_0" index="0" speed="5.83" length="9.13" shape="1040.34,1501.79 1042.65,1503.12 1044.55,1503.19 1046.03,1502.01 1047.11,1499.57"/>
+        <lane id=":junc15_4_0" index="0" speed="13.90" length="21.68" shape="1040.34,1501.79 1043.58,1505.26 1046.97,1510.26 1049.92,1515.58 1051.84,1519.99"/>
     </edge>
     <edge id=":junc15_5" function="internal">
-        <lane id=":junc15_5_0" index="0" speed="13.90" length="20.14" shape="1040.34,1501.79 1043.50,1505.02 1046.72,1509.51 1049.50,1514.30 1051.33,1518.48"/>
+        <lane id=":junc15_5_0" index="0" speed="9.66" length="16.61" shape="1040.07,1519.66 1041.57,1514.69 1041.78,1510.47 1040.72,1507.01 1038.38,1504.31"/>
     </edge>
     <edge id=":junc15_6" function="internal">
-        <lane id=":junc15_6_0" index="0" speed="8.50" length="14.38" shape="1039.35,1517.31 1041.11,1513.32 1041.53,1509.82 1040.62,1506.82 1038.38,1504.31"/>
+        <lane id=":junc15_6_0" index="0" speed="13.90" length="21.30" shape="1040.07,1519.66 1041.76,1515.24 1043.77,1509.68 1045.70,1504.08 1047.11,1499.57"/>
     </edge>
     <edge id=":junc15_7" function="internal">
-        <lane id=":junc15_7_0" index="0" speed="13.90" length="19.39" shape="1039.35,1517.31 1041.42,1513.38 1043.65,1508.61 1045.67,1503.76 1047.11,1499.57"/>
+        <lane id=":junc15_7_0" index="0" speed="7.50" length="5.85" shape="1040.07,1519.66 1042.79,1514.48"/>
     </edge>
     <edge id=":junc15_8" function="internal">
-        <lane id=":junc15_8_0" index="0" speed="7.39" length="4.61" shape="1039.35,1517.31 1042.09,1513.60"/>
-    </edge>
-    <edge id=":junc15_9" function="internal">
-        <lane id=":junc15_9_0" index="0" speed="7.39" length="14.01" shape="1042.09,1513.60 1042.84,1512.59 1046.00,1511.22 1048.83,1513.18 1051.33,1518.48"/>
+        <lane id=":junc15_8_0" index="0" speed="7.50" length="14.67" shape="1042.79,1514.48 1043.18,1513.73 1046.18,1511.80 1049.06,1513.89 1051.84,1519.99"/>
     </edge>
     <edge id=":junc16_0" function="internal">
         <lane id=":junc16_0_0" index="0" speed="5.47" length="9.78" shape="807.93,884.17 807.49,881.06 806.41,879.68 804.69,880.02 802.33,882.09"/>
     </edge>
     <edge id=":junc16_1" function="internal">
-        <lane id=":junc16_1_0" index="0" speed="13.90" length="18.68" shape="807.93,884.17 807.67,879.84 807.12,874.85 806.28,869.90 805.16,865.74"/>
+        <lane id=":junc16_1_0" index="0" speed="13.90" length="20.00" shape="807.93,884.17 807.60,879.65 806.89,874.22 805.90,868.84 804.71,864.48"/>
     </edge>
     <edge id=":junc16_2" function="internal">
-        <lane id=":junc16_2_0" index="0" speed="12.92" length="17.77" shape="807.93,884.17 808.05,878.39 808.79,873.66 810.15,869.99 812.14,867.37"/>
+        <lane id=":junc16_2_0" index="0" speed="13.90" length="5.39" shape="807.93,884.17 808.18,878.79"/>
+    </edge>
+    <edge id=":junc16_9" function="internal">
+        <lane id=":junc16_9_0" index="0" speed="13.90" length="15.42" shape="808.18,878.79 808.21,878.25 809.41,873.10 811.54,868.73 814.61,865.13"/>
     </edge>
     <edge id=":junc16_3" function="internal">
-        <lane id=":junc16_3_0" index="0" speed="11.91" length="15.02" shape="814.29,869.74 812.78,871.83 811.75,874.92 811.20,879.00 811.13,884.07"/>
+        <lane id=":junc16_3_0" index="0" speed="13.02" length="18.05" shape="816.76,867.49 814.17,870.57 812.37,874.35 811.36,878.86 811.13,884.07"/>
     </edge>
     <edge id=":junc16_4" function="internal">
-        <lane id=":junc16_4_0" index="0" speed="13.90" length="17.20" shape="814.29,869.74 811.34,872.57 808.19,875.79 805.10,879.08 802.33,882.09"/>
+        <lane id=":junc16_4_0" index="0" speed="13.90" length="20.53" shape="816.76,867.49 813.42,870.68 809.42,874.67 805.49,878.73 802.33,882.09"/>
     </edge>
     <edge id=":junc16_5" function="internal">
-        <lane id=":junc16_5_0" index="0" speed="6.74" length="3.15" shape="814.29,869.74 811.63,871.42"/>
+        <lane id=":junc16_5_0" index="0" speed="7.48" length="4.42" shape="816.76,867.49 813.11,869.99"/>
     </edge>
-    <edge id=":junc16_8" function="internal">
-        <lane id=":junc16_8_0" index="0" speed="6.74" length="9.57" shape="811.63,871.42 811.54,871.48 809.10,871.39 806.97,869.48 805.16,865.74"/>
+    <edge id=":junc16_10" function="internal">
+        <lane id=":junc16_10_0" index="0" speed="7.48" length="11.57" shape="813.11,869.99 812.90,870.14 809.60,870.51 806.87,868.63 804.71,864.48"/>
     </edge>
     <edge id=":junc16_6" function="internal">
-        <lane id=":junc16_6_0" index="0" speed="10.51" length="15.83" shape="799.97,879.93 803.06,876.02 804.95,872.35 805.65,868.93 805.16,865.74"/>
+        <lane id=":junc16_6_0" index="0" speed="13.90" length="20.99" shape="807.72,863.41 808.94,867.92 810.00,873.63 810.77,879.40 811.13,884.07"/>
     </edge>
     <edge id=":junc16_7" function="internal">
-        <lane id=":junc16_7_0" index="0" speed="13.90" length="17.49" shape="799.97,879.93 802.77,876.88 805.93,873.53 809.15,870.24 812.14,867.37"/>
+        <lane id=":junc16_7_0" index="0" speed="10.87" length="16.99" shape="799.97,879.93 803.03,875.94 804.84,872.04 805.40,868.22 804.71,864.48"/>
+    </edge>
+    <edge id=":junc16_8" function="internal">
+        <lane id=":junc16_8_0" index="0" speed="13.90" length="20.82" shape="799.97,879.93 803.16,876.53 807.17,872.41 811.23,868.34 814.61,865.13"/>
     </edge>
     <edge id=":junc17_0" function="internal">
         <lane id=":junc17_0_0" index="0" speed="13.90" length="0.31" shape="774.63,742.20 774.61,742.11 774.59,742.05 774.57,741.99 774.53,741.91"/>
+    </edge>
+    <edge id=":junc17_1" function="internal">
+        <lane id=":junc17_1_0" index="0" speed="13.90" length="0.92" shape="777.46,740.63 777.57,740.88 777.64,741.05 777.69,741.23 777.75,741.50"/>
     </edge>
     <edge id=":junc18_0" function="internal">
         <lane id=":junc18_0_0" index="0" speed="11.43" length="14.81" shape="915.83,770.16 913.29,773.32 911.62,776.62 910.82,780.04 910.90,783.59"/>
@@ -378,22 +384,31 @@
         <lane id=":junc20_0_0" index="0" speed="13.90" length="14.46" shape="1022.08,1313.72 1020.81,1310.33 1018.95,1307.31 1016.69,1304.51 1014.19,1301.79"/>
     </edge>
     <edge id=":junc20_1" function="internal">
-        <lane id=":junc20_1_0" index="0" speed="13.09" length="3.42" shape="1022.08,1313.72 1021.82,1310.52 1021.86,1310.32"/>
-    </edge>
-    <edge id=":junc20_6" function="internal">
-        <lane id=":junc20_6_0" index="0" speed="13.09" length="13.55" shape="1021.86,1310.32 1022.55,1306.81 1024.27,1302.60 1026.97,1297.89"/>
+        <lane id=":junc20_1_0" index="0" speed="12.06" length="14.36" shape="1029.66,1299.62 1027.27,1303.74 1025.72,1307.33 1025.03,1310.39 1025.18,1312.93"/>
     </edge>
     <edge id=":junc20_2" function="internal">
-        <lane id=":junc20_2_0" index="0" speed="12.06" length="14.36" shape="1029.66,1299.62 1027.27,1303.74 1025.72,1307.33 1025.03,1310.39 1025.18,1312.93"/>
+        <lane id=":junc20_2_0" index="0" speed="5.50" length="9.57" shape="1020.84,1296.97 1021.99,1299.75 1023.39,1300.83 1025.05,1300.21 1026.97,1297.89"/>
     </edge>
     <edge id=":junc20_3" function="internal">
-        <lane id=":junc20_3_0" index="0" speed="5.50" length="9.57" shape="1020.84,1296.97 1021.99,1299.75 1023.39,1300.83 1025.05,1300.21 1026.97,1297.89"/>
+        <lane id=":junc20_3_0" index="0" speed="13.90" length="16.55" shape="1020.84,1296.97 1025.18,1312.93"/>
     </edge>
     <edge id=":junc20_4" function="internal">
-        <lane id=":junc20_4_0" index="0" speed="13.90" length="16.55" shape="1020.84,1296.97 1025.18,1312.93"/>
+        <lane id=":junc20_4_0" index="0" speed="13.90" length="16.04" shape="1016.52,1299.60 1019.14,1302.54 1021.67,1305.82 1023.79,1309.32 1025.18,1312.93"/>
     </edge>
-    <edge id=":junc20_5" function="internal">
-        <lane id=":junc20_5_0" index="0" speed="13.90" length="16.04" shape="1016.52,1299.60 1019.14,1302.54 1021.67,1305.82 1023.79,1309.32 1025.18,1312.93"/>
+    <edge id=":junc21_0" function="internal">
+        <lane id=":junc21_0_0" index="0" speed="6.07" length="9.07" shape="985.60,1649.41 983.65,1647.73 981.75,1647.23 979.91,1647.91 978.13,1649.76"/>
+    </edge>
+    <edge id=":junc21_1" function="internal">
+        <lane id=":junc21_1_0" index="0" speed="9.30" length="14.54" shape="985.60,1649.41 983.19,1645.99 981.99,1642.62 982.01,1639.31 983.23,1636.07"/>
+    </edge>
+    <edge id=":junc21_2" function="internal">
+        <lane id=":junc21_2_0" index="0" speed="8.00" length="10.56" shape="986.01,1637.65 985.19,1639.92 985.24,1642.29 986.18,1644.75 988.01,1647.30"/>
+    </edge>
+    <edge id=":junc21_3" function="internal">
+        <lane id=":junc21_3_0" index="0" speed="13.90" length="14.46" shape="986.01,1637.65 984.15,1640.80 982.24,1643.81 980.25,1646.77 978.13,1649.76"/>
+    </edge>
+    <edge id=":junc21_4" function="internal">
+        <lane id=":junc21_4_0" index="0" speed="13.90" length="14.12" shape="975.53,1647.89 977.62,1644.95 979.55,1642.09 981.40,1639.18 983.23,1636.07"/>
     </edge>
     <edge id=":junc3_0" function="internal">
         <lane id=":junc3_0_0" index="0" speed="6.38" length="4.64" shape="450.65,2057.29 449.48,2057.55 448.36,2057.52 447.28,2057.20 446.25,2056.60"/>
@@ -636,16 +651,46 @@
         <lane id=":mid_charents_2_11_0" index="0" speed="3.65" length="3.23" shape="1158.16,1108.53 1159.04,1108.36 1159.70,1108.96 1160.15,1110.34"/>
     </edge>
     <edge id=":mid_heratsi_1_0" function="internal">
-        <lane id=":mid_heratsi_1_0_0" index="0" speed="11.12" length="5.87" shape="861.93,1139.45 861.31,1138.12 861.74,1136.96 862.41,1135.67 862.51,1133.96"/>
+        <lane id=":mid_heratsi_1_0_0" index="0" speed="7.54" length="2.58" shape="865.21,1142.95 864.70,1142.39 864.40,1141.95 864.21,1141.46 864.03,1140.72"/>
     </edge>
     <edge id=":mid_heratsi_1_1" function="internal">
-        <lane id=":mid_heratsi_1_1_0" index="0" speed="3.65" length="4.67" shape="861.93,1139.45 861.69,1138.03 862.00,1137.19 862.86,1136.93 864.26,1137.26"/>
+        <lane id=":mid_heratsi_1_1_0" index="0" speed="13.90" length="0.86" shape="867.15,1140.02 867.21,1140.26 867.27,1140.43 867.37,1140.57 867.54,1140.76"/>
     </edge>
     <edge id=":mid_heratsi_2_0" function="internal">
-        <lane id=":mid_heratsi_2_0_0" index="0" speed="4.82" length="9.59" shape="1139.59,1761.49 1130.39,1764.20"/>
+        <lane id=":mid_heratsi_2_0_0" index="0" speed="6.57" length="17.00" shape="1156.00,1825.81 1155.65,1830.28 1152.87,1833.21 1148.92,1833.92 1145.05,1831.70"/>
     </edge>
     <edge id=":mid_heratsi_2_1" function="internal">
-        <lane id=":mid_heratsi_2_1_0" index="0" speed="9.46" length="43.38" shape="1133.42,1763.18 1138.77,1778.50 1141.07,1783.46 1140.31,1778.05 1136.49,1762.28"/>
+        <lane id=":mid_heratsi_2_1_0" index="0" speed="4.17" length="1.67" shape="1156.00,1825.81 1155.69,1827.44"/>
+    </edge>
+    <edge id=":mid_heratsi_2_2" function="internal">
+        <lane id=":mid_heratsi_2_2_0" index="0" speed="3.65" length="1.45" shape="1156.00,1825.81 1155.61,1827.20"/>
+    </edge>
+    <edge id=":mid_heratsi_2_9" function="internal">
+        <lane id=":mid_heratsi_2_9_0" index="0" speed="4.17" length="4.94" shape="1155.69,1827.44 1154.32,1828.41 1152.68,1828.43 1151.55,1827.26"/>
+    </edge>
+    <edge id=":mid_heratsi_2_10" function="internal">
+        <lane id=":mid_heratsi_2_10_0" index="0" speed="3.65" length="3.24" shape="1155.61,1827.20 1154.97,1827.83 1154.09,1827.70 1152.95,1826.81"/>
+    </edge>
+    <edge id=":mid_heratsi_2_3" function="internal">
+        <lane id=":mid_heratsi_2_3_0" index="0" speed="6.15" length="15.11" shape="1154.59,1826.27 1154.48,1830.20 1152.05,1832.88 1148.51,1833.60 1145.05,1831.70"/>
+    </edge>
+    <edge id=":mid_heratsi_2_4" function="internal">
+        <lane id=":mid_heratsi_2_4_0" index="0" speed="7.09" length="23.39" shape="1154.59,1826.27 1151.71,1818.02 1150.47,1815.36 1150.89,1818.29 1152.95,1826.81"/>
+    </edge>
+    <edge id=":mid_heratsi_2_5" function="internal">
+        <lane id=":mid_heratsi_2_5_0" index="0" speed="3.65" length="4.67" shape="1154.59,1826.27 1154.20,1827.66 1153.57,1828.29 1152.68,1828.16 1151.55,1827.26"/>
+    </edge>
+    <edge id=":mid_heratsi_2_6" function="internal">
+        <lane id=":mid_heratsi_2_6_0" index="0" speed="5.74" length="12.89" shape="1147.46,1829.60 1150.68,1832.84 1152.43,1833.53 1152.72,1831.67 1151.55,1827.26"/>
+    </edge>
+    <edge id=":mid_heratsi_2_7" function="internal">
+        <lane id=":mid_heratsi_2_7_0" index="0" speed="6.14" length="14.60" shape="1147.46,1829.60 1151.09,1833.18 1153.21,1833.90 1153.83,1831.78 1152.95,1826.81"/>
+    </edge>
+    <edge id=":mid_heratsi_2_8" function="internal">
+        <lane id=":mid_heratsi_2_8_0" index="0" speed="3.65" length="1.11" shape="1147.46,1829.60 1147.61,1830.69"/>
+    </edge>
+    <edge id=":mid_heratsi_2_11" function="internal">
+        <lane id=":mid_heratsi_2_11_0" index="0" speed="3.65" length="3.57" shape="1147.61,1830.69 1147.65,1831.03 1147.31,1831.86 1146.45,1832.08 1145.05,1831.70"/>
     </edge>
     <edge id=":mid_isahakyan_1_0" function="internal">
         <lane id=":mid_isahakyan_1_0_0" index="0" speed="13.90" length="0.32" shape="812.07,1511.18 812.03,1511.26 812.00,1511.32 811.96,1511.37 811.91,1511.45"/>
@@ -662,11 +707,23 @@
     <edge id=":mid_khanjyan_1_1" function="internal">
         <lane id=":mid_khanjyan_1_1_0" index="0" speed="13.90" length="0.42" shape="817.45,1198.45 817.47,1198.33 817.49,1198.25 817.49,1198.16 817.49,1198.04"/>
     </edge>
+    <edge id=":mid_khanjyan_2_0" function="internal">
+        <lane id=":mid_khanjyan_2_0_0" index="0" speed="4.81" length="9.59" shape="732.37,661.51 741.29,657.98"/>
+    </edge>
+    <edge id=":mid_khanjyan_2_1" function="internal">
+        <lane id=":mid_khanjyan_2_1_0" index="0" speed="9.69" length="45.70" shape="738.36,659.26 731.32,643.68 728.48,638.68 729.84,644.27 735.39,660.44"/>
+    </edge>
+    <edge id=":mid_koryun_0_0" function="internal">
+        <lane id=":mid_koryun_0_0_0" index="0" speed="13.90" length="0.66" shape="1021.21,1575.67 1021.13,1575.85 1021.08,1575.97 1021.02,1576.09 1020.92,1576.26"/>
+    </edge>
+    <edge id=":mid_koryun_0_1" function="internal">
+        <lane id=":mid_koryun_0_1_0" index="0" speed="13.90" length="0.22" shape="1018.14,1574.68 1018.17,1574.62 1018.19,1574.58 1018.21,1574.54 1018.24,1574.48"/>
+    </edge>
     <edge id=":mid_koryun_1_0" function="internal">
-        <lane id=":mid_koryun_1_0_0" index="0" speed="13.90" length="1.23" shape="925.73,1722.53 925.55,1722.84 925.41,1723.05 925.25,1723.24 924.99,1723.50"/>
+        <lane id=":mid_koryun_1_0_0" index="0" speed="13.90" length="0.73" shape="925.58,1722.83 925.45,1723.00 925.36,1723.12 925.26,1723.23 925.11,1723.38"/>
     </edge>
     <edge id=":mid_koryun_1_1" function="internal">
-        <lane id=":mid_koryun_1_1_0" index="0" speed="13.90" length="0.41" shape="922.71,1721.26 922.79,1721.18 922.85,1721.11 922.89,1721.04 922.96,1720.94"/>
+        <lane id=":mid_koryun_1_1_0" index="0" speed="13.90" length="0.24" shape="922.83,1721.14 922.88,1721.09 922.91,1721.06 922.94,1721.02 922.98,1720.96"/>
     </edge>
     <edge id=":mid_koryun_2_0" function="internal">
         <lane id=":mid_koryun_2_0_0" index="0" speed="13.90" length="1.35" shape="780.47,1877.99 780.20,1878.29 780.01,1878.48 779.78,1878.64 779.45,1878.86"/>
@@ -823,7 +880,7 @@
         <lane id="junc11_to_mid_abovyan_2_0" index="0" speed="13.90" length="109.06" shape="845.99,1791.26 771.30,1711.79"/>
     </edge>
     <edge id="junc11_to_mid_koryun_1" from="junc11" to="mid_koryun_1" priority="1">
-        <lane id="junc11_to_mid_koryun_1_0" index="0" speed="13.90" length="95.06" shape="856.17,1789.15 922.71,1721.26"/>
+        <lane id="junc11_to_mid_koryun_1_0" index="0" speed="13.90" length="95.23" shape="856.17,1789.15 922.83,1721.14"/>
     </edge>
     <edge id="junc11_to_mid_koryun_2" from="junc11" to="mid_koryun_2" priority="1">
         <lane id="junc11_to_mid_koryun_2_0" index="0" speed="13.90" length="101.61" shape="848.25,1802.30 780.47,1877.99"/>
@@ -862,10 +919,10 @@
         <lane id="junc15_to_mid_charents_2_0" index="0" speed="13.90" length="405.30" shape="1047.11,1499.57 1157.07,1109.47"/>
     </edge>
     <edge id="junc15_to_mid_heratsi_2" from="junc15" to="mid_heratsi_2" priority="1">
-        <lane id="junc15_to_mid_heratsi_2_0" index="0" speed="13.90" length="258.11" shape="1051.33,1518.48 1133.42,1763.18"/>
+        <lane id="junc15_to_mid_heratsi_2_0" index="0" speed="13.90" length="323.06" shape="1051.84,1519.99 1154.59,1826.27"/>
     </edge>
-    <edge id="junc15_to_mid_koryun_1" from="junc15" to="mid_koryun_1" priority="1">
-        <lane id="junc15_to_mid_koryun_1_0" index="0" speed="13.90" length="234.55" shape="1042.13,1518.89 925.73,1722.53"/>
+    <edge id="junc15_to_mid_koryun_0" from="junc15" to="mid_koryun_0" priority="1">
+        <lane id="junc15_to_mid_koryun_0_0" index="0" speed="13.90" length="59.01" shape="1043.05,1520.85 1021.21,1575.67"/>
     </edge>
     <edge id="junc15_to_mid_nalbandyan_1" from="junc15" to="mid_nalbandyan_1" priority="1">
         <lane id="junc15_to_mid_nalbandyan_1_0" index="0" speed="13.90" length="110.95" shape="1038.38,1504.31 950.83,1436.16"/>
@@ -874,16 +931,19 @@
         <lane id="junc16_to_mid_khanjyan_1_0" index="0" speed="13.90" length="314.02" shape="811.13,884.07 820.69,1197.94"/>
     </edge>
     <edge id="junc16_to_mid_khanjyan_2" from="junc16" to="mid_khanjyan_2" priority="1">
-        <lane id="junc16_to_mid_khanjyan_2_0" index="0" speed="13.90" length="260.83" shape="805.16,865.74 717.60,620.05"/>
+        <lane id="junc16_to_mid_khanjyan_2_0" index="0" speed="13.90" length="215.47" shape="804.71,864.48 732.37,661.51"/>
     </edge>
     <edge id="junc16_to_mid_sayat_nova_2" from="junc16" to="mid_sayat_nova_2" priority="1">
-        <lane id="junc16_to_mid_sayat_nova_2_0" index="0" speed="13.90" length="68.55" shape="812.14,867.37 862.83,821.23"/>
+        <lane id="junc16_to_mid_sayat_nova_2_0" index="0" speed="13.90" length="65.21" shape="814.61,865.13 862.83,821.23"/>
     </edge>
     <edge id="junc16_to_mid_sayat_nova_3" from="junc16" to="mid_sayat_nova_3" priority="1">
         <lane id="junc16_to_mid_sayat_nova_3_0" index="0" speed="13.90" length="158.93" shape="802.33,882.09 695.08,999.38"/>
     </edge>
+    <edge id="junc17_to_mid_heratsi_1" from="junc17" to="mid_heratsi_1" priority="1">
+        <lane id="junc17_to_mid_heratsi_1_0" index="0" speed="13.90" length="408.42" shape="777.75,741.50 867.15,1140.02"/>
+    </edge>
     <edge id="junc17_to_mid_khanjyan_2" from="junc17" to="mid_khanjyan_2" priority="1">
-        <lane id="junc17_to_mid_khanjyan_2_0" index="0" speed="13.90" length="134.35" shape="774.53,741.91 720.67,618.83"/>
+        <lane id="junc17_to_mid_khanjyan_2_0" index="0" speed="13.90" length="90.22" shape="774.53,741.91 738.36,659.26"/>
     </edge>
     <edge id="junc18_to_mid_alek_manukyan_1" from="junc18" to="mid_alek_manukyan_1" priority="1">
         <lane id="junc18_to_mid_alek_manukyan_1_0" index="0" speed="13.90" length="303.92" shape="903.81,767.36 811.58,477.78"/>
@@ -922,10 +982,19 @@
         <lane id="junc20_to_mid_charents_2_0" index="0" speed="13.90" length="228.21" shape="1026.97,1297.89 1150.41,1105.95"/>
     </edge>
     <edge id="junc20_to_mid_heratsi_1" from="junc20" to="mid_heratsi_1" priority="1">
-        <lane id="junc20_to_mid_heratsi_1_0" index="0" speed="13.90" length="222.57" shape="1014.19,1301.79 861.93,1139.45"/>
+        <lane id="junc20_to_mid_heratsi_1_0" index="0" speed="13.90" length="217.77" shape="1014.19,1301.79 865.21,1142.95"/>
     </edge>
     <edge id="junc20_to_mid_heratsi_2" from="junc20" to="mid_heratsi_2" priority="1">
-        <lane id="junc20_to_mid_heratsi_2_0" index="0" speed="13.90" length="462.92" shape="1025.18,1312.93 1139.59,1761.49"/>
+        <lane id="junc20_to_mid_heratsi_2_0" index="0" speed="13.90" length="529.30" shape="1025.18,1312.93 1156.00,1825.81"/>
+    </edge>
+    <edge id="junc21_to_mid_heratsi_2" from="junc21" to="mid_heratsi_2" priority="1">
+        <lane id="junc21_to_mid_heratsi_2_0" index="0" speed="13.90" length="242.19" shape="988.01,1647.30 1147.46,1829.60"/>
+    </edge>
+    <edge id="junc21_to_mid_koryun_0" from="junc21" to="mid_koryun_0" priority="1">
+        <lane id="junc21_to_mid_koryun_0_0" index="0" speed="13.90" length="70.62" shape="983.23,1636.07 1018.14,1574.68"/>
+    </edge>
+    <edge id="junc21_to_mid_koryun_1" from="junc21" to="mid_koryun_1" priority="1">
+        <lane id="junc21_to_mid_koryun_1_0" index="0" speed="13.90" length="90.00" shape="978.13,1649.76 925.58,1722.83"/>
     </edge>
     <edge id="junc2_to_mid_isahakyan_4" from="junc2" to="mid_isahakyan_4" priority="1">
         <lane id="junc2_to_mid_isahakyan_4_0" index="0" speed="13.90" length="161.97" shape="279.67,1903.50 122.00,1940.55"/>
@@ -1045,16 +1114,19 @@
         <lane id="mid_charents_2_to_junc20_0" index="0" speed="13.90" length="228.21" shape="1153.10,1107.68 1029.66,1299.62"/>
     </edge>
     <edge id="mid_heratsi_1_to_junc17" from="mid_heratsi_1" to="junc17" priority="1">
-        <lane id="mid_heratsi_1_to_junc17_0" index="0" speed="13.90" length="401.49" shape="862.51,1133.96 774.63,742.20"/>
+        <lane id="mid_heratsi_1_to_junc17_0" index="0" speed="13.90" length="408.42" shape="864.03,1140.72 774.63,742.20"/>
     </edge>
     <edge id="mid_heratsi_1_to_junc20" from="mid_heratsi_1" to="junc20" priority="1">
-        <lane id="mid_heratsi_1_to_junc20_0" index="0" speed="13.90" length="222.57" shape="864.26,1137.26 1016.52,1299.60"/>
+        <lane id="mid_heratsi_1_to_junc20_0" index="0" speed="13.90" length="217.77" shape="867.54,1140.76 1016.52,1299.60"/>
     </edge>
     <edge id="mid_heratsi_2_to_junc15" from="mid_heratsi_2" to="junc15" priority="1">
-        <lane id="mid_heratsi_2_to_junc15_0" index="0" speed="13.90" length="258.11" shape="1130.39,1764.20 1048.30,1519.50"/>
+        <lane id="mid_heratsi_2_to_junc15_0" index="0" speed="13.90" length="323.03" shape="1151.55,1827.26 1048.80,1521.01"/>
     </edge>
     <edge id="mid_heratsi_2_to_junc20" from="mid_heratsi_2" to="junc20" priority="1">
-        <lane id="mid_heratsi_2_to_junc20_0" index="0" speed="13.90" length="462.92" shape="1136.49,1762.28 1022.08,1313.72"/>
+        <lane id="mid_heratsi_2_to_junc20_0" index="0" speed="13.90" length="529.51" shape="1152.95,1826.81 1022.08,1313.72"/>
+    </edge>
+    <edge id="mid_heratsi_2_to_junc21" from="mid_heratsi_2" to="junc21" priority="1">
+        <lane id="mid_heratsi_2_to_junc21_0" index="0" speed="13.90" length="242.19" shape="1145.05,1831.70 985.60,1649.41"/>
     </edge>
     <edge id="mid_isahakyan_1_to_junc10" from="mid_isahakyan_1" to="junc10" priority="1">
         <lane id="mid_isahakyan_1_to_junc10_0" index="0" speed="13.90" length="155.34" shape="811.91,1511.45 717.06,1634.47"/>
@@ -1071,11 +1143,23 @@
     <edge id="mid_khanjyan_1_to_junc16" from="mid_khanjyan_1" to="junc16" priority="1">
         <lane id="mid_khanjyan_1_to_junc16_0" index="0" speed="13.90" length="314.02" shape="817.49,1198.04 807.93,884.17"/>
     </edge>
-    <edge id="mid_koryun_1_to_junc11" from="mid_koryun_1" to="junc11" priority="1">
-        <lane id="mid_koryun_1_to_junc11_0" index="0" speed="13.90" length="95.06" shape="924.99,1723.50 858.46,1791.39"/>
+    <edge id="mid_khanjyan_2_to_junc16" from="mid_khanjyan_2" to="junc16" priority="1">
+        <lane id="mid_khanjyan_2_to_junc16_0" index="0" speed="13.90" length="215.47" shape="735.39,660.44 807.72,863.41"/>
     </edge>
-    <edge id="mid_koryun_1_to_junc15" from="mid_koryun_1" to="junc15" priority="1">
-        <lane id="mid_koryun_1_to_junc15_0" index="0" speed="13.90" length="234.55" shape="922.96,1720.94 1039.35,1517.31"/>
+    <edge id="mid_khanjyan_2_to_junc17" from="mid_khanjyan_2" to="junc17" priority="1">
+        <lane id="mid_khanjyan_2_to_junc17_0" index="0" speed="13.90" length="90.22" shape="741.29,657.98 777.46,740.63"/>
+    </edge>
+    <edge id="mid_koryun_0_to_junc15" from="mid_koryun_0" to="junc15" priority="1">
+        <lane id="mid_koryun_0_to_junc15_0" index="0" speed="13.90" length="59.01" shape="1018.24,1574.48 1040.07,1519.66"/>
+    </edge>
+    <edge id="mid_koryun_0_to_junc21" from="mid_koryun_0" to="junc21" priority="1">
+        <lane id="mid_koryun_0_to_junc21_0" index="0" speed="13.90" length="70.62" shape="1020.92,1576.26 986.01,1637.65"/>
+    </edge>
+    <edge id="mid_koryun_1_to_junc11" from="mid_koryun_1" to="junc11" priority="1">
+        <lane id="mid_koryun_1_to_junc11_0" index="0" speed="13.90" length="95.23" shape="925.11,1723.38 858.46,1791.39"/>
+    </edge>
+    <edge id="mid_koryun_1_to_junc21" from="mid_koryun_1" to="junc21" priority="1">
+        <lane id="mid_koryun_1_to_junc21_0" index="0" speed="13.90" length="90.00" shape="922.98,1720.96 975.53,1647.89"/>
     </edge>
     <edge id="mid_koryun_2_to_junc11" from="mid_koryun_2" to="junc11" priority="1">
         <lane id="mid_koryun_2_to_junc11_0" index="0" speed="13.90" length="101.61" shape="778.09,1875.86 845.87,1800.16"/>
@@ -1150,7 +1234,7 @@
         <lane id="mid_sayat_nova_1_to_junc19_0" index="0" speed="13.90" length="154.14" shape="1007.99,669.70 1116.41,560.14"/>
     </edge>
     <edge id="mid_sayat_nova_2_to_junc16" from="mid_sayat_nova_2" to="junc16" priority="1">
-        <lane id="mid_sayat_nova_2_to_junc16_0" index="0" speed="13.90" length="68.55" shape="864.98,823.59 814.29,869.74"/>
+        <lane id="mid_sayat_nova_2_to_junc16_0" index="0" speed="13.90" length="65.21" shape="864.98,823.59 816.76,867.49"/>
     </edge>
     <edge id="mid_sayat_nova_2_to_junc18" from="mid_sayat_nova_2" to="junc18" priority="1">
         <lane id="mid_sayat_nova_2_to_junc18_0" index="0" speed="13.90" length="57.51" shape="862.91,821.14 902.52,779.45"/>
@@ -1249,10 +1333,10 @@
         <phase duration="3"  state="rryrr"/>
     </tlLogic>
     <tlLogic id="junc16" type="static" programID="0" offset="0">
-        <phase duration="42" state="rrrGGgGG"/>
-        <phase duration="3"  state="rrrGyyyy"/>
-        <phase duration="42" state="GGGGrrrr"/>
-        <phase duration="3"  state="yyyGrrrr"/>
+        <phase duration="42" state="rrrGGgrGG"/>
+        <phase duration="3"  state="rrryyyryy"/>
+        <phase duration="42" state="GGgrrrGrr"/>
+        <phase duration="3"  state="yyyrrryrr"/>
     </tlLogic>
     <tlLogic id="junc18" type="static" programID="0" offset="0">
         <phase duration="42" state="GGgrrrGGg"/>
@@ -1273,6 +1357,12 @@
         <phase duration="3"  state="yyrrryy"/>
         <phase duration="42" state="rrGGGrr"/>
         <phase duration="3"  state="rryyyrr"/>
+    </tlLogic>
+    <tlLogic id="junc21" type="static" programID="0" offset="0">
+        <phase duration="42" state="rrGGG"/>
+        <phase duration="3"  state="rrGyy"/>
+        <phase duration="42" state="GGGrr"/>
+        <phase duration="3"  state="yyGrr"/>
     </tlLogic>
     <tlLogic id="junc4" type="static" programID="0" offset="0">
         <phase duration="42" state="rrrGGgrrGGg"/>
@@ -1386,29 +1476,30 @@
         <request index="3" response="00000" foes="00100" cont="0"/>
         <request index="4" response="00011" foes="00111" cont="1"/>
     </junction>
-    <junction id="junc15" type="priority" x="1046.27" y="1508.43" incLanes="mid_heratsi_2_to_junc15_0 mid_charents_2_to_junc15_0 mid_nalbandyan_1_to_junc15_0 mid_koryun_1_to_junc15_0" intLanes=":junc15_0_0 :junc15_1_0 :junc15_2_0 :junc15_3_0 :junc15_4_0 :junc15_5_0 :junc15_6_0 :junc15_7_0 :junc15_9_0" shape="1046.78,1520.01 1052.85,1517.97 1051.66,1514.46 1050.83,1511.76 1050.39,1509.47 1050.38,1507.16 1050.81,1504.44 1051.73,1500.87 1045.57,1499.13 1044.61,1501.00 1043.96,1501.41 1043.20,1501.46 1042.32,1501.17 1041.32,1500.53 1037.39,1505.58 1039.56,1508.42 1039.90,1510.15 1039.75,1512.07 1039.10,1514.19 1037.96,1516.51 1043.52,1519.69 1044.77,1518.18 1045.33,1518.03 1045.85,1518.29 1046.33,1518.94">
-        <request index="0" response="000001000" foes="000001000" cont="0"/>
-        <request index="1" response="110101000" foes="110111000" cont="0"/>
-        <request index="2" response="000000000" foes="100100000" cont="0"/>
-        <request index="3" response="000000000" foes="100100011" cont="0"/>
-        <request index="4" response="010000010" foes="010000010" cont="0"/>
-        <request index="5" response="110001100" foes="110001110" cont="0"/>
-        <request index="6" response="000000000" foes="000000000" cont="0"/>
-        <request index="7" response="000000000" foes="000110010" cont="0"/>
-        <request index="8" response="000001100" foes="000101110" cont="1"/>
+    <junction id="junc15" type="priority" x="1046.27" y="1508.43" incLanes="mid_heratsi_2_to_junc15_0 mid_charents_2_to_junc15_0 mid_nalbandyan_1_to_junc15_0 mid_koryun_0_to_junc15_0" intLanes=":junc15_0_0 :junc15_1_0 :junc15_2_0 :junc15_3_0 :junc15_4_0 :junc15_5_0 :junc15_6_0 :junc15_8_0" shape="1047.28,1521.52 1053.35,1519.48 1052.02,1515.65 1051.05,1512.72 1050.47,1510.22 1050.36,1507.72 1050.76,1504.75 1051.73,1500.87 1045.57,1499.13 1044.61,1501.00 1043.96,1501.41 1043.20,1501.46 1042.32,1501.17 1041.32,1500.53 1037.39,1505.58 1038.82,1507.03 1039.75,1508.81 1040.20,1510.90 1040.15,1513.31 1039.61,1516.03 1038.59,1519.07 1044.53,1521.44 1045.50,1519.80 1045.96,1519.60 1046.41,1519.82 1046.85,1520.46">
+        <request index="0" response="00000100" foes="00000100" cont="0"/>
+        <request index="1" response="00000000" foes="10010000" cont="0"/>
+        <request index="2" response="00000000" foes="10010001" cont="0"/>
+        <request index="3" response="01000000" foes="01000000" cont="0"/>
+        <request index="4" response="11000110" foes="11000110" cont="0"/>
+        <request index="5" response="00000000" foes="00000000" cont="0"/>
+        <request index="6" response="00000000" foes="00011000" cont="0"/>
+        <request index="7" response="00000110" foes="00010110" cont="1"/>
     </junction>
-    <junction id="junc16" type="traffic_light" x="809.17" y="872.24" incLanes="mid_khanjyan_1_to_junc16_0 mid_sayat_nova_2_to_junc16_0 mid_sayat_nova_3_to_junc16_0" intLanes=":junc16_0_0 :junc16_1_0 :junc16_2_0 :junc16_3_0 :junc16_4_0 :junc16_8_0 :junc16_6_0 :junc16_7_0" shape="806.33,884.22 812.73,884.02 812.72,880.77 812.88,877.94 813.23,875.54 813.76,873.57 814.48,872.03 815.37,870.92 811.06,866.19 809.22,867.32 808.43,867.33 807.75,866.99 807.16,866.28 806.66,865.20 803.65,866.28 803.94,870.00 803.36,872.03 802.32,874.19 800.79,876.46 798.79,878.85 803.51,883.17 805.03,881.97 805.57,881.96 805.97,882.32 806.22,883.08">
-        <request index="0" response="00010000" foes="00010000" cont="0"/>
-        <request index="1" response="11110000" foes="11110000" cont="0"/>
-        <request index="2" response="10110000" foes="10110000" cont="0"/>
-        <request index="3" response="00000000" foes="00000000" cont="0"/>
-        <request index="4" response="00000000" foes="00000111" cont="0"/>
-        <request index="5" response="11000000" foes="11000110" cont="1"/>
-        <request index="6" response="00000000" foes="00100010" cont="0"/>
-        <request index="7" response="00000000" foes="00100110" cont="0"/>
+    <junction id="junc16" type="traffic_light" x="809.17" y="872.24" incLanes="mid_khanjyan_1_to_junc16_0 mid_sayat_nova_2_to_junc16_0 mid_khanjyan_2_to_junc16_0 mid_sayat_nova_3_to_junc16_0" intLanes=":junc16_0_0 :junc16_1_0 :junc16_9_0 :junc16_3_0 :junc16_4_0 :junc16_10_0 :junc16_6_0 :junc16_7_0 :junc16_8_0" shape="806.33,884.22 812.73,884.02 812.78,880.70 813.16,877.69 813.85,874.98 814.86,872.58 816.19,870.47 817.84,868.68 813.53,863.94 811.74,865.02 810.97,865.02 810.30,864.66 809.72,863.95 809.23,862.87 803.20,865.02 803.72,867.20 803.74,869.44 803.25,871.72 802.27,874.05 800.78,876.42 798.79,878.85 803.51,883.17 805.03,881.97 805.57,881.96 805.97,882.32 806.22,883.08">
+        <request index="0" response="000010000" foes="000010000" cont="0"/>
+        <request index="1" response="110110000" foes="110110000" cont="0"/>
+        <request index="2" response="101110000" foes="101110000" cont="1"/>
+        <request index="3" response="000000000" foes="001000000" cont="0"/>
+        <request index="4" response="000000100" foes="001000111" cont="0"/>
+        <request index="5" response="110000100" foes="111000110" cont="1"/>
+        <request index="6" response="100111000" foes="100111100" cont="0"/>
+        <request index="7" response="000000000" foes="000100010" cont="0"/>
+        <request index="8" response="000000100" foes="001100110" cont="0"/>
     </junction>
-    <junction id="junc17" type="priority" x="776.12" y="741.55" incLanes="mid_heratsi_1_to_junc17_0" intLanes=":junc17_0_0" shape="773.07,742.55 776.19,741.85 776.14,741.63 776.11,741.55 776.09,741.48 776.00,741.27">
-        <request index="0" response="0" foes="0" cont="0"/>
+    <junction id="junc17" type="priority" x="776.12" y="741.55" incLanes="mid_heratsi_1_to_junc17_0 mid_khanjyan_2_to_junc17_0" intLanes=":junc17_0_0 :junc17_1_0" shape="773.07,742.55 779.31,741.15 779.21,740.71 779.16,740.55 779.11,740.40 779.03,740.22 778.93,739.98">
+        <request index="0" response="00" foes="00" cont="0"/>
+        <request index="1" response="00" foes="00" cont="0"/>
     </junction>
     <junction id="junc18" type="traffic_light" x="908.18" y="775.81" incLanes="mid_sayat_nova_1_to_junc18_0 mid_alek_manukyan_1_to_junc18_0 mid_sayat_nova_2_to_junc18_0" intLanes=":junc18_0_0 :junc18_1_0 :junc18_9_0 :junc18_3_0 :junc18_4_0 :junc18_5_0 :junc18_6_0 :junc18_7_0 :junc18_10_0" shape="909.31,783.81 912.48,783.36 912.35,781.23 912.58,779.15 913.15,777.11 914.08,775.12 915.35,773.17 916.98,771.27 912.37,766.84 910.70,768.01 909.99,768.04 909.37,767.70 908.83,766.99 908.38,765.91 902.29,767.85 902.89,770.12 903.19,772.18 903.19,774.04 902.88,775.68 902.27,777.12 901.36,778.35 906.00,782.75 907.59,781.58 908.20,781.57 908.70,781.94 909.07,782.68">
         <request index="0" response="000000000" foes="100010000" cont="0"/>
@@ -1438,13 +1529,19 @@
         <request index="5" response="0000000" foes="0011100" cont="0"/>
         <request index="6" response="0000011" foes="0011011" cont="1"/>
     </junction>
-    <junction id="junc20" type="priority" x="1022.30" y="1308.10" incLanes="mid_heratsi_2_to_junc20_0 mid_charents_2_to_junc20_0 mid_alek_manukyan_2_to_junc20_0 mid_heratsi_1_to_junc20_0" intLanes=":junc20_0_0 :junc20_6_0 :junc20_2_0 :junc20_3_0 :junc20_4_0 :junc20_5_0" shape="1020.53,1314.12 1026.73,1312.54 1026.77,1309.47 1027.31,1307.58 1028.19,1305.46 1029.42,1303.09 1031.00,1300.48 1025.62,1297.02 1024.30,1298.46 1023.73,1298.58 1023.22,1298.30 1022.77,1297.62 1022.38,1296.53 1019.30,1297.40 1017.69,1298.51 1013.02,1302.88 1015.07,1304.97 1016.65,1306.53 1017.88,1307.89 1018.87,1309.39 1019.72,1311.35">
-        <request index="0" response="000000" foes="000000" cont="0"/>
-        <request index="1" response="011000" foes="111000" cont="1"/>
-        <request index="2" response="110000" foes="110000" cont="0"/>
-        <request index="3" response="000000" foes="000010" cont="0"/>
-        <request index="4" response="000000" foes="100110" cont="0"/>
-        <request index="5" response="010010" foes="010110" cont="0"/>
+    <junction id="junc20" type="priority" x="1022.30" y="1308.10" incLanes="mid_heratsi_2_to_junc20_0 mid_charents_2_to_junc20_0 mid_alek_manukyan_2_to_junc20_0 mid_heratsi_1_to_junc20_0" intLanes=":junc20_0_0 :junc20_1_0 :junc20_2_0 :junc20_3_0 :junc20_4_0" shape="1020.53,1314.12 1026.73,1312.54 1026.77,1309.47 1027.31,1307.58 1028.19,1305.46 1029.42,1303.09 1031.00,1300.48 1025.62,1297.02 1024.30,1298.46 1023.73,1298.58 1023.22,1298.30 1022.77,1297.62 1022.38,1296.53 1019.30,1297.40 1017.69,1298.51 1013.02,1302.88 1015.07,1304.97 1016.65,1306.53 1017.88,1307.89 1018.87,1309.39 1019.72,1311.35">
+        <request index="0" response="00000" foes="00000" cont="0"/>
+        <request index="1" response="11000" foes="11000" cont="0"/>
+        <request index="2" response="00000" foes="00000" cont="0"/>
+        <request index="3" response="00000" foes="10010" cont="0"/>
+        <request index="4" response="01000" foes="01010" cont="0"/>
+    </junction>
+    <junction id="junc21" type="traffic_light" x="981.52" y="1642.31" incLanes="mid_heratsi_2_to_junc21_0 mid_koryun_0_to_junc21_0 mid_koryun_1_to_junc21_0" intLanes=":junc21_0_0 :junc21_1_0 :junc21_2_0 :junc21_3_0 :junc21_4_0" shape="984.40,1650.46 989.22,1646.25 987.33,1643.45 986.87,1642.13 986.73,1640.85 986.90,1639.62 987.40,1638.44 981.84,1635.27 980.36,1637.85 979.24,1639.74 978.27,1641.27 977.25,1642.76 975.97,1644.55 974.23,1646.96 979.43,1650.70 981.02,1649.23 981.84,1649.01 982.68,1649.15 983.53,1649.63">
+        <request index="0" response="01000" foes="01000" cont="0"/>
+        <request index="1" response="11000" foes="11000" cont="0"/>
+        <request index="2" response="00000" foes="00000" cont="0"/>
+        <request index="3" response="00000" foes="00011" cont="0"/>
+        <request index="4" response="00000" foes="00010" cont="0"/>
     </junction>
     <junction id="junc3" type="priority" x="448.55" y="2056.31" incLanes="mid_koryun_3_to_junc3_0 mid_mesrop_mashtoc_1_to_junc3_0" intLanes=":junc3_0_0 :junc3_1_0" shape="451.17,2058.80 449.11,2052.74 445.30,2057.88 447.15,2058.87 448.11,2059.11 449.10,2059.18 450.12,2059.07">
         <request index="0" response="00" foes="00" cont="0"/>
@@ -1548,13 +1645,20 @@
         <request index="7" response="000000000" foes="000011110" cont="0"/>
         <request index="8" response="000010001" foes="000010001" cont="1"/>
     </junction>
-    <junction id="mid_heratsi_1" type="priority" x="865.78" y="1141.22" incLanes="junc20_to_mid_heratsi_1_0" intLanes=":mid_heratsi_1_0_0 :mid_heratsi_1_1_0" shape="860.76,1140.54 865.43,1136.17 864.71,1135.35 864.50,1135.02 864.34,1134.66 864.21,1134.21 864.07,1133.61 860.95,1134.31">
+    <junction id="mid_heratsi_1" type="priority" x="865.78" y="1141.22" incLanes="junc20_to_mid_heratsi_1_0 junc17_to_mid_heratsi_1_0" intLanes=":mid_heratsi_1_0_0 :mid_heratsi_1_1_0" shape="864.04,1144.05 868.71,1139.67 862.47,1141.07 862.78,1142.30 862.96,1142.71 863.20,1143.09 863.55,1143.51">
         <request index="0" response="00" foes="00" cont="0"/>
         <request index="1" response="00" foes="00" cont="0"/>
     </junction>
-    <junction id="mid_heratsi_2" type="priority" x="1159.42" y="1845.70" incLanes="junc20_to_mid_heratsi_2_0 junc15_to_mid_heratsi_2_0" intLanes=":mid_heratsi_2_0_0 :mid_heratsi_2_1_0" shape="1141.14,1761.09 1134.94,1762.67 1128.87,1764.71">
-        <request index="0" response="00" foes="00" cont="0"/>
-        <request index="1" response="00" foes="00" cont="0"/>
+    <junction id="mid_heratsi_2" type="priority" x="1159.42" y="1845.70" incLanes="junc20_to_mid_heratsi_2_0 junc15_to_mid_heratsi_2_0 junc21_to_mid_heratsi_2_0" intLanes=":mid_heratsi_2_0_0 :mid_heratsi_2_9_0 :mid_heratsi_2_10_0 :mid_heratsi_2_3_0 :mid_heratsi_2_4_0 :mid_heratsi_2_5_0 :mid_heratsi_2_6_0 :mid_heratsi_2_7_0 :mid_heratsi_2_11_0" shape="1157.52,1825.31 1150.03,1827.76 1148.67,1828.54 1143.85,1832.76 1150.33,1839.53 1155.14,1843.10 1158.26,1843.46 1159.70,1840.62 1159.45,1834.56">
+        <request index="0" response="000000000" foes="100001000" cont="0"/>
+        <request index="1" response="011000000" foes="011101000" cont="1"/>
+        <request index="2" response="010010000" foes="010010000" cont="1"/>
+        <request index="3" response="010000011" foes="110000011" cont="0"/>
+        <request index="4" response="010000000" foes="010000100" cont="0"/>
+        <request index="5" response="001000010" foes="001000010" cont="0"/>
+        <request index="6" response="000000000" foes="000100010" cont="0"/>
+        <request index="7" response="000000000" foes="000011110" cont="0"/>
+        <request index="8" response="000001001" foes="000001001" cont="1"/>
     </junction>
     <junction id="mid_isahakyan_1" type="priority" x="810.64" y="1510.47" incLanes="junc14_to_mid_isahakyan_1_0" intLanes=":mid_isahakyan_1_0_0" shape="813.51,1511.89 810.64,1510.47 813.17,1512.42 813.32,1512.24 813.36,1512.17 813.40,1512.10 813.45,1512.01">
         <request index="0" response="0" foes="0" cont="0"/>
@@ -1570,8 +1674,15 @@
         <request index="0" response="00" foes="00" cont="0"/>
         <request index="1" response="00" foes="00" cont="0"/>
     </junction>
-    <junction id="mid_khanjyan_2" type="dead_end" x="703.28" y="575.11" incLanes="junc16_to_mid_khanjyan_2_0 junc17_to_mid_khanjyan_2_0" intLanes="" shape="716.09,620.58 719.10,619.51 719.20,619.47 722.13,618.19 711.65,594.68 704.95,580.73 702.05,576.34 702.94,581.53 707.62,596.27"/>
-    <junction id="mid_koryun_1" type="priority" x="924.14" y="1722.09" incLanes="junc15_to_mid_koryun_1_0 junc11_to_mid_koryun_1_0" intLanes=":mid_koryun_1_0_0 :mid_koryun_1_1_0" shape="927.12,1723.32 921.57,1720.14 926.14,1724.62 926.56,1724.18 926.69,1724.02 926.81,1723.84 926.95,1723.62">
+    <junction id="mid_khanjyan_2" type="priority" x="703.28" y="575.11" incLanes="junc16_to_mid_khanjyan_2_0 junc17_to_mid_khanjyan_2_0" intLanes=":mid_khanjyan_2_0_0 :mid_khanjyan_2_1_0" shape="730.87,662.05 736.90,659.90 742.76,657.34">
+        <request index="0" response="00" foes="00" cont="0"/>
+        <request index="1" response="00" foes="00" cont="0"/>
+    </junction>
+    <junction id="mid_koryun_0" type="priority" x="1019.64" y="1575.28" incLanes="junc15_to_mid_koryun_0_0 junc21_to_mid_koryun_0_0" intLanes=":mid_koryun_0_0_0 :mid_koryun_0_1_0" shape="1022.69,1576.26 1016.75,1573.89 1022.31,1577.05 1022.47,1576.77 1022.52,1576.67 1022.57,1576.56 1022.62,1576.43">
+        <request index="0" response="00" foes="00" cont="0"/>
+        <request index="1" response="00" foes="00" cont="0"/>
+    </junction>
+    <junction id="mid_koryun_1" type="priority" x="924.14" y="1722.09" incLanes="junc21_to_mid_koryun_1_0 junc11_to_mid_koryun_1_0" intLanes=":mid_koryun_1_0_0 :mid_koryun_1_1_0" shape="926.88,1723.76 921.68,1720.02 926.25,1724.50 926.51,1724.24 926.59,1724.15 926.67,1724.05 926.76,1723.93">
         <request index="0" response="00" foes="00" cont="0"/>
         <request index="1" response="00" foes="00" cont="0"/>
     </junction>
@@ -1680,12 +1791,12 @@
     <junction id=":junc12_13_0" type="internal" x="573.61" y="1122.41" incLanes=":junc12_10_0 mid_sayat_nova_3_to_junc12_0" intLanes=":junc12_1_0 :junc12_2_0 :junc12_3_0 :junc12_4_0 :junc12_6_0 :junc12_7_0"/>
     <junction id=":junc13_9_0" type="internal" x="795.95" y="1304.73" incLanes=":junc13_1_0 mid_nalbandyan_3_to_junc13_0" intLanes=":junc13_3_0 :junc13_4_0 :junc13_5_0 :junc13_7_0 :junc13_8_0"/>
     <junction id=":junc14_5_0" type="internal" x="878.13" y="1369.23" incLanes=":junc14_4_0 mid_nalbandyan_1_to_junc14_0" intLanes=":junc14_0_0 :junc14_1_0 :junc14_2_0"/>
-    <junction id=":junc15_9_0" type="internal" x="1042.09" y="1513.60" incLanes=":junc15_8_0 mid_charents_2_to_junc15_0" intLanes=":junc15_1_0 :junc15_2_0 :junc15_3_0 :junc15_5_0"/>
-    <junction id=":junc16_8_0" type="internal" x="811.63" y="871.42" incLanes=":junc16_5_0 mid_sayat_nova_3_to_junc16_0" intLanes=":junc16_1_0 :junc16_2_0 :junc16_6_0 :junc16_7_0"/>
+    <junction id=":junc15_8_0" type="internal" x="1042.79" y="1514.48" incLanes=":junc15_7_0 mid_charents_2_to_junc15_0" intLanes=":junc15_1_0 :junc15_2_0 :junc15_4_0"/>
+    <junction id=":junc16_9_0" type="internal" x="808.18" y="878.79" incLanes=":junc16_2_0 mid_khanjyan_2_to_junc16_0" intLanes=":junc16_4_0 :junc16_5_0 :junc16_6_0 :junc16_8_0"/>
+    <junction id=":junc16_10_0" type="internal" x="813.11" y="869.99" incLanes=":junc16_5_0 mid_sayat_nova_3_to_junc16_0" intLanes=":junc16_1_0 :junc16_2_0 :junc16_6_0 :junc16_7_0 :junc16_8_0"/>
     <junction id=":junc18_9_0" type="internal" x="912.04" y="773.17" incLanes=":junc18_2_0 mid_sayat_nova_2_to_junc18_0" intLanes=":junc18_4_0 :junc18_5_0 :junc18_6_0 :junc18_7_0"/>
     <junction id=":junc18_10_0" type="internal" x="905.58" y="777.03" incLanes=":junc18_8_0 mid_sayat_nova_1_to_junc18_0" intLanes=":junc18_0_0 :junc18_1_0 :junc18_4_0 :junc18_5_0"/>
     <junction id=":junc2_7_0" type="internal" x="285.77" y="1897.78" incLanes=":junc2_6_0 mid_mesrop_mashtoc_1_to_junc2_0" intLanes=":junc2_0_0 :junc2_1_0 :junc2_3_0 :junc2_4_0"/>
-    <junction id=":junc20_6_0" type="internal" x="1021.86" y="1310.32" incLanes=":junc20_1_0 mid_alek_manukyan_2_to_junc20_0" intLanes=":junc20_3_0 :junc20_4_0 :junc20_5_0"/>
     <junction id=":junc4_11_0" type="internal" x="702.03" y="1930.29" incLanes=":junc4_2_0 mid_teryan_2_to_junc4_0" intLanes=":junc4_4_0 :junc4_5_0 :junc4_6_0 :junc4_7_0 :junc4_9_0 :junc4_10_0"/>
     <junction id=":junc4_12_0" type="internal" x="703.91" y="1925.58" incLanes=":junc4_5_0 mid_koryun_3_to_junc4_0" intLanes=":junc4_1_0 :junc4_2_0 :junc4_7_0 :junc4_8_0 :junc4_9_0"/>
     <junction id=":junc4_13_0" type="internal" x="697.06" y="1927.92" incLanes=":junc4_10_0 mid_koryun_2_to_junc4_0" intLanes=":junc4_1_0 :junc4_2_0 :junc4_3_0 :junc4_4_0 :junc4_7_0"/>
@@ -1697,6 +1808,9 @@
     <junction id=":mid_charents_2_9_0" type="internal" x="1165.61" y="1084.32" incLanes=":mid_charents_2_1_0 junc15_to_mid_charents_2_0" intLanes=":mid_charents_2_4_0 :mid_charents_2_5_0 :mid_charents_2_6_0 :mid_charents_2_7_0"/>
     <junction id=":mid_charents_2_10_0" type="internal" x="1166.01" y="1081.53" incLanes=":mid_charents_2_2_0 junc15_to_mid_charents_2_0 junc20_to_mid_charents_2_0" intLanes=":mid_charents_2_3_0 :mid_charents_2_7_0"/>
     <junction id=":mid_charents_2_11_0" type="internal" x="1158.16" y="1108.53" incLanes=":mid_charents_2_8_0 junc19_to_mid_charents_2_0 junc20_to_mid_charents_2_0" intLanes=":mid_charents_2_0_0 :mid_charents_2_4_0"/>
+    <junction id=":mid_heratsi_2_9_0" type="internal" x="1155.69" y="1827.44" incLanes=":mid_heratsi_2_1_0 junc21_to_mid_heratsi_2_0" intLanes=":mid_heratsi_2_3_0 :mid_heratsi_2_5_0 :mid_heratsi_2_6_0 :mid_heratsi_2_7_0"/>
+    <junction id=":mid_heratsi_2_10_0" type="internal" x="1155.61" y="1827.20" incLanes=":mid_heratsi_2_2_0 junc15_to_mid_heratsi_2_0 junc21_to_mid_heratsi_2_0" intLanes=":mid_heratsi_2_4_0 :mid_heratsi_2_7_0"/>
+    <junction id=":mid_heratsi_2_11_0" type="internal" x="1147.61" y="1830.69" incLanes=":mid_heratsi_2_8_0 junc15_to_mid_heratsi_2_0 junc20_to_mid_heratsi_2_0" intLanes=":mid_heratsi_2_0_0 :mid_heratsi_2_3_0"/>
 
     <connection from="junc0_to_mid_baghramyan_1" to="mid_baghramyan_1_to_junc0" fromLane="0" toLane="0" via=":mid_baghramyan_1_0_0" dir="t" state="M"/>
     <connection from="junc0_to_mid_mesrop_mashtoc_3" to="mid_mesrop_mashtoc_3_to_junc1" fromLane="0" toLane="0" via=":mid_mesrop_mashtoc_3_1_0" dir="s" state="M"/>
@@ -1707,7 +1821,7 @@
     <connection from="junc10_to_mid_isahakyan_2" to="mid_isahakyan_2_to_junc5" fromLane="0" toLane="0" via=":mid_isahakyan_2_0_0" dir="s" state="M"/>
     <connection from="junc11_to_mid_abovyan_1" to="mid_abovyan_1_to_junc11" fromLane="0" toLane="0" via=":mid_abovyan_1_0_0" dir="t" state="M"/>
     <connection from="junc11_to_mid_abovyan_2" to="mid_abovyan_2_to_junc10" fromLane="0" toLane="0" via=":mid_abovyan_2_0_0" dir="s" state="M"/>
-    <connection from="junc11_to_mid_koryun_1" to="mid_koryun_1_to_junc15" fromLane="0" toLane="0" via=":mid_koryun_1_1_0" dir="s" state="M"/>
+    <connection from="junc11_to_mid_koryun_1" to="mid_koryun_1_to_junc21" fromLane="0" toLane="0" via=":mid_koryun_1_1_0" dir="s" state="M"/>
     <connection from="junc11_to_mid_koryun_2" to="mid_koryun_2_to_junc4" fromLane="0" toLane="0" via=":mid_koryun_2_0_0" dir="s" state="M"/>
     <connection from="junc12_to_mid_nalbandyan_3" to="mid_nalbandyan_3_to_junc13" fromLane="0" toLane="0" via=":mid_nalbandyan_3_1_0" dir="s" state="M"/>
     <connection from="junc12_to_mid_nalbandyan_4" to="mid_nalbandyan_4_to_junc12" fromLane="0" toLane="0" via=":mid_nalbandyan_4_0_0" dir="t" state="M"/>
@@ -1722,12 +1836,17 @@
     <connection from="junc15_to_mid_charents_2" to="mid_charents_2_to_junc20" fromLane="0" toLane="0" via=":mid_charents_2_6_0" dir="r" state="M"/>
     <connection from="junc15_to_mid_charents_2" to="mid_charents_2_to_junc19" fromLane="0" toLane="0" via=":mid_charents_2_7_0" dir="s" state="M"/>
     <connection from="junc15_to_mid_charents_2" to="mid_charents_2_to_junc15" fromLane="0" toLane="0" via=":mid_charents_2_8_0" dir="t" state="m"/>
-    <connection from="junc15_to_mid_heratsi_2" to="mid_heratsi_2_to_junc20" fromLane="0" toLane="0" via=":mid_heratsi_2_1_0" dir="r" state="M"/>
-    <connection from="junc15_to_mid_koryun_1" to="mid_koryun_1_to_junc11" fromLane="0" toLane="0" via=":mid_koryun_1_0_0" dir="s" state="M"/>
+    <connection from="junc15_to_mid_heratsi_2" to="mid_heratsi_2_to_junc21" fromLane="0" toLane="0" via=":mid_heratsi_2_3_0" dir="l" state="m"/>
+    <connection from="junc15_to_mid_heratsi_2" to="mid_heratsi_2_to_junc20" fromLane="0" toLane="0" via=":mid_heratsi_2_4_0" dir="r" state="m"/>
+    <connection from="junc15_to_mid_heratsi_2" to="mid_heratsi_2_to_junc15" fromLane="0" toLane="0" via=":mid_heratsi_2_5_0" dir="t" state="m"/>
+    <connection from="junc15_to_mid_koryun_0" to="mid_koryun_0_to_junc21" fromLane="0" toLane="0" via=":mid_koryun_0_0_0" dir="s" state="M"/>
     <connection from="junc15_to_mid_nalbandyan_1" to="mid_nalbandyan_1_to_junc14" fromLane="0" toLane="0" via=":mid_nalbandyan_1_0_0" dir="s" state="M"/>
     <connection from="junc16_to_mid_khanjyan_1" to="mid_khanjyan_1_to_junc13" fromLane="0" toLane="0" via=":mid_khanjyan_1_0_0" dir="s" state="M"/>
+    <connection from="junc16_to_mid_khanjyan_2" to="mid_khanjyan_2_to_junc17" fromLane="0" toLane="0" via=":mid_khanjyan_2_0_0" dir="l" state="M"/>
     <connection from="junc16_to_mid_sayat_nova_2" to="mid_sayat_nova_2_to_junc18" fromLane="0" toLane="0" via=":mid_sayat_nova_2_1_0" dir="s" state="M"/>
     <connection from="junc16_to_mid_sayat_nova_3" to="mid_sayat_nova_3_to_junc12" fromLane="0" toLane="0" via=":mid_sayat_nova_3_0_0" dir="s" state="M"/>
+    <connection from="junc17_to_mid_heratsi_1" to="mid_heratsi_1_to_junc20" fromLane="0" toLane="0" via=":mid_heratsi_1_1_0" dir="s" state="M"/>
+    <connection from="junc17_to_mid_khanjyan_2" to="mid_khanjyan_2_to_junc16" fromLane="0" toLane="0" via=":mid_khanjyan_2_1_0" dir="r" state="M"/>
     <connection from="junc18_to_mid_alek_manukyan_1" to="mid_alek_manukyan_1_to_junc18" fromLane="0" toLane="0" via=":mid_alek_manukyan_1_0_0" dir="t" state="M"/>
     <connection from="junc18_to_mid_alek_manukyan_2" to="mid_alek_manukyan_2_to_junc20" fromLane="0" toLane="0" via=":mid_alek_manukyan_2_0_0" dir="s" state="M"/>
     <connection from="junc18_to_mid_alek_manukyan_2" to="mid_alek_manukyan_2_to_junc14" fromLane="0" toLane="0" via=":mid_alek_manukyan_2_1_0" dir="L" state="M"/>
@@ -1746,8 +1865,14 @@
     <connection from="junc20_to_mid_charents_2" to="mid_charents_2_to_junc15" fromLane="0" toLane="0" via=":mid_charents_2_4_0" dir="l" state="m"/>
     <connection from="junc20_to_mid_charents_2" to="mid_charents_2_to_junc20" fromLane="0" toLane="0" via=":mid_charents_2_5_0" dir="t" state="m"/>
     <connection from="junc20_to_mid_heratsi_1" to="mid_heratsi_1_to_junc17" fromLane="0" toLane="0" via=":mid_heratsi_1_0_0" dir="s" state="M"/>
-    <connection from="junc20_to_mid_heratsi_1" to="mid_heratsi_1_to_junc20" fromLane="0" toLane="0" via=":mid_heratsi_1_1_0" dir="t" state="M"/>
-    <connection from="junc20_to_mid_heratsi_2" to="mid_heratsi_2_to_junc15" fromLane="0" toLane="0" via=":mid_heratsi_2_0_0" dir="l" state="M"/>
+    <connection from="junc20_to_mid_heratsi_2" to="mid_heratsi_2_to_junc21" fromLane="0" toLane="0" via=":mid_heratsi_2_0_0" dir="l" state="M"/>
+    <connection from="junc20_to_mid_heratsi_2" to="mid_heratsi_2_to_junc15" fromLane="0" toLane="0" via=":mid_heratsi_2_1_0" dir="l" state="m"/>
+    <connection from="junc20_to_mid_heratsi_2" to="mid_heratsi_2_to_junc20" fromLane="0" toLane="0" via=":mid_heratsi_2_2_0" dir="t" state="m"/>
+    <connection from="junc21_to_mid_heratsi_2" to="mid_heratsi_2_to_junc15" fromLane="0" toLane="0" via=":mid_heratsi_2_6_0" dir="r" state="M"/>
+    <connection from="junc21_to_mid_heratsi_2" to="mid_heratsi_2_to_junc20" fromLane="0" toLane="0" via=":mid_heratsi_2_7_0" dir="r" state="M"/>
+    <connection from="junc21_to_mid_heratsi_2" to="mid_heratsi_2_to_junc21" fromLane="0" toLane="0" via=":mid_heratsi_2_8_0" dir="t" state="m"/>
+    <connection from="junc21_to_mid_koryun_0" to="mid_koryun_0_to_junc15" fromLane="0" toLane="0" via=":mid_koryun_0_1_0" dir="s" state="M"/>
+    <connection from="junc21_to_mid_koryun_1" to="mid_koryun_1_to_junc11" fromLane="0" toLane="0" via=":mid_koryun_1_0_0" dir="s" state="M"/>
     <connection from="junc2_to_mid_mesrop_mashtoc_1" to="mid_mesrop_mashtoc_1_to_junc3" fromLane="0" toLane="0" via=":mid_mesrop_mashtoc_1_1_0" dir="s" state="M"/>
     <connection from="junc2_to_mid_mesrop_mashtoc_2" to="mid_mesrop_mashtoc_2_to_junc1" fromLane="0" toLane="0" via=":mid_mesrop_mashtoc_2_0_0" dir="s" state="M"/>
     <connection from="junc3_to_mid_koryun_3" to="mid_koryun_3_to_junc4" fromLane="0" toLane="0" via=":mid_koryun_3_1_0" dir="s" state="M"/>
@@ -1788,24 +1913,24 @@
     <connection from="mid_alek_manukyan_1_to_junc18" to="junc18_to_mid_alek_manukyan_2" fromLane="0" toLane="0" via=":junc18_4_0" tl="junc18" linkIndex="4" dir="s" state="o"/>
     <connection from="mid_alek_manukyan_1_to_junc18" to="junc18_to_mid_sayat_nova_2" fromLane="0" toLane="0" via=":junc18_5_0" tl="junc18" linkIndex="5" dir="l" state="o"/>
     <connection from="mid_alek_manukyan_2_to_junc14" to="junc14_to_mid_isahakyan_1" fromLane="0" toLane="0" via=":junc14_2_0" tl="junc14" linkIndex="2" dir="s" state="o"/>
-    <connection from="mid_alek_manukyan_2_to_junc20" to="junc20_to_mid_charents_2" fromLane="0" toLane="0" via=":junc20_3_0" dir="r" state="M"/>
-    <connection from="mid_alek_manukyan_2_to_junc20" to="junc20_to_mid_heratsi_2" fromLane="0" toLane="0" via=":junc20_4_0" dir="s" state="M"/>
+    <connection from="mid_alek_manukyan_2_to_junc20" to="junc20_to_mid_charents_2" fromLane="0" toLane="0" via=":junc20_2_0" dir="r" state="M"/>
+    <connection from="mid_alek_manukyan_2_to_junc20" to="junc20_to_mid_heratsi_2" fromLane="0" toLane="0" via=":junc20_3_0" dir="s" state="M"/>
     <connection from="mid_baghramyan_1_to_junc0" to="junc0_to_mid_mesrop_mashtoc_4" fromLane="0" toLane="0" via=":junc0_9_0" tl="junc0" linkIndex="9" dir="r" state="o"/>
     <connection from="mid_baghramyan_1_to_junc0" to="junc0_to_mid_sayat_nova_6" fromLane="0" toLane="0" via=":junc0_10_0" tl="junc0" linkIndex="10" dir="s" state="o"/>
     <connection from="mid_baghramyan_1_to_junc0" to="junc0_to_mid_mesrop_mashtoc_3" fromLane="0" toLane="0" via=":junc0_11_0" tl="junc0" linkIndex="11" dir="l" state="o"/>
     <connection from="mid_charents_1_to_junc19" to="junc19_to_mid_charents_2" fromLane="0" toLane="0" via=":junc19_2_0" tl="junc19" linkIndex="2" dir="s" state="O"/>
     <connection from="mid_charents_1_to_junc19" to="junc19_to_mid_sayat_nova_1" fromLane="0" toLane="0" via=":junc19_3_0" tl="junc19" linkIndex="3" dir="L" state="o"/>
-    <connection from="mid_charents_2_to_junc15" to="junc15_to_mid_heratsi_2" fromLane="0" toLane="0" via=":junc15_2_0" dir="R" state="M"/>
-    <connection from="mid_charents_2_to_junc15" to="junc15_to_mid_koryun_1" fromLane="0" toLane="0" via=":junc15_3_0" dir="s" state="M"/>
+    <connection from="mid_charents_2_to_junc15" to="junc15_to_mid_heratsi_2" fromLane="0" toLane="0" via=":junc15_1_0" dir="R" state="M"/>
+    <connection from="mid_charents_2_to_junc15" to="junc15_to_mid_koryun_0" fromLane="0" toLane="0" via=":junc15_2_0" dir="s" state="M"/>
     <connection from="mid_charents_2_to_junc19" to="junc19_to_mid_sayat_nova_1" fromLane="0" toLane="0" via=":junc19_0_0" tl="junc19" linkIndex="0" dir="r" state="O"/>
     <connection from="mid_charents_2_to_junc19" to="junc19_to_mid_charents_1" fromLane="0" toLane="0" via=":junc19_1_0" tl="junc19" linkIndex="1" dir="s" state="O"/>
-    <connection from="mid_charents_2_to_junc20" to="junc20_to_mid_heratsi_2" fromLane="0" toLane="0" via=":junc20_2_0" dir="r" state="m"/>
+    <connection from="mid_charents_2_to_junc20" to="junc20_to_mid_heratsi_2" fromLane="0" toLane="0" via=":junc20_1_0" dir="r" state="m"/>
     <connection from="mid_heratsi_1_to_junc17" to="junc17_to_mid_khanjyan_2" fromLane="0" toLane="0" via=":junc17_0_0" dir="s" state="M"/>
-    <connection from="mid_heratsi_1_to_junc20" to="junc20_to_mid_heratsi_2" fromLane="0" toLane="0" via=":junc20_5_0" dir="s" state="m"/>
-    <connection from="mid_heratsi_2_to_junc15" to="junc15_to_mid_koryun_1" fromLane="0" toLane="0" via=":junc15_0_0" dir="r" state="m"/>
-    <connection from="mid_heratsi_2_to_junc15" to="junc15_to_mid_charents_2" fromLane="0" toLane="0" via=":junc15_1_0" dir="s" state="m"/>
+    <connection from="mid_heratsi_1_to_junc20" to="junc20_to_mid_heratsi_2" fromLane="0" toLane="0" via=":junc20_4_0" dir="s" state="m"/>
+    <connection from="mid_heratsi_2_to_junc15" to="junc15_to_mid_koryun_0" fromLane="0" toLane="0" via=":junc15_0_0" dir="r" state="m"/>
     <connection from="mid_heratsi_2_to_junc20" to="junc20_to_mid_heratsi_1" fromLane="0" toLane="0" via=":junc20_0_0" dir="s" state="M"/>
-    <connection from="mid_heratsi_2_to_junc20" to="junc20_to_mid_charents_2" fromLane="0" toLane="0" via=":junc20_1_0" dir="l" state="m"/>
+    <connection from="mid_heratsi_2_to_junc21" to="junc21_to_mid_koryun_1" fromLane="0" toLane="0" via=":junc21_0_0" tl="junc21" linkIndex="0" dir="r" state="o"/>
+    <connection from="mid_heratsi_2_to_junc21" to="junc21_to_mid_koryun_0" fromLane="0" toLane="0" via=":junc21_1_0" tl="junc21" linkIndex="1" dir="l" state="o"/>
     <connection from="mid_isahakyan_1_to_junc10" to="junc10_to_mid_abovyan_2" fromLane="0" toLane="0" via=":junc10_2_0" tl="junc10" linkIndex="2" dir="r" state="o"/>
     <connection from="mid_isahakyan_1_to_junc10" to="junc10_to_mid_isahakyan_2" fromLane="0" toLane="0" via=":junc10_3_0" tl="junc10" linkIndex="3" dir="s" state="o"/>
     <connection from="mid_isahakyan_1_to_junc10" to="junc10_to_mid_abovyan_3" fromLane="0" toLane="0" via=":junc10_4_0" tl="junc10" linkIndex="4" dir="l" state="o"/>
@@ -1820,11 +1945,16 @@
     <connection from="mid_khanjyan_1_to_junc16" to="junc16_to_mid_sayat_nova_3" fromLane="0" toLane="0" via=":junc16_0_0" tl="junc16" linkIndex="0" dir="r" state="o"/>
     <connection from="mid_khanjyan_1_to_junc16" to="junc16_to_mid_khanjyan_2" fromLane="0" toLane="0" via=":junc16_1_0" tl="junc16" linkIndex="1" dir="s" state="o"/>
     <connection from="mid_khanjyan_1_to_junc16" to="junc16_to_mid_sayat_nova_2" fromLane="0" toLane="0" via=":junc16_2_0" tl="junc16" linkIndex="2" dir="l" state="o"/>
+    <connection from="mid_khanjyan_2_to_junc16" to="junc16_to_mid_khanjyan_1" fromLane="0" toLane="0" via=":junc16_6_0" tl="junc16" linkIndex="6" dir="s" state="o"/>
+    <connection from="mid_khanjyan_2_to_junc17" to="junc17_to_mid_heratsi_1" fromLane="0" toLane="0" via=":junc17_1_0" dir="s" state="M"/>
+    <connection from="mid_koryun_0_to_junc15" to="junc15_to_mid_nalbandyan_1" fromLane="0" toLane="0" via=":junc15_5_0" dir="r" state="M"/>
+    <connection from="mid_koryun_0_to_junc15" to="junc15_to_mid_charents_2" fromLane="0" toLane="0" via=":junc15_6_0" dir="s" state="M"/>
+    <connection from="mid_koryun_0_to_junc15" to="junc15_to_mid_heratsi_2" fromLane="0" toLane="0" via=":junc15_7_0" dir="l" state="m"/>
+    <connection from="mid_koryun_0_to_junc21" to="junc21_to_mid_heratsi_2" fromLane="0" toLane="0" via=":junc21_2_0" tl="junc21" linkIndex="2" dir="r" state="O"/>
+    <connection from="mid_koryun_0_to_junc21" to="junc21_to_mid_koryun_1" fromLane="0" toLane="0" via=":junc21_3_0" tl="junc21" linkIndex="3" dir="s" state="O"/>
     <connection from="mid_koryun_1_to_junc11" to="junc11_to_mid_abovyan_1" fromLane="0" toLane="0" via=":junc11_3_0" tl="junc11" linkIndex="3" dir="r" state="O"/>
     <connection from="mid_koryun_1_to_junc11" to="junc11_to_mid_koryun_2" fromLane="0" toLane="0" via=":junc11_4_0" tl="junc11" linkIndex="4" dir="s" state="O"/>
-    <connection from="mid_koryun_1_to_junc15" to="junc15_to_mid_nalbandyan_1" fromLane="0" toLane="0" via=":junc15_6_0" dir="r" state="M"/>
-    <connection from="mid_koryun_1_to_junc15" to="junc15_to_mid_charents_2" fromLane="0" toLane="0" via=":junc15_7_0" dir="s" state="M"/>
-    <connection from="mid_koryun_1_to_junc15" to="junc15_to_mid_heratsi_2" fromLane="0" toLane="0" via=":junc15_8_0" dir="l" state="m"/>
+    <connection from="mid_koryun_1_to_junc21" to="junc21_to_mid_koryun_0" fromLane="0" toLane="0" via=":junc21_4_0" tl="junc21" linkIndex="4" dir="s" state="O"/>
     <connection from="mid_koryun_2_to_junc11" to="junc11_to_mid_abovyan_2" fromLane="0" toLane="0" via=":junc11_7_0" tl="junc11" linkIndex="7" dir="r" state="O"/>
     <connection from="mid_koryun_2_to_junc11" to="junc11_to_mid_koryun_1" fromLane="0" toLane="0" via=":junc11_8_0" tl="junc11" linkIndex="8" dir="s" state="O"/>
     <connection from="mid_koryun_2_to_junc11" to="junc11_to_mid_abovyan_1" fromLane="0" toLane="0" via=":junc11_9_0" tl="junc11" linkIndex="9" dir="l" state="o"/>
@@ -1865,8 +1995,8 @@
     <connection from="mid_moskovyan_4_to_junc13" to="junc13_to_mid_nalbandyan_2" fromLane="0" toLane="0" via=":junc13_8_0" tl="junc13" linkIndex="8" dir="l" state="o"/>
     <connection from="mid_nalbandyan_1_to_junc14" to="junc14_to_mid_isahakyan_1" fromLane="0" toLane="0" via=":junc14_0_0" tl="junc14" linkIndex="0" dir="r" state="O"/>
     <connection from="mid_nalbandyan_1_to_junc14" to="junc14_to_mid_nalbandyan_2" fromLane="0" toLane="0" via=":junc14_1_0" tl="junc14" linkIndex="1" dir="s" state="O"/>
-    <connection from="mid_nalbandyan_1_to_junc15" to="junc15_to_mid_charents_2" fromLane="0" toLane="0" via=":junc15_4_0" dir="r" state="m"/>
-    <connection from="mid_nalbandyan_1_to_junc15" to="junc15_to_mid_heratsi_2" fromLane="0" toLane="0" via=":junc15_5_0" dir="s" state="m"/>
+    <connection from="mid_nalbandyan_1_to_junc15" to="junc15_to_mid_charents_2" fromLane="0" toLane="0" via=":junc15_3_0" dir="r" state="m"/>
+    <connection from="mid_nalbandyan_1_to_junc15" to="junc15_to_mid_heratsi_2" fromLane="0" toLane="0" via=":junc15_4_0" dir="s" state="m"/>
     <connection from="mid_nalbandyan_2_to_junc13" to="junc13_to_mid_nalbandyan_3" fromLane="0" toLane="0" via=":junc13_0_0" tl="junc13" linkIndex="0" dir="s" state="O"/>
     <connection from="mid_nalbandyan_2_to_junc13" to="junc13_to_mid_khanjyan_1" fromLane="0" toLane="0" via=":junc13_1_0" tl="junc13" linkIndex="1" dir="l" state="o"/>
     <connection from="mid_nalbandyan_2_to_junc14" to="junc14_to_mid_nalbandyan_1" fromLane="0" toLane="0" via=":junc14_3_0" tl="junc14" linkIndex="3" dir="s" state="O"/>
@@ -1892,8 +2022,8 @@
     <connection from="mid_sayat_nova_2_to_junc18" to="junc18_to_mid_alek_manukyan_2" fromLane="0" toLane="0" via=":junc18_8_0" tl="junc18" linkIndex="8" dir="l" state="o"/>
     <connection from="mid_sayat_nova_3_to_junc12" to="junc12_to_mid_nalbandyan_3" fromLane="0" toLane="0" via=":junc12_3_0" tl="junc12" linkIndex="3" dir="r" state="O"/>
     <connection from="mid_sayat_nova_3_to_junc12" to="junc12_to_mid_sayat_nova_4" fromLane="0" toLane="0" via=":junc12_4_0" tl="junc12" linkIndex="4" dir="s" state="O"/>
-    <connection from="mid_sayat_nova_3_to_junc16" to="junc16_to_mid_khanjyan_2" fromLane="0" toLane="0" via=":junc16_6_0" tl="junc16" linkIndex="6" dir="r" state="O"/>
-    <connection from="mid_sayat_nova_3_to_junc16" to="junc16_to_mid_sayat_nova_2" fromLane="0" toLane="0" via=":junc16_7_0" tl="junc16" linkIndex="7" dir="s" state="O"/>
+    <connection from="mid_sayat_nova_3_to_junc16" to="junc16_to_mid_khanjyan_2" fromLane="0" toLane="0" via=":junc16_7_0" tl="junc16" linkIndex="7" dir="r" state="O"/>
+    <connection from="mid_sayat_nova_3_to_junc16" to="junc16_to_mid_sayat_nova_2" fromLane="0" toLane="0" via=":junc16_8_0" tl="junc16" linkIndex="8" dir="s" state="O"/>
     <connection from="mid_sayat_nova_4_to_junc12" to="junc12_to_mid_nalbandyan_4" fromLane="0" toLane="0" via=":junc12_8_0" tl="junc12" linkIndex="8" dir="r" state="O"/>
     <connection from="mid_sayat_nova_4_to_junc12" to="junc12_to_mid_sayat_nova_3" fromLane="0" toLane="0" via=":junc12_9_0" tl="junc12" linkIndex="9" dir="s" state="O"/>
     <connection from="mid_sayat_nova_4_to_junc12" to="junc12_to_mid_nalbandyan_3" fromLane="0" toLane="0" via=":junc12_10_0" tl="junc12" linkIndex="10" dir="l" state="o"/>
@@ -2001,26 +2131,28 @@
     <connection from=":junc14_3" to="junc14_to_mid_nalbandyan_1" fromLane="0" toLane="0" dir="s" state="M"/>
     <connection from=":junc14_4" to="junc14_to_mid_isahakyan_1" fromLane="0" toLane="0" via=":junc14_5_0" dir="l" state="m"/>
     <connection from=":junc14_5" to="junc14_to_mid_isahakyan_1" fromLane="0" toLane="0" dir="l" state="M"/>
-    <connection from=":junc15_0" to="junc15_to_mid_koryun_1" fromLane="0" toLane="0" dir="r" state="M"/>
-    <connection from=":junc15_1" to="junc15_to_mid_charents_2" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":junc15_2" to="junc15_to_mid_heratsi_2" fromLane="0" toLane="0" dir="R" state="M"/>
-    <connection from=":junc15_3" to="junc15_to_mid_koryun_1" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":junc15_4" to="junc15_to_mid_charents_2" fromLane="0" toLane="0" dir="r" state="M"/>
-    <connection from=":junc15_5" to="junc15_to_mid_heratsi_2" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":junc15_6" to="junc15_to_mid_nalbandyan_1" fromLane="0" toLane="0" dir="r" state="M"/>
-    <connection from=":junc15_7" to="junc15_to_mid_charents_2" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":junc15_8" to="junc15_to_mid_heratsi_2" fromLane="0" toLane="0" via=":junc15_9_0" dir="l" state="m"/>
-    <connection from=":junc15_9" to="junc15_to_mid_heratsi_2" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":junc15_0" to="junc15_to_mid_koryun_0" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":junc15_1" to="junc15_to_mid_heratsi_2" fromLane="0" toLane="0" dir="R" state="M"/>
+    <connection from=":junc15_2" to="junc15_to_mid_koryun_0" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":junc15_3" to="junc15_to_mid_charents_2" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":junc15_4" to="junc15_to_mid_heratsi_2" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":junc15_5" to="junc15_to_mid_nalbandyan_1" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":junc15_6" to="junc15_to_mid_charents_2" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":junc15_7" to="junc15_to_mid_heratsi_2" fromLane="0" toLane="0" via=":junc15_8_0" dir="l" state="m"/>
+    <connection from=":junc15_8" to="junc15_to_mid_heratsi_2" fromLane="0" toLane="0" dir="l" state="M"/>
     <connection from=":junc16_0" to="junc16_to_mid_sayat_nova_3" fromLane="0" toLane="0" dir="r" state="M"/>
     <connection from=":junc16_1" to="junc16_to_mid_khanjyan_2" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":junc16_2" to="junc16_to_mid_sayat_nova_2" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":junc16_2" to="junc16_to_mid_sayat_nova_2" fromLane="0" toLane="0" via=":junc16_9_0" dir="l" state="m"/>
+    <connection from=":junc16_9" to="junc16_to_mid_sayat_nova_2" fromLane="0" toLane="0" dir="l" state="M"/>
     <connection from=":junc16_3" to="junc16_to_mid_khanjyan_1" fromLane="0" toLane="0" dir="r" state="M"/>
     <connection from=":junc16_4" to="junc16_to_mid_sayat_nova_3" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":junc16_5" to="junc16_to_mid_khanjyan_2" fromLane="0" toLane="0" via=":junc16_8_0" dir="l" state="m"/>
-    <connection from=":junc16_8" to="junc16_to_mid_khanjyan_2" fromLane="0" toLane="0" dir="l" state="M"/>
-    <connection from=":junc16_6" to="junc16_to_mid_khanjyan_2" fromLane="0" toLane="0" dir="r" state="M"/>
-    <connection from=":junc16_7" to="junc16_to_mid_sayat_nova_2" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":junc16_5" to="junc16_to_mid_khanjyan_2" fromLane="0" toLane="0" via=":junc16_10_0" dir="l" state="m"/>
+    <connection from=":junc16_10" to="junc16_to_mid_khanjyan_2" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":junc16_6" to="junc16_to_mid_khanjyan_1" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":junc16_7" to="junc16_to_mid_khanjyan_2" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":junc16_8" to="junc16_to_mid_sayat_nova_2" fromLane="0" toLane="0" dir="s" state="M"/>
     <connection from=":junc17_0" to="junc17_to_mid_khanjyan_2" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":junc17_1" to="junc17_to_mid_heratsi_1" fromLane="0" toLane="0" dir="s" state="M"/>
     <connection from=":junc18_0" to="junc18_to_mid_alek_manukyan_2" fromLane="0" toLane="0" dir="r" state="M"/>
     <connection from=":junc18_1" to="junc18_to_mid_sayat_nova_2" fromLane="0" toLane="0" dir="s" state="M"/>
     <connection from=":junc18_2" to="junc18_to_mid_alek_manukyan_1" fromLane="0" toLane="0" via=":junc18_9_0" dir="l" state="m"/>
@@ -2047,12 +2179,15 @@
     <connection from=":junc2_6" to="junc2_to_mid_isahakyan_4" fromLane="0" toLane="0" via=":junc2_7_0" dir="l" state="m"/>
     <connection from=":junc2_7" to="junc2_to_mid_isahakyan_4" fromLane="0" toLane="0" dir="l" state="M"/>
     <connection from=":junc20_0" to="junc20_to_mid_heratsi_1" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":junc20_1" to="junc20_to_mid_charents_2" fromLane="0" toLane="0" via=":junc20_6_0" dir="l" state="m"/>
-    <connection from=":junc20_6" to="junc20_to_mid_charents_2" fromLane="0" toLane="0" dir="l" state="M"/>
-    <connection from=":junc20_2" to="junc20_to_mid_heratsi_2" fromLane="0" toLane="0" dir="r" state="M"/>
-    <connection from=":junc20_3" to="junc20_to_mid_charents_2" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":junc20_1" to="junc20_to_mid_heratsi_2" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":junc20_2" to="junc20_to_mid_charents_2" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":junc20_3" to="junc20_to_mid_heratsi_2" fromLane="0" toLane="0" dir="s" state="M"/>
     <connection from=":junc20_4" to="junc20_to_mid_heratsi_2" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":junc20_5" to="junc20_to_mid_heratsi_2" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":junc21_0" to="junc21_to_mid_koryun_1" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":junc21_1" to="junc21_to_mid_koryun_0" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":junc21_2" to="junc21_to_mid_heratsi_2" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":junc21_3" to="junc21_to_mid_koryun_1" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":junc21_4" to="junc21_to_mid_koryun_0" fromLane="0" toLane="0" dir="s" state="M"/>
     <connection from=":junc3_0" to="junc3_to_mid_mesrop_mashtoc_1" fromLane="0" toLane="0" dir="l" state="M"/>
     <connection from=":junc3_1" to="junc3_to_mid_koryun_3" fromLane="0" toLane="0" dir="r" state="M"/>
     <connection from=":junc4_0" to="junc4_to_mid_koryun_3" fromLane="0" toLane="0" dir="r" state="M"/>
@@ -2134,16 +2269,30 @@
     <connection from=":mid_charents_2_8" to="mid_charents_2_to_junc15" fromLane="0" toLane="0" via=":mid_charents_2_11_0" dir="t" state="m"/>
     <connection from=":mid_charents_2_11" to="mid_charents_2_to_junc15" fromLane="0" toLane="0" dir="t" state="M"/>
     <connection from=":mid_heratsi_1_0" to="mid_heratsi_1_to_junc17" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":mid_heratsi_1_1" to="mid_heratsi_1_to_junc20" fromLane="0" toLane="0" dir="t" state="M"/>
-    <connection from=":mid_heratsi_2_0" to="mid_heratsi_2_to_junc15" fromLane="0" toLane="0" dir="l" state="M"/>
-    <connection from=":mid_heratsi_2_1" to="mid_heratsi_2_to_junc20" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":mid_heratsi_1_1" to="mid_heratsi_1_to_junc20" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":mid_heratsi_2_0" to="mid_heratsi_2_to_junc21" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":mid_heratsi_2_1" to="mid_heratsi_2_to_junc15" fromLane="0" toLane="0" via=":mid_heratsi_2_9_0" dir="l" state="m"/>
+    <connection from=":mid_heratsi_2_9" to="mid_heratsi_2_to_junc15" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":mid_heratsi_2_2" to="mid_heratsi_2_to_junc20" fromLane="0" toLane="0" via=":mid_heratsi_2_10_0" dir="t" state="m"/>
+    <connection from=":mid_heratsi_2_10" to="mid_heratsi_2_to_junc20" fromLane="0" toLane="0" dir="t" state="M"/>
+    <connection from=":mid_heratsi_2_3" to="mid_heratsi_2_to_junc21" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":mid_heratsi_2_4" to="mid_heratsi_2_to_junc20" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":mid_heratsi_2_5" to="mid_heratsi_2_to_junc15" fromLane="0" toLane="0" dir="t" state="M"/>
+    <connection from=":mid_heratsi_2_6" to="mid_heratsi_2_to_junc15" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":mid_heratsi_2_7" to="mid_heratsi_2_to_junc20" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":mid_heratsi_2_8" to="mid_heratsi_2_to_junc21" fromLane="0" toLane="0" via=":mid_heratsi_2_11_0" dir="t" state="m"/>
+    <connection from=":mid_heratsi_2_11" to="mid_heratsi_2_to_junc21" fromLane="0" toLane="0" dir="t" state="M"/>
     <connection from=":mid_isahakyan_1_0" to="mid_isahakyan_1_to_junc10" fromLane="0" toLane="0" dir="s" state="M"/>
     <connection from=":mid_isahakyan_2_0" to="mid_isahakyan_2_to_junc5" fromLane="0" toLane="0" dir="s" state="M"/>
     <connection from=":mid_isahakyan_3_0" to="mid_isahakyan_3_to_junc2" fromLane="0" toLane="0" dir="s" state="M"/>
     <connection from=":mid_khanjyan_1_0" to="mid_khanjyan_1_to_junc13" fromLane="0" toLane="0" dir="s" state="M"/>
     <connection from=":mid_khanjyan_1_1" to="mid_khanjyan_1_to_junc16" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":mid_khanjyan_2_0" to="mid_khanjyan_2_to_junc17" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":mid_khanjyan_2_1" to="mid_khanjyan_2_to_junc16" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":mid_koryun_0_0" to="mid_koryun_0_to_junc21" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":mid_koryun_0_1" to="mid_koryun_0_to_junc15" fromLane="0" toLane="0" dir="s" state="M"/>
     <connection from=":mid_koryun_1_0" to="mid_koryun_1_to_junc11" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":mid_koryun_1_1" to="mid_koryun_1_to_junc15" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":mid_koryun_1_1" to="mid_koryun_1_to_junc21" fromLane="0" toLane="0" dir="s" state="M"/>
     <connection from=":mid_koryun_2_0" to="mid_koryun_2_to_junc4" fromLane="0" toLane="0" dir="s" state="M"/>
     <connection from=":mid_koryun_2_1" to="mid_koryun_2_to_junc11" fromLane="0" toLane="0" dir="s" state="M"/>
     <connection from=":mid_koryun_3_0" to="mid_koryun_3_to_junc3" fromLane="0" toLane="0" dir="s" state="M"/>
