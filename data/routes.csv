@@ -91,11 +91,9 @@ isahakyan_1,abovyan_2-,Right
 isahakyan_1,abovyan_3,Left
 koryun_1,koryun_2,Straight
 koryun_1,abovyan_1-,Right
-koryun_0-,charents_2-,Straight
-koryun_0,koryun_1,Straight
-koryun_0-,nalbandyan_1,Right
-koryun_0-,heratsi_2,Left
-koryun_1-,koryun_0-,Straight
+koryun_1-,charents_2-,Straight
+koryun_1-,nalbandyan_1,Right
+koryun_1-,heratsi_2,Left
 moskovyan_4,khanjyan_1-,Straight
 moskovyan_4,nalbandyan_3,Right
 moskovyan_4,nalbandyan_2-,Left
@@ -131,7 +129,7 @@ heratsi_1,heratsi_2,Straight
 heratsi_1-,khanjyan_2-,Straight
 heratsi_1-,khanjyan_1,Right
 heratsi_2-,koryun_1,Right
-heratsi_2-,koryun_0-,Left
+heratsi_2-,charents_2-,Left
 heratsi_2-,heratsi_1-,Straight
 sayat_nova_2,sayat_nova_3,Straight
 sayat_nova_2,khanjyan_1,Right
@@ -146,7 +144,7 @@ sayat_nova_1-,charents_1-,Right
 sayat_nova_1-,charents_2-,Left
 charents_1,charents_2,Straight
 charents_1,sayat_nova_1,Left
-charents_2,koryun_0,Straight
+charents_2,koryun_1,Straight
 charents_2,heratsi_2,Right
 charents_2-,charents_1-,Straight
 charents_2-,sayat_nova_1,Right
