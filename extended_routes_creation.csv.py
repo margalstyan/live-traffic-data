@@ -1,143 +1,131 @@
 import pandas as pd
-from xml.etree.ElementTree import Element, SubElement, ElementTree
+import traci
 
-# STEP 1: Load the data
-df_durations = pd.read_csv("data/result_10_minutes.csv", sep=';')
-df_edges = pd.read_csv("data/routes_with_edges.csv")
+# === CONFIGURATION ===
+SUMO_BINARY = "sumo"  # or "sumo"
+SUMO_CONFIG = "osm.sumocfg"
+ROUTE_CSV = "prepared_routes_1689f7ce.csv"
+STEP_LENGTH = 1
 
-# STEP 2: Prepare duration columns and lookup
-duration_cols = [col for col in df_durations.columns if col.startswith('duration_')]
-df = df_durations[['Origin', 'Destination', 'Direction'] + duration_cols]
+# === Calibration Parameters ===
+MAX_ATTEMPTS = 10
+VEHICLE_START_COUNT = 10
+VEHICLE_STEP = 5
+TOLERANCE = 0.05
 
-edge_lookup = {
-    (row['Origin'], row['Destination']): [row['from_edge'], row['to_edge']]
-    for _, row in df_edges.iterrows()
-}
+# === Load routes
+df = pd.read_csv(ROUTE_CSV)
 
-origin_map = {}
-for _, row in df.iterrows():
-    origin_map.setdefault(row['Origin'], []).append((row['Destination'], row))
+# === Initialize route calibration state
+routes = {}
+for idx, row in df.iterrows():
+    route_id = f"route_{idx}"
+    routes[route_id] = {
+        "origin": row["Origin"],
+        "destination": row["Destination"],
+        "from_edge": row["from_edge"],
+        "to_edge": row["to_edge"],
+        "target_duration": row["duration_seconds"],
+        "vehicle_count": VEHICLE_START_COUNT,
+        "last_duration": None,
+        "converged": False
+    }
 
-# STEP 3: Build chains
-routes = []
+# === Global Calibration Loop
+for attempt in range(1, MAX_ATTEMPTS + 1):
+    print(f"\n========================")
+    print(f"🔁 GLOBAL ATTEMPT #{attempt}")
+    print(f"========================")
 
-def build_chains(start, path, visited, max_depth=3):
-    if len(path) >= max_depth:
-        return
-    for next_dest, next_row in origin_map.get(start, []):
-        if next_dest in visited:
+    # Start SUMO for this round
+    traci.start([SUMO_BINARY, "-c", SUMO_CONFIG, "--start", "--step-length", str(STEP_LENGTH)])
+
+    vehicle_data = {}
+
+    # Add routes and vehicles
+    for route_id, info in routes.items():
+        if info["converged"]:
             continue
-        new_path = path + [next_row]
-        routes.append(new_path)
-        build_chains(next_dest, new_path, visited | {next_dest}, max_depth)
 
-for origin in origin_map:
-    build_chains(origin, [], {origin})
+        try:
+            route_edges = traci.simulation.findRoute(info["from_edge"], info["to_edge"]).edges
+            traci.route.add(route_id, route_edges)
 
-# STEP 4: Create chained route entries
-chained_data = []
+            for i in range(info["vehicle_count"]):
+                veh_id = f"{route_id}_veh_{i}_a{attempt}"
+                traci.vehicle.add(veh_id, route_id)
+                vehicle_data[veh_id] = {
+                    "route_id": route_id,
+                    "start": None,
+                    "end": None,
+                }
 
-for path in routes:
-    if len(path) < 2:
-        continue
-    try:
-        segments = [(r['Origin'], r['Destination']) for r in path]
-        edge_ids = []
-        for o, d in segments:
-            edge_pair = edge_lookup.get((o, d))
-            if not edge_pair:
-                raise ValueError(f"Missing edge for ({o}, {d})")
-            edge_ids.extend(edge_pair)
+        except Exception as e:
+            print(f"❌ Failed to add route {route_id}: {e}")
+            routes[route_id]["converged"] = True  # mark as done to skip
 
-        chained_row = {
-            "from": path[0]['Origin'],
-            "to": path[-1]['Destination'],
-            "intermediate_nodes": [r['Destination'] for r in path[:-1]],
-            "length": len(path),
-            "segments": segments,
-            "edges": edge_ids
-        }
+    # Run simulation
+    while traci.simulation.getMinExpectedNumber() > 0:
+        traci.simulationStep()
+        for veh_id in vehicle_data:
+            if vehicle_data[veh_id]["start"] is None and veh_id in traci.vehicle.getIDList():
+                vehicle_data[veh_id]["start"] = traci.simulation.getTime()
+            elif (
+                vehicle_data[veh_id]["end"] is None
+                and veh_id not in traci.vehicle.getIDList()
+                and vehicle_data[veh_id]["start"] is not None
+            ):
+                vehicle_data[veh_id]["end"] = traci.simulation.getTime()
 
-        for col in duration_cols:
-            chained_row[col] = sum([r[col] for r in path if pd.notna(r[col])])
+    traci.close()
 
-        chained_data.append(chained_row)
+    # Analyze and update vehicle counts
+    durations_by_route = {}
 
-    except Exception as e:
-        print(f"Skipping route: {e}")
+    for veh_id, vdata in vehicle_data.items():
+        if vdata["start"] is not None and vdata["end"] is not None:
+            route_id = vdata["route_id"]
+            duration = vdata["end"] - vdata["start"]
+            durations_by_route.setdefault(route_id, []).append(duration)
 
-# Save to chained_routes.csv
-chained_df = pd.DataFrame(chained_data)
-chained_df.to_csv("data/chained_routes.csv", index=False)
-print("[✓] chained_routes.csv created.")
+    for route_id, durations in durations_by_route.items():
+        avg_duration = sum(durations) / len(durations)
+        target = routes[route_id]["target_duration"]
+        lower = target * (1 - TOLERANCE)
+        upper = target * (1 + TOLERANCE)
 
+        print(f"⏱ {route_id} | Simulated: {avg_duration:.2f}s | Target: {target:.2f}s")
 
-# STEP 5: Generate chained_routes.rou.xml for SUMO
-def generate_sumo_flows_from_chained_df(df, output_file="chained_routes.rou.xml", car_ratio=0.9, headway=2.5):
-    time_columns = [col for col in df.columns if col.startswith("duration_")]
-    routes = Element("routes")
+        routes[route_id]["last_duration"] = avg_duration
 
-    for time_index, time_col in enumerate(time_columns):
-        begin_time = time_index * 600  # 10-minute windows
+        if lower <= avg_duration <= upper:
+            print(f"✅ {route_id} converged.")
+            routes[route_id]["converged"] = True
+        elif avg_duration < lower:
+            routes[route_id]["vehicle_count"] += VEHICLE_STEP
+        else:
+            routes[route_id]["vehicle_count"] = max(1, routes[route_id]["vehicle_count"] - VEHICLE_STEP)
 
-        for i, row in df.iterrows():
-            try:
-                duration = float(row[time_col])
-                distance = duration * 10  # Estimate distance (10 m/s average)
+    # Check if all converged
+    if all(info["converged"] for info in routes.values()):
+        print("\n✅ All routes converged. Calibration complete.")
+        break
+else:
+    print("\n⏹ Max attempts reached. Some routes may not have converged.")
 
-                flow_id = f"{time_col}_flow{i+1}"
-                dist_id = f"mixed_{flow_id}"
-                car_id = f"car_{flow_id}"
-                bus_id = f"bus_{flow_id}"
+# === Save results
+results_df = pd.DataFrame([
+    {
+        "route_id": rid,
+        "origin": info["origin"],
+        "destination": info["destination"],
+        "real_duration": info["target_duration"],
+        "simulated_duration": info["last_duration"],
+        "vehicle_count": info["vehicle_count"],
+        "converged": info["converged"],
+    }
+    for rid, info in routes.items()
+])
 
-                avg_speed = distance / duration
-                car_speed = round(avg_speed * 1.1, 2)
-                bus_speed = round(avg_speed * 0.95, 2)
-                vehicle_count = max(1, int(duration / headway))
-
-                # vTypeDistribution
-                vtype_dist = SubElement(routes, "vTypeDistribution", {"id": dist_id})
-                SubElement(vtype_dist, "vType", {
-                    "id": car_id,
-                    "accel": "1.0",
-                    "decel": "4.5",
-                    "sigma": "0.5",
-                    "length": "5",
-                    "maxSpeed": str(car_speed),
-                    "guiShape": "passenger",
-                    "probability": str(car_ratio)
-                })
-                SubElement(vtype_dist, "vType", {
-                    "id": bus_id,
-                    "accel": "0.8",
-                    "decel": "4.0",
-                    "sigma": "0.5",
-                    "length": "12",
-                    "maxSpeed": str(bus_speed),
-                    "guiShape": "bus",
-                    "probability": str(1 - car_ratio)
-                })
-
-                # Route edge string
-                edge_str = ' '.join(eval(row['edges']))
-
-                SubElement(routes, "flow", {
-                    "id": flow_id,
-                    "type": dist_id,
-                    "begin": str(begin_time),
-                    "end": str(begin_time + duration),
-                    "number": str(vehicle_count),
-                    "route": edge_str,
-                    "departPos": "random",
-                    "arrivalPos": "random"
-                })
-
-            except Exception as e:
-                print(f"Skipping flow {time_col}_flow{i+1}: {e}")
-
-    tree = ElementTree(routes)
-    tree.write(output_file, encoding="utf-8", xml_declaration=True)
-    print(f"[✓] Generated {output_file}")
-
-# Run the flow generation
-generate_sumo_flows_from_chained_df(chained_df, output_file="chained_routes.rou.xml")
+results_df.to_csv("simulated_vs_real_global_calibrated.csv", index=False)
+print("\n📁 Results saved to 'simulated_vs_real_global_calibrated.csv'")
