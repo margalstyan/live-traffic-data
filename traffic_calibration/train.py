@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 import traci
 from lxml import etree
+import os
 
 # === Dataset Loader ===
 class RouteDataset(Dataset):
@@ -28,86 +29,146 @@ class RouteDataset(Dataset):
         return from_edge, to_edge, duration, row["from_edge"], row["to_edge"]
 
 
-class SumoTrafficEnv(gym.Env):
-    def __init__(self, dataset, ):
-        super(SumoTrafficEnv, self).__init__()
+class SumoTrafficMultiRouteEnv(gym.Env):
+    def __init__(self, dataset):
+        super().__init__()
         self.dataset = dataset
-        self.index = 0  # current route index
         self.route_cache = {}
 
-        self.observation_space = spaces.Box(low=0, high=1e3, shape=(1 + 2,), dtype=np.float32)  # duration + 2 edge indices
-        self.action_space = spaces.Box(low=-1, high=1, shape=(1,), dtype=np.float32)
+        self.observation_space = spaces.Box(
+            low=0, high=1e3, shape=(len(self.dataset), 3), dtype=np.float32
+        )
+        self.action_space = spaces.Box(
+            low=-1, high=1, shape=(len(self.dataset),), dtype=np.float32
+        )
 
     def reset(self, seed=None, options=None):
         super().reset(seed=seed)
-
-        if self.index >= len(self.dataset):
-            self.index = 0
-        self.from_idx, self.to_idx, self.target_duration, self.from_edge, self.to_edge = self.dataset[self.index]
-        self.index += 1
+        self.obs = np.zeros((len(self.dataset), 3), dtype=np.float32)
         max_edge_idx = max(self.dataset.edge_to_idx.values())
 
-        obs = np.array([
-            self.from_idx / max_edge_idx,
-            self.to_idx / max_edge_idx,
-            self.target_duration / 300
-        ], dtype=np.float32)
-        return obs, {}
+        for i in range(len(self.dataset)):
+            from_idx, to_idx, duration, *_ = self.dataset[i]
+            self.obs[i] = np.array([
+                from_idx / max_edge_idx,
+                to_idx / max_edge_idx,
+                duration / 300
+            ], dtype=np.float32)
+        return self.obs, {}
 
-    def step(self, action):
-        print(f"🚦 [STEP] Action received: {action}")
-        raw_action = np.clip(action[0], -1, 1)
-        veh_count = ((raw_action + 1) / 2) * (300 - 1) + 1
-
-        print(f"\n🚦 [STEP] Starting simulation for route {self.index}/{len(self.dataset)}")
-        print(f"➡️ From: {self.from_edge} | To: {self.to_edge}")
-        print(f"🚗 Action (vehicle count): {veh_count:.2f}")
-
-        route_key = (self.from_edge, self.to_edge)
-        if route_key not in self.route_cache:
-            print("📡 Connecting to SUMO to fetch route path...")
-            traci.start([SUMO_BINARY, "-c", SUMO_CONFIG, "--start", "--step-length", str(STEP_LENGTH)])
-            route = traci.simulation.findRoute(self.from_edge, self.to_edge)
-            self.route_cache[route_key] = route.edges
-            traci.close()
-            print(f"✅ Route cached for: {self.from_edge} → {self.to_edge}")
-
-        edges = self.route_cache[route_key]
+    def step(self, actions):
+        vehicle_counts = (((actions + 1) / 2) * (300 - 1) + 1).astype(int)
+        print(f"🚦 Generating flows for {len(self.dataset)} routes")
 
         root = etree.Element("routes")
         etree.SubElement(root, "vType", id="car", accel="1.0", decel="4.5", length="5", maxSpeed="16.6", sigma="0.5")
-        etree.SubElement(root, "route", id="route0", edges=" ".join(edges))
-        etree.SubElement(root, "flow", id="route0", type="car", route="route0",
-                         begin="0", end=str(FLOW_DURATION),
-                         number=str(int(veh_count)),
-                         departPos="random", arrivalPos="random")
-        etree.ElementTree(root).write(ROUTE_FILE, pretty_print=True, xml_declaration=True, encoding="UTF-8")
 
-        traci.start([SUMO_BINARY, "-c", SUMO_CONFIG, "-r", ROUTE_FILE, "--start", "--step-length", str(STEP_LENGTH)])
-        vehicle_data = {}
+        for i, count in enumerate(vehicle_counts):
+            from_idx, to_idx, duration, from_edge, to_edge = self.dataset[i]
+            route_key = (from_edge, to_edge)
+
+            if route_key not in self.route_cache:
+                traci.start([SUMO_BINARY, "-c", SUMO_CONFIG, "--start", "--step-length", str(STEP_LENGTH)])
+                route = traci.simulation.findRoute(from_edge, to_edge)
+                self.route_cache[route_key] = route.edges
+                traci.close()
+
+            edges = self.route_cache[route_key]
+            route_id = f"route_{i}"
+            etree.SubElement(root, "route", id=route_id, edges=" ".join(edges))
+            etree.SubElement(root, "flow",
+                             id=f"{route_id}_flow",
+                             type="car",
+                             route=route_id,
+                             begin="0",
+                             end=str(FLOW_DURATION),
+                             number=str(count),
+                             departPos="random",
+                             arrivalPos="random",
+                             departSpeed="max",
+                             departLane="best")
+
+        etree.ElementTree(root).write(ROUTE_FILE, pretty_print=True, xml_declaration=True, encoding="UTF-8")
+        print(f"✅ {ROUTE_FILE} written")
+
+        traci.start([
+            SUMO_BINARY,
+            "-c", SUMO_CONFIG,
+            "-r", ROUTE_FILE,
+            "--start",
+            "--step-length", str(STEP_LENGTH),
+            "--duration-log.statistics"
+        ])
+
+        vehicle_start_times = {}
+        vehicle_end_times = {}
         while traci.simulation.getMinExpectedNumber() > 0:
             traci.simulationStep()
             for veh_id in traci.vehicle.getIDList():
-                if veh_id not in vehicle_data:
-                    vehicle_data[veh_id] = traci.simulation.getTime()
+                if veh_id not in vehicle_start_times:
+                    vehicle_start_times[veh_id] = traci.simulation.getTime()
+                vehicle_end_times[veh_id] = traci.simulation.getTime()
         traci.close()
 
-        sim_duration = max(vehicle_data.values()) - min(vehicle_data.values()) if vehicle_data else 0.0
-        reward = -abs(sim_duration - self.target_duration) / self.target_duration
+        route_durations = np.zeros(len(self.dataset))
+        route_counts = np.zeros(len(self.dataset))
 
-        print(f"🕒 Simulated duration: {sim_duration:.2f}s")
-        print(f"🎯 Target duration:    {self.target_duration:.2f}s")
-        print(f"🏆 Reward:             {reward:.2f}")
+        for veh_id, start_time in vehicle_start_times.items():
+            if "_flow." in veh_id:
+                parts = veh_id.split("_flow.")[0].split("_")
+                if len(parts) >= 2 and parts[0] == "route":
+                    route_idx = int(parts[1])
+                    if veh_id in vehicle_end_times:
+                        sim_dur = vehicle_end_times[veh_id] - start_time
+                        route_durations[route_idx] += sim_dur
+                        route_counts[route_idx] += 1
 
-        obs = np.array([self.from_idx, self.to_idx, self.target_duration], dtype=np.float32)
+        avg_durations = np.divide(route_durations, route_counts, out=np.zeros_like(route_durations),
+                                  where=route_counts > 0)
+        rewards = np.zeros(len(self.dataset))
+        target_durations = np.array([r[2] for r in self.dataset])
+        for i in range(len(self.dataset)):
+            if route_counts[i] > 0:
+                rewards[i] = -abs(avg_durations[i] - target_durations[i]) / target_durations[i]
+            else:
+                rewards[i] = -1.0
+
+        avg_loss = np.mean(np.abs(avg_durations - target_durations))
+
+        # ⬇️ Log target vs simulated duration per route
+        duration_logs = []
+        for i in range(len(self.dataset)):
+            duration_logs.append({
+                "route": f"route_{i}",
+                "target_duration": float(target_durations[i]),
+                "simulated_duration": float(avg_durations[i]),
+                "vehicles": int(route_counts[i]),
+                "reward": float(rewards[i])
+            })
+
+        print("🛣 Route duration summary:")
+        for log in duration_logs:
+            print(f"  {log['route']}: "
+                  f"Target={log['target_duration']:.1f}s, "
+                  f"Sim={log['simulated_duration']:.1f}s, "
+                  f"Vehicles={log['vehicles']}, "
+                  f"Reward={log['reward']:.3f}")
+
         terminated = True
         truncated = False
-        info = {}
+        info = {
+            "avg_loss": avg_loss,
+            "duration_logs": duration_logs
+        }
+        print(f"📊 Avg loss: {avg_loss:.3f} | "
+                f"Avg reward: {np.mean(rewards):.3f} | "
+                f"Avg vehicles: {np.mean(route_counts):.2f}")
 
-        return obs, reward, terminated, truncated, info
+        return self.obs, rewards.mean(), terminated, truncated, info
 
 
-SUMO_BINARY = "sumo-gui"
+# === CONFIGURATION ===
+SUMO_BINARY = "sumo"
 SUMO_CONFIG = "osm.sumocfg"
 CSV_FILE = "road_load.csv"
 ROUTE_FILE = "generated_flows.rou.xml"
@@ -117,11 +178,32 @@ EPOCHS = 10
 LEARNING_RATE = 1e-3
 SYNC_WEIGHT = 10
 
-
+# === Dataset & Env ===
 dataset = RouteDataset(CSV_FILE)
-
-env = SumoTrafficEnv(dataset)
+env = SumoTrafficMultiRouteEnv(dataset)
 check_env(env, warn=True)
 
-model = PPO("MlpPolicy", env, verbose=1, learning_rate=LEARNING_RATE)
-model.learn(total_timesteps=50000)
+# === Model ===
+model = PPO("MlpPolicy", env, verbose=1)
+model.learn(total_timesteps=10000)
+
+# === Logging Training Progress ===
+# reward_log = []
+# loss_log = []
+#
+# for episode in range(100):  # You can increase this number
+#     obs, _ = env.reset()
+#     action, _ = model.predict(obs)
+#     obs, reward, done, _, info = env.step(action)
+#
+#     reward_log.append(reward)
+#     loss_log.append(info["avg_loss"])
+#     print(f"📈 EP {episode:03} — Reward: {reward:.3f} | Avg loss: {info['avg_loss']:.2f}")
+
+# === (Optional) Save Logs to CSV ===
+# pd.DataFrame({
+#     "episode": list(range(len(reward_log))),
+#     "reward": reward_log,
+#     "avg_loss": loss_log
+# }).to_csv("training_log.csv", index=False)
+# print("✅ Training log saved to training_log.csv")

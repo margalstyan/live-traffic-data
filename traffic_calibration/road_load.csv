@@ -1,0 +1,13 @@
+Origin,Destination,duration_seconds,from_edge,to_edge
+sayat_nova_6,baghramyan_1,96,1318793176#1,1342054204
+sayat_nova_6,mesrop_mashtoc_4,74,137415945#0,379698350#0
+baghramyan_1-,mesrop_mashtoc_4,58,1252820505#0,379698350#0
+baghramyan_1-,sayat_nova_6-,65,1252820505#0,1235147073.116
+baghramyan_1-,mesrop_mashtoc_3-,71,1252820505#0,137406408#0
+mesrop_mashtoc_4-,baghramyan_1,118,133000078#0,1342054204
+mesrop_mashtoc_3,baghramyan_1,68,291974733#0,1342054204
+mesrop_mashtoc_3,mesrop_mashtoc_4,53,291974733#0,379698350#0
+mesrop_mashtoc_3,sayat_nova_6-,72,291974733#0,1235147073.116
+mesrop_mashtoc_4-,sayat_nova_6-,44,133000078#0,1235147073.116
+mesrop_mashtoc_4-,mesrop_mashtoc_3-,71,133000078#0,137406408#0
+sayat_nova_6,mesrop_mashtoc_3-,84,137415945#0,137406408#0
