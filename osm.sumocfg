@@ -8,5 +8,9 @@
     <input>
         <net-file value="osm.net.xml"/>
     </input>
+    <output>
+        <fcd-output value="fcd.xml"/>
+        <tripinfo-output value="tripinfo.xml"/>
+    </output>
 
 </configuration>

@@ -2,14 +2,15 @@ import pandas as pd
 import traci
 import logging
 from lxml import etree
+import random
 
 # === CONFIGURATION ===
 SUMO_BINARY = "sumo"
 SUMO_CONFIG = "osm.sumocfg"
 ROUTE_CSV = "traffic_calibration/road_load.csv"
-ROUTE_FILE = "generated_flows.rou.xml"
+ROUTE_FILE = "generated_flows_1.rou.xml"
 STEP_LENGTH = 1
-FLOW_DURATION = 100
+FLOW_DURATION = 10
 
 # === Calibration Parameters ===
 MAX_ATTEMPTS_PER_STEP = 50
@@ -48,6 +49,7 @@ for idx, row in df.iterrows():
 def generate_flow_route_file(active_route_ids):
     root = etree.Element("routes")
     etree.SubElement(root, "vType", id="car", accel="1.0", decel="4.5", length="5", maxSpeed="16.6", sigma="0.5")
+    flows = []
 
     for rid in active_route_ids:
         info = routes[rid]
@@ -71,24 +73,33 @@ def generate_flow_route_file(active_route_ids):
         etree.SubElement(root, "route", id=rid, edges=" ".join(edges))
 
         veh_count = max(1, info["vehicle_count"])
-        etree.SubElement(root, "flow",
-                         id=rid,
-                         type="car",
-                         route=rid,
-                         begin="0",
-                         end=str(FLOW_DURATION),
-                         number=str(veh_count),
-                         departPos="random",
-                         arrivalPos="random")
+        for i in range(veh_count):
+            begin_time = random.randint(0, 90)
+            end_time = begin_time + FLOW_DURATION
+            flow = etree.SubElement(root, "flow",
+                             id=rid+"flow"+str(i),
+                             type="car",
+                             route=rid,
+                             begin=str(begin_time),
+                             end=str(end_time),
+                             number="1",
+                             departPos="random",
+                             arrivalPos="random")
+            flows.append((begin_time, flow))
 
-        logging.info(f"📤 Added flow for {rid}: {veh_count} vehicles")
-
+        logging.info(f"📤 Added flow for {rid}: {veh_count} vehicles, start time {begin_time}")
+    flows.sort(key=lambda x: x[0])
+    for _, flow in flows:
+        root.append(flow)
     etree.ElementTree(root).write(ROUTE_FILE, pretty_print=True, xml_declaration=True, encoding="UTF-8")
     logging.info(f"📄 Wrote flow route file with {len(active_route_ids)} active routes.")
 
+
+active_route_ids = []
 # === Stepwise Calibration
 for step in range(1, len(routes) + 1):
-    active_route_ids = [f"route_{i}" for i in range(step)]
+    if step not in active_route_ids:
+        active_route_ids.append(f"route_{step-1}")
     logging.info(f"\n🔷 Starting Step {step}/{len(routes)} | Routes: {active_route_ids}")
 
     for attempt in range(1, MAX_ATTEMPTS_PER_STEP + 1):
@@ -136,7 +147,7 @@ for step in range(1, len(routes) + 1):
             avg_duration = sum(durs) / len(durs)
             routes[rid]["last_duration"] = avg_duration
             target = routes[rid]["target_duration"]
-            diff = avg_duration - target
+            diff = target - avg_duration
             lower = target * (1 - TOLERANCE)
             upper = target * (1 + TOLERANCE)
 
@@ -147,14 +158,9 @@ for step in range(1, len(routes) + 1):
                 logging.info(f"✅ {rid} converged.")
                 converged_count += 1
             else:
-                if abs(diff) >= (target * (TOO_LARGE_DIFF_THRESHOLD / 100)):
-                    adjust = TOO_LARGE_ADJUSTMENT
-                elif abs(diff) >= (target * (LARGE_DIFF_THRESHOLD / 100)):
-                    adjust = LARGE_ADJUSTMENT
-                else:
-                    adjust = SMALL_ADJUSTMENT
+                adjust = int(5*diff/target)
 
-                if diff < 0:
+                if diff > 0:
                     if routes[rid]["vehicle_count"] >= MAX_VEHICLE_THRESHOLD:
                         logging.warning(f"🚦 {rid} reached MAX_VEHICLE_THRESHOLD ({routes[rid]['vehicle_count']}), penalizing it")
                         routes[rid]["vehicle_count"] = 20
@@ -177,7 +183,7 @@ for step in range(1, len(routes) + 1):
                         routes[rid]["vehicle_count"] += adjust
                         logging.info(f"📈 Increasing {rid} vehicles by {adjust} → {routes[rid]['vehicle_count']}")
                 else:
-                    routes[rid]["vehicle_count"] = max(1, routes[rid]["vehicle_count"] - adjust)
+                    routes[rid]["vehicle_count"] = max(1, routes[rid]["vehicle_count"] + adjust)
                     logging.info(f"📉 Decreasing {rid} vehicles by {adjust} → {routes[rid]['vehicle_count']}")
 
         logging.info(f"✅ Converged routes in this step: {converged_count}/{len(active_route_ids)}")
