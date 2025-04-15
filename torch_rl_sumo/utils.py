@@ -1,14 +1,15 @@
+import numpy as np
 import pandas as pd
+import torch
 import traci
 from lxml import etree
-import os
-import torch
 
 SUMO_BINARY = "sumo"
-SUMO_CONFIG_TEMPLATE = "osm.sumocfg"
-ROUTE_FILE_TEMPLATE = "flows/generated_flows_{}.rou.xml"
+SUMO_CONFIG = "osm.sumocfg"
+ROUTE_FILE = "generated_flows.rou.xml"
 FLOW_DURATION = 30
 STEP_LENGTH = 1
+
 
 class RouteDataset:
     def __init__(self, csv_path):
@@ -22,31 +23,22 @@ class RouteDataset:
         for _, row in sampled.iterrows():
             from_idx = self.edge_to_idx[row["from_edge"]]
             to_idx = self.edge_to_idx[row["to_edge"]]
-            duration = row["duration_seconds"]
-            batch.append((from_idx, to_idx, duration, row["from_edge"], row["to_edge"]))
+            duration = row["duration"]
+            distance = row["distance"]
+            batch.append((from_idx, to_idx, duration, distance, row["from_edge"], row["to_edge"]))
         return batch
 
+
 def scale_action_to_vehicle_count(action_tensor):
-    action_tensor = torch.clamp(action_tensor, -1.0, 1.0)
-    scaled = (((action_tensor + 1) / 2) * 299 + 1)
-    safe_scaled = torch.clamp(scaled, min=1.0, max=300.0)  # safer bounds
-    return safe_scaled.int()
+    return (((action_tensor + 1) / 2) * 299 + 1).int()
 
-def write_flows_and_run_sumo(batch, vehicle_counts, route_cache, run_id=0):
-    route_file = ROUTE_FILE_TEMPLATE.format(run_id)
-    config_file = SUMO_CONFIG_TEMPLATE.replace(".sumocfg", f"_{run_id}.sumocfg")
 
+def write_flows_and_run_sumo(batch, vehicle_counts, route_cache):
     root = etree.Element("routes")
-    etree.SubElement(root, "vType", id="car", accel="1.0", decel="4.5", length="5",
-                     maxSpeed="16.6", sigma="0.5")
-    traci.start([
-        SUMO_BINARY,
-        "-c", SUMO_CONFIG_TEMPLATE,  # optionally replace with config_file if you create temp ones
-        "-r", route_file,
-        "--start",
-        "--step-length", str(STEP_LENGTH)
-    ])
-    for i, (count, (from_idx, to_idx, duration, from_edge, to_edge)) in enumerate(zip(vehicle_counts, batch)):
+    etree.SubElement(root, "vType", id="car", accel="1.0", decel="4.5", length="5", maxSpeed="16.6", sigma="0.5")
+    traci.start([SUMO_BINARY, "-c", SUMO_CONFIG, "-r", ROUTE_FILE, "--start", "--step-length", str(STEP_LENGTH)])
+    vehicle_counts = vehicle_counts.unsqueeze(0)
+    for i, (from_idx, to_idx, duration, distance, from_edge, to_edge) in enumerate(batch):
         route_key = (from_edge, to_edge)
         if route_key not in route_cache:
             route = traci.simulation.findRoute(from_edge, to_edge)
@@ -61,46 +53,32 @@ def write_flows_and_run_sumo(batch, vehicle_counts, route_cache, run_id=0):
                          route=route_id,
                          begin="0",
                          end=str(FLOW_DURATION),
-                         number=str(count.item()),
+                         number=str(max(1, int(vehicle_counts[0][i]))),
                          departPos="random",
                          arrivalPos="random",
                          departSpeed="max",
                          departLane="best")
 
-    etree.ElementTree(root).write(route_file, pretty_print=True, xml_declaration=True, encoding="UTF-8")
-
-
+    etree.ElementTree(root).write(ROUTE_FILE, pretty_print=True, xml_declaration=True, encoding="UTF-8")
 
     vehicle_start_times = {}
     vehicle_end_times = {}
-
     while traci.simulation.getMinExpectedNumber() > 0:
         traci.simulationStep()
         for veh_id in traci.vehicle.getIDList():
             if veh_id not in vehicle_start_times:
                 vehicle_start_times[veh_id] = traci.simulation.getTime()
             vehicle_end_times[veh_id] = traci.simulation.getTime()
-
     traci.close()
 
-    route_durations = [0.0] * len(batch)
-    route_counts = [0] * len(batch)
-
-    for veh_id in vehicle_start_times:
-        if veh_id in vehicle_end_times:
-            for i in range(len(batch)):
-                if f"route_{i}" in veh_id:
-                    dur = vehicle_end_times[veh_id] - vehicle_start_times[veh_id]
-                    route_durations[i] += dur
-                    route_counts[i] += 1
-                    break
-
-    avg_durations = [
-        route_durations[i] / route_counts[i] if route_counts[i] > 0 else 9999.0
-        for i in range(len(batch))
-    ]
-
-    # print average durations for each route
-    for i, duration in enumerate(avg_durations):
-        print(f"Route {i}: Average Duration: {duration:.2f} seconds | Target Duration: {batch[i][2]} seconds | Vehicle Count: {vehicle_counts[i].item()}")
-    return avg_durations
+    total_durations = []
+    for i in range(len(batch)):
+        route_id = f"route_{i}"
+        route_duration = 0
+        route_vehicle_count = 0
+        for veh_id in vehicle_start_times:
+            if route_id in veh_id and veh_id in vehicle_end_times:
+                route_duration += vehicle_end_times[veh_id] - vehicle_start_times[veh_id]
+                route_vehicle_count += 1
+        total_durations.append(torch.tensor(route_duration/route_vehicle_count) if route_vehicle_count > 0 else 9999.0)
+    return torch.stack(total_durations)
