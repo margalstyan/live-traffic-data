@@ -4,7 +4,7 @@ import logging
 from lxml import etree
 
 # === CONFIGURATION ===
-SUMO_BINARY = "sumo-gui"  # or "sumo"
+SUMO_BINARY = "sumo"  # or "sumo"
 SUMO_CONFIG = "osm.sumocfg"
 ROUTE_CSV = "traffic_calibration/road_load.csv"
 ROUTE_FILE = "generated_flows.rou.xml"
@@ -13,9 +13,9 @@ FLOW_DURATION = 1  # seconds over which vehicles are generated
 
 # === Calibration Parameters ===
 MAX_ATTEMPTS = 100
-TOLERANCE = 0.15
-LARGE_DIFF_THRESHOLD = 20
-TOO_LARGE_DIFF_THRESHOLD = 30
+TOLERANCE = 0.2
+LARGE_DIFF_THRESHOLD = 30
+TOO_LARGE_DIFF_THRESHOLD = 50
 TOO_LARGE_ADJUSTMENT = 5
 LARGE_ADJUSTMENT = 2
 SMALL_ADJUSTMENT = 1
@@ -34,7 +34,7 @@ logging.info(f"🔢 Preparing initial route data for {len(df)} rows...")
 for idx, row in df.iterrows():
     route_id = f"route_{idx}"
     target_duration = row["duration_seconds"]
-    vehicle_count = 30
+    vehicle_count = 10
     logging.info(f"🛣 Initialized {route_id} | Duration: {target_duration}s | Vehicles: {vehicle_count}")
     routes[route_id] = {
         "origin": row["Origin"],
@@ -67,14 +67,14 @@ def generate_flow_route_file(routes, route_cache):
 
         edges = route_cache[key]
         etree.SubElement(root, "route", id=rid, edges=" ".join(edges))
-
+        veh_count = max(1, info["vehicle_count"])
         etree.SubElement(root, "flow",
                          id=rid,
                          type="car",
                          route=rid,
                          begin="0",
                          end=str(FLOW_DURATION),
-                         period=f"exp({info["vehicle_count"]})",
+                         number=str(veh_count),
                          departPos="random",
                          arrivalPos="random")
         logging.info(f"🧩 Added flow for {rid} with {info['vehicle_count']} vehicles")
