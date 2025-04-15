@@ -2,7 +2,7 @@ import csv
 from xml.etree.ElementTree import Element, SubElement, ElementTree
 
 
-def add_flow_from_csv_row(routes_elem, flow_id, from_edge, to_edge, distance, duration, car_ratio=0.9, headway=2.5):
+def add_flow_from_csv_row(routes_elem, flow_id, from_edge, to_edge, distance, duration, car_ratio=0.9, headway=2.5/3.0):
     """
     Adds a vTypeDistribution and flow for a given row of CSV with distance/duration.
     Speed is calculated from distance and duration.
@@ -63,7 +63,7 @@ def add_flow_from_csv_row(routes_elem, flow_id, from_edge, to_edge, distance, du
     })
 
 
-def create_routes_from_csv(csv_path="data/routes_with_edges.csv", output_file="routes.rou.xml", car_ratio=0.9, headway=2.5):
+def create_routes_from_csv(csv_path="traffic_calibration/road_load.csv", output_file="routes.rou.xml", car_ratio=0.9, headway=2.5):
     routes = Element("routes")
 
     with open(csv_path, newline='', encoding='utf-8') as csvfile:
