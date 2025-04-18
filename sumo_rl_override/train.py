@@ -66,22 +66,33 @@ env = GymnasiumWrapper(
     net_file=str(Path("osm.net.xml").resolve()),
     route_file=str(Path("generated_flows.rou.xml").resolve()),
     use_gui=False,
-    num_seconds=100,
+    num_seconds=1500,
     yellow_time=3,
     min_green=5,
     max_green=90,
     fixed_ts=True,
+
 )
 
 # === Train PPO Agent ===
-
-model = PPO(
-    "MlpPolicy",
-    env,
-    verbose=1,
-    tensorboard_log="./ppo_tensorboard"
+try:
+    model = PPO.load("ppo_sumo_model_2.zip", env=env)
+except:
+    model = PPO(
+        "MlpPolicy",
+        env,
+        verbose=1,
+        tensorboard_log="./ppo_tensorboard"
 )
-model.learn(total_timesteps=20000,
-            tb_log_name="run_1"
+#
+# model.n_epochs = 15
+# model.ent_coef = 0.01
+# model.vf_coef = 1.0
+# model.gae_lambda = 0.98
+# model.clip_range = 0.2
+# model.learning_rate = 1e-4
+
+model.learn(total_timesteps=50000,
+            tb_log_name="run_2"
             )
-model.save("ppo_sumo_model")
+model.save("ppo_sumo_model_3")
