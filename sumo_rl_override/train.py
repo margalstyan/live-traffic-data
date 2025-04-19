@@ -5,6 +5,7 @@ import traci
 from pathlib import Path
 from sumo_rl.environment.env import SumoEnvironment
 
+
 class GymnasiumWrapper(gym.Env):
     def __init__(self, **kwargs):
         # Start the environment
@@ -76,23 +77,29 @@ env = GymnasiumWrapper(
 
 # === Train PPO Agent ===
 try:
-    model = PPO.load("ppo_sumo_model_2.zip", env=env)
+    model = PPO.load("ppo_sumo_model_5.zip", env=env)
 except:
     model = PPO(
         "MlpPolicy",
         env,
         verbose=1,
-        tensorboard_log="./ppo_tensorboard"
-)
-#
-# model.n_epochs = 15
-# model.ent_coef = 0.01
-# model.vf_coef = 1.0
-# model.gae_lambda = 0.98
-# model.clip_range = 0.2
-# model.learning_rate = 1e-4
+        tensorboard_log="./ppo_tensorboard",
+        learning_rate=3e-4,
+        n_steps=1024,
+        batch_size=64,
+        clip_range=0.2,
+        ent_coef=0.01,
+        gamma=0.95,
+        vf_coef=0.25,
+        normalize_advantage=True
 
-model.learn(total_timesteps=50000,
-            tb_log_name="run_2"
-            )
-model.save("ppo_sumo_model_3")
+    )
+
+try:
+    model.learn(total_timesteps=50000,
+                tb_log_name="run_4"
+                )
+except Exception as e:
+    print(e)
+finally:
+    model.save("ppo_sumo_model_5")
