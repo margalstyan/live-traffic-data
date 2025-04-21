@@ -99,8 +99,8 @@ class MultiTLEnvSingleAgent(gym.Env):
         self.env.close()
 
 env = MultiTLEnvSingleAgent(
-    net_file=str(Path("osm.net.xml").resolve()),
-    route_file=str(Path("routes.rou.xml").resolve()),
+    net_file=str(Path("../config/osm.net.xml").resolve()),
+    route_file=str(Path("../config/routes.rou.xml").resolve()),
     use_gui=False,
     num_seconds=1500,
     yellow_time=3,

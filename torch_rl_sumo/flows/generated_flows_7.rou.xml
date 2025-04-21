@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<routes>
-  <vType id="car" accel="1.0" decel="4.5" length="5" maxSpeed="16.6" sigma="0.5"/>
-  <route id="route_0" edges="186407685 -138002006#3"/>
-  <flow id="route_0_flow" type="car" route="route_0" begin="0" end="30" number="1" departPos="random" arrivalPos="random" departSpeed="max" departLane="best"/>
-  <route id="route_1" edges="1253209803#0 689013160#1 380585337#0"/>
-  <flow id="route_1_flow" type="car" route="route_1" begin="0" end="30" number="56" departPos="random" arrivalPos="random" departSpeed="max" departLane="best"/>
-</routes>

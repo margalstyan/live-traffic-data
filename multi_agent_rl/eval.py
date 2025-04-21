@@ -9,8 +9,8 @@ import xml.etree.ElementTree as ET
 from train import MultiTLEnvSingleAgent
 
 # Set paths explicitly
-NET_FILE = str(Path("osm.net.xml").resolve())
-ROUTE_FILE = str(Path("routes.rou.xml").resolve())
+NET_FILE = str(Path("../config/osm.net.xml").resolve())
+ROUTE_FILE = str(Path("../config/routes.rou.xml").resolve())
 MODEL_FILE = "model_7.zip"
 OUTPUT_XML_FILE = "predicted_tls.xml"
 

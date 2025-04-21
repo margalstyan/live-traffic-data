@@ -19,8 +19,8 @@ from torch_rl_sumo.utils import FLOW_DURATION
 
 SUMO_BINARY = "sumo"
 SUMO_CONFIG = "osm.sumocfg"
-ROUTE_CSV = "traffic_calibration/road_load.csv"
-ROUTE_FILE = "generated_flows.rou.xml"
+ROUTE_CSV = "../data/opera_crossroad_data.csv"
+ROUTE_FILE = "../config/generated_flows_opera.rou.xml"
 FLOW_DURATION = 60
 TRIPINFO_FILE = "tripinfo.xml"
 TOTAL_COUNT = 50
