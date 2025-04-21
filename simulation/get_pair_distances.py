@@ -3,8 +3,8 @@ import time
 import requests
 
 # Load CSVs
-points_df = pd.read_csv("data/points.csv")
-result_df = pd.read_csv("data/result.csv")
+points_df = pd.read_csv("../data/points.csv")
+result_df = pd.read_csv("../data/result.csv")
 
 # Replace with your real Google API key
 API_KEY = "AIzaSyBJ1jHA-FbNDE4wheJxwQ3FnUK6iR9PW7o"
