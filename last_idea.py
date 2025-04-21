@@ -15,12 +15,12 @@ import random
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 
-from torch_rl_sumo.utils import FLOW_DURATION
+# from torch_rl_sumo.utils import FLOW_DURATION
 
 SUMO_BINARY = "sumo"
-SUMO_CONFIG = "osm.sumocfg"
-ROUTE_CSV = "../data/opera_crossroad_data.csv"
-ROUTE_FILE = "../config/generated_flows_opera.rou.xml"
+SUMO_CONFIG = "config/osm.sumocfg"
+ROUTE_CSV = "data/opera_crossroad_data.csv"
+ROUTE_FILE = "config/generated_flows_opera.rou.xml"
 FLOW_DURATION = 60
 TRIPINFO_FILE = "tripinfo.xml"
 TOTAL_COUNT = 50
