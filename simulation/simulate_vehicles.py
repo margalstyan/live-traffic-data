@@ -1,49 +1,22 @@
-# STEPS
-# calculate differences between duration and duration_without_traffic
-# calculate sum of all ti_s
-# calculate differences of all ti_- ti_without_traffic
-# calculate a distribution of the differences
-# for i in range(0, 90, 5):
-#  get samples of distribution based on total sum of ti_s
-#  get the mean of each route time
-# compare with given duration the mean of means
 import pandas as pd
 import numpy as np
 from lxml import etree
 import traci
-import random
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 import os
 
-# from torch_rl_sumo.utils import FLOW_DURATION
+# CONFIGURATION
 
+# List of Junction IDs to process
+JUNCTION_IDS_TO_PROCESS = ["0", "1"]
 SUMO_BINARY = "sumo"
 SUMO_CONFIG = "../config/osm.sumocfg"
-ROUTE_CSV = "../data/opera_crossroad_data.csv"
-ROUTE_FILE = "../config/generated_flows_opera.rou.xml"
 FLOW_DURATION = 60
 TRIPINFO_FILE = "output/tripinfo.xml"
-TOTAL_COUNT = 50
 
-# === Load CSV and prepare routes
-df = pd.read_csv(ROUTE_CSV)
-routes = {}
-route_cache = {}
-
-for idx, row in df.iterrows():
-    route_id = f"route_{idx}"
-    routes[route_id] = {
-        "origin": row["Origin"],
-        "destination": row["Destination"],
-        "from_edge": row["from_edge"],
-        "to_edge": row["to_edge"],
-        "target_duration": row["duration_seconds"],
-        "vehicle_count": None,
-        "last_duration": None,
-        "converged": False,
-        "duration_without_traffic": row["duration_without_traffic"]
-    }
+# Final enhanced CSV
+ROUTE_CSV = "../data/final_with_all_data.csv"
 
 
 def get_car_distributions(routes, N=10,update_diffs=None):
@@ -79,7 +52,7 @@ def get_car_distributions(routes, N=10,update_diffs=None):
 
 
 # === Generate randomized flow file
-def generate_flow_route_file(routes, route_cache, N=TOTAL_COUNT, update_diffs=None):
+def generate_flow_route_file(routes, route_cache, N, update_diffs=None):
     """
     Generate a flow route file based on the routes and their respective cache.
     """
@@ -199,9 +172,9 @@ def recalculate_total_count(routes):
         f"{'TOTAL':<10} | {total_expected:<10.2f} | {total_simulated:<12.2f} | {total_diff:<10.2f} | {total_percent_diff:<10.2f}")
 
 
-def run_simulation_once(update_diffs = None):
+def run_simulation_once(N,update_diffs = None):
     traci.start([SUMO_BINARY, "-c", SUMO_CONFIG, "--start", "--step-length", str(1)])
-    generate_flow_route_file(routes, route_cache, N=TOTAL_COUNT,update_diffs = update_diffs)
+    generate_flow_route_file(routes, route_cache, N,update_diffs = update_diffs)
     traci.close()
 
     traci.start([
@@ -270,13 +243,11 @@ def compare_to_targets(mean_durations, routes):
 
 
 def run_multiple_simulations(total_count, iterations=60, step=3, update_diffs=None):
-    global TOTAL_COUNT
-    TOTAL_COUNT = total_count  # update global var used in flow generation
     all_runs = []
 
     for i in range(0, iterations, step):
         print(f"\n--- Simulation #{i // step + 1} (time step {i}) ---")
-        means = run_simulation_once(update_diffs)
+        means = run_simulation_once(total_count, update_diffs)
         all_runs.append(means)
 
     averaged = average_means(all_runs)
@@ -284,34 +255,66 @@ def run_multiple_simulations(total_count, iterations=60, step=3, update_diffs=No
 
 
 if __name__ == "__main__":
-    max_attempts = 50
-    attempt = 0
-    update_diffs = None
-    total_count = TOTAL_COUNT  # initial value
 
-    while attempt < max_attempts:
-        print(f"\n=== Attempt {attempt + 1} with TOTAL_COUNT={total_count} ===")
-        averaged = run_multiple_simulations(total_count, iterations=90, step=3, update_diffs=update_diffs)
-        total_expected, total_simulated, total_diff, percent_diff, update_diffs = compare_to_targets(averaged, routes)
-        print("update diffs inside while loop", update_diffs)
-        print(f"\nSimulated Total: {total_simulated:.2f}, Target Total: {total_expected:.2f}, "
-              f"Diff: {total_diff:.2f}, Percent Diff: {percent_diff:.2f}%")
+    # === Load full dataset
+    df_full = pd.read_csv(ROUTE_CSV)
 
-        if percent_diff <= 20:
-            print("Total error is acceptable, checking for each route")
-            if not any(x <= 0.8 or x >= 1.25 for x in update_diffs):
-                print("each route error is acceptable, breaking the loop")
-                break
+    # === Loop through each junction
+    for junction_id in JUNCTION_IDS_TO_PROCESS:
+        print(f"\n=== Processing Junction ID: {junction_id} ===")
+        df = df_full[df_full["Junction_id"] == junction_id]
+        ROUTE_FILE = f"../config/generated_flows_{junction_id}.rou.xml"
+
+        # Create route dict for the current junction
+        routes = {}
+        route_cache = {}
+
+        for idx, row in df.iterrows():
+            route_id = f"route_{idx}"
+            routes[route_id] = {
+                "origin": row["Origin"],
+                "destination": row["Destination"],
+                "from_edge": row["from_edge"],
+                "to_edge": row["to_edge"],
+                "target_duration": row["duration_20250327_1830"],
+                "vehicle_count": None,
+                "last_duration": None,
+                "converged": False,
+                "duration_without_traffic": row["duration_without_traffic"]
+            }
+
+        max_attempts = 50
+        attempt = 0
+        update_diffs = None
+        total_count = 0.3*int(
+            sum(route["target_duration"] for route in routes.values()) -
+            sum(route["duration_without_traffic"] for route in routes.values())
+        )
+        total_count = max(50, total_count)
+
+        while attempt < max_attempts:
+            print(f"\n=== Attempt {attempt + 1} with TOTAL_COUNT={total_count} ===")
+            averaged = run_multiple_simulations(total_count, iterations=90, step=3, update_diffs=update_diffs)
+            total_expected, total_simulated, total_diff, percent_diff, update_diffs = compare_to_targets(averaged, routes)
+            print("update diffs inside while loop", update_diffs)
+            print(f"\nSimulated Total: {total_simulated:.2f}, Target Total: {total_expected:.2f}, "
+                  f"Diff: {total_diff:.2f}, Percent Diff: {percent_diff:.2f}%")
+
+            if percent_diff <= 20:
+                print("Total error is acceptable, checking for each route")
+                if not any(x <= 0.3 or x >= 1.9 for x in update_diffs):
+                    print("each route error is acceptable, breaking the loop")
+                    break
+                else:
+                    print("there are routes with not acceptable time difference")
+
+            # Adjust total_count proportionally
+            if attempt % 5 == 0:
+                ratio = total_expected / total_simulated if total_simulated != 0 else 1.0
+                total_count = int(total_count * ratio )
+                total_count = max(1, total_count)
+                update_diffs = None
+                print("Updating total count, skipping distribution update")
             else:
-                print("there are routes with not acceptable time difference")
-
-        # Adjust total_count proportionally
-        if attempt % 5 == 4:
-            ratio = total_expected / total_simulated if total_simulated != 0 else 1.0
-            total_count = int(total_count * ratio )
-            total_count = max(1, total_count)
-            update_diffs = None
-            print("Updating total count, skipping distribution update")
-        else:
-            print("Updating distribution, skipping update of total count")
-        attempt += 1
+                print("Updating distribution, skipping update of total count")
+            attempt += 1
