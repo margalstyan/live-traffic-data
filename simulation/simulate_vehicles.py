@@ -73,6 +73,7 @@ def get_car_distributions(routes, N=10,update_diffs=None):
     counts = np.random.multinomial(N, p)
     route_ids = list(routes.keys())
     route_counts = list(zip(route_ids, list(map(int,counts))))
+    print("generated rout counts:", route_counts)
 
     return route_counts
 
