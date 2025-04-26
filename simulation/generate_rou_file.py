@@ -6,10 +6,11 @@ from lxml import etree
 import traci
 
 # CONFIG
-INPUT_JSON = "simulation/output/junction_simulation_results.json"
+INPUT_JSON = "simulation/output/junction_simulation_results-sample.json"
 INPUT_CSV = "data/final_with_all_data.csv"
 OUTPUT_ROUTE_FILE = "config/generated_from_json.rou.xml"
 FLOW_DURATION = 60  # seconds
+INSERTION_INTERVAL = 300  # seconds between timestamps (10 minutes)
 SUMO_BINARY = "sumo"
 SUMO_CONFIG = "config/osm.sumocfg"
 
@@ -23,6 +24,40 @@ def find_route_edges(from_edge, to_edge):
         print(f"⚠️ Warning: Could not find route from {from_edge} to {to_edge}: {e}")
         return f"{from_edge} {to_edge}"
 
+def process_timestamp(root, timestamp_key, timestamp_data, routes, start_time):
+    total_count = timestamp_data["total_count"]
+    probabilities = timestamp_data["probabilities"]
+
+    route_ids = list(probabilities.keys())
+    probs_array = np.array([probabilities[rid] for rid in route_ids])
+    probs_array = probs_array / probs_array.sum()
+
+    counts = np.random.multinomial(total_count, probs_array)
+    counts = np.maximum(counts, 1)
+
+    for route_id, count in zip(route_ids, counts):
+        if route_id not in routes:
+            print(f"⚠️ Warning: {route_id} not found in CSV routes. Skipping.")
+            continue
+
+        route_info = routes[route_id]
+        from_edge = route_info["from_edge"]
+        to_edge = route_info["to_edge"]
+
+        edges = find_route_edges(from_edge, to_edge)
+
+        # Create route and flow
+        etree.SubElement(root, "route", id=f"{route_id}_{timestamp_key}", edges=edges)
+        etree.SubElement(root, "flow",
+                         id=f"flow_{route_id}_{timestamp_key}",
+                         type="car",
+                         route=f"{route_id}_{timestamp_key}",
+                         begin=str(start_time),
+                         end=str(start_time + FLOW_DURATION),
+                         number=str(count),
+                         departPos="random",
+                         arrivalPos="random")
+
 def generate_routes_from_json(input_json_path, input_csv_path, output_xml_path):
     if not os.path.exists(input_json_path):
         raise FileNotFoundError(f"Input JSON file not found: {input_json_path}")
@@ -33,9 +68,6 @@ def generate_routes_from_json(input_json_path, input_csv_path, output_xml_path):
     # Load JSON
     with open(input_json_path, "r") as f:
         data = json.load(f)
-
-    total_count = data["total_count"]
-    probabilities = data["probabilities"]
 
     # Load CSV and prepare routes dict
     df_full = pd.read_csv(input_csv_path)
@@ -63,42 +95,18 @@ def generate_routes_from_json(input_json_path, input_csv_path, output_xml_path):
     # Define vehicle type
     etree.SubElement(root, "vType", id="car", accel="1.0", decel="4.5", length="5", maxSpeed="16.6", sigma="0.5")
 
-    # Prepare probabilities array in the same order as routes
-    route_ids = list(probabilities.keys())
-    probs_array = np.array([probabilities[rid] for rid in route_ids])
-    probs_array = probs_array / probs_array.sum()  # Normalize
-
-    # Sample counts
-    counts = np.random.multinomial(total_count, probs_array)
-
-    # Ensure no route has zero vehicles
-    counts = np.maximum(counts, 1)
-
     # Start SUMO in background to use traci
     traci.start([SUMO_BINARY, "-c", SUMO_CONFIG, "--start", "--step-length", "1"])
 
-    for route_id, count in zip(route_ids, counts):
-        if route_id not in routes:
-            print(f"⚠️ Warning: {route_id} not found in CSV routes. Skipping.")
-            continue
+    # First timestamp (default/no name)
+    process_timestamp(root, "default", data, routes, start_time=0)
 
-        route_info = routes[route_id]
-        from_edge = route_info["from_edge"]
-        to_edge = route_info["to_edge"]
-
-        edges = find_route_edges(from_edge, to_edge)
-
-        # Create route and flow
-        etree.SubElement(root, "route", id=route_id, edges=edges)
-        etree.SubElement(root, "flow",
-                         id=f"flow_{route_id}",
-                         type="car",
-                         route=route_id,
-                         begin="0",
-                         end=str(FLOW_DURATION),
-                         number=str(count),
-                         departPos="random",
-                         arrivalPos="random")
+    # Other timestamps
+    current_start_time = INSERTION_INTERVAL
+    for key in data.keys():
+        if key.startswith("duration_"):
+            process_timestamp(root, key, data[key], routes, start_time=current_start_time)
+            current_start_time += INSERTION_INTERVAL
 
     traci.close()
 
