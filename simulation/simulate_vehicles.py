@@ -10,7 +10,7 @@ import json
 # CONFIGURATION
 
 # List of Junction IDs to process
-JUNCTION_IDS_TO_PROCESS = ["0"]
+JUNCTION_IDS_TO_PROCESS = ["4", "9", "8", "5"]
 SUMO_BINARY = "sumo"
 SUMO_CONFIG = "config/osm.sumocfg"
 FLOW_DURATION = 60
@@ -21,10 +21,6 @@ ROUTE_CSV = "data/final_with_all_data.csv"
 
 
 def get_car_distributions(routes, N=10, update_diffs=None, previous_probs=None):
-    print("**************************************")
-    print("--------------updating probabilities")
-    print("--------------previous probs: ", previous_probs)
-    print("--------------update values: ", update_diffs)
     if previous_probs is not None:
         p = previous_probs
     else:
@@ -35,10 +31,9 @@ def get_car_distributions(routes, N=10, update_diffs=None, previous_probs=None):
         p = p / p.sum()
 
     if update_diffs:
-        p = p * np.array(update_diffs)
+        p = .8 * p + 0.2 * p * np.array(update_diffs)
         p = p / p.sum()
 
-    print("--------------final result: ", p)
     counts = np.random.multinomial(N, p)
     route_ids = list(routes.keys())
     route_counts = list(zip(route_ids, list(map(int, map(lambda x: max(1,x), counts)))))
@@ -46,7 +41,7 @@ def get_car_distributions(routes, N=10, update_diffs=None, previous_probs=None):
 
 
 # === Generate randomized flow file
-def generate_flow_route_file(routes, route_cache, N,begin_time, update_diffs=None, previous_probs=None):
+def generate_flow_route_file(routes, route_cache, N, begin_time=0, update_diffs=None, previous_probs=None):
     """
     Generate a flow route file based on the routes and their respective cache.
     """
@@ -257,62 +252,81 @@ if __name__ == "__main__":
 
     junction_results = {}
 
-    for junction_id in JUNCTION_IDS_TO_PROCESS:
-        print(f"\n=== Processing Junction ID: {junction_id} ===")
-        df = df_full[df_full["Junction_id"] == junction_id]
-        ROUTE_FILE = "config/generated_flows_simultaneously.rou.xml"
+    df = df_full[df_full["Junction_id"].isin(JUNCTION_IDS_TO_PROCESS)]
+    # df = df_full
+    ROUTE_FILE = "config/generated_flows_simultaneously.rou.xml"
 
-        routes = {}
-        route_cache = {}
+    routes = {}
+    route_cache = {}
 
-        for idx, row in df.iterrows():
-            route_id = f"route_{idx}"
-            routes[route_id] = {
-                "origin": row["Origin"],
-                "destination": row["Destination"],
-                "from_edge": row["from_edge"],
-                "to_edge": row["to_edge"],
-                "target_duration": row["duration_20250327_1830"],
-                "vehicle_count": None,
-                "last_duration": None,
-                "converged": False,
-                "duration_without_traffic": row["duration_without_traffic"]
-            }
-
-        total_count = int(0.3*int(
-            sum(route["target_duration"] for route in routes.values()) -
-            sum(route["duration_without_traffic"] for route in routes.values())
-        ))
-        total_count = max(50, total_count)
-
-        attempt = 0
-        max_attempts = 50
-        update_diffs = None
-        previous_probs = None
-
-        while attempt < max_attempts:
-            print(f"\n=== Attempt {attempt + 1} for Junction {junction_id} with TOTAL_COUNT={total_count} ===")
-            averaged, new_probs = run_multiple_simulations(total_count, iterations=160, step=3, update_diffs=update_diffs, previous_probs=previous_probs)
-            previous_probs = new_probs
-            total_expected, total_simulated, total_diff, percent_diff, update_diffs = compare_to_targets(averaged,
-                                                                                                         routes)
-
-            if percent_diff <= 20 and not any(x <= 0.3 or x >= 1.7 for x in update_diffs):
-                print("✅ Acceptable result, ending loop.")
-                break
-
-            if attempt % 5 == 0:
-                ratio = total_expected / total_simulated if total_simulated else 1.0
-                total_count = max(1, int(total_count * ratio))
-                update_diffs = None
-            attempt += 1
-
-        route_ids = list(routes.keys())
-        probabilities = {rid: round(previous_probs[i], 4) for i, rid in enumerate(route_ids)}
-        junction_results[junction_id] = {
-            "total_count": total_count,
-            "probabilities": probabilities
+    for idx, row in df.iterrows():
+        route_id = f"route_{idx}"
+        routes[route_id] = {
+            "origin": row["Origin"],
+            "destination": row["Destination"],
+            "from_edge": row["from_edge"],
+            "to_edge": row["to_edge"],
+            "target_duration": row["duration_20250327_1830"],
+            "vehicle_count": None,
+            "last_duration": None,
+            "converged": False,
+            "duration_without_traffic": row["duration_without_traffic"]
         }
 
-    with open("junction_simulation_results.json", "w") as f:
-        json.dump(junction_results, f, indent=4)
+    total_count = int(0.5*int(
+        sum(route["target_duration"] for route in routes.values()) -
+        sum(route["duration_without_traffic"] for route in routes.values())
+    ))
+    total_count = max(50, total_count)
+
+    attempt = 0
+    max_attempts = 100
+    update_diffs = None
+    previous_probs = None
+
+    while attempt < max_attempts:
+        print(f"\n=== Attempt {attempt + 1} for Junction {JUNCTION_IDS_TO_PROCESS} with TOTAL_COUNT={total_count} ===")
+        averaged, new_probs = run_multiple_simulations(total_count, iterations=63, step=3, update_diffs=update_diffs, previous_probs=previous_probs)
+        previous_probs = new_probs
+        total_expected, total_simulated, total_diff, percent_diff, update_diffs = compare_to_targets(averaged,
+                                                                                                     routes)
+        if attempt % 10 == 0:
+            ratio = total_expected / total_simulated if total_simulated else 1.0
+            total_count = max(1, int(total_count * ratio))
+            update_diffs = None
+        attempt += 1
+        # Prepare the new data
+        route_ids = list(routes.keys())
+        probabilities = {rid: round(previous_probs[i], 4) for i, rid in enumerate(route_ids)}
+        junction_results = {
+            "total_count": total_count,
+            "probabilities": probabilities,
+            "percent_diff": percent_diff
+        }
+
+        output_json_path = "simulation/output/junction_simulation_results.json"
+
+        should_write = True
+
+        # Check if file exists
+        if os.path.exists(output_json_path):
+            with open(output_json_path, "r") as f:
+                try:
+                    existing_data = json.load(f)
+                    existing_percent_diff = existing_data.get("percent_diff")
+                    if existing_percent_diff is not None and existing_percent_diff <= percent_diff:
+                        should_write = False
+                except json.JSONDecodeError:
+                    pass
+
+        # Write new data if needed
+        if should_write:
+            with open(output_json_path, "w") as f:
+                json.dump(junction_results, f, indent=4)
+
+        if percent_diff <= 20:
+            print("Acceptable total count")
+            if sum(0.7 <= x <= 1.3 for x in update_diffs) / len(update_diffs) >= 0.8:
+                print("Acceptable percentage of each probability")
+                break
+
