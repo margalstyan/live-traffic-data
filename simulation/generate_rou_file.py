@@ -58,6 +58,7 @@ def generate_routes_from_json(input_json_path, input_csv_path, output_xml_path):
 
     # Sample counts
     counts = np.random.multinomial(total_count, probs_array)
+    counts = np.maximum(counts, 1)
 
     for route_id, count in zip(route_ids, counts):
         if route_id not in routes:
