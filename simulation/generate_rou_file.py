@@ -98,12 +98,9 @@ def generate_routes_from_json(input_json_path, input_csv_path, output_xml_path):
     # Start SUMO in background to use traci
     traci.start([SUMO_BINARY, "-c", SUMO_CONFIG, "--start", "--step-length", "1"])
 
-    # First timestamp (default/no name)
-    process_timestamp(root, "default", data, routes, start_time=0)
-
-    # Other timestamps
-    current_start_time = INSERTION_INTERVAL
-    for key in data.keys():
+    # Process all timestamps
+    current_start_time = 0
+    for key in sorted(data.keys()):
         if key.startswith("duration_"):
             process_timestamp(root, key, data[key], routes, start_time=current_start_time)
             current_start_time += INSERTION_INTERVAL
