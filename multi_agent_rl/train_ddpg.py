@@ -1,5 +1,4 @@
-from jinja2.compiler import generate
-from stable_baselines3 import PPO
+from stable_baselines3 import DDPG
 import gymnasium as gym
 import numpy as np
 import traci
@@ -51,6 +50,7 @@ class MultiTLEnvSingleAgent(gym.Env):
 
     def reset(self, *, seed=None, options=None):
         obs = self.env.reset()
+
         # Get concatenated observation
         obs_concat = np.concatenate([obs[ts].flatten() for ts in self.ts_ids])
 
@@ -101,7 +101,7 @@ if __name__ == "__main__":
     env = MultiTLEnvSingleAgent(
         net_file=str(Path("osm.net.xml").resolve()),
         route_file=str(Path("routes.rou.xml").resolve()),
-        use_gui=True,
+        use_gui=False,
         num_seconds=2000,
         yellow_time=3,
         min_green=5,
@@ -111,7 +111,7 @@ if __name__ == "__main__":
     env = Monitor(env)
 
     try:
-        model = PPO.load("model_3_1.zip",
+        model = DDPG.load("model_ddpg_1.zip",
                          env=env,
                          learning_rate=3e-4,
                          clip_range=0.1,
@@ -120,17 +120,12 @@ if __name__ == "__main__":
 
     except:
         print("Training new model...")
-        model = PPO(
+        model = DDPG(
             "MlpPolicy",
             env,
             verbose=1,
             tensorboard_log="./ppo_tensorboard",
             learning_rate=3e-4,
-            normalize_advantage=True,
-            clip_range=0.2,
-            ent_coef=0.001,
-            gamma=0.98,
-            vf_coef=0.5
         )
 
     # Pass model into env
@@ -139,7 +134,7 @@ if __name__ == "__main__":
     # ✅ Checkpoint every 10,000 steps
     checkpoint_callback = CheckpointCallback(
         save_freq=10_000,
-        save_path="./checkpoints/6/",
+        save_path="./checkpoints/ddpg/",
         name_prefix="ppo_tl_model"
     )
 
@@ -148,4 +143,4 @@ if __name__ == "__main__":
     except Exception as e:
         print(e)
     finally:
-        model.save("model_3_1")
+        model.save("model_ddpg_1")

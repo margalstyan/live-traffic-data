@@ -1,5 +1,4 @@
-from jinja2.compiler import generate
-from stable_baselines3 import PPO
+from stable_baselines3 import TD3
 import gymnasium as gym
 import numpy as np
 import traci
@@ -38,12 +37,8 @@ class MultiTLEnvSingleAgent(gym.Env):
             self.phase_indices_per_tl[ts_id] = adjustable_indices
             total_action_count += len(adjustable_indices)
 
-        self.action_space = Box(
-            low=-1.0,
-            high=1.0,
-            shape=(total_action_count,),
-            dtype=np.float32
-        )
+        self.total_adjustable = sum(len(v) for v in self.phase_indices_per_tl.values())
+        self.action_space = Box(low=-1.0, high=1.0, shape=(total_action_count,), dtype=np.float32)
 
         print(f"[Init] TLs: {len(self.ts_ids)}, adjustable phases per TL: {self.phase_indices_per_tl}")
 
@@ -51,16 +46,12 @@ class MultiTLEnvSingleAgent(gym.Env):
 
     def reset(self, *, seed=None, options=None):
         obs = self.env.reset()
+
         # Get concatenated observation
         obs_concat = np.concatenate([obs[ts].flatten() for ts in self.ts_ids])
 
-        # Predict action ONCE per episode (initial action for durations)
         action, _ = self.model.predict(obs_concat, deterministic=True)
-
-        # Scale actions explicitly from [-1, 1] to [min_duration, max_duration]
         scaled_actions = self.min_duration + (action + 1.0) * (self.max_duration - self.min_duration) / 2.0
-
-        # Set durations per TL once at the start
         idx = 0
         for ts_id in self.ts_ids:
             phase_indices = self.phase_indices_per_tl[ts_id]
@@ -70,7 +61,6 @@ class MultiTLEnvSingleAgent(gym.Env):
 
             logic = traci.trafficlight.getAllProgramLogics(ts_id)[0]
             phases = logic.phases
-
             for phase_idx, duration in zip(phase_indices, durations):
                 clipped_duration = float(np.clip(duration, self.min_duration, self.max_duration))
                 phases[phase_idx].duration = clipped_duration
@@ -101,7 +91,7 @@ if __name__ == "__main__":
     env = MultiTLEnvSingleAgent(
         net_file=str(Path("osm.net.xml").resolve()),
         route_file=str(Path("routes.rou.xml").resolve()),
-        use_gui=True,
+        use_gui=False,
         num_seconds=2000,
         yellow_time=3,
         min_green=5,
@@ -111,7 +101,7 @@ if __name__ == "__main__":
     env = Monitor(env)
 
     try:
-        model = PPO.load("model_3_1.zip",
+        model = TD3.load("model_td3_1.zip",
                          env=env,
                          learning_rate=3e-4,
                          clip_range=0.1,
@@ -120,17 +110,12 @@ if __name__ == "__main__":
 
     except:
         print("Training new model...")
-        model = PPO(
+        model = TD3(
             "MlpPolicy",
             env,
             verbose=1,
             tensorboard_log="./ppo_tensorboard",
             learning_rate=3e-4,
-            normalize_advantage=True,
-            clip_range=0.2,
-            ent_coef=0.001,
-            gamma=0.98,
-            vf_coef=0.5
         )
 
     # Pass model into env
@@ -139,8 +124,8 @@ if __name__ == "__main__":
     # ✅ Checkpoint every 10,000 steps
     checkpoint_callback = CheckpointCallback(
         save_freq=10_000,
-        save_path="./checkpoints/6/",
-        name_prefix="ppo_tl_model"
+        save_path="./checkpoints/td3/",
+        name_prefix="ppo_dqn_model"
     )
 
     try:
@@ -148,4 +133,4 @@ if __name__ == "__main__":
     except Exception as e:
         print(e)
     finally:
-        model.save("model_3_1")
+        model.save("model_td3_1")

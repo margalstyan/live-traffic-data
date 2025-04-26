@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='utf-8'?>
+<additional>
+  <tlLogic id="11644940310" programID="predicted" offset="0" type="static">
+    <phase duration="36.106163024902344" state="rrrrrrrGGGGGG" />
+    <phase duration="3.0" state="rrrrrrryyyyyy" />
+    <phase duration="50.6694450378418" state="GGggGGGrrrrrr" />
+    <phase duration="3.0" state="GGggyyyrrrrrr" />
+    <phase duration="48.42203140258789" state="GGggrrrrrrrrr" />
+    <phase duration="3.0" state="yyyyrrrrrrrrr" />
+  </tlLogic>
+  <tlLogic id="632031937" programID="predicted" offset="0" type="static">
+    <phase duration="48.3871955871582" state="GGGrrrrrGGgg" />
+    <phase duration="3.0" state="yyyrrrrrGGgg" />
+    <phase duration="49.62800216674805" state="rrrrrrrrGGgg" />
+    <phase duration="3.0" state="rrrrrrrryyyy" />
+    <phase duration="46.74759292602539" state="rrrGGGGGrrrr" />
+    <phase duration="3.0" state="rrryyyyyrrrr" />
+  </tlLogic>
+  <tlLogic id="GS_cluster_1342409365_3839031467" programID="predicted" offset="0" type="static">
+    <phase duration="47.90590286254883" state="grrGGGgGGG" />
+    <phase duration="3.0" state="grryyyyyyy" />
+    <phase duration="41.41698455810547" state="gGGrrrrrrr" />
+    <phase duration="3.0" state="gyyrrrrrrr" />
+  </tlLogic>
+  <tlLogic id="GS_cluster_4854142864_4854142865" programID="predicted" offset="0" type="static">
+    <phase duration="47.81243896484375" state="rrrrrrrrrrrrGGGG" />
+    <phase duration="3.0" state="rrrrrrrrrrrryyyy" />
+    <phase duration="47.40630340576172" state="rrrrrrrGGGggrrrr" />
+    <phase duration="3.0" state="rrrrrrryyyyyrrrr" />
+    <phase duration="48.82950210571289" state="GGGGGGGrrrrrrrrr" />
+    <phase duration="3.0" state="yyyyyyyrrrrrrrrr" />
+  </tlLogic>
+  <tlLogic id="J7" programID="predicted" offset="0" type="static">
+    <phase duration="44.1484489440918" state="grrrrGGGGgggrrrrrrrGGGGG" />
+    <phase duration="3.0" state="grrrrGGGGgggrrrrrrryyyyy" />
+    <phase duration="48.34693908691406" state="grrrrGGGGgggrrrrrrrrrrrr" />
+    <phase duration="3.0" state="grrrryyyyyyyrrrrrrrrrrrr" />
+    <phase duration="36.71228790283203" state="gGGGgrrrrrrrrrrrrrrrrrrr" />
+    <phase duration="3.0" state="gyyyyrrrrrrrrrrrrrrrrrrr" />
+    <phase duration="45.096519470214844" state="grrrrrrrrrrrGGGGGGGrrrrr" />
+    <phase duration="3.0" state="grrrrrrrrrrryyyyyyyrrrrr" />
+  </tlLogic>
+  <tlLogic id="cluster10852700972_12154751993" programID="predicted" offset="0" type="static">
+    <phase duration="37.68159103393555" state="rrrrrGGGGGGGG" />
+    <phase duration="3.0" state="rrrrryyyyyyyy" />
+    <phase duration="46.88016128540039" state="GGGGGrrrrrrrr" />
+    <phase duration="3.0" state="yyyyyrrrrrrrr" />
+  </tlLogic>
+  <tlLogic id="cluster3828547534_cluster_1507433914_2954854770_2954854771_2954854772_#9more" programID="predicted" offset="0" type="static">
+    <phase duration="54.46061325073242" state="grrrGGGrgrrrrGGGGg" />
+    <phase duration="3.0" state="grrryyyrgrrrrGGGGg" />
+    <phase duration="50.38151550292969" state="grrrrrrrgrrrrGGGGg" />
+    <phase duration="3.0" state="grrrrrrrgrrrrGyyyy" />
+    <phase duration="41.413536071777344" state="gGGGrrrggrrrrgrrrr" />
+    <phase duration="3.0" state="gyyyrrrygrrrrgrrrr" />
+    <phase duration="54.63300323486328" state="grrrrrrrgGGGggrrrr" />
+    <phase duration="3.0" state="grrrrrrrgyyyygrrrr" />
+  </tlLogic>
+  <tlLogic id="cluster3839130731_cluster_11644940326_11644940327_11648561426" programID="predicted" offset="0" type="static">
+    <phase duration="50.47218704223633" state="rrrrrrGGggrrrGGGGg" />
+    <phase duration="3.0" state="rrrrrryyyyrrryyyyy" />
+    <phase duration="50.56398391723633" state="GGGGggrrrrGGGrrrrr" />
+    <phase duration="3.0" state="yyyyyyrrrryyyrrrrr" />
+  </tlLogic>
+  <tlLogic id="cluster7571105647_7571105653_cluster_1141265322_11869698130_256036890_4227138136_#4more" programID="predicted" offset="0" type="static">
+    <phase duration="38.140804290771484" state="GGGGGGGGggrrrrr" />
+    <phase duration="3.0" state="yyyyyyyyyyrrrrr" />
+    <phase duration="49.9475212097168" state="rrrrrrrrrrGGGGG" />
+    <phase duration="3.0" state="rrrrrrrrrryyyyy" />
+  </tlLogic>
+  <tlLogic id="cluster_11644940323_11644940324_3828703845" programID="predicted" offset="0" type="static">
+    <phase duration="44.06097412109375" state="GGGGggGGGGggrrrrr" />
+    <phase duration="6.0" state="Gyyyyyyyyyyyrrrrr" />
+    <phase duration="40.90098571777344" state="GrrrrrrrrrrrGGGGG" />
+    <phase duration="6.0" state="Grrrrrrrrrrryyyyy" />
+  </tlLogic>
+  <tlLogic id="cluster_11648561419_11648561420_2271142975_4854142869" programID="predicted" offset="0" type="static">
+    <phase duration="55.20880889892578" state="rrrrrrrGGGGrrrrrrGGGGgg" />
+    <phase duration="3.0" state="rrrrrrryyyyrrrrrrGGGGgg" />
+    <phase duration="43.61444854736328" state="rrrrrrrrrrrrrrrrrGGGGgg" />
+    <phase duration="3.0" state="rrrrrrrrrrrrrrrrryyyyyy" />
+    <phase duration="42.93661117553711" state="GGGGGggrrrrrrrrrrrrrrrr" />
+    <phase duration="3.0" state="yyyyyyyrrrrrrrrrrrrrrrr" />
+    <phase duration="45.89998245239258" state="rrrrrrrrrrrGGGGggrrrrrr" />
+    <phase duration="3.0" state="rrrrrrrrrrryyyyyyrrrrrr" />
+  </tlLogic>
+  <tlLogic id="cluster_11648561428_407729599" programID="predicted" offset="0" type="static">
+    <phase duration="44.460208892822266" state="GGGrrrrGGgg" />
+    <phase duration="6.0" state="yyyrrrryyyy" />
+    <phase duration="44.139305114746094" state="rrrGGGGrrrr" />
+    <phase duration="6.0" state="rrryyyyrrrr" />
+  </tlLogic>
+  <tlLogic id="cluster_11648745684_256036885_3839031483" programID="predicted" offset="0" type="static">
+    <phase duration="41.250431060791016" state="gGGggrrrrrrGGGGrrrrr" />
+    <phase duration="3.0" state="gGGggrrrrrryyyyrrrrr" />
+    <phase duration="43.03445053100586" state="gGGggrrrrrrrrrrrrrrr" />
+    <phase duration="3.0" state="gyyyyrrrrrrrrrrrrrrr" />
+    <phase duration="42.9086799621582" state="grrrrrrrrrrrrrrGGGGg" />
+    <phase duration="3.0" state="grrrrrrrrrrrrrryyyyy" />
+    <phase duration="46.52085494995117" state="grrrrGGGGggrrrrrrrrr" />
+    <phase duration="26.0" state="grrrryyyyyyrrrrrrrrr" />
+  </tlLogic>
+  <tlLogic id="cluster_11657899598_353811979_6712514804" programID="predicted" offset="0" type="static">
+    <phase duration="49.377079010009766" state="GGGGggrrrrrrGGGGgg" />
+    <phase duration="3.0" state="yyyyyyrrrrrryyyyyy" />
+    <phase duration="61.42161178588867" state="rrrrrrGGGGGgrrrrrr" />
+    <phase duration="3.0" state="rrrrrryyyyyyrrrrrr" />
+  </tlLogic>
+  <tlLogic id="cluster_2271368471_4779869278" programID="predicted" offset="0" type="static">
+    <phase duration="48.49814987182617" state="rrrGGGgrrrrrrrr" />
+    <phase duration="3.0" state="rrryyyyrrrrrrrr" />
+    <phase duration="46.828765869140625" state="rrrrrrrrrrGGGGg" />
+    <phase duration="4.0" state="rrrrrrrrrryyyyy" />
+    <phase duration="40.13664245605469" state="GGGrrrrGGGrrrrr" />
+    <phase duration="5.0" state="yyyrrrryyyrrrrr" />
+  </tlLogic>
+  <tlLogic id="cluster_356722183_3828703848" programID="predicted" offset="0" type="static">
+    <phase duration="39.045658111572266" state="GGGrrrrrGGGgg" />
+    <phase duration="3.0" state="GyyrrrrrGGGgg" />
+    <phase duration="48.64620590209961" state="GrrrrrrrGGGgg" />
+    <phase duration="3.0" state="Grrrrrrryyyyy" />
+    <phase duration="51.50348663330078" state="grrGGGGGrrrrr" />
+    <phase duration="3.0" state="grryyyyyrrrrr" />
+  </tlLogic>
+  <tlLogic id="cluster_3839031475_3839031476_4110471700_4234582615" programID="predicted" offset="0" type="static">
+    <phase duration="43.8160285949707" state="gGGGgggrrrgGGGrrrrrr" />
+    <phase duration="3.0" state="gGGGgggrrrgyyyrrrrrr" />
+    <phase duration="51.23455047607422" state="gGGGgggrrrgrrrrrrrrr" />
+    <phase duration="3.0" state="gyyyyygrrrgrrrrrrrrr" />
+    <phase duration="40.71023178100586" state="grrrrrgGGGgrrrgGGGgg" />
+    <phase duration="3.0" state="grrrrrgyyygrrrgGGGgg" />
+    <phase duration="48.68119812011719" state="grrrrrgrrrgrrrgGGGgg" />
+    <phase duration="3.0" state="grrrrrgrrrgrrryyyyyy" />
+  </tlLogic>
+  <tlLogic id="cluster_4110471701_632031939" programID="predicted" offset="0" type="static">
+    <phase duration="53.138729095458984" state="GGGGgrrrrGGG" />
+    <phase duration="3.0" state="yyyygrrrryyy" />
+    <phase duration="52.63016128540039" state="rrrrgGGGGrrr" />
+    <phase duration="3.0" state="rrrrgyyyyrrr" />
+  </tlLogic>
+</additional>
