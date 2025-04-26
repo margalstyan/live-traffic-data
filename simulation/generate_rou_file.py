@@ -3,14 +3,25 @@ import os
 import pandas as pd
 import numpy as np
 from lxml import etree
+import traci
 
 # CONFIG
 INPUT_JSON = "simulation/output/junction_simulation_results.json"
 INPUT_CSV = "data/final_with_all_data.csv"
 OUTPUT_ROUTE_FILE = "config/generated_from_json.rou.xml"
-FLOW_DURATION = 60
+FLOW_DURATION = 60  # seconds
+SUMO_BINARY = "sumo"
+SUMO_CONFIG = "config/osm.sumocfg"
 
-JUNCTION_IDS_TO_PROCESS = ["4", "9", "8", "5"]
+JUNCTION_IDS_TO_PROCESS = ["4", "9", "8", "5"]  # Same as before
+
+def find_route_edges(from_edge, to_edge):
+    try:
+        route = traci.simulation.findRoute(from_edge, to_edge)
+        return " ".join(route.edges)
+    except Exception as e:
+        print(f"⚠️ Warning: Could not find route from {from_edge} to {to_edge}: {e}")
+        return f"{from_edge} {to_edge}"
 
 def generate_routes_from_json(input_json_path, input_csv_path, output_xml_path):
     if not os.path.exists(input_json_path):
@@ -55,10 +66,16 @@ def generate_routes_from_json(input_json_path, input_csv_path, output_xml_path):
     # Prepare probabilities array in the same order as routes
     route_ids = list(probabilities.keys())
     probs_array = np.array([probabilities[rid] for rid in route_ids])
+    probs_array = probs_array / probs_array.sum()  # Normalize
 
     # Sample counts
     counts = np.random.multinomial(total_count, probs_array)
+
+    # Ensure no route has zero vehicles
     counts = np.maximum(counts, 1)
+
+    # Start SUMO in background to use traci
+    traci.start([SUMO_BINARY, "-c", SUMO_CONFIG, "--start", "--step-length", "1"])
 
     for route_id, count in zip(route_ids, counts):
         if route_id not in routes:
@@ -69,8 +86,10 @@ def generate_routes_from_json(input_json_path, input_csv_path, output_xml_path):
         from_edge = route_info["from_edge"]
         to_edge = route_info["to_edge"]
 
+        edges = find_route_edges(from_edge, to_edge)
+
         # Create route and flow
-        etree.SubElement(root, "route", id=route_id, edges=f"{from_edge} {to_edge}")
+        etree.SubElement(root, "route", id=route_id, edges=edges)
         etree.SubElement(root, "flow",
                          id=f"flow_{route_id}",
                          type="car",
@@ -80,6 +99,8 @@ def generate_routes_from_json(input_json_path, input_csv_path, output_xml_path):
                          number=str(count),
                          departPos="random",
                          arrivalPos="random")
+
+    traci.close()
 
     # Save XML
     tree = etree.ElementTree(root)
