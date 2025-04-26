@@ -30,7 +30,7 @@ def get_car_distributions(routes, N=10, update_diffs=None, previous_probs=None):
         p = np.power(p, 2)
         p = p / p.sum()
 
-    if update_diffs:
+    if update_diffs is not None:
         p = .8 * p + 0.2 * p * np.array(update_diffs)
         p = p / p.sum()
 
@@ -293,7 +293,7 @@ if __name__ == "__main__":
         if attempt % 10 == 0:
             ratio = total_expected / total_simulated if total_simulated else 1.0
             total_count = max(1, int(total_count * ratio))
-            update_diffs = None
+            update_diffs = np.ones(len(update_diffs))
         attempt += 1
         # Prepare the new data
         route_ids = list(routes.keys())
