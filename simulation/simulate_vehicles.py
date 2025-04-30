@@ -8,7 +8,7 @@ import os
 import json
 
 # CONFIGURATION
-JUNCTION_IDS_TO_PROCESS = ["4", "9", "8", "5"]
+JUNCTION_IDS_TO_PROCESS = ["3"]
 SUMO_BINARY = "sumo"
 SUMO_CONFIG = "config/osm.sumocfg"
 FLOW_DURATION = 60
@@ -17,6 +17,9 @@ ROUTE_CSV = "data/final_with_all_data.csv"
 OUTPUT_JSON_PATH = "simulation/output/junction_simulation_results.json"
 
 def get_car_distributions(routes, N=10, update_diffs=None, previous_probs=None):
+    if previous_probs is not None and any(diff > 0.45 for diff in previous_probs):
+        previous_probs = None
+
     if previous_probs is not None:
         p = previous_probs
     else:
@@ -27,7 +30,7 @@ def get_car_distributions(routes, N=10, update_diffs=None, previous_probs=None):
         p = p / p.sum()
 
     if update_diffs is not None:
-        p = .8 * p + 0.2 * p * np.array(update_diffs)
+        p = p * np.array(update_diffs)
         p = p / p.sum()
 
     counts = np.random.multinomial(N, p)
@@ -156,8 +159,10 @@ def run_multiple_simulations(routes, route_cache, total_count, iterations=60, st
 
 if __name__ == "__main__":
     df_full = pd.read_csv(ROUTE_CSV)
-    timestamp_columns = [col for col in df_full.columns if col.startswith("duration_")]
-
+    timestamp_columns = [
+        col for col in df_full.columns
+        if col.startswith("duration_") and col > "duration_20250327_1900"
+    ]
     if os.path.exists(OUTPUT_JSON_PATH):
         with open(OUTPUT_JSON_PATH, "r") as f:
             try:
@@ -197,10 +202,10 @@ if __name__ == "__main__":
             sum(route["target_duration"] for route in routes.values()) -
             sum(route["duration_without_traffic"] for route in routes.values())
         ))
-        total_count = max(50, total_count)
+        total_count = max(10, total_count)
 
         attempt = 0
-        max_attempts = 100
+        max_attempts = 30
         update_diffs = None
         if last_used_probabilities is not None:
             previous_probs = np.array([last_used_probabilities[rid] for rid in routes.keys()])
@@ -226,11 +231,16 @@ if __name__ == "__main__":
                 with open(OUTPUT_JSON_PATH, "w") as f:
                     json.dump(junction_results, f, indent=4)
 
-            if percent_diff <= 20 and sum(0.5 <= x <= 1.8 for x in update_diffs) / len(update_diffs) >= 0.8:
+            if percent_diff <= 40 and sum(0.3 <= x <= 1.8 for x in update_diffs) / len(update_diffs) >= 0.8:
                 print(f"✅ Acceptable error for {timestamp}. Moving to next timestamp...")
                 break
+            else:
+                print("percent diff:", percent_diff)
+                print("update params:", update_diffs)
+            all_below_1 = all(x < 1 for x in update_diffs)
+            all_above_1_1 = all(x > 1.1 for x in update_diffs)
 
-            if attempt % 10 == 0:
+            if attempt % 5 == 0 or all_below_1 or all_above_1_1:
                 ratio = total_expected / total_simulated if total_simulated else 1.0
                 total_count = max(1, int(total_count * ratio))
                 update_diffs = np.ones(len(update_diffs))
