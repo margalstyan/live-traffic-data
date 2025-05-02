@@ -8,7 +8,7 @@ from stable_baselines3.common.callbacks import CheckpointCallback
 from stable_baselines3.common.logger import configure
 
 from simulation.generate_rou_single import generate_routes_for_next_timestamp
-from model import SUMOGymEnv
+from single_step_model import SUMOGymEnv
 from callbacks import GreenPhaseLoggerCallback
 
 # === DEVICE SELECTION ===
@@ -48,17 +48,18 @@ env = DummyVecEnv([make_env])  # wraps env for SB3 compatibility
 
 
 # === TRAINING ===
-model = PPO(
-    policy="MlpPolicy",
-    env=env,
-    verbose=1,
-    n_steps=2048,
-    ent_coef=0.01,
-    learning_rate=1e-4,
-    tensorboard_log=log_dir,
-    device=device
-)
-
+# model = PPO(
+#     policy="MlpPolicy",
+#     env=env,
+#     verbose=1,
+#     n_steps=2048,
+#     ent_coef=0.01,
+#     clip_range=0.2,
+#     batch_size=64,
+#     learning_rate=3e-4,
+#     tensorboard_log=log_dir,
+#     device=device
+# )
 custom_logger = configure(log_dir, ["stdout", "tensorboard"])
 
 # === CHECKPOINT CALLBACK ===
@@ -69,19 +70,19 @@ checkpoint_callback = CheckpointCallback(
 )
 
 # === LOAD MODEL OR TRAIN FROM SCRATCH ===
-# model = PPO.load(
-#     "checkpoints_sb3/ppo_traffic_10240_steps.zip",
-#     env=env,
-#     device=device,
-# )
+model = PPO.load(
+    "./checkpoints_sb3/run_2025-05-02_01-08-33/ppo_traffic_100352_steps.zip",
+    env=env,
+    device=device,
+)
+env.policy = model.policy
 
-env.envs[0].policy = model.policy  # Let env apply policy once per episode
 model.set_logger(custom_logger)
 
 # === TRAINING ===
 callbacks = [checkpoint_callback, GreenPhaseLoggerCallback()]
 
 model.learn(
-    total_timesteps=100_000,
+    total_timesteps=500_000,
     callback=callbacks
 )

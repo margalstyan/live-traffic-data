@@ -27,6 +27,7 @@ class SUMOGymEnv(Env):
         self.writer = tensorboard_writer
         self.policy = None
         self.total_reward = 0
+        self.last_durations = None
 
         self._parse_phases()
         self.observation_space = spaces.Box(low=0, high=np.inf, shape=(self.state_dim,), dtype=np.float32)
@@ -42,31 +43,25 @@ class SUMOGymEnv(Env):
         self.current_step = 0
         self.total_reward = 0
 
-        traci.simulationStep()  # Allow vehicles to enter network
+        traci.simulationStep()  # warm-up to populate obs
         obs = self._get_observation()
-
         return np.array(obs, dtype=np.float32), {}
 
     def step(self, action):
         if self.policy is not None:
             raise RuntimeError("In training mode, env should not use self.policy to predict actions.")
 
-        # Scale and apply static phase durations
         scaled_durations = 5 + action * (90 - 5)
         self._apply_action_durations(scaled_durations)
+        self.last_durations = scaled_durations.tolist()
 
-        terminated = True
+        traci.simulationStep()
+        self.current_step += 1
 
-        if traci.simulation.getMinExpectedNumber() > 0:
-            traci.simulationStep()
-            self.current_step += 1
-            self.total_reward += self._calculate_reward()
-        else:
-            terminated = False
         obs = self._get_observation()
-        reward = self.total_reward
-        self.total_reward = 0
+        reward = self._calculate_reward()
 
+        terminated = self.current_step >= self.max_steps
         truncated = False
         return np.array(obs, dtype=np.float32), float(reward), terminated, truncated, {}
 
