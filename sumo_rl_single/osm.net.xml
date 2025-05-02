@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-04-30 09:42:02 by Eclipse SUMO netedit Version 1.20.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/neteditConfiguration.xsd">
+
+    <input>
+        <sumo-net-file value="osm.net.xml"/>
+    </input>
+
+    <output>
+        <output-file value="osm.net.xml"/>
+        <output.street-names value="true"/>
+    </output>
+
+    <processing>
+        <geometry.min-radius.fix.railways value="false"/>
+        <geometry.max-grade.fix value="false"/>
+        <offset.disable-normalization value="true"/>
+        <lefthand value="0"/>
+    </processing>
+
+    <junctions>
+        <no-turnarounds value="true"/>
+        <junctions.corner-detail value="5"/>
+        <junctions.limit-turn-speed value="5.50"/>
+        <rectangular-lane-cut value="0"/>
+    </junctions>
+
+    <pedestrian>
+        <walkingareas value="0"/>
+    </pedestrian>
+
+</configuration>
+-->
+
+<net version="1.20" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="-458088.05,-4446566.27" convBoundary="678.26,1687.45,1032.14,2082.20" origBoundary="44.507617,40.168493,44.533715,40.192850" projParameter="+proj=utm +zone=38 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"/>
+
+    <type id="highway.primary" priority="12" numLanes="2" speed="27.78" disallow="tram rail_urban rail rail_electric rail_fast ship" oneway="0"/>
+    <type id="highway.tertiary" priority="10" numLanes="1" speed="22.22" disallow="tram rail_urban rail rail_electric rail_fast ship" oneway="0"/>
+
+    <edge id=":1507512148_0" function="internal">
+        <lane id=":1507512148_0_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="8.19" shape="738.54,1963.01 734.67,1970.05"/>
+        <lane id=":1507512148_0_1" index="1" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="8.19" shape="734.38,1960.24 733.36,1962.47 733.20,1964.26 733.04,1966.04 732.01,1968.27"/>
+        <lane id=":1507512148_0_2" index="2" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="8.19" shape="734.38,1960.24 732.97,1962.15 731.87,1963.36 730.77,1964.57 729.35,1966.49"/>
+    </edge>
+    <edge id=":1509675281_0" function="internal">
+        <lane id=":1509675281_0_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="3.00" width="3.33" shape="716.26,1954.16 717.82,1951.59"/>
+        <lane id=":1509675281_0_1" index="1" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="3.00" width="3.33" shape="718.93,1955.93 720.59,1953.43"/>
+        <lane id=":1509675281_0_2" index="2" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="3.00" width="3.33" shape="721.60,1957.70 723.36,1955.28"/>
+    </edge>
+    <edge id=":287884653_0" function="internal">
+        <lane id=":287884653_0_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="3.65" length="4.67" shape="677.07,1696.55 676.86,1695.12 677.19,1694.29 678.06,1694.05 679.45,1694.41"/>
+    </edge>
+    <edge id=":cluster_2271368471_4779869278_0" function="internal">
+        <lane id=":cluster_2271368471_4779869278_0_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="6.38" length="9.89" width="5.00" shape="818.15,1856.78 815.89,1854.88 813.76,1854.23 811.75,1854.83 809.88,1856.66"/>
+    </edge>
+    <edge id=":cluster_2271368471_4779869278_1" function="internal">
+        <lane id=":cluster_2271368471_4779869278_1_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="19.45" length="34.88" shape="818.15,1856.78 794.45,1831.19"/>
+        <lane id=":cluster_2271368471_4779869278_1_1" index="1" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="19.45" length="34.88" shape="820.50,1854.60 796.79,1829.02"/>
+    </edge>
+    <edge id=":cluster_2271368471_4779869278_3" function="internal">
+        <lane id=":cluster_2271368471_4779869278_3_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="7.82" length="12.17" shape="824.32,1839.32 822.74,1841.98 822.35,1844.69 823.17,1847.45 825.20,1850.25"/>
+    </edge>
+    <edge id=":cluster_2271368471_4779869278_4" function="internal">
+        <lane id=":cluster_2271368471_4779869278_4_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="22.86" width="5.00" shape="824.32,1839.32 809.88,1856.66"/>
+        <lane id=":cluster_2271368471_4779869278_4_1" index="1" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="22.86" width="5.00" shape="822.02,1837.09 805.86,1853.69"/>
+    </edge>
+    <edge id=":cluster_2271368471_4779869278_6" function="internal">
+        <lane id=":cluster_2271368471_4779869278_6_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="10.50" length="27.69" shape="819.71,1834.85 814.48,1838.80 809.01,1838.67 803.17,1835.16 796.79,1829.02"/>
+    </edge>
+    <edge id=":cluster_2271368471_4779869278_7" function="internal">
+        <lane id=":cluster_2271368471_4779869278_7_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="6.39" length="9.04" shape="801.49,1824.67 803.43,1826.24 805.38,1826.78 807.34,1826.28 809.31,1824.76"/>
+    </edge>
+    <edge id=":cluster_2271368471_4779869278_8" function="internal">
+        <lane id=":cluster_2271368471_4779869278_8_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="19.45" length="34.88" shape="801.49,1824.67 825.20,1850.25"/>
+        <lane id=":cluster_2271368471_4779869278_8_1" index="1" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="19.45" length="34.88" shape="799.14,1826.84 822.85,1852.43"/>
+    </edge>
+    <edge id=":cluster_2271368471_4779869278_10" function="internal">
+        <lane id=":cluster_2271368471_4779869278_10_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="8.00" length="13.53" shape="791.47,1843.03 794.32,1839.52 795.77,1836.38 795.81,1833.61 794.45,1831.19"/>
+    </edge>
+    <edge id=":cluster_2271368471_4779869278_11" function="internal">
+        <lane id=":cluster_2271368471_4779869278_11_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="25.09" shape="791.47,1843.03 809.31,1824.76"/>
+        <lane id=":cluster_2271368471_4779869278_11_1" index="1" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="25.09" shape="794.17,1845.02 811.61,1826.99"/>
+        <lane id=":cluster_2271368471_4779869278_11_2" index="2" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="25.09" shape="796.87,1847.02 813.91,1829.22"/>
+    </edge>
+    <edge id=":cluster_2271368471_4779869278_14" function="internal">
+        <lane id=":cluster_2271368471_4779869278_14_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="11.26" length="30.30" shape="796.87,1847.02 802.51,1843.20 808.72,1842.83 815.50,1845.91 822.85,1852.43"/>
+    </edge>
+
+    <edge id="-422986370#2" from="11644940310" to="cluster_2271368471_4779869278" name="Տերյան փողոց" priority="10" type="highway.tertiary" shape="1032.14,2082.20 1023.01,2072.06 1018.10,2066.58 968.28,2011.15 955.60,1997.69 915.18,1954.54 912.03,1951.19 910.05,1948.92 906.63,1945.22 870.88,1906.63 827.01,1859.28 814.66,1845.94">
+        <lane id="-422986370#2_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="310.76" shape="1028.57,2085.41 1019.44,2075.27 1014.53,2069.79 964.75,2014.40 952.10,2000.98 911.68,1957.82 908.47,1954.41 906.48,1952.13 903.11,1948.48 867.36,1909.89 823.49,1862.54 818.15,1856.78">
+            <param key="origId" value="422986370 138001989 1369578056 138002012 422986367 1369578055 1369578053 485211948 1369578054"/>
+        </lane>
+        <lane id="-422986370#2_1" index="1" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="310.76" shape="1030.95,2083.27 1021.82,2073.13 1016.91,2067.65 967.10,2012.23 954.43,1998.79 914.01,1955.63 910.84,1952.26 908.86,1949.99 905.46,1946.31 869.71,1907.72 825.84,1860.37 820.50,1854.60">
+            <param key="origId" value="422986370 138001989 1369578056 138002012 422986367 1369578055 1369578053 485211948 1369578054"/>
+        </lane>
+        <param key="origTo" value="4779869278"/>
+    </edge>
+    <edge id="-430406005#1" from="cluster_2271368471_4779869278" to="287884653" name="Տերյան փողոց" priority="10" type="highway.tertiary" shape="804.19,1834.65 793.84,1823.47 748.67,1774.16 734.33,1758.37 722.28,1744.85 692.50,1711.45 684.25,1702.19 678.26,1695.48">
+        <lane id="-430406005#1_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="22.22" length="178.59" shape="794.45,1831.19 790.31,1826.72 745.13,1777.40 730.76,1761.58 718.70,1748.04 688.92,1714.64 680.67,1705.38 674.68,1698.68">
+            <param key="origId" value="430406005 430406005 1369578057 1369578058 133126008"/>
+        </lane>
+        <lane id="-430406005#1_1" index="1" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="22.22" length="178.59" shape="796.79,1829.02 792.66,1824.55 747.49,1775.24 733.14,1759.44 721.09,1745.91 691.31,1712.51 683.06,1703.25 677.07,1696.55">
+            <param key="origId" value="430406005 430406005 1369578057 1369578058 133126008"/>
+        </lane>
+        <param key="origFrom" value="2271368471"/>
+    </edge>
+    <edge id="1235147073.116" from="J2" to="1509675281" name="Սայաթ-Նովայի պողոտա" priority="12" type="highway.primary" spreadType="center">
+        <lane id="1235147073.116_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="15.31" shape="707.81,1966.93 716.26,1954.16">
+            <param key="origId" value="1235147073 666518016 666518016"/>
+        </lane>
+        <lane id="1235147073.116_1" index="1" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="15.31" shape="710.48,1968.70 718.93,1955.93">
+            <param key="origId" value="1235147073 666518016 666518016"/>
+        </lane>
+        <lane id="1235147073.116_2" index="2" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="15.31" shape="713.15,1970.47 721.60,1957.70">
+            <param key="origId" value="1235147073 666518016 666518016"/>
+        </lane>
+        <param key="origFrom" value="2954884053"/>
+    </edge>
+    <edge id="133126008#0" from="287884653" to="cluster_2271368471_4779869278" name="Տերյան փողոց" priority="10" type="highway.tertiary" shape="678.26,1695.48 684.25,1702.19 692.50,1711.45 722.28,1744.85 734.33,1758.37 748.67,1774.16 793.84,1823.47 804.19,1834.65">
+        <lane id="133126008#0_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="22.22" length="178.48" shape="681.84,1692.28 687.83,1699.00 696.08,1708.26 725.86,1741.66 737.90,1755.16 752.22,1770.93 797.38,1820.22 801.49,1824.67">
+            <param key="origId" value="133126008 1369578058 1369578057 430406005 430406005"/>
+        </lane>
+        <lane id="133126008#0_1" index="1" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="22.22" length="178.48" shape="679.45,1694.41 685.44,1701.13 693.69,1710.39 723.47,1743.79 735.52,1757.30 749.85,1773.08 795.02,1822.39 799.14,1826.84">
+            <param key="origId" value="133126008 1369578058 1369578057 430406005 430406005"/>
+        </lane>
+        <param key="origTo" value="2271368471"/>
+    </edge>
+    <edge id="133126026#0" from="1509675281" to="cluster_2271368471_4779869278" name="Սայաթ-Նովայի պողոտա" priority="12" type="highway.primary" spreadType="center" shape="719.76,1954.68 789.75,1849.60 804.19,1834.65">
+        <lane id="133126026#0_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="131.12" width="3.33" shape="717.82,1951.59 787.15,1847.50 791.47,1843.03">
+            <param key="origId" value="133126026"/>
+        </lane>
+        <lane id="133126026#0_1" index="1" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="131.12" width="3.33" shape="720.59,1953.43 789.75,1849.60 794.17,1845.02">
+            <param key="origId" value="133126026"/>
+        </lane>
+        <lane id="133126026#0_2" index="2" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="131.12" width="3.33" shape="723.36,1955.28 792.35,1851.70 796.87,1847.02">
+            <param key="origId" value="133126026"/>
+        </lane>
+        <param key="origTo" value="2271368471"/>
+    </edge>
+    <edge id="133126030#0" from="cluster_2271368471_4779869278" to="cluster_4854142864_4854142865" name="Սայաթ-Նովայի պողոտա" priority="12" type="highway.primary" spreadType="center" shape="804.19,1834.65 818.48,1819.89 847.66,1789.44 896.98,1739.63 935.66,1700.37 948.49,1687.45">
+        <lane id="133126030#0_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="195.28" shape="809.31,1824.76 816.18,1817.67 845.37,1787.21 894.70,1737.38 933.38,1698.12 946.09,1685.33">
+            <param key="origId" value="133126030"/>
+        </lane>
+        <lane id="133126030#0_1" index="1" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="195.28" shape="811.61,1826.99 818.48,1819.89 847.66,1789.44 896.98,1739.63 935.66,1700.37 948.36,1687.58">
+            <param key="origId" value="133126030"/>
+        </lane>
+        <lane id="133126030#0_2" index="2" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="195.28" shape="813.91,1829.22 820.78,1822.11 849.95,1791.67 899.26,1741.88 937.94,1702.62 950.63,1689.84">
+            <param key="origId" value="133126030"/>
+        </lane>
+        <param key="origFrom" value="2271368471"/>
+        <param key="origTo" value="4854142864"/>
+    </edge>
+    <edge id="1369578054" from="cluster_2271368471_4779869278" to="11644940310" name="Տերյան փողոց" priority="10" type="highway.tertiary" shape="814.66,1845.94 827.01,1859.28 870.88,1906.63 906.63,1945.22 910.05,1948.92 912.03,1951.19 915.18,1954.54 955.60,1997.69 968.28,2011.15 1018.10,2066.58 1023.01,2072.06 1032.14,2082.20">
+        <lane id="1369578054_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="310.85" shape="825.20,1850.25 830.53,1856.02 874.40,1903.37 910.15,1941.96 913.61,1945.70 915.59,1947.97 918.68,1951.26 959.10,1994.41 971.81,2007.90 1021.67,2063.37 1026.58,2068.85 1035.71,2078.99">
+            <param key="origId" value="1369578054 485211948 1369578053 1369578055 422986367 138002012 1369578056 138001989 422986370"/>
+        </lane>
+        <lane id="1369578054_1" index="1" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="310.85" shape="822.85,1852.43 828.18,1858.19 872.05,1905.54 907.80,1944.13 911.24,1947.85 913.22,1950.12 916.35,1953.45 956.77,1996.60 969.46,2010.07 1019.29,2065.51 1024.20,2070.99 1033.33,2081.13">
+            <param key="origId" value="1369578054 485211948 1369578053 1369578055 422986367 138002012 1369578056 138001989 422986370"/>
+        </lane>
+        <param key="origFrom" value="4779869278"/>
+    </edge>
+    <edge id="137415945#0" from="1507512148" to="J0" name="Սայաթ-Նովայի պողոտա" priority="12" type="highway.primary" spreadType="center">
+        <lane id="137415945#0_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="12.88" shape="734.67,1970.05 727.49,1980.74">
+            <param key="origId" value="137415945"/>
+        </lane>
+        <lane id="137415945#0_1" index="1" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="12.88" shape="732.01,1968.27 724.83,1978.96">
+            <param key="origId" value="137415945"/>
+        </lane>
+        <lane id="137415945#0_2" index="2" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="12.88" shape="729.35,1966.49 722.17,1977.18">
+            <param key="origId" value="137415945"/>
+        </lane>
+        <param key="origTo" value="1507433914"/>
+    </edge>
+    <edge id="485211287#0" from="cluster_2271368471_4779869278" to="1507512148" name="Սայաթ-Նովայի պողոտա" priority="12" type="highway.primary" spreadType="center" shape="814.66,1845.94 803.49,1861.14 734.24,1964.95">
+        <lane id="485211287#0_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="128.19" width="5.00" shape="809.88,1856.66 805.54,1862.57 738.54,1963.01">
+            <param key="origId" value="485211287"/>
+        </lane>
+        <lane id="485211287#0_1" index="1" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="128.19" width="5.00" shape="805.86,1853.69 801.44,1859.71 734.38,1960.24">
+            <param key="origId" value="485211287"/>
+        </lane>
+        <param key="origFrom" value="4779869278"/>
+    </edge>
+    <edge id="485211947#0" from="cluster_4854142864_4854142865" to="cluster_2271368471_4779869278" name="Սայաթ-Նովայի պողոտա" priority="12" type="highway.primary" spreadType="center" shape="955.28,1694.72 942.69,1707.56 868.77,1786.28 847.73,1809.15 828.31,1829.52 814.66,1845.94">
+        <lane id="485211947#0_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="195.25" shape="957.72,1696.80 945.00,1709.78 871.11,1788.46 850.07,1811.34 830.70,1831.65 824.32,1839.32">
+            <param key="origId" value="485211947"/>
+        </lane>
+        <lane id="485211947#0_1" index="1" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="195.25" shape="955.43,1694.56 942.69,1707.56 868.77,1786.28 847.73,1809.15 828.31,1829.52 822.02,1837.09">
+            <param key="origId" value="485211947"/>
+        </lane>
+        <lane id="485211947#0_2" index="2" disallow="tram rail_urban rail rail_electric rail_fast ship cable_car subway" speed="16.67" length="195.25" shape="953.15,1692.32 940.38,1705.34 866.43,1784.10 845.39,1806.96 825.92,1827.39 819.71,1834.85">
+            <param key="origId" value="485211947"/>
+        </lane>
+        <param key="origFrom" value="4854142865"/>
+        <param key="origTo" value="4779869278"/>
+    </edge>
+
+    <tlLogic id="cluster_2271368471_4779869278" type="static" programID="0" offset="0">
+        <phase duration="44" state="rrrGGGgrrrrrrrr"/>
+        <phase duration="3"  state="rrryyyyrrrrrrrr"/>
+        <phase duration="42" state="rrrrrrrrrrGGGGg"/>
+        <phase duration="4"  state="rrrrrrrrrryyyyy"/>
+        <phase duration="31" state="GGGrrrrGGGrrrrr"/>
+        <phase duration="5"  state="yyyrrrryyyrrrrr"/>
+    </tlLogic>
+
+    <junction id="11644940310" type="dead_end" x="1032.14" y="2082.20" incLanes="1369578054_0 1369578054_1" intLanes="" shape="1032.14,2082.20 1036.90,2077.92 1032.14,2082.20"/>
+    <junction id="1507512148" type="priority" x="734.24" y="1964.95" incLanes="485211287#0_0 485211287#0_1" intLanes=":1507512148_0_0 :1507512148_0_1 :1507512148_0_2" shape="740.62,1964.40 732.30,1958.85 728.03,1965.59 735.99,1970.95">
+        <request index="0" response="000" foes="000" cont="0"/>
+        <request index="1" response="000" foes="000" cont="0"/>
+        <request index="2" response="000" foes="000" cont="0"/>
+    </junction>
+    <junction id="1509675281" type="priority" x="719.76" y="1954.68" incLanes="1235147073.116_0 1235147073.116_1 1235147073.116_2" intLanes=":1509675281_0_0 :1509675281_0_1 :1509675281_0_2" shape="724.75,1956.20 716.43,1950.66 714.93,1953.28 722.93,1958.58">
+        <request index="0" response="000" foes="000" cont="0"/>
+        <request index="1" response="000" foes="000" cont="0"/>
+        <request index="2" response="000" foes="000" cont="0"/>
+    </junction>
+    <junction id="287884653" type="priority" x="678.26" y="1695.48" incLanes="-430406005#1_0 -430406005#1_1" intLanes=":287884653_0_0" shape="678.26,1695.48 673.49,1699.74 678.26,1695.48">
+        <request index="0" response="0" foes="0" cont="0"/>
+    </junction>
+    <junction id="J0" type="dead_end" x="724.83" y="1978.96" incLanes="137415945#0_0 137415945#0_1 137415945#0_2" intLanes="" shape="728.81,1981.64 720.85,1976.28"/>
+    <junction id="J2" type="dead_end" x="710.48" y="1968.70" incLanes="" intLanes="" shape="714.48,1971.35 706.48,1966.05"/>
+    <junction id="cluster_2271368471_4779869278" type="traffic_light" x="809.42" y="1840.29" incLanes="-422986370#2_0 -422986370#2_1 485211947#0_0 485211947#0_1 485211947#0_2 133126008#0_0 133126008#0_1 133126026#0_0 133126026#0_1 133126026#0_2" intLanes=":cluster_2271368471_4779869278_0_0 :cluster_2271368471_4779869278_1_0 :cluster_2271368471_4779869278_1_1 :cluster_2271368471_4779869278_3_0 :cluster_2271368471_4779869278_4_0 :cluster_2271368471_4779869278_4_1 :cluster_2271368471_4779869278_6_0 :cluster_2271368471_4779869278_7_0 :cluster_2271368471_4779869278_8_0 :cluster_2271368471_4779869278_8_1 :cluster_2271368471_4779869278_10_0 :cluster_2271368471_4779869278_11_0 :cluster_2271368471_4779869278_11_1 :cluster_2271368471_4779869278_11_2 :cluster_2271368471_4779869278_14_0" shape="816.98,1857.86 826.37,1849.17 824.36,1846.14 824.00,1844.67 824.06,1843.23 824.55,1841.82 825.47,1840.44 808.16,1823.64 806.32,1824.91 805.40,1825.07 804.48,1824.89 803.57,1824.40 802.67,1823.58 793.27,1832.28 794.28,1834.83 794.02,1836.37 793.23,1838.08 791.94,1839.97 790.12,1842.03 811.89,1858.15 813.51,1856.69 814.35,1856.47 815.20,1856.59 816.08,1857.06">
+        <request index="0"  response="000000000110000" foes="000000000110000" cont="0"/>
+        <request index="1"  response="111110001110000" foes="111110001110000" cont="0"/>
+        <request index="2"  response="111110001110000" foes="111110001110000" cont="0"/>
+        <request index="3"  response="000000000000000" foes="000001100000000" cont="0"/>
+        <request index="4"  response="000000000000000" foes="100001100000111" cont="0"/>
+        <request index="5"  response="000000000000000" foes="100001100000111" cont="0"/>
+        <request index="6"  response="011100000000000" foes="011101100000110" cont="0"/>
+        <request index="7"  response="011100000000000" foes="011100000000000" cont="0"/>
+        <request index="8"  response="111100001111000" foes="111100001111000" cont="0"/>
+        <request index="9"  response="111100001111000" foes="111100001111000" cont="0"/>
+        <request index="10" response="000000000000000" foes="000000000000110" cont="0"/>
+        <request index="11" response="000000000000000" foes="000001111000110" cont="0"/>
+        <request index="12" response="000000000000000" foes="000001111000110" cont="0"/>
+        <request index="13" response="000000000000000" foes="000001111000110" cont="0"/>
+        <request index="14" response="000000000110000" foes="000001100110110" cont="0"/>
+        <param key="origEdgeIds" value="-133126056 133126056"/>
+        <param key="origId" value="2271368471 4779869278"/>
+    </junction>
+    <junction id="cluster_4854142864_4854142865" type="dead_end" x="951.88" y="1691.08" incLanes="133126030#0_0 133126030#0_1 133126030#0_2" intLanes="" shape="958.86,1697.92 944.95,1684.20 951.76,1690.96">
+        <param key="origEdgeIds" value="671338013"/>
+        <param key="origId" value="4854142864 4854142865"/>
+    </junction>
+
+    <connection from="-422986370#2" to="485211287#0" fromLane="0" toLane="0" via=":cluster_2271368471_4779869278_0_0" tl="cluster_2271368471_4779869278" linkIndex="0" dir="r" state="o"/>
+    <connection from="-422986370#2" to="-430406005#1" fromLane="0" toLane="0" via=":cluster_2271368471_4779869278_1_0" tl="cluster_2271368471_4779869278" linkIndex="1" dir="s" state="o"/>
+    <connection from="-422986370#2" to="-430406005#1" fromLane="1" toLane="1" via=":cluster_2271368471_4779869278_1_1" tl="cluster_2271368471_4779869278" linkIndex="2" dir="s" state="o"/>
+    <connection from="-430406005#1" to="133126008#0" fromLane="1" toLane="1" via=":287884653_0_0" dir="t" state="M"/>
+    <connection from="1235147073.116" to="133126026#0" fromLane="0" toLane="0" via=":1509675281_0_0" dir="s" state="M"/>
+    <connection from="1235147073.116" to="133126026#0" fromLane="1" toLane="1" via=":1509675281_0_1" dir="s" state="M"/>
+    <connection from="1235147073.116" to="133126026#0" fromLane="2" toLane="2" via=":1509675281_0_2" dir="s" state="M"/>
+    <connection from="133126008#0" to="133126030#0" fromLane="0" toLane="0" via=":cluster_2271368471_4779869278_7_0" tl="cluster_2271368471_4779869278" linkIndex="7" dir="r" state="o"/>
+    <connection from="133126008#0" to="1369578054" fromLane="0" toLane="0" via=":cluster_2271368471_4779869278_8_0" tl="cluster_2271368471_4779869278" linkIndex="8" dir="s" state="o"/>
+    <connection from="133126008#0" to="1369578054" fromLane="1" toLane="1" via=":cluster_2271368471_4779869278_8_1" tl="cluster_2271368471_4779869278" linkIndex="9" dir="s" state="o"/>
+    <connection from="133126026#0" to="-430406005#1" fromLane="0" toLane="0" via=":cluster_2271368471_4779869278_10_0" tl="cluster_2271368471_4779869278" linkIndex="10" dir="r" state="O"/>
+    <connection from="133126026#0" to="133126030#0" fromLane="0" toLane="0" via=":cluster_2271368471_4779869278_11_0" tl="cluster_2271368471_4779869278" linkIndex="11" dir="s" state="O"/>
+    <connection from="133126026#0" to="133126030#0" fromLane="1" toLane="1" via=":cluster_2271368471_4779869278_11_1" tl="cluster_2271368471_4779869278" linkIndex="12" dir="s" state="O"/>
+    <connection from="133126026#0" to="133126030#0" fromLane="2" toLane="2" via=":cluster_2271368471_4779869278_11_2" tl="cluster_2271368471_4779869278" linkIndex="13" dir="s" state="O"/>
+    <connection from="133126026#0" to="1369578054" fromLane="2" toLane="1" via=":cluster_2271368471_4779869278_14_0" tl="cluster_2271368471_4779869278" linkIndex="14" dir="l" state="o"/>
+    <connection from="485211287#0" to="137415945#0" fromLane="0" toLane="0" via=":1507512148_0_0" dir="s" state="M"/>
+    <connection from="485211287#0" to="137415945#0" fromLane="1" toLane="1" via=":1507512148_0_1" dir="s" state="M"/>
+    <connection from="485211287#0" to="137415945#0" fromLane="1" toLane="2" via=":1507512148_0_2" dir="s" state="M"/>
+    <connection from="485211947#0" to="1369578054" fromLane="0" toLane="0" via=":cluster_2271368471_4779869278_3_0" tl="cluster_2271368471_4779869278" linkIndex="3" dir="r" state="O"/>
+    <connection from="485211947#0" to="485211287#0" fromLane="0" toLane="0" via=":cluster_2271368471_4779869278_4_0" tl="cluster_2271368471_4779869278" linkIndex="4" dir="s" state="O"/>
+    <connection from="485211947#0" to="485211287#0" fromLane="1" toLane="1" via=":cluster_2271368471_4779869278_4_1" tl="cluster_2271368471_4779869278" linkIndex="5" dir="s" state="O"/>
+    <connection from="485211947#0" to="-430406005#1" fromLane="2" toLane="1" via=":cluster_2271368471_4779869278_6_0" tl="cluster_2271368471_4779869278" linkIndex="6" dir="l" state="o"/>
+
+    <connection from=":1507512148_0" to="137415945#0" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":1507512148_0" to="137415945#0" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":1507512148_0" to="137415945#0" fromLane="2" toLane="2" dir="s" state="M"/>
+    <connection from=":1509675281_0" to="133126026#0" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":1509675281_0" to="133126026#0" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":1509675281_0" to="133126026#0" fromLane="2" toLane="2" dir="s" state="M"/>
+    <connection from=":287884653_0" to="133126008#0" fromLane="0" toLane="1" dir="t" state="M"/>
+    <connection from=":cluster_2271368471_4779869278_0" to="485211287#0" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":cluster_2271368471_4779869278_1" to="-430406005#1" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":cluster_2271368471_4779869278_1" to="-430406005#1" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":cluster_2271368471_4779869278_3" to="1369578054" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":cluster_2271368471_4779869278_4" to="485211287#0" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":cluster_2271368471_4779869278_4" to="485211287#0" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":cluster_2271368471_4779869278_6" to="-430406005#1" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":cluster_2271368471_4779869278_7" to="133126030#0" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":cluster_2271368471_4779869278_8" to="1369578054" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":cluster_2271368471_4779869278_8" to="1369578054" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":cluster_2271368471_4779869278_10" to="-430406005#1" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":cluster_2271368471_4779869278_11" to="133126030#0" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":cluster_2271368471_4779869278_11" to="133126030#0" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":cluster_2271368471_4779869278_11" to="133126030#0" fromLane="2" toLane="2" dir="s" state="M"/>
+    <connection from=":cluster_2271368471_4779869278_14" to="1369578054" fromLane="0" toLane="1" dir="l" state="M"/>
+
+</net>

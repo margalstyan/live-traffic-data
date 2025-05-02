@@ -6,15 +6,15 @@ from lxml import etree
 import traci
 
 # CONFIG
-INPUT_JSON = "simulation/output/junction_simulation_results.json"
-INPUT_CSV = "data/final_with_all_data.csv"
-OUTPUT_ROUTE_FILE = "config/generated_from_json.rou.xml"
+INPUT_JSON = "../simulation/output/junction_simulation_results.json"
+INPUT_CSV = "../data/final_with_all_data.csv"
+OUTPUT_ROUTE_FILE = "../sumo_rl_single/routes.rou.xml"
 FLOW_DURATION = 60  # seconds
 INSERTION_INTERVAL = 600  # seconds between timestamps (10 minutes)
 SUMO_BINARY = "sumo"
-SUMO_CONFIG = "config/osm.sumocfg"
+SUMO_CONFIG = "../sumo_rl_single/osm.sumocfg"
 
-JUNCTION_IDS_TO_PROCESS = ["4", "9", "8", "5"]  # Same as before
+JUNCTION_IDS_TO_PROCESS = [3]  # Same as before
 
 # Global generator for timestamp processing
 timestamp_generator = None
@@ -66,27 +66,28 @@ def timestamp_generator_function(data):
     for key in sorted_keys:
         yield key, data[key]
 
-def generate_routes_for_next_timestamp(input_json_path, input_csv_path):
+def generate_routes_for_next_timestamp(input_json_path=INPUT_JSON, input_csv_path=INPUT_CSV):
     global timestamp_generator
 
-    if timestamp_generator is None:
+    # Load and cache data once
+    if not hasattr(generate_routes_for_next_timestamp, "data"):
         if not os.path.exists(input_json_path):
             raise FileNotFoundError(f"Input JSON file not found: {input_json_path}")
-
         if not os.path.exists(input_csv_path):
             raise FileNotFoundError(f"Input CSV file not found: {input_csv_path}")
-
         with open(input_json_path, "r") as f:
-            data = json.load(f)
+            generate_routes_for_next_timestamp.data = json.load(f)
 
-        timestamp_generator = timestamp_generator_function(data)
-        generate_routes_for_next_timestamp.data = data
+    # Reset generator if exhausted
+    if timestamp_generator is None:
+        timestamp_generator = timestamp_generator_function(generate_routes_for_next_timestamp.data)
 
     try:
         timestamp_key, timestamp_data = next(timestamp_generator)
     except StopIteration:
-        print("✅ All timestamps have been processed.")
-        return
+        print("🔁 All timestamps processed. Restarting from the beginning.")
+        timestamp_generator = timestamp_generator_function(generate_routes_for_next_timestamp.data)
+        timestamp_key, timestamp_data = next(timestamp_generator)
 
     df_full = pd.read_csv(input_csv_path)
     df = df_full[df_full["Junction_id"].isin(JUNCTION_IDS_TO_PROCESS)]
@@ -106,11 +107,12 @@ def generate_routes_for_next_timestamp(input_json_path, input_csv_path):
             "duration_without_traffic": row["duration_without_traffic"]
         }
 
-    output_xml_path = "simulation/output/generated_single.rou.xml"
+    output_xml_path = OUTPUT_ROUTE_FILE
 
     root = etree.Element("routes")
     etree.SubElement(root, "vType", id="car", accel="1.0", decel="4.5", length="5", maxSpeed="16.6", sigma="0.5")
-
+    if traci.isLoaded():
+        traci.close()
     traci.start([SUMO_BINARY, "-c", SUMO_CONFIG, "--start", "--step-length", "1"])
 
     process_timestamp(root, timestamp_key, timestamp_data, routes, start_time=0)
