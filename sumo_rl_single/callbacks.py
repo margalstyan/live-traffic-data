@@ -2,7 +2,7 @@ from stable_baselines3.common.callbacks import BaseCallback
 import numpy as np
 
 class GreenPhaseLoggerCallback(BaseCallback):
-    def __init__(self, log_every=100):
+    def __init__(self, log_every=16):
         super().__init__()
         self.log_every = log_every
 

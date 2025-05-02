@@ -18,6 +18,7 @@ from simulation.generate_rou_single import generate_routes_for_next_timestamp
 class SUMOGymEnv(Env):
     def __init__(self, sumo_config_path, net_file_path, tls_id, use_gui=False, max_steps=300, tensorboard_writer=None):
         super(SUMOGymEnv, self).__init__()
+        self.last_episode_steps = None
         self.sumo_binary = "sumo-gui" if use_gui else "sumo"
         self.sumo_config_path = sumo_config_path
         self.net_file_path = net_file_path
@@ -36,44 +37,53 @@ class SUMOGymEnv(Env):
         self.action_space = spaces.Box(low=0, high=1, shape=(len(self.trainable_phase_indices),), dtype=np.float32)
 
     def reset(self, *, seed=None, options=None):
+        if traci.isLoaded():
+            traci.close()
+        self.current_step = 0
+        self.total_reward = 0
+        obs = np.zeros(self.observation_space.shape, dtype=np.float32)
+        return obs, {}
+
+    def step(self, action):
+        # === Generate new routes
         generate_routes_for_next_timestamp()
+
+        # === Restart SUMO with tripinfo.xml output
         if traci.isLoaded():
             traci.close()
 
-        sumo_cmd = [self.sumo_binary, "-c", self.sumo_config_path]
+        sumo_cmd = [
+            self.sumo_binary,
+            "-c", self.sumo_config_path,
+            "--tripinfo-output", "tripinfo.xml",
+        ]
         traci.start(sumo_cmd)
-        self.current_step = 0
-        self.total_reward = 0
 
-        traci.simulationStep()  # warm-up to populate obs
-        obs = self._get_observation()
-        return np.array(obs, dtype=np.float32), {}
-
-    def step(self, action):
-        if self.policy is not None:
-            raise RuntimeError("In training mode, env should not use self.policy to predict actions.")
-
-        # === Apply durations ===
+        # === Apply static phase durations once
         scaled_durations = 5 + action * (90 - 5)
         self._apply_action_durations(scaled_durations)
         self.last_durations = scaled_durations.tolist()
 
-        # === Advance simulation ===
-        traci.simulationStep()
-        self.current_step += 1
+        # === Run full simulation episode
+        total_reward = 0
+        actual_steps = 0
+        for step in range(self.max_steps):
+            traci.simulationStep()
+            reward = self._calculate_reward()
+            total_reward += reward
+            actual_steps += 1
 
-        # === Observation and reward ===
-        obs = self._get_observation()
-        reward = self._calculate_reward()
+            if traci.simulation.getMinExpectedNumber() == 0:
+                break  # ✅ No more vehicles left
 
-        # === Episode termination logic ===
-        terminated = self.current_step >= self.max_steps
+        traci.close()
+        self.last_episode_steps = actual_steps
 
-        # Example: truncate if no vehicles left
-        active_vehicles = traci.vehicle.getIDCount()
-        truncated = (active_vehicles == 0) and not terminated
-
-        return np.array(obs, dtype=np.float32), float(reward), terminated, truncated, {}
+        obs = np.zeros(self.observation_space.shape, dtype=np.float32)
+        terminated = True
+        truncated = (actual_steps < self.max_steps)
+        avg_reward = total_reward / actual_steps
+        return obs, float(avg_reward), terminated, truncated, {}
 
     def _parse_phases(self):
         tree = etree.parse(self.net_file_path)
