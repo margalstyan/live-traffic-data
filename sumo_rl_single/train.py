@@ -1,16 +1,21 @@
 import datetime
 import os
-import torch
 from gymnasium import Env
 from stable_baselines3 import PPO
-from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.common.callbacks import CheckpointCallback
 from stable_baselines3.common.logger import configure
 
 from simulation.generate_rou_single import generate_routes_for_next_timestamp
 from single_step_model import SUMOGymEnv
 from callbacks import GreenPhaseLoggerCallback
+import random
+import numpy as np
+import torch
 
+seed = 42
+random.seed(seed)
+np.random.seed(seed)
+torch.manual_seed(seed)
 # === DEVICE SELECTION ===
 if torch.backends.mps.is_available():
     device = "mps"
@@ -44,7 +49,8 @@ def make_env() -> Env:
         max_steps=600
     )
 
-env = DummyVecEnv([make_env])  # wraps env for SB3 compatibility
+env = make_env()
+env.seed(seed)
 
 
 # === TRAINING ===
@@ -71,11 +77,11 @@ checkpoint_callback = CheckpointCallback(
 
 # === LOAD MODEL OR TRAIN FROM SCRATCH ===
 model = PPO.load(
-    "./checkpoints_sb3/run_2025-05-02_01-08-33/ppo_traffic_100352_steps.zip",
+    "./checkpoints_sb3/run_2025-05-02_21-06-10/ppo_traffic_36864_steps.zip",
     env=env,
     device=device,
 )
-env.policy = model.policy
+# env.policy = model.policy
 
 model.set_logger(custom_logger)
 
