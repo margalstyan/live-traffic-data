@@ -18,6 +18,7 @@ from simulation.generate_rou_single import generate_routes_for_next_timestamp
 class SUMOGymEnv(Env):
     def __init__(self, sumo_config_path, net_file_path, tls_id, use_gui=False, max_steps=300, tensorboard_writer=None):
         super(SUMOGymEnv, self).__init__()
+        self.last_episode_steps = None
         self.sumo_binary = "sumo-gui" if use_gui else "sumo"
         self.sumo_config_path = sumo_config_path
         self.net_file_path = net_file_path
@@ -30,40 +31,59 @@ class SUMOGymEnv(Env):
         self.last_durations = None
 
         self._parse_phases()
+        obs = self._get_observation()
+        self.state_dim = obs.shape[0]
         self.observation_space = spaces.Box(low=0, high=np.inf, shape=(self.state_dim,), dtype=np.float32)
         self.action_space = spaces.Box(low=0, high=1, shape=(len(self.trainable_phase_indices),), dtype=np.float32)
 
     def reset(self, *, seed=None, options=None):
+        if traci.isLoaded():
+            traci.close()
+        self.current_step = 0
+        self.total_reward = 0
+        obs = np.zeros(self.observation_space.shape, dtype=np.float32)
+        return obs, {}
+
+    def step(self, action):
+        # === Generate new routes
         generate_routes_for_next_timestamp()
+
+        # === Restart SUMO with tripinfo.xml output
         if traci.isLoaded():
             traci.close()
 
-        sumo_cmd = [self.sumo_binary, "-c", self.sumo_config_path]
+        sumo_cmd = [
+            self.sumo_binary,
+            "-c", self.sumo_config_path,
+            "--tripinfo-output", "tripinfo.xml",
+        ]
         traci.start(sumo_cmd)
-        self.current_step = 0
-        self.total_reward = 0
 
-        traci.simulationStep()  # warm-up to populate obs
-        obs = self._get_observation()
-        return np.array(obs, dtype=np.float32), {}
-
-    def step(self, action):
-        if self.policy is not None:
-            raise RuntimeError("In training mode, env should not use self.policy to predict actions.")
-
+        # === Apply static phase durations once
         scaled_durations = 5 + action * (90 - 5)
         self._apply_action_durations(scaled_durations)
         self.last_durations = scaled_durations.tolist()
 
-        traci.simulationStep()
-        self.current_step += 1
+        # === Run full simulation episode
+        total_reward = 0
+        actual_steps = 0
+        for step in range(self.max_steps):
+            traci.simulationStep()
+            reward = self._calculate_reward()
+            total_reward += reward
+            actual_steps += 1
 
-        obs = self._get_observation()
-        reward = self._calculate_reward()
+            if traci.simulation.getMinExpectedNumber() == 0:
+                break  # ✅ No more vehicles left
 
-        terminated = self.current_step >= self.max_steps
-        truncated = False
-        return np.array(obs, dtype=np.float32), float(reward), terminated, truncated, {}
+        traci.close()
+        self.last_episode_steps = actual_steps
+
+        obs = np.zeros(self.observation_space.shape, dtype=np.float32)
+        terminated = True
+        truncated = (actual_steps < self.max_steps)
+        avg_reward = total_reward / actual_steps
+        return obs, float(avg_reward), terminated, truncated, {}
 
     def _parse_phases(self):
         tree = etree.parse(self.net_file_path)
@@ -96,15 +116,28 @@ class SUMOGymEnv(Env):
         traci.close()
 
     def _get_observation(self):
+        if not traci.isLoaded():
+            traci.start([self.sumo_binary, "-c", self.sumo_config_path])
         lane_ids = list(dict.fromkeys(traci.trafficlight.getControlledLanes(self.tls_id)))
+
+        # Raw features
         queue_lengths = [traci.lane.getLastStepHaltingNumber(lane) for lane in lane_ids]
         waiting_times = [traci.lane.getWaitingTime(lane) for lane in lane_ids]
 
+        # === Manual Normalization ===
+        max_queue = 20  # e.g., 20 cars is high queue length
+        max_wait = 300  # e.g., 5 minutes is high waiting time
+
+        queue_lengths = [min(q, max_queue) / max_queue for q in queue_lengths]
+        waiting_times = [min(w, max_wait) / max_wait for w in waiting_times]
+
+        # Phase encoding
         num_phases = len(self.all_phases)
         current_phase = traci.trafficlight.getPhase(self.tls_id)
         phase_onehot = np.zeros(num_phases)
         phase_onehot[current_phase] = 1
 
+        # Final obs
         obs = np.array(queue_lengths + waiting_times + list(phase_onehot), dtype=np.float32)
         return obs
 
@@ -119,24 +152,52 @@ class SUMOGymEnv(Env):
                 duration = int(np.clip(durations[dur_idx], 5, 90))
                 dur_idx += 1
             else:
-                duration = 3
+                duration = 3  # fixed yellow phase
 
             new_phase = traci.trafficlight.Phase(duration, phase.state)
             new_phases.append(new_phase)
 
         new_logic = traci.trafficlight.Logic(
-            logic.programID, logic.type, logic.currentPhaseIndex, new_phases
+            programID="custom",  # required to switch
+            type=logic.type,
+            currentPhaseIndex=logic.currentPhaseIndex,
+            phases=new_phases
         )
+
         traci.trafficlight.setProgramLogic(self.tls_id, new_logic)
+        traci.trafficlight.setProgram(self.tls_id, "custom")
+        traci.simulationStep()
 
     def _calculate_reward(self):
         lane_ids = list(dict.fromkeys(traci.trafficlight.getControlledLanes(self.tls_id)))
+
+        # === Total waiting time ===
         total_waiting_time = sum(traci.lane.getWaitingTime(lane) for lane in lane_ids)
-        return -total_waiting_time
+        max_wait_per_lane = 300  # assume 5 min is max wait worth penalizing
+        max_total_wait = max_wait_per_lane * len(lane_ids)
+        normalized_wait = min(total_waiting_time, max_total_wait) / max_total_wait  # [0, 1]
+
+        # === Average queue length ===
+        queue_lengths = [traci.lane.getLastStepHaltingNumber(lane) for lane in lane_ids]
+        avg_queue_length = np.mean(queue_lengths)
+        max_queue_length = 20  # reasonable upper bound
+        normalized_queue = min(avg_queue_length, max_queue_length) / max_queue_length  # [0, 1]
+
+        # === Reward shaping: weighted sum ===
+        wait_weight = 0.7
+        queue_weight = 0.3
+
+        reward = - (wait_weight * normalized_wait + queue_weight * normalized_queue)  # [-1, 0]
+
+        return reward
 
     def close(self):
         if traci.isLoaded():
             traci.close()
+
+    def seed(self, seed=None):
+        self.np_random, seed = gym.utils.seeding.np_random(seed)
+        return [seed]
 
     def get_current_green_durations(self):
         logic = traci.trafficlight.getAllProgramLogics(self.tls_id)[0]
