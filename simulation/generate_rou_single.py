@@ -2,6 +2,7 @@ import json
 import os
 import pandas as pd
 import numpy as np
+import random
 from lxml import etree
 import traci
 
@@ -15,9 +16,6 @@ SUMO_BINARY = "sumo"
 SUMO_CONFIG = "../sumo_rl_single/osm.sumocfg"
 
 JUNCTION_IDS_TO_PROCESS = [3]  # Same as before
-
-# Global generator for timestamp processing
-timestamp_generator = None
 
 def find_route_edges(from_edge, to_edge):
     try:
@@ -61,33 +59,20 @@ def process_timestamp(root, timestamp_key, timestamp_data, routes, start_time):
                          departPos="random",
                          arrivalPos="random")
 
-def timestamp_generator_function(data):
-    sorted_keys = sorted([key for key in data.keys() if key.startswith("duration_")])
-    for key in sorted_keys:
-        yield key, data[key]
-
-def generate_routes_for_next_timestamp(input_json_path=INPUT_JSON, input_csv_path=INPUT_CSV):
-    global timestamp_generator
-
+def generate_random_routes(input_json_path=INPUT_JSON, input_csv_path=INPUT_CSV, output_file=OUTPUT_ROUTE_FILE):
     # Load and cache data once
-    if not hasattr(generate_routes_for_next_timestamp, "data"):
+    if not hasattr(generate_random_routes, "data"):
         if not os.path.exists(input_json_path):
             raise FileNotFoundError(f"Input JSON file not found: {input_json_path}")
         if not os.path.exists(input_csv_path):
             raise FileNotFoundError(f"Input CSV file not found: {input_csv_path}")
         with open(input_json_path, "r") as f:
-            generate_routes_for_next_timestamp.data = json.load(f)
+            generate_random_routes.data = json.load(f)
 
-    # Reset generator if exhausted
-    if timestamp_generator is None:
-        timestamp_generator = timestamp_generator_function(generate_routes_for_next_timestamp.data)
-
-    try:
-        timestamp_key, timestamp_data = next(timestamp_generator)
-    except StopIteration:
-        print("🔁 All timestamps processed. Restarting from the beginning.")
-        timestamp_generator = timestamp_generator_function(generate_routes_for_next_timestamp.data)
-        timestamp_key, timestamp_data = next(timestamp_generator)
+    # 🔄 Pick a random timestamp key
+    available_keys = [key for key in generate_random_routes.data.keys() if key.startswith("duration_")]
+    timestamp_key = random.choice(available_keys)
+    timestamp_data = generate_random_routes.data[timestamp_key]
 
     df_full = pd.read_csv(input_csv_path)
     df = df_full[df_full["Junction_id"].isin(JUNCTION_IDS_TO_PROCESS)]
@@ -100,17 +85,18 @@ def generate_routes_for_next_timestamp(input_json_path=INPUT_JSON, input_csv_pat
             "destination": row["Destination"],
             "from_edge": row["from_edge"],
             "to_edge": row["to_edge"],
-            "target_duration": row["duration_20250327_1830"],
+            "target_duration": row.get("duration_20250327_1830", None),
             "vehicle_count": None,
             "last_duration": None,
             "converged": False,
             "duration_without_traffic": row["duration_without_traffic"]
         }
 
-    output_xml_path = OUTPUT_ROUTE_FILE
+    output_xml_path = output_file
 
     root = etree.Element("routes")
     etree.SubElement(root, "vType", id="car", accel="1.0", decel="4.5", length="5", maxSpeed="16.6", sigma="0.5")
+
     if traci.isLoaded():
         traci.close()
     traci.start([SUMO_BINARY, "-c", SUMO_CONFIG, "--start", "--step-length", "1"])
@@ -125,5 +111,4 @@ def generate_routes_for_next_timestamp(input_json_path=INPUT_JSON, input_csv_pat
     print(f"✅ Route file for {timestamp_key} created: {output_xml_path}")
 
 if __name__ == "__main__":
-    generate_routes_for_next_timestamp(INPUT_JSON, INPUT_CSV)
-    generate_routes_for_next_timestamp(INPUT_JSON, INPUT_CSV)
+    generate_random_routes(INPUT_JSON, INPUT_CSV)
