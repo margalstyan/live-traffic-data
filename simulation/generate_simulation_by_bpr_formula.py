@@ -1,3 +1,5 @@
+# Update code to support per-route alpha and beta
+
 import pandas as pd
 from lxml import etree
 import traci
@@ -14,20 +16,22 @@ SUMO_BINARY = "sumo"
 SUMO_CONFIG = "config/osm.sumocfg"
 TIMESTAMP_COLUMN = "duration_20250327_1730"
 
-# Compute vehicle count from BPR formula
+# Compute vehicle count using per-route alpha and beta
 def compute_volume(t_f, t_obs, a, b):
     if t_obs <= t_f or a == 0:
         return 0
     return C * ((t_obs / t_f - 1) / a) ** (1 / b)
 
-# Generate route XML file
-def generate_flow_route_file_bpr(df, route_cache, a, b, route_file):
+# Generate route XML file with per-route alpha/beta
+def generate_flow_route_file_bpr(df, route_cache, params, route_file):
     root = etree.Element("routes")
     etree.SubElement(root, "vType", id="car", accel="1.0", decel="4.5",
                      length="5", maxSpeed="16.6", sigma="0.5")
 
     df_filtered = df[df["Junction_id"].isin(JUNCTION_IDS_TO_PROCESS)].copy()
-    for idx, row in df_filtered.iterrows():
+    for i, (idx, row) in enumerate(df_filtered.iterrows()):
+        a = params[2 * i]
+        b = params[2 * i + 1]
         rid = f"route_{idx+1}"
         from_edge, to_edge = row["from_edge"], row["to_edge"]
         t_f, t_obs = row["duration_without_traffic"], row[TIMESTAMP_COLUMN]
@@ -60,7 +64,7 @@ def run_sumo(route_file, tripinfo_file):
         traci.simulationStep()
     traci.close()
 
-# Read simulated durations from tripinfo
+# Parse tripinfo
 def read_simulated_durations(tripinfo_file):
     tree = etree.parse(tripinfo_file)
     root = tree.getroot()
@@ -76,16 +80,15 @@ def read_simulated_durations(tripinfo_file):
 
     return {k: np.mean(v) for k, v in durations_by_route.items()}
 
-# Loss function for optimization
+# Loss function with per-route α and β
 def loss(params, df, route_cache):
-    a, b = params
-    run_id = f"{a:.4f}_{b:.4f}".replace(".", "_")
+    run_id = "_".join([f"{x:.3f}" for x in params[:4]]).replace(".", "_")
     route_file = f"generated_{run_id}.rou.xml"
     tripinfo_file = f"tripinfo_{run_id}.xml"
 
-    print(f"\nTesting alpha={a:.4f}, beta={b:.4f}")
+    print(f"\nTesting parameters: {params}")
     try:
-        generate_flow_route_file_bpr(df, route_cache, a, b, route_file)
+        generate_flow_route_file_bpr(df, route_cache, params, route_file)
         run_sumo(route_file, tripinfo_file)
         sim_results = read_simulated_durations(tripinfo_file)
     except Exception as e:
@@ -94,7 +97,7 @@ def loss(params, df, route_cache):
 
     df_filtered = df[df["Junction_id"].isin(JUNCTION_IDS_TO_PROCESS)].copy()
     errors = []
-    for idx, row in df_filtered.iterrows():
+    for i, (idx, row) in enumerate(df_filtered.iterrows()):
         t_obs = row[TIMESTAMP_COLUMN]
         if (idx + 1) in sim_results:
             t_sim = sim_results[idx + 1]
@@ -108,14 +111,16 @@ def loss(params, df, route_cache):
     print(f"✅ MSE: {mse:.4f}")
     return mse
 
-# Main block
+# Main loop
 if __name__ == "__main__":
     df = pd.read_csv("data/final_with_all_data.csv")
+    df_filtered = df[df["Junction_id"].isin(JUNCTION_IDS_TO_PROCESS)].copy()
+    n_routes = len(df_filtered)
     route_cache = {}
 
-    # Precompute all shortest paths
+    # Build route cache
     traci.start([SUMO_BINARY, "-c", SUMO_CONFIG, "--start"])
-    for _, row in df[df["Junction_id"].isin(JUNCTION_IDS_TO_PROCESS)].iterrows():
+    for _, row in df_filtered.iterrows():
         key = (row["from_edge"], row["to_edge"])
         if key not in route_cache:
             try:
@@ -125,10 +130,11 @@ if __name__ == "__main__":
                 route_cache[key] = []
     traci.close()
 
+    bounds = [(0.01, 1.0), (1.0, 8.0)] * n_routes
     start_time = time.time()
     result = differential_evolution(
         func=loss,
-        bounds=[(0.01, 1.0), (1.0, 8.0)],
+        bounds=bounds,
         args=(df, route_cache),
         strategy="best1bin",
         maxiter=10,
@@ -137,5 +143,8 @@ if __name__ == "__main__":
         seed=42
     )
 
-    print(f"\n✅ Optimal alpha: {result.x[0]:.4f}, beta: {result.x[1]:.4f}")
+    best_params = result.x
+    print("\n✅ Optimal per-route alpha and beta:")
+    for i in range(n_routes):
+        print(f"Route {i+1}: α={best_params[2*i]:.4f}, β={best_params[2*i+1]:.4f}")
     print(f"Total time: {time.time() - start_time:.2f} seconds")
