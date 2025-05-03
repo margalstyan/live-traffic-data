@@ -1,24 +1,20 @@
-from gymnasium import Env, spaces
+import os
 import gymnasium as gym
-import numpy as np
-import traci
-from lxml import etree
-
-from simulation.generate_rou_single import generate_routes_for_next_timestamp
-
-
 from gymnasium import Env, spaces
 import numpy as np
 import traci
 from lxml import etree
-import torch
-from simulation.generate_rou_single import generate_routes_for_next_timestamp
+from numpy.distutils.system_info import triplet
+
+from simulation.generate_rou_single import generate_random_routes
 
 
 class SUMOGymEnv(Env):
-    def __init__(self, sumo_config_path, net_file_path, tls_id, use_gui=False, max_steps=300, tensorboard_writer=None):
+    def __init__(self, sumo_config_path, net_file_path, tls_id, use_gui=False, max_steps=300,
+                 tensorboard_writer=None, route_file_path="../sumo_rl_single/routes.rou.xml"):
         super(SUMOGymEnv, self).__init__()
         self.last_episode_steps = None
+        self.route_file_path = route_file_path
         self.sumo_binary = "sumo-gui" if use_gui else "sumo"
         self.sumo_config_path = sumo_config_path
         self.net_file_path = net_file_path
@@ -32,8 +28,7 @@ class SUMOGymEnv(Env):
 
         self._parse_phases()
         obs = self._get_observation()
-        self.state_dim = obs.shape[0]
-        self.observation_space = spaces.Box(low=0, high=np.inf, shape=(self.state_dim,), dtype=np.float32)
+        self.observation_space = spaces.Box(low=0, high=1, shape=obs.shape, dtype=np.float32)
         self.action_space = spaces.Box(low=0, high=1, shape=(len(self.trainable_phase_indices),), dtype=np.float32)
 
     def reset(self, *, seed=None, options=None):
@@ -41,26 +36,31 @@ class SUMOGymEnv(Env):
             traci.close()
         self.current_step = 0
         self.total_reward = 0
-        obs = np.zeros(self.observation_space.shape, dtype=np.float32)
+        obs = self._get_observation()
         return obs, {}
 
-    def step(self, action):
+    def step(self, action, *args, **kwargs):
         # === Generate new routes
-        generate_routes_for_next_timestamp()
+        generate_random_routes(output_route_file=self.route_file_path)
 
         # === Restart SUMO with tripinfo.xml output
         if traci.isLoaded():
             traci.close()
 
+        trip_info_out = None
+        if "tripinfo" in kwargs:
+            trip_info_out = kwargs["tripinfo"]
         sumo_cmd = [
             self.sumo_binary,
             "-c", self.sumo_config_path,
-            "--tripinfo-output", "tripinfo.xml",
+            "--route-files", self.route_file_path,
+            "--tripinfo-output", trip_info_out or f"tripinfo_{os.getpid()}.xml",
         ]
+
         traci.start(sumo_cmd)
 
         # === Apply static phase durations once
-        scaled_durations = 5 + action * (90 - 5)
+        scaled_durations = 10 + action * (90 - 10)
         self._apply_action_durations(scaled_durations)
         self.last_durations = scaled_durations.tolist()
 
@@ -79,11 +79,16 @@ class SUMOGymEnv(Env):
         traci.close()
         self.last_episode_steps = actual_steps
 
-        obs = np.zeros(self.observation_space.shape, dtype=np.float32)
+        obs = self._get_observation()
         terminated = True
         truncated = (actual_steps < self.max_steps)
         avg_reward = total_reward / actual_steps
-        return obs, float(avg_reward), terminated, truncated, {}
+        info = {
+            "ep_length_real": actual_steps,
+            "green_durations": self.last_durations,
+            "ep_rew_mean": avg_reward,
+        }
+        return obs, float(avg_reward), terminated, truncated, info
 
     def _parse_phases(self):
         tree = etree.parse(self.net_file_path)
@@ -110,35 +115,58 @@ class SUMOGymEnv(Env):
         traci.start(sumo_cmd)
 
         traci.simulationStep()
-        obs = self._get_observation()
-        self.state_dim = obs.shape[0]
-
         traci.close()
 
     def _get_observation(self):
         if not traci.isLoaded():
             traci.start([self.sumo_binary, "-c", self.sumo_config_path])
+
         lane_ids = list(dict.fromkeys(traci.trafficlight.getControlledLanes(self.tls_id)))
+        lane_vehicle_counts = {lane: 0 for lane in lane_ids}
 
-        # Raw features
-        queue_lengths = [traci.lane.getLastStepHaltingNumber(lane) for lane in lane_ids]
-        waiting_times = [traci.lane.getWaitingTime(lane) for lane in lane_ids]
+        # Parse expected vehicle flows from the route file
+        if os.path.exists(self.route_file_path):
+            from lxml import etree
+            tree = etree.parse(self.route_file_path)
+            route_elements = tree.xpath("//route")
+            flow_elements = tree.xpath("//flow")
 
-        # === Manual Normalization ===
-        max_queue = 20  # e.g., 20 cars is high queue length
-        max_wait = 300  # e.g., 5 minutes is high waiting time
+            # Build route_id → list of edges mapping
+            route_id_to_edges = {
+                route.attrib["id"]: route.attrib["edges"].split()
+                for route in route_elements if "id" in route.attrib and "edges" in route.attrib
+            }
 
-        queue_lengths = [min(q, max_queue) / max_queue for q in queue_lengths]
-        waiting_times = [min(w, max_wait) / max_wait for w in waiting_times]
+            for flow in flow_elements:
+                route_id = flow.attrib.get("route", "")
+                number = int(flow.attrib.get("number", 0))
+                edges = route_id_to_edges.get(route_id, [])
 
-        # Phase encoding
+                for edge in edges:
+                    try:
+                        num_lanes = traci.edge.getLaneNumber(edge)
+                        for i in range(num_lanes):
+                            lane_id = f"{edge}_{i}"
+                            if lane_id in lane_vehicle_counts:
+                                lane_vehicle_counts[lane_id] += number
+                    except Exception:
+                        continue  # Skip invalid edge
+
+        max_expected = 50
+        norm_expected_counts = [min(lane_vehicle_counts[lane], max_expected) / max_expected for lane in lane_ids]
+
+        # Phase encoding (already one-hot)
         num_phases = len(self.all_phases)
         current_phase = traci.trafficlight.getPhase(self.tls_id)
         phase_onehot = np.zeros(num_phases)
         phase_onehot[current_phase] = 1
 
-        # Final obs
-        obs = np.array(queue_lengths + waiting_times + list(phase_onehot), dtype=np.float32)
+        # Green durations normalization
+        green_durations = self.get_current_green_durations()
+        norm_durations = [dur / 90 for dur in green_durations]
+
+        # Final normalized observation
+        obs = np.array(norm_expected_counts + list(phase_onehot) + norm_durations, dtype=np.float32)
         return obs
 
     def _apply_action_durations(self, durations):
@@ -149,7 +177,7 @@ class SUMOGymEnv(Env):
         dur_idx = 0
         for i, phase in enumerate(logic.phases):
             if i in self.trainable_phase_indices:
-                duration = int(np.clip(durations[dur_idx], 5, 90))
+                duration = int(np.clip(durations[dur_idx], 10, 90))
                 dur_idx += 1
             else:
                 duration = 3  # fixed yellow phase
@@ -184,10 +212,11 @@ class SUMOGymEnv(Env):
         normalized_queue = min(avg_queue_length, max_queue_length) / max_queue_length  # [0, 1]
 
         # === Reward shaping: weighted sum ===
-        wait_weight = 0.7
-        queue_weight = 0.3
+        wait_weight = 0.8
+        queue_weight = 0.2
 
         reward = - (wait_weight * normalized_wait + queue_weight * normalized_queue)  # [-1, 0]
+        reward = np.clip(reward, -1, 0)
 
         return reward
 
