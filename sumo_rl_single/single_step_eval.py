@@ -14,16 +14,16 @@ NET_FILE = "osm.net.xml"
 TLS_ID = "cluster_2271368471_4779869278"
 ROUTE_GEN = True  # set True if you want to call generate_routes_for_next_timestamp()
 MAX_STEPS = 600
-seed = 42
-random.seed(seed)
-np.random.seed(seed)
-torch.manual_seed(seed)
+# seed = 42
+# random.seed(seed)
+# np.random.seed(seed)
+# torch.manual_seed(seed)
 
 # === STEP 1: RL-CONTROLLED RUN ===
 def run_rl_model(model_path: str, tripinfo_out="tripinfo_rl.xml", use_gui=False):
     if ROUTE_GEN:
         from simulation.generate_rou_single import generate_random_routes
-        generate_random_routes(output_route_file="../sumo_rl_single/routes.rou.xml")
+        generate_random_routes(output_file="../sumo_rl_single/routes.rou.xml")
 
     env = SUMOGymEnv(
         sumo_config_path=SUMO_CONFIG,
@@ -32,7 +32,7 @@ def run_rl_model(model_path: str, tripinfo_out="tripinfo_rl.xml", use_gui=False)
         use_gui=use_gui,
         max_steps=MAX_STEPS
     )
-    env.seed(seed)
+    # env.seed(seed)
 
     model = DDPG.load(model_path)
     obs, _ = env.reset()
@@ -77,7 +77,7 @@ def read_tripinfo(path):
 
 # === STEP 4: Compare Both Runs ===
 if __name__ == "__main__":
-    model_path = "./checkpoints_sb3/run_2025-05-03_21-43-45/ddpg_traffic_1664_steps.zip"
+    model_path = "./checkpoints_sb3/run_2025-05-03_23-08-51/ddpg_traffic_2240_steps.zip"
 
     print("🎯 Running RL-controlled simulation...")
     run_rl_model(model_path)

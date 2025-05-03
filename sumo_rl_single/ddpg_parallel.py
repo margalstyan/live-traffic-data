@@ -7,6 +7,7 @@ import traci
 from stable_baselines3 import DDPG
 from stable_baselines3.common.callbacks import CheckpointCallback
 from stable_baselines3.common.logger import configure
+from stable_baselines3.common.noise import NormalActionNoise
 from stable_baselines3.common.vec_env import SubprocVecEnv
 
 from simulation.generate_rou_single import generate_random_routes
@@ -14,10 +15,10 @@ from single_step_model import SUMOGymEnv
 from callbacks import GreenPhaseLoggerCallback
 
 # === Reproducibility ===
-seed = 42
-random.seed(seed)
-np.random.seed(seed)
-torch.manual_seed(seed)
+# seed = 42
+# random.seed(seed)
+# np.random.seed(seed)
+# torch.manual_seed(seed)
 
 # === DEVICE SELECTION ===
 if torch.backends.mps.is_available():
@@ -45,7 +46,7 @@ print(f"💾 Checkpoints to:    {checkpoint_dir}")
 def make_env(rank):
     def _init():
         route_file = f"routes_env_{rank}.rou.xml"
-        generate_random_routes(output_route_file=route_file)
+        generate_random_routes(output_file=route_file)
         return SUMOGymEnv(
             sumo_config_path="osm.sumocfg",
             net_file_path="osm.net.xml",
@@ -61,23 +62,27 @@ def make_env(rank):
 if __name__ == "__main__":
     try:
         # === CREATE VECTORIZED ENVIRONMENTS ===
-        num_envs = 8
+        num_envs = 32
         env = SubprocVecEnv([make_env(i) for i in range(num_envs)])
 
         # === LOGGER ===
         custom_logger = configure(log_dir, ["stdout", "tensorboard"])
+        n_actions = env.action_space.shape[0]
+        action_noise = NormalActionNoise(mean=np.zeros(n_actions), sigma=0.1 * np.ones(n_actions))
 
+        action_noise = action_noise,
         # === PPO CONFIGURATION FOR PARALLEL EPISODE TRAINING ===
         model = DDPG(
             policy="MlpPolicy",
             env=env,
-            batch_size=256,
-            learning_rate=3e-4,
+            batch_size=1024,
+            learning_rate=lambda progress: 1e-3 * progress,
+            learning_starts=1000,
             verbose=1,
             tensorboard_log=log_dir,
             device=device
         )
-        # model = PPO.load("./checkpoints_sb3/run_2025-05-03_19-09-42/ppo_traffic_3712_steps.zip", env=env, device=device, clip_range=0.2, learning_rate=1e-4, ent_coef=0.01, n_steps=64, batch_size=16, n_epochs=10)
+        # model = DDPG.load("./checkpoints_sb3/run_2025-05-03_23-36-02/ddpg_traffic_1728_steps.zip", env=env, device=device, learning_rate=lambda progress: 1e-3 * progress, ent_coef=0.02, n_steps=256, batch_size=128, n_epochs=20)
         model.set_logger(custom_logger)
 
         # === CALLBACKS ===

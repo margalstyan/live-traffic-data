@@ -41,7 +41,7 @@ class SUMOGymEnv(Env):
 
     def step(self, action, *args, **kwargs):
         # === Generate new routes
-        generate_random_routes(output_route_file=self.route_file_path)
+        generate_random_routes(output_file=self.route_file_path)
 
         # === Restart SUMO with tripinfo.xml output
         if traci.isLoaded():

@@ -14,10 +14,10 @@ from single_step_model import SUMOGymEnv
 from callbacks import GreenPhaseLoggerCallback
 
 # === Reproducibility ===
-seed = 42
-random.seed(seed)
-np.random.seed(seed)
-torch.manual_seed(seed)
+# seed = 42
+# random.seed(seed)
+# np.random.seed(seed)
+# torch.manual_seed(seed)
 
 # === DEVICE SELECTION ===
 if torch.backends.mps.is_available():
@@ -44,8 +44,8 @@ print(f"💾 Checkpoints to:    {checkpoint_dir}")
 # === ENVIRONMENT FACTORY ===
 def make_env(rank):
     def _init():
-        route_file = f"routes_env_{rank}.rou.xml"
-        generate_random_routes(output_route_file=route_file)
+        route_file = f"routes_ppo_{rank}.rou.xml"
+        generate_random_routes(output_file=route_file)
         return SUMOGymEnv(
             sumo_config_path="osm.sumocfg",
             net_file_path="osm.net.xml",
@@ -61,7 +61,7 @@ def make_env(rank):
 if __name__ == "__main__":
     try:
         # === CREATE VECTORIZED ENVIRONMENTS ===
-        num_envs = 8
+        num_envs = 16
         env = SubprocVecEnv([make_env(i) for i in range(num_envs)])
 
         # === LOGGER ===
