@@ -7,13 +7,34 @@ from lxml import etree
 import traci
 
 # CONFIG
-INPUT_JSON = "../simulation/output/junction_simulation_results.json"
+INPUT_JSON = "../simulation/output/done/junction_{0}_results.json"
 INPUT_CSV = "../data/final_with_all_data.csv"
 OUTPUT_ROUTE_FILE = "../sumo_rl_single/routes.rou.xml"
 FLOW_DURATION = 60  # seconds
 INSERTION_INTERVAL = 600  # seconds between timestamps (10 minutes)
 SUMO_BINARY = "sumo"
 SUMO_CONFIG = "../sumo_rl_single/osm.sumocfg"
+
+JUSNTION_ID_TO_DATA_ID = {
+    "cluster3828547534_cluster_1507433914_2954854770_2954854771_2954854772_#9more": 0,
+    "cluster_11644940323_11644940324_3828703845": 1,
+    "cluster_356722183_3828703848": 2,
+    "cluster_2271368471_4779869278": 3,
+    "11644940310": 4,
+    "632031937": 5,
+    "cluster_11648745684_256036885_3839031483": 6,
+    "cluster_3839031475_3839031476_4110471700_4234582615": 7,
+    "cluster_4110471701_632031939": 8,
+    "cluster10852700972_12154751993": 9,
+    "GS_cluster_4854142864_4854142865": 10,
+    "cluster_11648561419_11648561420_2271142975_4854142869": 11,
+    "cluster_11657899598_353811979_6712514804": 12,
+    "cluster7571105647_7571105653_cluster_1141265322_11869698130_256036890_4227138136_#4more": 13,
+    "GS_cluster_1342409365_3839031467": 14,
+    "cluster_11648561428_407729599": 15,
+    "cluster3839130731_cluster_11644940326_11644940327_11648561426": 16,
+    "J7": 19,
+}
 
 JUNCTION_IDS_TO_PROCESS = [3]  # Same as before
 
@@ -59,7 +80,10 @@ def process_timestamp(root, timestamp_key, timestamp_data, routes, start_time):
                          departPos="random",
                          arrivalPos="random")
 
-def generate_random_routes(input_json_path=INPUT_JSON, input_csv_path=INPUT_CSV, output_file=OUTPUT_ROUTE_FILE):
+def generate_random_routes(input_json_path=INPUT_JSON, input_csv_path=INPUT_CSV, output_file=OUTPUT_ROUTE_FILE, junction_id=None):
+    if junction_id is not None:
+        junction_id = JUSNTION_ID_TO_DATA_ID[junction_id]
+        input_json_path = input_json_path.format(junction_id)
     # Load and cache data once
     if not hasattr(generate_random_routes, "data"):
         if not os.path.exists(input_json_path):
@@ -75,7 +99,7 @@ def generate_random_routes(input_json_path=INPUT_JSON, input_csv_path=INPUT_CSV,
     timestamp_data = generate_random_routes.data[timestamp_key]
 
     df_full = pd.read_csv(input_csv_path)
-    df = df_full[df_full["Junction_id"].isin(JUNCTION_IDS_TO_PROCESS)]
+    df = df_full[df_full["Junction_id"]==junction_id]
 
     routes = {}
     for idx, row in df.iterrows():
@@ -111,4 +135,4 @@ def generate_random_routes(input_json_path=INPUT_JSON, input_csv_path=INPUT_CSV,
     print(f"✅ Route file for {timestamp_key} created: {output_xml_path}")
 
 if __name__ == "__main__":
-    generate_random_routes(INPUT_JSON, INPUT_CSV)
+    generate_random_routes(junction_id="J7", output_file="../config/routes.rou.xml")
