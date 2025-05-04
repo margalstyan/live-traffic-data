@@ -1,0 +1,427 @@
+{
+    "duration_20250327_1910": {
+        "total_count": 122,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 23.780362104086745
+    },
+    "duration_20250327_1920": {
+        "total_count": 125,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 26.42042438394805
+    },
+    "duration_20250327_1930": {
+        "total_count": 115,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 26.503736094324125
+    },
+    "duration_20250327_1940": {
+        "total_count": 92,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 29.28129443523857
+    },
+    "duration_20250327_1950": {
+        "total_count": 98,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 26.968776842221136
+    },
+    "duration_20250327_2000": {
+        "total_count": 101,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 18.305750925520762
+    },
+    "duration_20250327_2010": {
+        "total_count": 100,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 16.285127434131788
+    },
+    "duration_20250327_2020": {
+        "total_count": 89,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 20.156943920700996
+    },
+    "duration_20250327_2030": {
+        "total_count": 97,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 17.90396328303416
+    },
+    "duration_20250327_2040": {
+        "total_count": 83,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 19.790144693710765
+    },
+    "duration_20250327_2050": {
+        "total_count": 84,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 16.926747773852988
+    },
+    "duration_20250327_2100": {
+        "total_count": 96,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 27.584459627323017
+    },
+    "duration_20250327_2110": {
+        "total_count": 68,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 25.820798143297008
+    },
+    "duration_20250327_2120": {
+        "total_count": 71,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 22.939905326004443
+    },
+    "duration_20250327_2130": {
+        "total_count": 72,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 21.447219094635642
+    },
+    "duration_20250327_2140": {
+        "total_count": 45,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 16.187525836051908
+    },
+    "duration_20250327_2150": {
+        "total_count": 50,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 17.379209628912832
+    },
+    "duration_20250327_2200": {
+        "total_count": 47,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 16.011473704648537
+    },
+    "duration_20250327_2210": {
+        "total_count": 53,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 15.34489481480637
+    },
+    "duration_20250327_2220": {
+        "total_count": 36,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 14.60133687594005
+    },
+    "duration_20250327_2230": {
+        "total_count": 27,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 11.716890087425801
+    },
+    "duration_20250327_2240": {
+        "total_count": 35,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 15.261535280667934
+    },
+    "duration_20250327_2250": {
+        "total_count": 43,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 14.05608579556938
+    },
+    "duration_20250327_2300": {
+        "total_count": 33,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 10.820534287329075
+    },
+    "duration_without_traffic": {
+        "total_count": 10,
+        "probabilities": {
+            "route_4": 0.0132,
+            "route_5": 0.0718,
+            "route_6": 0.0527,
+            "route_7": 0.0275,
+            "route_8": 0.1186,
+            "route_10": 0.0587,
+            "route_11": 0.0527,
+            "route_12": 0.1276,
+            "route_22": 0.2735,
+            "route_23": 0.11,
+            "route_24": 0.0937
+        },
+        "percent_diff": 12.887860570584822
+    }
+}

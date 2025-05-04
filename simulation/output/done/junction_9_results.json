@@ -1,0 +1,277 @@
+{
+    "duration_20250327_1910": {
+        "total_count": 33,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 15.186063440527725
+    },
+    "duration_20250327_1920": {
+        "total_count": 33,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 14.06330742119432
+    },
+    "duration_20250327_1930": {
+        "total_count": 40,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 20.039691737871006
+    },
+    "duration_20250327_1940": {
+        "total_count": 34,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 14.643392103545583
+    },
+    "duration_20250327_1950": {
+        "total_count": 29,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 13.517681802780324
+    },
+    "duration_20250327_2000": {
+        "total_count": 32,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 15.669869679473528
+    },
+    "duration_20250327_2010": {
+        "total_count": 32,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 17.43367376920798
+    },
+    "duration_20250327_2020": {
+        "total_count": 31,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 14.774070203852283
+    },
+    "duration_20250327_2030": {
+        "total_count": 23,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 12.760793619559857
+    },
+    "duration_20250327_2040": {
+        "total_count": 21,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 11.451107836887953
+    },
+    "duration_20250327_2050": {
+        "total_count": 30,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 13.643093594461373
+    },
+    "duration_20250327_2100": {
+        "total_count": 31,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 13.282936673533419
+    },
+    "duration_20250327_2110": {
+        "total_count": 18,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 8.110598207536981
+    },
+    "duration_20250327_2120": {
+        "total_count": 18,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 10.352256775726156
+    },
+    "duration_20250327_2130": {
+        "total_count": 20,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 11.68200457753195
+    },
+    "duration_20250327_2140": {
+        "total_count": 25,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 11.428512377173096
+    },
+    "duration_20250327_2150": {
+        "total_count": 18,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 8.710425440017273
+    },
+    "duration_20250327_2200": {
+        "total_count": 26,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 14.955739782674971
+    },
+    "duration_20250327_2210": {
+        "total_count": 26,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 18.139105065464108
+    },
+    "duration_20250327_2220": {
+        "total_count": 10,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 14.929681717246485
+    },
+    "duration_20250327_2230": {
+        "total_count": 10,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 16.4620920832101
+    },
+    "duration_20250327_2240": {
+        "total_count": 10,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 20.40167548500882
+    },
+    "duration_20250327_2250": {
+        "total_count": 10,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 10.818103818103827
+    },
+    "duration_20250327_2300": {
+        "total_count": 24,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 21.213709844662233
+    },
+    "duration_without_traffic": {
+        "total_count": 10,
+        "probabilities": {
+            "route_54": 0.164,
+            "route_55": 0.1925,
+            "route_56": 0.2232,
+            "route_60": 0.2563,
+            "route_61": 0.164
+        },
+        "percent_diff": 23.057380040138664
+    }
+}
