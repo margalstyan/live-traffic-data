@@ -7,7 +7,7 @@ import os
 import time
 
 # Constants
-C = 900  # Capacity (vehicles per hour)
+C = 1800  # Capacity (vehicles per hour)
 FLOW_DURATION = 300  # seconds
 JUNCTION_IDS_TO_PROCESS = [3]
 SUMO_BINARY = "sumo"
@@ -22,7 +22,8 @@ def compute_volume(t_f, t_obs, a, b):
     return C * ((t_obs / t_f - 1) / a) ** (1 / b)
 
 # Generate SUMO route file with vehicle flows
-def generate_flow_route_file_bpr(df, route_cache, params, route_file):
+def generate_flow_route_file_bpr(df, route_cache, params, route_file, begin_offset=0):
+    print(f"Generating route file '{route_file}' with offset {begin_offset}s")
     root = etree.Element("routes")
     etree.SubElement(root, "vType", id="car", accel="1.0", decel="4.5",
                      length="5", maxSpeed="16.6", sigma="0.5")
@@ -41,14 +42,17 @@ def generate_flow_route_file_bpr(df, route_cache, params, route_file):
             continue
 
         etree.SubElement(root, "route", id=rid, edges=" ".join(edges))
-        etree.SubElement(root, "flow", id=rid, type="car", route=rid, begin="0",
-                         end=str(FLOW_DURATION), number=str(int_vehicle_count),
+        etree.SubElement(root, "flow", id=rid, type="car", route=rid,
+                         begin=str(begin_offset),
+                         end=str(begin_offset + FLOW_DURATION),
+                         number=str(int_vehicle_count),
                          departPos="random", arrivalPos="random")
 
     etree.ElementTree(root).write(route_file, pretty_print=True, xml_declaration=True, encoding="UTF-8")
 
 # Run SUMO simulation
 def run_sumo(route_file, tripinfo_file):
+    print(f"Running SUMO simulation with route file '{route_file}'")
     if os.path.exists(tripinfo_file):
         os.remove(tripinfo_file)
 
@@ -57,12 +61,16 @@ def run_sumo(route_file, tripinfo_file):
         "--tripinfo-output", tripinfo_file,
         "--start", "--step-length", "1"
     ])
+    step = 0
     while traci.simulation.getMinExpectedNumber() > 0:
         traci.simulationStep()
+        step += 1
+    print(f"Simulation finished in {step} steps")
     traci.close()
 
 # Read average trip durations by route
 def read_simulated_durations(tripinfo_file):
+    print(f"Reading simulated durations from '{tripinfo_file}'")
     tree = etree.parse(tripinfo_file)
     root = tree.getroot()
     durations_by_route = {}
@@ -80,19 +88,24 @@ def read_simulated_durations(tripinfo_file):
 # Loss function
 def loss(params, df, route_cache):
     run_id = "_".join(f"{x:.3f}" for x in params[:4]).replace(".", "_")
-    route_file = f"generated_{run_id}.rou.xml"
-    tripinfo_file = f"tripinfo_{run_id}.xml"
+
+    sim_results = {}
 
     try:
-        generate_flow_route_file_bpr(df, route_cache, params, route_file)
-        sim_results = {}
+        for repeat_idx in range(N_REPEATS):
+            offset = repeat_idx * 3  # Incrementing begin time by 3 seconds each iteration
+            route_file = f"draft/generated_{run_id}_{offset}_.rou.xml"
+            tripinfo_file = f"draft/tripinfo_{run_id}_{offset}.xml"
 
-        for _ in range(N_REPEATS):
+            print(f"Iteration {repeat_idx + 1}/{N_REPEATS} with offset {offset}s")
+            generate_flow_route_file_bpr(df, route_cache, params, route_file, begin_offset=offset)
             run_sumo(route_file, tripinfo_file)
+
             results = read_simulated_durations(tripinfo_file)
             for k, v in results.items():
                 sim_results[k] = sim_results.get(k, 0) + v
 
+        # Averaging the results after all runs
         for k in sim_results:
             sim_results[k] /= N_REPEATS
     except Exception as e:
@@ -105,11 +118,11 @@ def loss(params, df, route_cache):
         t_obs = row[TIMESTAMP_COLUMN]
         sim_duration = sim_results.get(idx + 1)
         if sim_duration is not None:
-            error = (sim_duration - t_obs) ** 2
+            error = ((sim_duration - t_obs) / t_obs) ** 2  # Relative MSE
             errors.append(error)
 
     mse = np.mean(errors) if errors else 1e6
-    print("MSE:", mse)
+    print(f"Current MSE: {mse}")
     return mse
 
 # Main
