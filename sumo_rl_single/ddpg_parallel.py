@@ -45,7 +45,7 @@ print(f"💾 Checkpoints to:    {checkpoint_dir}")
 # === ENVIRONMENT FACTORY ===
 def make_env(rank):
     def _init():
-        route_file = f"routes_env_{rank}.rou.xml"
+        route_file = f"xml/routes_ddpg_{rank}.rou.xml"
         generate_random_routes(output_file=route_file)
         return SUMOGymEnv(
             sumo_config_path="osm.sumocfg",

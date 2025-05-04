@@ -4,7 +4,6 @@ from gymnasium import Env, spaces
 import numpy as np
 import traci
 from lxml import etree
-from numpy.distutils.system_info import triplet
 
 from simulation.generate_rou_single import generate_random_routes
 
@@ -54,7 +53,7 @@ class SUMOGymEnv(Env):
             self.sumo_binary,
             "-c", self.sumo_config_path,
             "--route-files", self.route_file_path,
-            "--tripinfo-output", trip_info_out or f"tripinfo_{os.getpid()}.xml",
+            "--tripinfo-output", trip_info_out or f"xml/tripinfo_{os.getpid()}.xml",
         ]
 
         traci.start(sumo_cmd)

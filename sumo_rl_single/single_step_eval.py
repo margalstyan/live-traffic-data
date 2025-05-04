@@ -20,7 +20,7 @@ MAX_STEPS = 600
 # torch.manual_seed(seed)
 
 # === STEP 1: RL-CONTROLLED RUN ===
-def run_rl_model(model_path: str, tripinfo_out="tripinfo_rl.xml", use_gui=False):
+def run_rl_model(model_path: str, tripinfo_out="xml/tripinfo_rl.xml", use_gui=False):
     if ROUTE_GEN:
         from simulation.generate_rou_single import generate_random_routes
         generate_random_routes(output_file="../sumo_rl_single/routes.rou.xml")
@@ -47,7 +47,7 @@ def run_rl_model(model_path: str, tripinfo_out="tripinfo_rl.xml", use_gui=False)
 
 
 # === STEP 2: STATIC BASELINE RUN ===
-def run_static(tripinfo_out="tripinfo_static.xml", use_gui=False):
+def run_static(tripinfo_out="xml/tripinfo_static.xml", use_gui=False):
     sumo_binary = "sumo-gui" if use_gui else "sumo"
     traci.start([
         sumo_binary, "-c", SUMO_CONFIG,
@@ -77,7 +77,7 @@ def read_tripinfo(path):
 
 # === STEP 4: Compare Both Runs ===
 if __name__ == "__main__":
-    model_path = "./checkpoints_sb3/run_2025-05-03_23-08-51/ddpg_traffic_2240_steps.zip"
+    model_path = "./checkpoints_sb3/run_2025-05-04_01-03-34/ddpg_traffic_3072_steps.zip"
 
     print("🎯 Running RL-controlled simulation...")
     run_rl_model(model_path)
@@ -85,8 +85,8 @@ if __name__ == "__main__":
     print("📊 Running static traffic light baseline...")
     run_static()
 
-    rl_stats = read_tripinfo("tripinfo_rl.xml")
-    static_stats = read_tripinfo("tripinfo_static.xml")
+    rl_stats = read_tripinfo("xml/tripinfo_rl.xml")
+    static_stats = read_tripinfo("xml/tripinfo_static.xml")
 
     print("\n====== Evaluation Summary ======")
     print(f"Vehicles processed: {rl_stats['count']}")
