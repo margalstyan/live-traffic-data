@@ -5,7 +5,7 @@ import numpy as np
 import torch
 import traci
 import xml.etree.ElementTree as ET
-from stable_baselines3 import DDPG
+from stable_baselines3 import DDPG, TD3
 from single_step_model import SUMOGymEnv
 
 
@@ -23,7 +23,7 @@ MAX_STEPS = 600
 def run_rl_model(model_path: str, tripinfo_out="xml/tripinfo_rl.xml", use_gui=False):
     if ROUTE_GEN:
         from simulation.generate_rou_single import generate_random_routes
-        generate_random_routes(output_file="../sumo_rl_single/routes.rou.xml")
+        generate_random_routes(output_file="../sumo_rl_single/routes.rou.xml", junction_id=TLS_ID)
 
     env = SUMOGymEnv(
         sumo_config_path=SUMO_CONFIG,
@@ -34,7 +34,7 @@ def run_rl_model(model_path: str, tripinfo_out="xml/tripinfo_rl.xml", use_gui=Fa
     )
     # env.seed(seed)
 
-    model = DDPG.load(model_path)
+    model = TD3.load(model_path)
     obs, _ = env.reset()
     done = False
     while not done:
@@ -77,7 +77,7 @@ def read_tripinfo(path):
 
 # === STEP 4: Compare Both Runs ===
 if __name__ == "__main__":
-    model_path = "./checkpoints_sb3/run_2025-05-04_01-03-34/ddpg_traffic_3072_steps.zip"
+    model_path = "./checkpoints_multi_separate/TD3/cluster_2271368471_4779869278/td3_cluster_2271368471_4779869278_1800_steps.zip"
 
     print("🎯 Running RL-controlled simulation...")
     run_rl_model(model_path)

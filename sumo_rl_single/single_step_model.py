@@ -4,6 +4,7 @@ from gymnasium import Env, spaces
 import numpy as np
 import traci
 from lxml import etree
+from traci import junction
 
 from simulation.generate_rou_single import generate_random_routes
 
@@ -40,7 +41,7 @@ class SUMOGymEnv(Env):
 
     def step(self, action, *args, **kwargs):
         # === Generate new routes
-        generate_random_routes(output_file=self.route_file_path)
+        generate_random_routes(output_file=self.route_file_path, junction_id=self.tls_id)
 
         # === Restart SUMO with tripinfo.xml output
         if traci.isLoaded():
@@ -59,7 +60,7 @@ class SUMOGymEnv(Env):
         traci.start(sumo_cmd)
 
         # === Apply static phase durations once
-        scaled_durations = 10 + action * (90 - 10)
+        scaled_durations = 10 + action * (60 - 10)
         self._apply_action_durations(scaled_durations)
         self.last_durations = scaled_durations.tolist()
 
@@ -162,7 +163,7 @@ class SUMOGymEnv(Env):
 
         # Green durations normalization
         green_durations = self.get_current_green_durations()
-        norm_durations = [dur / 90 for dur in green_durations]
+        norm_durations = [dur / 60 for dur in green_durations]
 
         # Final normalized observation
         obs = np.array(norm_expected_counts + list(phase_onehot) + norm_durations, dtype=np.float32)
@@ -176,7 +177,7 @@ class SUMOGymEnv(Env):
         dur_idx = 0
         for i, phase in enumerate(logic.phases):
             if i in self.trainable_phase_indices:
-                duration = int(np.clip(durations[dur_idx], 10, 90))
+                duration = int(np.clip(durations[dur_idx], 10, 60))
                 dur_idx += 1
             else:
                 duration = 3  # fixed yellow phase
@@ -211,8 +212,8 @@ class SUMOGymEnv(Env):
         normalized_queue = min(avg_queue_length, max_queue_length) / max_queue_length  # [0, 1]
 
         # === Reward shaping: weighted sum ===
-        wait_weight = 0.8
-        queue_weight = 0.2
+        wait_weight = 0.5
+        queue_weight = 0.5
 
         reward = - (wait_weight * normalized_wait + queue_weight * normalized_queue)  # [-1, 0]
         reward = np.clip(reward, -1, 0)

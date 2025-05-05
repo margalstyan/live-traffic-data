@@ -82,7 +82,7 @@ if __name__ == "__main__":
             tensorboard_log=log_dir,
             device=device
         )
-        # model = DDPG.load("./checkpoints_sb3/run_2025-05-03_23-36-02/ddpg_traffic_1728_steps.zip", env=env, device=device, learning_rate=lambda progress: 1e-3 * progress, ent_coef=0.02, n_steps=256, batch_size=128, n_epochs=20)
+        # model = DDPG2.load("./checkpoints_sb3/run_2025-05-03_23-36-02/ddpg_traffic_1728_steps.zip", env=env, device=device, learning_rate=lambda progress: 1e-3 * progress, ent_coef=0.02, n_steps=256, batch_size=128, n_epochs=20)
         model.set_logger(custom_logger)
 
         # === CALLBACKS ===

@@ -1,10 +1,9 @@
-# multiagent_train_separate.py
 import os
 import numpy as np
 from multiprocessing import Pool
 
 import torch
-from stable_baselines3 import DDPG
+from stable_baselines3 import PPO
 from stable_baselines3.common.noise import NormalActionNoise
 from stable_baselines3.common.logger import configure
 from stable_baselines3.common.callbacks import BaseCallback, CheckpointCallback
@@ -14,16 +13,17 @@ from single_step_model import SUMOGymEnv
 import traci
 
 # Configuration
-BASE_ROUTE_FILE = "xml/routes_ddpg_{agent_id}.rou.xml"
+BASE_ROUTE_FILE = "xml/routes_ppo_{agent_id}.rou.xml"
 SUMO_CONFIG = "osm.sumocfg"
 NET_FILE = "osm.net.xml"
-LOG_DIR = "logs_multi_separate"
-CHECKPOINT_DIR = "checkpoints_multi_separate/DDPG"
+LOG_DIR = "logs_multi_separate/PPO"
+CHECKPOINT_DIR = "checkpoints_multi_separate/PPO"
 
-DEVICE =  "mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu"
+DEVICE = "mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {DEVICE}")
 os.makedirs(LOG_DIR, exist_ok=True)
 os.makedirs(CHECKPOINT_DIR, exist_ok=True)
+
 
 # Callback to log custom metrics
 class GreenPhaseLoggerCallback(BaseCallback):
@@ -53,6 +53,7 @@ class GreenPhaseLoggerCallback(BaseCallback):
         self.logger.dump(self.num_timesteps)
         return True
 
+
 # Dynamically get TLS IDs
 
 def get_tls_ids(sumo_config="osm.sumocfg", sumo_binary="sumo"):
@@ -63,7 +64,9 @@ def get_tls_ids(sumo_config="osm.sumocfg", sumo_binary="sumo"):
     traci.close()
     return tls_ids
 
+
 TLS_IDS = get_tls_ids()
+
 
 # Single training job for one agent
 def train_agent(agent_id):
@@ -88,39 +91,41 @@ def train_agent(agent_id):
     os.makedirs(log_path, exist_ok=True)
     logger = configure(log_path, ["stdout", "tensorboard"])
 
-    model = DDPG(
+    model = PPO(
         policy="MlpPolicy",
         env=env,
         learning_rate=lambda progress: 1e-3 * progress,
-        action_noise=action_noise,
-        learning_starts=512,
-        batch_size=256,
+        batch_size=8,
+        n_steps=8,
+        n_epochs=20,
+        ent_coef=0.02,
         verbose=1,
         device=DEVICE,
         tensorboard_log=log_path
+
     )
-    # LAST_STEP = 400
-    # model = DDPG.load(f"{CHECKPOINT_DIR}/{agent_id}/ddpg_{agent_id}_{LAST_STEP}_steps.zip", env=env, device=DEVICE, learning_rate=lambda progress: 9e-3 * progress, ent_coef=0.02, n_steps=256, batch_size=256, n_epochs=20)
     model.set_logger(logger)
 
     callbacks = [
         CheckpointCallback(
             save_freq=100,
             save_path=os.path.join(CHECKPOINT_DIR, agent_id),
-            name_prefix=f"ddpg_{agent_id}"
+            name_prefix=f"ppo_{agent_id}"
         ),
         GreenPhaseLoggerCallback(),
     ]
 
-    model.learn(total_timesteps=10_000, callback=callbacks)
-    model.save(os.path.join(log_path, f"ddpg_{agent_id}"))
+    model.learn(total_timesteps=5_000, callback=callbacks)
+    model.save(os.path.join(log_path, f"ppo_{agent_id}"))
 
     env.close()
+
 
 # Parallel training loop using Pool
 def train_all_agents_parallel():
     with Pool(processes=len(TLS_IDS)) as pool:
         pool.map(train_agent, TLS_IDS)
+
 
 if __name__ == "__main__":
     train_all_agents_parallel()

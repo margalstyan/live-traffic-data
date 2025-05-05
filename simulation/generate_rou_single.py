@@ -85,13 +85,13 @@ def generate_random_routes(input_json_path=INPUT_JSON, input_csv_path=INPUT_CSV,
         junction_id = JUSNTION_ID_TO_DATA_ID[junction_id]
         input_json_path = input_json_path.format(junction_id)
     # Load and cache data once
-    if not hasattr(generate_random_routes, "data"):
-        if not os.path.exists(input_json_path):
-            raise FileNotFoundError(f"Input JSON file not found: {input_json_path}")
-        if not os.path.exists(input_csv_path):
-            raise FileNotFoundError(f"Input CSV file not found: {input_csv_path}")
-        with open(input_json_path, "r") as f:
-            generate_random_routes.data = json.load(f)
+    # if not hasattr(generate_random_routes, "data"):
+    #     if not os.path.exists(input_json_path):
+    #         raise FileNotFoundError(f"Input JSON file not found: {input_json_path}")
+    #     if not os.path.exists(input_csv_path):
+    #         raise FileNotFoundError(f"Input CSV file not found: {input_csv_path}")
+    with open(input_json_path, "r") as f:
+        generate_random_routes.data = json.load(f)
 
     # 🔄 Pick a random timestamp key
     available_keys = [key for key in generate_random_routes.data.keys() if key.startswith("duration_")]
