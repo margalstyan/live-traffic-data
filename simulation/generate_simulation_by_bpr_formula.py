@@ -4,18 +4,20 @@ import numpy as np
 import pandas as pd
 from lxml import etree
 import traci
+import json
 from pymoo.core.problem import Problem
 from pymoo.algorithms.moo.nsga2 import NSGA2
 from pymoo.optimize import minimize
 from pymoo.termination import get_termination
 
 # === CONFIG ===
-C = 300  # Capacity (vehicles/hour)
-FLOW_DURATION = 300  # seconds
+C = 300
+FLOW_DURATION = 300
 JUNCTION_IDS_TO_PROCESS = [3]
 SUMO_BINARY = "sumo"
 SUMO_CONFIG = "config/osm.sumocfg"
-TIMESTAMP_COLUMN = "duration_20250327_1730"
+TIMESTAMP_COLUMN = "duration_20250327_1920"
+JSON_OUTPUT_FILE = "simulation/output/bpr_results.json"
 
 # === BPR Volume Function ===
 def compute_volume(t_f, t_obs, a, b):
@@ -106,8 +108,8 @@ class TrafficBPRProblem(Problem):
         for params in X:
             try:
                 run_id = "_".join(f"{x:.3f}" for x in params[:4]).replace(".", "_")
-                route_file = f"generated_{run_id}.rou.xml"
-                tripinfo_file = f"tripinfo_{run_id}.xml"
+                route_file = f"simulation/output/draft/generated_{run_id}.rou.xml"
+                tripinfo_file = f"simulation/output/draft/tripinfo_{run_id}.xml"
                 generate_flow_route_file_bpr(self.df, self.route_cache, params, route_file)
 
                 sim_results = {}
@@ -151,11 +153,10 @@ def run_multiobjective_optimization(df):
 
     return result.X, result.F
 
-# === Save Best Solution to CSV ===
-def save_best_solution(X, F, output_path="best_solution.csv"):
+# === Save Best Solution in JSON ===
+def save_best_solution_to_json(df, X, F):
     best_index = None
     best_score = float("inf")
-
     for i, errors in enumerate(F):
         avg_abs_error = np.mean(np.abs(errors))
         if avg_abs_error < best_score:
@@ -163,16 +164,32 @@ def save_best_solution(X, F, output_path="best_solution.csv"):
             best_index = i
 
     best_params = X[best_index]
-    best_errors = F[best_index]
+    df_filtered = df[df["Junction_id"].isin(JUNCTION_IDS_TO_PROCESS)]
+    param_data = {}
 
-    data = {
-        "param_index": list(range(len(best_params))),
-        "param_value": best_params,
-        "route_error": [*best_errors, *([None] * (len(best_params) - len(best_errors)))]
+    for i, (idx, row) in enumerate(df_filtered.iterrows()):
+        route_id = f"route_{idx + 1}"
+        alpha = float(best_params[2 * i])
+        beta = float(best_params[2 * i + 1])
+        param_data[route_id] = {"alpha": alpha, "beta": beta}
+
+    content = {
+        "parameters": param_data,
+        "error": float(round(best_score, 6))
     }
-    df = pd.DataFrame(data)
-    df.to_csv(output_path, index=False)
-    print(f"✅ Best solution saved to {output_path} with average absolute error: {best_score:.4f}")
+
+    if os.path.exists(JSON_OUTPUT_FILE):
+        with open(JSON_OUTPUT_FILE, "r") as f:
+            data = json.load(f)
+    else:
+        data = {}
+
+    data[TIMESTAMP_COLUMN] = content
+
+    with open(JSON_OUTPUT_FILE, "w") as f:
+        json.dump(data, f, indent=4)
+
+    print(f"✅ Best solution saved to {JSON_OUTPUT_FILE}")
 
 # === Main Entry ===
 if __name__ == "__main__":
@@ -185,5 +202,5 @@ if __name__ == "__main__":
         for j in range(len(errors)):
             print(f"Route {j+1} error: {errors[j]:.4f}")
         print("Params:", params)
-    save_best_solution(X, F)
-    print(f"\n⏱ Total time: {time.time() - start:.2f} seconds")
+    save_best_solution_to_json(df, X, F)
+    print(f"\nTotal time: {time.time() - start:.2f} seconds")
