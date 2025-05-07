@@ -1,181 +1,177 @@
-import gymnasium as gym
-import numpy as np
+import pandas as pd
 import traci
-import os
-from gymnasium import spaces
 from lxml import etree
+import gymnasium as gym
+from gymnasium import spaces
+import numpy as np
 import xml.etree.ElementTree as ET
-from collections import defaultdict
 
 
-class SumoTrafficEnv(gym.Env):
-    def __init__(self, routes, sumo_config, sumo_binary="sumo", max_vehicles=200):
-        super(SumoTrafficEnv, self).__init__()
-
-        self.routes = routes  # dictionary of {route_id: {from_edge, to_edge, target_duration, duration_without_traffic}}
-        self.route_ids = list(routes.keys())
-        self.sumo_config = sumo_config
-        self.sumo_binary = sumo_binary
-        self.max_vehicles = max_vehicles
+class MultiRouteSUMOGymEnv(gym.Env):
+    def __init__(self, sumo_config_path, route_data_list,
+                 route_file_path="routes.rou.xml", tripinfo_path="tripinfo.xml",
+                 sumo_gui=False, csv_path=None):
+        super().__init__()
+        self.max_simulation_time = 300
+        self.sumo_binary = "sumo-gui" if sumo_gui else "sumo"
+        self.sumo_config = sumo_config_path
+        self.routes = route_data_list
+        self.route_file_path = route_file_path
+        self.tripinfo_path = tripinfo_path
+        self.csv_path = csv_path
 
         self.num_routes = len(self.routes)
+        self.observation_space = spaces.Box(low=0, high=1, shape=(self.num_routes, 3), dtype=np.float32)
+        self.action_space = spaces.Box(low=0, high=300, shape=(self.num_routes,), dtype=np.float32)
 
-        # --- Gym spaces ---
-        # Actions: number of vehicles per route (continuous [0, max_vehicles])
-        self.action_space = spaces.Box(low=0, high=self.max_vehicles, shape=(self.num_routes,), dtype=np.float32)
+        self.max_distance = 1000.0
+        self.max_duration = 300.0
 
-        # Observations: duration_without_traffic and target_duration per route
-        self.observation_space = spaces.Box(low=0, high=np.inf, shape=(self.num_routes * 2,), dtype=np.float32)
-
-        # Constants
-        self.FLOW_DURATION = 60  # seconds
-        self.ROUTE_FILE = "config/generated_rl_flows.rou.xml"
-        self.TRIPINFO_FILE = "output/tripinfo_rl.xml"
-
-        # Prepare route cache
-        self.route_cache = {}
+        self.raw_data_df = None
+        self.timestamp_column = None
+        self.hour_of_day = 0
+        self.simulation_running = False
 
     def reset(self, seed=None, options=None):
         super().reset(seed=seed)
 
-        obs = []
-        for route_id in self.route_ids:
-            info = self.routes[route_id]
-            obs.append(info["duration_without_traffic"])
-            obs.append(info["target_duration"])
+        if self.csv_path:
+            self.pick_random_timestamp_column(self.csv_path)
 
-        info = {}
-        return np.array(obs, dtype=np.float32), info
+        obs = []
+        hour_norm = self.hour_of_day / 1440.0  # Normalize minutes of day
+
+        for route in self.routes:
+            dist = min(route["distance"] / self.max_distance, 1.0)
+            free = min(route["duration_without_traffic"] / self.max_duration, 1.0)
+            obs.append([dist, free, hour_norm])
+
+        return np.array(obs, dtype=np.float32), {}
 
     def step(self, action):
-        vehicle_counts = np.clip(action, 0, self.max_vehicles)
-        vehicle_counts = vehicle_counts.astype(int)
+        actions = np.clip(np.round(action), 0, 300).astype(int)
 
-        self._generate_flow_file(vehicle_counts)
-        self._run_sumo_simulation()
-        mean_durations = self._parse_tripinfos()
-
-        # Calculate success rate reward
-        duration_errors = []
-        successes = 0
-        total = 0
-
-        for route_id in self.route_ids:
-            expected = self.routes[route_id]["target_duration"]
-            simulated = mean_durations.get(route_id, expected)
-            if expected > 0 and simulated > 0:
-                relative_error = abs(simulated - expected) / max(simulated, expected)
-                duration_errors.append(relative_error)
-                if relative_error <= 0.2:
-                    successes += 1
-                total += 1
-
-        reward = successes / total if total > 0 else 0.0  # Success rate
-        reward = reward * 10.0  # Optional: amplify reward scale
-
-        mean_duration_error = np.mean(duration_errors) if duration_errors else 1.0
-
-        next_obs, _ = self.reset()
-
-        terminated = True
-        truncated = False
-
-        info = {
-            "mean_durations": mean_durations,
-            "vehicle_counts": vehicle_counts.tolist(),
-            "mean_duration_error": mean_duration_error
+        routes_dict = {
+            route["id"]: {
+                "edges": route["edges"],
+                "vehicle_count": actions[idx]
+            }
+            for idx, route in enumerate(self.routes)
         }
 
-        return next_obs, reward, terminated, truncated, info
+        self._generate_routes_file(routes_dict)
 
-    def render(self, mode="human"):
-        pass  # No rendering needed for now
-
-    def _generate_flow_file(self, vehicle_counts):
-        root = etree.Element("routes")
-        etree.SubElement(root, "vType", id="car", accel="1.0", decel="4.5", length="5", maxSpeed="16.6", sigma="0.5")
-
-        if traci.isLoaded():
+        if self.simulation_running:
             traci.close()
+            self.simulation_running = False
 
-        # Start SUMO just for checking connections
-        traci.start([self.sumo_binary, "-c", self.sumo_config, "--start", "--step-length", "1",
-                 "--no-warnings", "true", "--log", os.devnull],
-                    label="connection_check")
+        traci.start([
+            self.sumo_binary,
+            "-c", self.sumo_config,
+            "--route-files", self.route_file_path,
+            "--tripinfo-output", self.tripinfo_path,
+            "--time-to-teleport", "300"
+        ])
+        self.simulation_running = True
 
-        for idx, route_id in enumerate(self.route_ids):
-            info = self.routes[route_id]
-            count = vehicle_counts[idx]
-            if count <= 0:
+        while traci.simulation.getMinExpectedNumber() > 0 :
+            traci.simulationStep()
+            if traci.simulation.getTime() > self.max_simulation_time:
+                print("⏹️ Simulation stopped early due to exceeding time limit (5 minutes)")
+                break
+        traci.close()
+        self.simulation_running = False
+
+        # === Collect durations ===
+        route_durations = {f"route_{r['id']}": [] for r in self.routes}
+        try:
+            tree = ET.parse(self.tripinfo_path)
+            for trip in tree.getroot().findall("tripinfo"):
+                veh_id = trip.attrib["id"]
+                route_id = veh_id.split('.')[0]
+                duration = float(trip.attrib["duration"])
+                if route_id in route_durations:
+                    route_durations[route_id].append(duration)
+        except Exception as e:
+            print(f"❌ Error reading tripinfo: {e}")
+
+        # === Compute reward ===
+        simulated_durations = []
+        for route in self.routes:
+            r_id = f"route_{route['id']}"
+            values = route_durations.get(r_id, [])
+            avg_sim = np.mean(values) if values else route["target_duration"] * 2
+            simulated_durations.append(avg_sim)
+
+        targets = np.array([r["target_duration"] for r in self.routes])
+        reward = -np.mean(np.abs(np.array(simulated_durations) - targets))
+
+        # === New observation ===
+        hour_norm = self.hour_of_day / 1440.0
+        obs = [
+            [
+                min(route["distance"] / self.max_distance, 1.0),
+                min(route["duration_without_traffic"] / self.max_duration, 1.0),
+                hour_norm
+            ]
+            for route in self.routes
+        ]
+
+        return np.array(obs, dtype=np.float32), reward, True, False, {}
+
+    def _generate_routes_file(self, routes_dict):
+        if not traci.isLoaded():
+            traci.start([self.sumo_binary, "-c", self.sumo_config])
+            self.simulation_running = True
+
+        route_cache = {}
+        FLOW_DURATION = 60
+        begin_time = 60
+
+        root = etree.Element("routes")
+        etree.SubElement(root, "vType", id="car", accel="1.0", decel="4.5", length="5",
+                         maxSpeed="16.6", sigma="0.5")
+
+        for route_id, data in routes_dict.items():
+            if data["vehicle_count"] == 0:
                 continue
 
-            try:
-                route = traci.simulation.findRoute(info["from_edge"], info["to_edge"])
-                if len(route.edges) == 0:
-                    print(f"⚠️ No valid path for {info['from_edge']} -> {info['to_edge']}. Skipping flow.")
+            from_edge, to_edge = data["edges"]
+            key = (from_edge, to_edge)
+
+            if key not in route_cache:
+                try:
+                    route_result = traci.simulation.findRoute(from_edge, to_edge)
+                    if not route_result.edges:
+                        print(f"⚠️ No path: {from_edge} → {to_edge}")
+                        continue
+                    route_cache[key] = route_result.edges
+                except Exception as e:
+                    print(f"❌ Route error ({route_id}): {e}")
                     continue
-            except Exception:
-                print(f"⚠️ Route check failed for {info['from_edge']} -> {info['to_edge']}. Skipping flow.")
-                continue
 
-            flow = etree.SubElement(root, "flow")
-            flow.set("id", route_id)
-            flow.set("type", "car")
-            flow.set("from", info["from_edge"])
-            flow.set("to", info["to_edge"])
-            flow.set("begin", "0")
-            flow.set("end", str(self.FLOW_DURATION))
-            flow.set("number", str(count))
-            flow.set("departPos", "random")
-            flow.set("arrivalPos", "random")
+            edges = route_cache[key]
+            route_uid = f"route_{route_id}"
 
-        traci.close()  # Close connection checker
+            etree.SubElement(root, "route", id=route_uid, edges=" ".join(edges))
+            etree.SubElement(root, "flow", id=route_uid, type="car", route=route_uid,
+                             begin=str(begin_time), end=str(begin_time + FLOW_DURATION),
+                             number=str(data["vehicle_count"]), departPos="random", arrivalPos="random")
 
         tree = etree.ElementTree(root)
-        os.makedirs(os.path.dirname(self.ROUTE_FILE), exist_ok=True)
-        tree.write(self.ROUTE_FILE, pretty_print=True, xml_declaration=True, encoding="UTF-8")
+        tree.write(self.route_file_path, pretty_print=True, xml_declaration=True, encoding="UTF-8")
 
-    def _run_sumo_simulation(self):
-        if traci.isLoaded():
-            traci.close()
+    def pick_random_timestamp_column(self, csv_path: str):
+        if self.raw_data_df is None:
+            self.raw_data_df = pd.read_csv(csv_path)
 
-        traci.start([self.sumo_binary, "-c", self.sumo_config, "-r", self.ROUTE_FILE,
-                     "--tripinfo-output", self.TRIPINFO_FILE, "--start", "--step-length", str(1),
-                 "--no-warnings", "true", "--log", os.devnull])
+        duration_cols = [col for col in self.raw_data_df.columns if col.startswith("duration_2025")]
+        self.timestamp_column = np.random.choice(duration_cols)
 
-        while traci.simulation.getMinExpectedNumber() > 0:
-            traci.simulationStep()
+        hhmm = self.timestamp_column.split('_')[-1]
+        hour = int(hhmm[:2])
+        minute = int(hhmm[2:])
+        self.hour_of_day = hour * 60 + minute  # Total minutes since midnight
 
-        traci.close()
-
-    def _parse_tripinfos(self):
-        if not os.path.exists(self.TRIPINFO_FILE):
-            print(f"⚠️ Warning: {self.TRIPINFO_FILE} not found.")
-            return {}
-
-        tree = ET.parse(self.TRIPINFO_FILE)
-        root = tree.getroot()
-
-        route_durations = defaultdict(list)
-
-        for tripinfo in root.findall('tripinfo'):
-            trip_id = tripinfo.attrib['id']
-            duration = float(tripinfo.attrib['duration'])
-            base_route = trip_id.split('.')[0]
-            route_durations[base_route].append(duration)
-
-        mean_durations = {route: sum(durations) / len(durations) for route, durations in route_durations.items()}
-        return mean_durations
-
-    def _calculate_reward(self, mean_durations):
-        total_error = 0
-
-        for route_id in self.route_ids:
-            expected = self.routes[route_id]["target_duration"]
-            simulated = mean_durations.get(route_id, expected)  # fallback to expected if missing (no vehicles)
-
-            error = abs(simulated - expected)
-            total_error += error
-
-        reward = -total_error
-        return reward
+        for i, route in enumerate(self.routes):
+            self.routes[i]["target_duration"] = float(self.raw_data_df.loc[i, self.timestamp_column])

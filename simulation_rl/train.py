@@ -1,86 +1,93 @@
-import pandas as pd
-import numpy as np
 import os
-import traci
-
-from stable_baselines3 import TD3
+import numpy as np
+import pandas as pd
+from stable_baselines3 import SAC
 from stable_baselines3.common.noise import NormalActionNoise
-from stable_baselines3.common.env_checker import check_env
-from stable_baselines3.common.callbacks import CallbackList
+from stable_baselines3.common.callbacks import CheckpointCallback, BaseCallback
 
-from tensorboard_callback import TensorboardCallback
-from tensorboard_callback import EarlyStoppingCallback
-from model import SumoTrafficEnv
+from model import MultiRouteSUMOGymEnv
 
-# --- CONFIGURATION ---
-ROUTE_CSV_PATH = "../data/final_with_all_data.csv"
-SUMO_CONFIG_PATH = "../config/osm.sumocfg"
-TIMESTAMP_TO_USE = "duration_20250327_1740"
-MAX_VEHICLES = 200
-SUMO_BINARY = "sumo"
 
-# --- Load data ---
-df_full = pd.read_csv(ROUTE_CSV_PATH)
-JUNCTION_IDS_TO_PROCESS = ["4", "9", "8", "5"]
-df = df_full[df_full["Junction_id"].isin(JUNCTION_IDS_TO_PROCESS)]
+def load_routes(csv_path: str) -> list:
+    df = pd.read_csv(csv_path)
+    routes = []
+    for i, row in df.iterrows():
+        route = {
+            "id": i,
+            "edges": [str(row["from_edge"]), str(row["to_edge"])],
+            "duration_without_traffic": float(row["duration_without_traffic"]),
+            "distance": float(row["distance"])
+        }
+        routes.append(route)
+    return routes
 
-routes = {}
-for idx, row in df.iterrows():
-    route_id = f"route_{idx}"
-    routes[route_id] = {
-        "origin": row["Origin"],
-        "destination": row["Destination"],
-        "from_edge": row["from_edge"],
-        "to_edge": row["to_edge"],
-        "target_duration": row[TIMESTAMP_TO_USE],
-        "duration_without_traffic": row["duration_without_traffic"]
-    }
 
-print(f"✅ {len(routes)} valid routes loaded after filtering.")
+class TensorboardRewardLogger(BaseCallback):
+    def __init__(self, verbose=1):
+        super().__init__(verbose)
+        self.episode_idx = 0
+        self.rewards = []
 
-# --- Create Environment ---
-env = SumoTrafficEnv(routes, sumo_config=SUMO_CONFIG_PATH, max_vehicles=MAX_VEHICLES)
+    def _on_step(self) -> bool:
+        if self.locals.get("dones") is not None and any(self.locals["dones"]):
+            reward = self.locals["rewards"][0]
+            self.rewards.append(reward)
+            self.logger.record("rollout/episode_reward", reward)
+            self.logger.record("rollout/ep_len_mean", 1.0)  # Always one step per episode
+            self.logger.record("rollout/ep_rew_mean", np.mean(self.rewards[-100:]))
+            self.episode_idx += 1
+        return True
 
-# (Optional) Check environment
-check_env(env, warn=True)
 
-# --- Setup TD3 model ---
-n_actions = env.action_space.shape[-1]
-action_noise = NormalActionNoise(mean=np.zeros(n_actions), sigma=0.1 * np.ones(n_actions))
+if __name__ == "__main__":
+    # === Config ===
+    csv_path = "../data/final_with_all_data.csv"
+    sumo_config = "osm.sumocfg"
+    log_dir = "./sac_multi_logs"
+    checkpoint_dir = "./sac_checkpoints/2"
+    os.makedirs(log_dir, exist_ok=True)
+    os.makedirs(checkpoint_dir, exist_ok=True)
 
-model = TD3(
-    "MlpPolicy",
-    env,
-    action_noise=action_noise,
-    verbose=1,
-    tensorboard_log="./sumo_rl_tensorboard/",
-    learning_rate=1e-3,
-    buffer_size=100_000,
-    learning_starts=2000,
-    batch_size=128,
-    train_freq=1,
-    gradient_steps=1,
-)
+    # === Load data ===
+    route_data = load_routes(csv_path)
+    env = MultiRouteSUMOGymEnv(
+        sumo_config_path=sumo_config,
+        route_data_list=route_data,
+        route_file_path="routes.rou.xml",
+        tripinfo_path="tripinfo.xml",
+        sumo_gui=False,
+        csv_path=csv_path  # used for random timestamp selection
+    )
 
-# --- Setup Callbacks ---
-tensorboard_callback = TensorboardCallback(verbose=1)
-early_stopping_callback = EarlyStoppingCallback(required_success_rate=0.8, tolerance=0.2, verbose=1)
+    # === Noise ===
+    n_actions = env.action_space.shape[0]
+    action_noise = NormalActionNoise(mean=np.zeros(n_actions), sigma=2.0 * np.ones(n_actions))
 
-callback = CallbackList([tensorboard_callback, early_stopping_callback])
+    # === Callbacks ===
+    checkpoint_callback = CheckpointCallback(
+        save_freq=100,
+        save_path=checkpoint_dir,
+        name_prefix="sac_model"
+    )
+    tensorboard_callback = TensorboardRewardLogger()
 
-# --- Train the model ---
-TOTAL_TIMESTEPS = 100_000
+    # === Model ===
+    model = SAC(
+        policy="MlpPolicy",
+        env=env,
+        action_noise=action_noise,
+        verbose=1,
+        batch_size=128,
+        learning_starts=100,
+        tensorboard_log=log_dir
+    )
+    # model = SAC.load(path="./sac_checkpoints/sac_model_1000_steps.zip", env=env, action_noise=action_noise, verbose=1, batch_size=128, learning_starts=10, tensorboard_log=log_dir)
+    # === Train ===
+    model.learn(
+        total_timesteps=5000,
+        callback=[checkpoint_callback, tensorboard_callback]
+    )
 
-model.learn(total_timesteps=TOTAL_TIMESTEPS, callback=callback)
-
-os.makedirs("models", exist_ok=True)
-
-try:
-    model.learn(total_timesteps=TOTAL_TIMESTEPS, callback=callback)
-except KeyboardInterrupt:
-    print("\n⛔ Training interrupted by user (Ctrl+C)")
-except Exception as e:
-    print(f"\n❗ Error during training: {e}")
-finally:
-    model.save("models/td3_sumo_traffic")
-    print("\n✅ Model saved after training stopped!")
+    # === Save ===
+    model.save("sac_multi_route")
+    print("✅ Model saved as sac_multi_route.zip")
