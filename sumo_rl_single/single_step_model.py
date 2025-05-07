@@ -1,12 +1,13 @@
+from gymnasium import Env
 import os
-import gymnasium as gym
-from gymnasium import Env, spaces
 import numpy as np
+import gymnasium as gym
+from gymnasium import spaces
 import traci
 from lxml import etree
-from traci import junction
 
 from simulation.generate_rou_single import generate_random_routes
+
 
 
 class SUMOGymEnv(Env):
@@ -231,3 +232,5 @@ class SUMOGymEnv(Env):
     def get_current_green_durations(self):
         logic = traci.trafficlight.getAllProgramLogics(self.tls_id)[0]
         return [phase.duration for i, phase in enumerate(logic.phases) if i in self.trainable_phase_indices]
+
+
