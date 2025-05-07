@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import xml.etree.ElementTree as ET
 from stable_baselines3 import DDPG
+from stable_baselines3 import SAC
 from model import MultiRouteSUMOGymEnv
 
 
@@ -52,11 +53,11 @@ def evaluate_model(model_path: str, sumo_cfg: str, csv_path: str, timestamp: str
     obs = np.array(obs, dtype=np.float32)
 
     # === Load model ===
-    model = DDPG.load(model_path)
+    model = SAC.load(model_path)
 
     # === Predict actions ===
     actions, _ = model.predict(obs, deterministic=True)
-    actions = np.clip(np.round(actions), 0, 100).astype(int)
+    actions = np.clip(np.round(actions), 0, 300).astype(int)
 
     # === Generate route file ===
     routes_dict = {r["id"]: {"edges": r["edges"], "vehicle_count": actions[i]} for i, r in enumerate(routes)}
@@ -131,8 +132,8 @@ def evaluate_model(model_path: str, sumo_cfg: str, csv_path: str, timestamp: str
 
 
 evaluate_model(
-    model_path="./ddpg_checkpoints/ddpg_model_1000_steps.zip",
+    model_path="./sac_checkpoints/1/sac1_model_1000_steps.zip",
     sumo_cfg="osm.sumocfg",
     csv_path="../data/final_with_all_data.csv",
-    timestamp="duration_20250329_1800"
+    timestamp="duration_20250402_2015"
 )

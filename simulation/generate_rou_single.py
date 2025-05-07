@@ -134,5 +134,64 @@ def generate_random_routes(input_json_path=INPUT_JSON, input_csv_path=INPUT_CSV,
 
     print(f"✅ Route file for {timestamp_key} created: {output_xml_path}")
 
+def generate_routes_for_all_junctions_at_timestamp(timestamp_key: str,
+                                                   junction_ids_map=JUSNTION_ID_TO_DATA_ID,
+                                                   input_json_path_template=INPUT_JSON,
+                                                   input_csv_path=INPUT_CSV,
+                                                   output_file=OUTPUT_ROUTE_FILE):
+    df_full = pd.read_csv(input_csv_path)
+
+    root = etree.Element("routes")
+    etree.SubElement(root, "vType", id="car", accel="1.0", decel="4.5", length="5", maxSpeed="16.6", sigma="0.5")
+
+    if traci.isLoaded():
+        traci.close()
+    traci.start([SUMO_BINARY, "-c", SUMO_CONFIG, "--start", "--step-length", "1"])
+
+    for junction_str_id, data_id in junction_ids_map.items():
+        input_json_path = input_json_path_template.format(data_id)
+
+        if not os.path.exists(input_json_path):
+            print(f"⚠️ JSON file for junction {junction_str_id} not found, skipping.")
+            continue
+
+        with open(input_json_path, "r") as f:
+            data = json.load(f)
+
+        if timestamp_key not in data:
+            print(f"⚠️ Timestamp key '{timestamp_key}' not found in {input_json_path}, skipping.")
+            continue
+
+        timestamp_data = data[timestamp_key]
+
+        df = df_full[df_full["Junction_id"] == data_id]
+
+        routes = {}
+        for idx, row in df.iterrows():
+            route_id = f"route_{idx}"
+            routes[route_id] = {
+                "origin": row["Origin"],
+                "destination": row["Destination"],
+                "from_edge": row["from_edge"],
+                "to_edge": row["to_edge"],
+                "target_duration": row.get("duration_20250327_1830", None),
+                "vehicle_count": None,
+                "last_duration": None,
+                "converged": False,
+                "duration_without_traffic": row["duration_without_traffic"]
+            }
+
+        process_timestamp(root, timestamp_key, timestamp_data, routes, start_time=0)
+
+    traci.close()
+
+    tree = etree.ElementTree(root)
+    tree.write(output_file, pretty_print=True, xml_declaration=True, encoding="UTF-8")
+
+    print(f"✅ Route file for timestamp '{timestamp_key}' created: {output_file}")
+
+
 if __name__ == "__main__":
-    generate_random_routes(junction_id="J7", output_file="../config/routes.rou.xml")
+    TIMESTAMP_KEY = "duration_20250327_1920"  # replace as needed
+    generate_routes_for_all_junctions_at_timestamp(timestamp_key=TIMESTAMP_KEY,
+                                                   output_file="../config/routes.rou.xml")

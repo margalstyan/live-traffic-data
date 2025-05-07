@@ -42,7 +42,7 @@ class GreenPhaseLoggerCallback(BaseCallback):
 
             if "green_durations" in info:
                 durations = np.array(info["green_durations"])
-                normalized = (durations - 10) / (90 - 10)
+                normalized = (durations - 10) / (60 - 10)
                 for i, dur in enumerate(normalized):
                     self.logger.record(f"phases/green_phase_{i}", float(dur))
 
@@ -76,7 +76,7 @@ def train_agent(agent_id):
         net_file_path=NET_FILE,
         tls_id=agent_id,
         use_gui=False,
-        max_steps=300,
+        max_steps=250,
         route_file_path=route_file
     )
 
@@ -92,8 +92,8 @@ def train_agent(agent_id):
         env=env,
         learning_rate=lambda progress: 1e-3 * progress,
         action_noise=action_noise,
-        learning_starts=100,
-        batch_size=8,
+        learning_starts=256,
+        batch_size=128,
         verbose=1,
         device=DEVICE,
         tensorboard_log=log_path

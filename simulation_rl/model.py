@@ -76,9 +76,6 @@ class MultiRouteSUMOGymEnv(gym.Env):
 
         while traci.simulation.getMinExpectedNumber() > 0 :
             traci.simulationStep()
-            if traci.simulation.getTime() > self.max_simulation_time:
-                print("⏹️ Simulation stopped early due to exceeding time limit (5 minutes)")
-                break
         traci.close()
         self.simulation_running = False
 

@@ -43,8 +43,8 @@ if __name__ == "__main__":
     # === Config ===
     csv_path = "../data/final_with_all_data.csv"
     sumo_config = "osm.sumocfg"
-    log_dir = "./sac_multi_logs"
-    checkpoint_dir = "./sac_checkpoints/2"
+    log_dir = "./sac1_multi_logs"
+    checkpoint_dir = "./sac_checkpoints/1"
     os.makedirs(log_dir, exist_ok=True)
     os.makedirs(checkpoint_dir, exist_ok=True)
 
@@ -67,7 +67,7 @@ if __name__ == "__main__":
     checkpoint_callback = CheckpointCallback(
         save_freq=100,
         save_path=checkpoint_dir,
-        name_prefix="sac_model"
+        name_prefix="sac1_model"
     )
     tensorboard_callback = TensorboardRewardLogger()
 
@@ -75,13 +75,16 @@ if __name__ == "__main__":
     model = SAC(
         policy="MlpPolicy",
         env=env,
-        action_noise=action_noise,
         verbose=1,
-        batch_size=128,
+        batch_size=256,
         learning_starts=100,
+        gradient_steps=-1,
+        learning_rate=1e-3,
+        train_freq=(1, "episode"),
+        buffer_size=500_000,
+        policy_kwargs={"net_arch": [256, 256]},
         tensorboard_log=log_dir
     )
-    # model = SAC.load(path="./sac_checkpoints/sac_model_1000_steps.zip", env=env, action_noise=action_noise, verbose=1, batch_size=128, learning_starts=10, tensorboard_log=log_dir)
     # === Train ===
     model.learn(
         total_timesteps=5000,
@@ -89,5 +92,5 @@ if __name__ == "__main__":
     )
 
     # === Save ===
-    model.save("sac_multi_route")
+    model.save("sac1_multi_route")
     print("✅ Model saved as sac_multi_route.zip")

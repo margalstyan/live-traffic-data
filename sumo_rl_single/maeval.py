@@ -12,10 +12,10 @@ from multiprocessing import Pool, cpu_count
 
 SUMO_CONFIG = "osm.sumocfg"
 NET_FILE = "osm.net.xml"
-CHECKPOINT_DIR = "checkpoints_multi_separate/DDPG2"
+CHECKPOINT_DIR = "checkpoints_multi_separate/SAC2"
 EVAL_ROUNDS = 10
 MAX_STEPS = 600
-CHECKPOINT_STEP = 1100
+CHECKPOINT_STEP = 1500
 DEVICE = "mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu"
 
 def get_tls_ids():
@@ -42,8 +42,8 @@ def run_rl_model(tls_id, round_idx):
     tripinfo_out = f"xml/tripinfo_rl_{tls_id}_{round_idx}.xml"
     generate_random_routes(output_file=route_file, junction_id=tls_id)
 
-    model_path = os.path.join(CHECKPOINT_DIR, tls_id, f"ddpg_{tls_id}_{CHECKPOINT_STEP}_steps")
-    model = DDPG.load(model_path, device=DEVICE)
+    model_path = os.path.join(CHECKPOINT_DIR, tls_id, f"sac2_{tls_id}_{CHECKPOINT_STEP}_steps")
+    model = SAC.load(model_path, device=DEVICE)
 
     env = SUMOGymEnv(
         sumo_config_path=SUMO_CONFIG,
