@@ -13,11 +13,11 @@ from single_step_model import SUMOGymEnv
 import traci
 
 # Configuration
-BASE_ROUTE_FILE = "xml/routes_sac2_{agent_id}.rou.xml"
+BASE_ROUTE_FILE = "xml/routes_sac3_{agent_id}.rou.xml"
 SUMO_CONFIG = "osm.sumocfg"
 NET_FILE = "osm.net.xml"
-LOG_DIR = "logs_multi_separate/SAC2"
-CHECKPOINT_DIR = "checkpoints_multi_separate/SAC2"
+LOG_DIR = "logs_multi_separate/SAC3"
+CHECKPOINT_DIR = "checkpoints_multi_separate/SAC3"
 
 DEVICE =  "mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {DEVICE}")
@@ -81,7 +81,6 @@ def train_agent(agent_id):
     )
 
     n_actions = env.action_space.shape[0]
-    action_noise = NormalActionNoise(mean=np.zeros(n_actions), sigma=0.1 * np.ones(n_actions))
 
     log_path = os.path.join(LOG_DIR, agent_id)
     os.makedirs(log_path, exist_ok=True)
@@ -90,10 +89,13 @@ def train_agent(agent_id):
     model = SAC(
         policy="MlpPolicy",
         env=env,
-        learning_rate=lambda progress: 1e-3 * progress,
-        action_noise=action_noise,
-        learning_starts=256,
-        batch_size=128,
+        learning_rate=1e-3,
+        learning_starts=100,
+        gradient_steps=-1,
+        train_freq=(1, "episode"),
+        policy_kwargs={"net_arch": [256, 256]},
+        buffer_size=500_000,
+        batch_size=256,
         verbose=1,
         device=DEVICE,
         tensorboard_log=log_path
@@ -107,13 +109,13 @@ def train_agent(agent_id):
         CheckpointCallback(
             save_freq=100,
             save_path=os.path.join(CHECKPOINT_DIR, agent_id),
-            name_prefix=f"sac2_{agent_id}"
+            name_prefix=f"sac3_{agent_id}"
         ),
         GreenPhaseLoggerCallback(),
     ]
 
     model.learn(total_timesteps=5_000, callback=callbacks)
-    model.save(os.path.join(log_path, f"sac2_{agent_id}"))
+    model.save(os.path.join(log_path, f"sac3_{agent_id}"))
 
     env.close()
 

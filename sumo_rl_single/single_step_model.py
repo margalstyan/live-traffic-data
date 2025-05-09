@@ -7,7 +7,7 @@ import traci
 from lxml import etree
 
 from simulation.generate_rou_single import generate_random_routes
-
+from simulation_rl.generate_routes import generate_routes_with_sac_model
 
 
 class SUMOGymEnv(Env):
@@ -42,7 +42,8 @@ class SUMOGymEnv(Env):
 
     def step(self, action, *args, **kwargs):
         # === Generate new routes
-        generate_random_routes(output_file=self.route_file_path, junction_id=self.tls_id)
+        # generate_random_routes(output_file=self.route_file_path, junction_id=self.tls_id)
+        generate_routes_with_sac_model(output_file=self.route_file_path)
 
         # === Restart SUMO with tripinfo.xml output
         if traci.isLoaded():
