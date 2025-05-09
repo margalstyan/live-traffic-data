@@ -12,7 +12,7 @@ class MultiRouteSUMOGymEnv(gym.Env):
                  route_file_path="routes.rou.xml", tripinfo_path="tripinfo.xml",
                  sumo_gui=False, csv_path=None):
         super().__init__()
-        self.max_simulation_time = 300
+        self.max_simulation_time = 360
         self.sumo_binary = "sumo-gui" if sumo_gui else "sumo"
         self.sumo_config = sumo_config_path
         self.routes = route_data_list
@@ -21,16 +21,17 @@ class MultiRouteSUMOGymEnv(gym.Env):
         self.csv_path = csv_path
 
         self.num_routes = len(self.routes)
-        self.observation_space = spaces.Box(low=0, high=1, shape=(self.num_routes, 3), dtype=np.float32)
+        self.observation_space = spaces.Box(low=0, high=1, shape=(self.num_routes, 4), dtype=np.float32)
         self.action_space = spaces.Box(low=0, high=300, shape=(self.num_routes,), dtype=np.float32)
 
         self.max_distance = 1000.0
-        self.max_duration = 300.0
+        self.max_duration = 360.0
 
         self.raw_data_df = None
         self.timestamp_column = None
         self.hour_of_day = 0
         self.simulation_running = False
+        self.prev_errors = [0.0 for _ in range(self.num_routes)]
 
     def reset(self, seed=None, options=None):
         super().reset(seed=seed)
@@ -38,13 +39,16 @@ class MultiRouteSUMOGymEnv(gym.Env):
         if self.csv_path:
             self.pick_random_timestamp_column(self.csv_path)
 
-        obs = []
-        hour_norm = self.hour_of_day / 1440.0  # Normalize minutes of day
+        self.prev_errors = [0.0 for _ in range(self.num_routes)]
 
-        for route in self.routes:
+        obs = []
+        hour_norm = self.hour_of_day / 1440.0
+
+        for i, route in enumerate(self.routes):
             dist = min(route["distance"] / self.max_distance, 1.0)
             free = min(route["duration_without_traffic"] / self.max_duration, 1.0)
-            obs.append([dist, free, hour_norm])
+            prev_err = min(abs(self.prev_errors[i]) / route["target_duration"], 1.0) if route["target_duration"] > 0 else 0.0
+            obs.append([dist, free, hour_norm, prev_err])
 
         return np.array(obs, dtype=np.float32), {}
 
@@ -74,8 +78,10 @@ class MultiRouteSUMOGymEnv(gym.Env):
         ])
         self.simulation_running = True
 
-        while traci.simulation.getMinExpectedNumber() > 0 :
+        while traci.simulation.getMinExpectedNumber() > 0:
             traci.simulationStep()
+
+        sim_time = traci.simulation.getTime()
         traci.close()
         self.simulation_running = False
 
@@ -92,27 +98,38 @@ class MultiRouteSUMOGymEnv(gym.Env):
         except Exception as e:
             print(f"❌ Error reading tripinfo: {e}")
 
-        # === Compute reward ===
+        # === Compute reward and update prev_errors ===
         simulated_durations = []
+        self.prev_errors = []
+
         for route in self.routes:
             r_id = f"route_{route['id']}"
             values = route_durations.get(r_id, [])
             avg_sim = np.mean(values) if values else route["target_duration"] * 2
             simulated_durations.append(avg_sim)
 
+            err = abs(avg_sim - route["target_duration"])
+            self.prev_errors.append(err)
+
         targets = np.array([r["target_duration"] for r in self.routes])
-        reward = -np.mean(np.abs(np.array(simulated_durations) - targets))
+        base_reward = -np.mean((np.array(simulated_durations) - targets) ** 2)
+
+        # === Add penalty if simulation time exceeded ===
+        penalty = 0.0
+        if sim_time > self.max_simulation_time:
+            excess_ratio = (sim_time - self.max_simulation_time) / self.max_simulation_time
+            penalty = -1.0 * excess_ratio  # Can be scaled stronger if needed
+
+        reward = base_reward + penalty
 
         # === New observation ===
         hour_norm = self.hour_of_day / 1440.0
-        obs = [
-            [
-                min(route["distance"] / self.max_distance, 1.0),
-                min(route["duration_without_traffic"] / self.max_duration, 1.0),
-                hour_norm
-            ]
-            for route in self.routes
-        ]
+        obs = []
+        for i, route in enumerate(self.routes):
+            dist = min(route["distance"] / self.max_distance, 1.0)
+            free = min(route["duration_without_traffic"] / self.max_duration, 1.0)
+            prev_err = min(abs(self.prev_errors[i]) / route["target_duration"], 1.0) if route["target_duration"] > 0 else 0.0
+            obs.append([dist, free, hour_norm, prev_err])
 
         return np.array(obs, dtype=np.float32), reward, True, False, {}
 
@@ -168,7 +185,7 @@ class MultiRouteSUMOGymEnv(gym.Env):
         hhmm = self.timestamp_column.split('_')[-1]
         hour = int(hhmm[:2])
         minute = int(hhmm[2:])
-        self.hour_of_day = hour * 60 + minute  # Total minutes since midnight
+        self.hour_of_day = hour * 60 + minute
 
         for i, route in enumerate(self.routes):
             self.routes[i]["target_duration"] = float(self.raw_data_df.loc[i, self.timestamp_column])
