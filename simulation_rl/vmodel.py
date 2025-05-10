@@ -9,16 +9,18 @@ import xml.etree.ElementTree as ET
 
 class MultiRouteSUMOGymEnv(gym.Env):
     def __init__(self, sumo_config_path, route_data_list,
-                 route_file_path="routes.rou.xml", tripinfo_path="tripinfo.xml",
-                 sumo_gui=False, csv_path=None):
+                 route_file_path=None, tripinfo_path=None,
+                 sumo_gui=False, csv_path=None, instance_id=0):
         super().__init__()
         self.max_simulation_time = 360
         self.sumo_binary = "sumo-gui" if sumo_gui else "sumo"
         self.sumo_config = sumo_config_path
         self.routes = route_data_list
-        self.route_file_path = route_file_path
-        self.tripinfo_path = tripinfo_path
         self.csv_path = csv_path
+
+        self.instance_id = instance_id
+        self.route_file_path = route_file_path or f"routes_{instance_id}.rou.xml"
+        self.tripinfo_path = tripinfo_path or f"tripinfo_{instance_id}.xml"
 
         self.num_routes = len(self.routes)
         self.observation_space = spaces.Box(low=0, high=1, shape=(self.num_routes, 4), dtype=np.float32)
@@ -69,7 +71,7 @@ class MultiRouteSUMOGymEnv(gym.Env):
             traci.close()
             self.simulation_running = False
 
-        # === Dynamically adjust step length
+        # Dynamically adjust step length
         step_len = max(1, 5 - self.episode_counter // 500)
 
         traci.start([
@@ -101,7 +103,7 @@ class MultiRouteSUMOGymEnv(gym.Env):
                 if route_id in route_durations:
                     route_durations[route_id].append(duration)
         except Exception as e:
-            print(f"❌ Error reading tripinfo: {e}")
+            print(f"[ENV {self.instance_id}] ❌ Error reading tripinfo: {e}")
 
         # === Compute reward ===
         simulated_durations = []
@@ -112,16 +114,15 @@ class MultiRouteSUMOGymEnv(gym.Env):
             simulated_durations.append(avg_sim)
 
         targets = np.array([r["target_duration"] for r in self.routes])
-        mse = np.mean((np.array(simulated_durations) - targets) ** 2)
-        base_reward = -np.log1p(mse)
+        base_reward = -np.mean((np.array(simulated_durations) - targets) ** 2)
 
-        # === Penalty for overtime ===
         penalty = 0.0
         if sim_time > self.max_simulation_time:
             excess_ratio = (sim_time - self.max_simulation_time) / self.max_simulation_time
-            penalty = -1.0 * excess_ratio
+            penalty = -base_reward * excess_ratio
 
         reward = base_reward + penalty
+        print(f"[ENV {self.instance_id}] Reward: {reward:.4f}, Step length: {step_len}, Sim time: {sim_time:.2f}")
 
         return self.last_observation.copy(), reward, True, False, {}
 
@@ -149,11 +150,11 @@ class MultiRouteSUMOGymEnv(gym.Env):
                 try:
                     route_result = traci.simulation.findRoute(from_edge, to_edge)
                     if not route_result.edges:
-                        print(f"⚠️ No path: {from_edge} → {to_edge}")
+                        print(f"[ENV {self.instance_id}] ⚠️ No path: {from_edge} → {to_edge}")
                         continue
                     route_cache[key] = route_result.edges
                 except Exception as e:
-                    print(f"❌ Route error ({route_id}): {e}")
+                    print(f"[ENV {self.instance_id}] ❌ Route error ({route_id}): {e}")
                     continue
 
             edges = route_cache[key]

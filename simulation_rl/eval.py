@@ -49,7 +49,8 @@ def evaluate_model(model_path: str, sumo_cfg: str, csv_path: str, timestamp: str
     for r in routes:
         dist = min(r["distance"] / env.max_distance, 1.0)
         free = min(r["duration_without_traffic"] / env.max_duration, 1.0)
-        obs.append([dist, free, hour_norm])
+        prev_err = 0.0  # Default value during evaluation
+        obs.append([dist, free, hour_norm, prev_err])
     obs = np.array(obs, dtype=np.float32)
 
     # === Load model ===
@@ -73,7 +74,9 @@ def evaluate_model(model_path: str, sumo_cfg: str, csv_path: str, timestamp: str
         "-c", env.sumo_config,
         "--route-files", env.route_file_path,
         "--tripinfo-output", env.tripinfo_path,
-        "--time-to-teleport", "300"
+"--no-step-log", "true",
+        "--no-warnings", "true",
+        "--step-length", "1",
     ])
     while traci.simulation.getMinExpectedNumber() > 0:
         traci.simulationStep()
@@ -132,7 +135,7 @@ def evaluate_model(model_path: str, sumo_cfg: str, csv_path: str, timestamp: str
 
 
 evaluate_model(
-    model_path="./sac_checkpoints/1/sac1_model_1000_steps.zip",
+    model_path="./vcheckpoints/3/vsac_7200_steps.zip",
     sumo_cfg="osm.sumocfg",
     csv_path="../data/final_with_all_data.csv",
     timestamp="duration_20250402_2015"

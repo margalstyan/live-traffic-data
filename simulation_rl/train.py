@@ -44,7 +44,7 @@ if __name__ == "__main__":
     csv_path = "../data/final_with_all_data.csv"
     sumo_config = "osm.sumocfg"
     log_dir = "./sac1_multi_logs"
-    checkpoint_dir = "./sac_checkpoints/1"
+    checkpoint_dir = "./sac_checkpoints/3"
     os.makedirs(log_dir, exist_ok=True)
     os.makedirs(checkpoint_dir, exist_ok=True)
 
@@ -76,10 +76,10 @@ if __name__ == "__main__":
         policy="MlpPolicy",
         env=env,
         verbose=1,
-        batch_size=256,
+        batch_size=512,
         learning_starts=100,
         gradient_steps=-1,
-        learning_rate=1e-3,
+        learning_rate=3e-4,
         train_freq=(1, "episode"),
         buffer_size=500_000,
         policy_kwargs={"net_arch": [256, 256]},
@@ -87,7 +87,7 @@ if __name__ == "__main__":
     )
     # === Train ===
     model.learn(
-        total_timesteps=5000,
+        total_timesteps=50000,
         callback=[checkpoint_callback, tensorboard_callback]
     )
 
