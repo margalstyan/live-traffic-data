@@ -14,7 +14,7 @@ SUMO_CONFIG = "osm.sumocfg"
 NET_FILE = "osm.net.xml"
 ROUTE_FILE = "eval_routes.rou.xml"  # use a clean route file for evaluation
 DEVICE = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
-EPISODE_TO_LOAD = 3200
+EPISODE_TO_LOAD = 500
 
 # === Load Environment
 env = MultiSUMOGymEnv(
@@ -71,7 +71,7 @@ def evaluate(env, agents=None, use_model=True, iterations=10):
 
         _, _, _, _, infos = env.step(actions)
         if not traci.isLoaded():
-            traci.start([env.sumo_binary, "-c", env.sumo_config_path, "--no-step-log", "true"])
+            traci.start([env.sumo_binary, "-c", env.sumo_config_path, "--no-step-log", "true", "--step-length", "5"])
         stats = env._parse_tripinfo_per_tls(env.tripinfo_path)
         if traci.isLoaded():
             traci.close()

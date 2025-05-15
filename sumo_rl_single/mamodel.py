@@ -75,6 +75,8 @@ class MultiSUMOGymEnv(gym.Env):
             "--route-files", self.route_file_path,
             "--tripinfo-output", self.tripinfo_path,
             "--no-step-log", "true",
+            "--no-warnings", "true",
+            "--step-length", "3",
         ]
         traci.start(sumo_cmd)
 

@@ -1,151 +1,124 @@
-from jinja2.compiler import generate
-from stable_baselines3 import PPO
-import gymnasium as gym
+import os
 import numpy as np
-import traci
-from pathlib import Path
-from sumo_rl.environment.env import SumoEnvironment
-from gymnasium.spaces import Box
-from stable_baselines3.common.monitor import Monitor
-from stable_baselines3.common.callbacks import CheckpointCallback
+import gymnasium as gym
+from gymnasium import spaces
+from stable_baselines3 import SAC
+from stable_baselines3.common.logger import configure
+from env import SUMOMultiAgentEnv
 
+# === Config ===
+NUM_EPISODES = 10000
+SAVE_EVERY = 100
+BUFFER_SIZE = 50000
+BATCH_SIZE = 128
+TRAIN_AFTER_EP = 128
 
-class MultiTLEnvSingleAgent(gym.Env):
-    def __init__(self, model=None, **kwargs):
-        self.env = SumoEnvironment(**kwargs)
-        self.model = model  # Store the PPO model explicitly
-        self.ts_ids = self.env.ts_ids
-        temp_obs = self.env.reset()
+SUMO_CFG = "osm.sumocfg"
+ROUTE_CSV = "routes.csv"
+BASE_LOG_DIR = "./logs_marl"
+BASE_MODEL_DIR = "./sac_agents"
 
-        obs_concat = np.concatenate([temp_obs[ts].flatten() for ts in self.ts_ids])
-        self.observation_space = Box(
-            low=-np.inf,
-            high=np.inf,
-            shape=obs_concat.shape,
-            dtype=np.float32
-        )
+# === Helper: Auto-increment run folder ===
+def get_next_run_id(base_path):
+    os.makedirs(base_path, exist_ok=True)
+    existing = [d for d in os.listdir(base_path) if d.startswith("run")]
+    existing_ids = [int(d[3:]) for d in existing if d[3:].isdigit()]
+    next_id = max(existing_ids) + 1 if existing_ids else 1
+    return f"run{next_id}"
 
-        self.min_duration = 5
-        self.max_duration = 90
+RUN_ID = get_next_run_id(BASE_LOG_DIR)
+LOG_DIR = os.path.join(BASE_LOG_DIR, RUN_ID)
+MODEL_DIR = os.path.join(BASE_MODEL_DIR, RUN_ID)
 
-        self.phase_indices_per_tl = {}
-        total_action_count = 0
+os.makedirs(LOG_DIR, exist_ok=True)
+os.makedirs(MODEL_DIR, exist_ok=True)
 
-        for ts_id in self.ts_ids:
-            logic = traci.trafficlight.getAllProgramLogics(ts_id)[0]
-            phases = logic.phases
-            adjustable_indices = [i for i, phase in enumerate(phases) if 'y' not in phase.state.lower()]
-            self.phase_indices_per_tl[ts_id] = adjustable_indices
-            total_action_count += len(adjustable_indices)
-
-        self.action_space = Box(
-            low=-1.0,
-            high=1.0,
-            shape=(total_action_count,),
-            dtype=np.float32
-        )
-
-        print(f"[Init] TLs: {len(self.ts_ids)}, adjustable phases per TL: {self.phase_indices_per_tl}")
-
-        self.env.close()
+# === Dummy Env for SAC agent init
+class DummySingleAgentEnv(gym.Env):
+    def __init__(self, obs_space: spaces.Box, act_space: spaces.Box):
+        super().__init__()
+        self.observation_space = obs_space
+        self.action_space = act_space
 
     def reset(self, *, seed=None, options=None):
-        obs = self.env.reset()
-        # Get concatenated observation
-        obs_concat = np.concatenate([obs[ts].flatten() for ts in self.ts_ids])
-
-        # Predict action ONCE per episode (initial action for durations)
-        action, _ = self.model.predict(obs_concat, deterministic=True)
-
-        # Scale actions explicitly from [-1, 1] to [min_duration, max_duration]
-        scaled_actions = self.min_duration + (action + 1.0) * (self.max_duration - self.min_duration) / 2.0
-
-        # Set durations per TL once at the start
-        idx = 0
-        for ts_id in self.ts_ids:
-            phase_indices = self.phase_indices_per_tl[ts_id]
-            count = len(phase_indices)
-            durations = scaled_actions[idx: idx + count]
-            idx += count
-
-            logic = traci.trafficlight.getAllProgramLogics(ts_id)[0]
-            phases = logic.phases
-
-            for phase_idx, duration in zip(phase_indices, durations):
-                clipped_duration = float(np.clip(duration, self.min_duration, self.max_duration))
-                phases[phase_idx].duration = clipped_duration
-
-            logic.phases = phases
-            traci.trafficlight.setProgramLogic(ts_id, logic)
-
-        return obs_concat, {}
+        return self.observation_space.sample(), {}
 
     def step(self, action):
-        obs, rewards, dones, infos = self.env.step({ts_id: 0 for ts_id in self.ts_ids})
+        return self.observation_space.sample(), 0.0, True, False, {}
 
-        num_vehicles = traci.simulation.getMinExpectedNumber()
-        sim_done = num_vehicles == 0 or self.env.sim_step >= self.env.sim_max_time
-        done = sim_done or all(dones.values())
+# === Initialize Environment
+env = SUMOMultiAgentEnv(SUMO_CFG, ROUTE_CSV)
+tls_ids = env.tls_ids
 
-        obs_concat = np.concatenate([obs[ts].flatten() for ts in self.ts_ids])
-        reward_sum = sum(rewards.values())
-        if reward_sum == 0:
-            reward_sum = 1/155
-        return obs_concat, reward_sum, done, False, {}
+agents = {}
+loggers = {}
 
-    def render(self):
-        pass
+for tls_id in tls_ids:
+    obs_space = env.agent_observation_spaces[tls_id]
+    act_space = env.agent_action_spaces[tls_id]
+    dummy_env = DummySingleAgentEnv(obs_space, act_space)
 
+    log_path = os.path.join(LOG_DIR, tls_id)
+    os.makedirs(log_path, exist_ok=True)
+    logger = configure(log_path, ["stdout", "tensorboard"])
 
-if __name__ == "__main__":
-    env = MultiTLEnvSingleAgent(
-        net_file=str(Path("osm.net.xml").resolve()),
-        route_file=str(Path("routes.rou.xml").resolve()),
-        use_gui=True,
-        num_seconds=2000,
-        yellow_time=3,
-        min_green=5,
-        max_green=90,
-        fixed_ts=True,
+    model = SAC(
+        policy="MlpPolicy",
+        env=dummy_env,
+        learning_rate=3e-4,
+        buffer_size=BUFFER_SIZE,
+        batch_size=BATCH_SIZE,
+        verbose=0,
+        tensorboard_log=log_path
     )
-    env = Monitor(env)
+    model.set_logger(logger)
 
-    try:
-        model = PPO.load("model_3_1.zip",
-                         env=env,
-                         learning_rate=3e-4,
-                         clip_range=0.1,
-                         ent_coef=0.001,
-                         n_epochs=20)
+    agents[tls_id] = model
+    loggers[tls_id] = logger
 
-    except:
-        print("Training new model...")
-        model = PPO(
-            "MlpPolicy",
-            env,
-            verbose=1,
-            tensorboard_log="./ppo_tensorboard",
-            learning_rate=3e-4,
-            normalize_advantage=True,
-            clip_range=0.2,
-            ent_coef=0.001,
-            gamma=0.98,
-            vf_coef=0.5
+print(f"🚦 Training {len(tls_ids)} agents in shared SUMO environment")
+print(f"🧪 Logs: {LOG_DIR}")
+print(f"💾 Models: {MODEL_DIR}")
+
+# === Training Loop
+for episode in range(1, NUM_EPISODES + 1):
+    obs, _ = env.reset()
+    actions = {
+        tls_id: agents[tls_id].predict(obs[tls_id], deterministic=False)[0]
+        for tls_id in tls_ids
+    }
+    next_obs, rewards, dones, _, infos = env.step(actions)
+
+    for tls_id in tls_ids:
+        # ✅ Add sample to SB3's internal replay buffer
+        agents[tls_id].replay_buffer.add(
+            obs=obs[tls_id],
+            next_obs=next_obs[tls_id],
+            action=actions[tls_id],
+            reward=rewards[tls_id],
+            done=dones[tls_id],
+            infos=infos[tls_id],
         )
 
-    # Pass model into env
-    env.env.model = model
+        # ✅ Log per-agent reward + env metrics
+        logger = loggers[tls_id]
+        logger.record("train/reward", rewards[tls_id])
 
-    # ✅ Checkpoint every 10,000 steps
-    checkpoint_callback = CheckpointCallback(
-        save_freq=10_000,
-        save_path="./checkpoints/6/",
-        name_prefix="ppo_tl_model"
-    )
+        if infos[tls_id]:
+            logger.record("env/avg_wait", infos[tls_id][0].get("avg_wait", 0))
+            logger.record("env/vehicle_count", infos[tls_id][0].get("vehicle_count", 0))
+            logger.record("env/avg_trip_duration", infos[tls_id][0].get("avg_duration", 0))
 
-    try:
-        model.learn(total_timesteps=100_000, tb_log_name="multi_tl_run", callback=checkpoint_callback)
-    except Exception as e:
-        print(e)
-    finally:
-        model.save("model_3_1")
+        logger.dump(step=episode)
+
+        # ✅ Train only if buffer is populated enough
+        if episode >= TRAIN_AFTER_EP and agents[tls_id].replay_buffer.pos >= BATCH_SIZE:
+            agents[tls_id].train(gradient_steps=1, batch_size=BATCH_SIZE)
+
+    # ✅ Save checkpoint every N episodes
+    if episode % SAVE_EVERY == 0:
+        print(f"[EP {episode}] 💾 Saving models...")
+        for tls_id in tls_ids:
+            tls_dir = os.path.join(MODEL_DIR, tls_id)
+            os.makedirs(tls_dir, exist_ok=True)
+            agents[tls_id].save(os.path.join(tls_dir, f"ep_{episode}.zip"))

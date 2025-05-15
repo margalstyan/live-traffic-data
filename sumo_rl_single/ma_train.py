@@ -13,11 +13,11 @@ NET_FILE = "osm.net.xml"
 ROUTE_FILE = "routes.rou.xml"
 USE_GUI = False
 
-EP_START = 2200
-MAX_EPISODES = 5000 + EP_START
+EP_START = 0
+MAX_EPISODES = 10000 + EP_START
 
-BATCH_SIZE = 64
-START_TRAINING_AFTER = 64
+BATCH_SIZE = 128
+START_TRAINING_AFTER = 128
 TRAIN_EVERY = 1
 SAVE_EVERY = 100
 DEVICE = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
@@ -66,7 +66,7 @@ env = MultiSUMOGymEnv(
     tls_ids=TLS_IDS,
     route_file_path=ROUTE_FILE,
     use_gui=USE_GUI,
-    max_steps=600
+    max_steps=400
 )
 
 # === Initial dummy reset to get shapes
@@ -81,11 +81,11 @@ for tls_id in TLS_IDS:
     obs_shape = initial_obs[tls_id].shape[0]
     act_shape = env.action_space[tls_id].shape[0]
     act_limit = float(env.action_space[tls_id].high[0])
-    writers[tls_id] = SummaryWriter(log_dir=f"logs_sac2/{tls_id}")
+    writers[tls_id] = SummaryWriter(log_dir=f"logs_sac/{tls_id}")
     buffers[tls_id] = ReplayBuffer(obs_shape, act_shape)
 
     agent = SACAgent(obs_shape, act_shape, act_limit, device=DEVICE, writer=writers[tls_id])
-    load_agent_checkpoints(tls_id, agent, episode=2250)
+    # load_agent_checkpoints(tls_id, agent, episode=0)
     agents[tls_id] = agent
 
 # === Training Loop

@@ -42,7 +42,7 @@ class SACAgent:
         # Learning rate setup
         self.lr_start = 1e-3
         self.lr_final = 1e-4
-        self.lr_decay_steps = 2000  # Total steps to decay from lr_start to lr_final
+        self.lr_decay_steps = 5000  # Total steps to decay from lr_start to lr_final
 
         def linear_schedule(step):
             factor = max((self.lr_decay_steps - step) / self.lr_decay_steps, 0.0)
@@ -157,6 +157,12 @@ class SACAgent:
             self.writer.add_scalar("Entropy", entropy, self.train_step)
             self.writer.add_scalar("Alpha", self.log_alpha.exp().item(), self.train_step)
             self.writer.add_scalar("LR/actor", self.actor_opt.param_groups[0]['lr'], self.train_step)
+            self.writer.add_scalar("LR/q1", self.q1_opt.param_groups[0]['lr'], self.train_step)
+            self.writer.add_scalar("LR/q2", self.q2_opt.param_groups[0]['lr'], self.train_step)
+            self.writer.add_scalar("LR/alpha", self.alpha_opt.param_groups[0]['lr'], self.train_step)
+            self.writer.add_scalar("Q1", mean_q1, self.train_step)
+            self.writer.add_scalar("Q2", q2_pred.mean().item(), self.train_step)
+
 
         # === Step LR schedulers
         self.actor_sched.step()
