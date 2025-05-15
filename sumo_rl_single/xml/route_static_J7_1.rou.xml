@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<routes>
+  <vType id="car" accel="1.0" decel="4.5" length="5" maxSpeed="16.6" sigma="0.5"/>
+  <route id="route_116_duration_20250327_2240" edges="177211987#1 699152676#0 688883939#0"/>
+  <flow id="flow_route_116_duration_20250327_2240" type="car" route="route_116_duration_20250327_2240" begin="0" end="60" number="2" departPos="random" arrivalPos="random"/>
+  <route id="route_117_duration_20250327_2240" edges="177211987#1 699152676#0 56196502#0 56196502#1-AddedOnRampEdge 56196502#1 488801107#0 488801107#1 138000492#0"/>
+  <flow id="flow_route_117_duration_20250327_2240" type="car" route="route_117_duration_20250327_2240" begin="0" end="60" number="1" departPos="random" arrivalPos="random"/>
+  <route id="route_120_duration_20250327_2240" edges="799091563#0 56196502#0 56196502#1-AddedOnRampEdge 56196502#1 488801107#0 488801107#1 138000492#0"/>
+  <flow id="flow_route_120_duration_20250327_2240" type="car" route="route_120_duration_20250327_2240" begin="0" end="60" number="1" departPos="random" arrivalPos="random"/>
+  <route id="route_121_duration_20250327_2240" edges="799091563#0 134194079#0"/>
+  <flow id="flow_route_121_duration_20250327_2240" type="car" route="route_121_duration_20250327_2240" begin="0" end="60" number="8" departPos="random" arrivalPos="random"/>
+  <route id="route_122_duration_20250327_2240" edges="799091563#0 688883939#0"/>
+  <flow id="flow_route_122_duration_20250327_2240" type="car" route="route_122_duration_20250327_2240" begin="0" end="60" number="2" departPos="random" arrivalPos="random"/>
+  <route id="route_126_duration_20250327_2240" edges="-138000461 -138000479 49734478 139783053 138000492#0"/>
+  <flow id="flow_route_126_duration_20250327_2240" type="car" route="route_126_duration_20250327_2240" begin="0" end="60" number="1" departPos="random" arrivalPos="random"/>
+  <route id="route_127_duration_20250327_2240" edges="-138000461 50899257 189240000#0-AddedOnRampEdge"/>
+  <flow id="flow_route_127_duration_20250327_2240" type="car" route="route_127_duration_20250327_2240" begin="0" end="60" number="4" departPos="random" arrivalPos="random"/>
+  <route id="route_131_duration_20250327_2240" edges="714011134#0 134194079#0"/>
+  <flow id="flow_route_131_duration_20250327_2240" type="car" route="route_131_duration_20250327_2240" begin="0" end="60" number="1" departPos="random" arrivalPos="random"/>
+  <route id="route_132_duration_20250327_2240" edges="714011134#0 799091561 189240000#0-AddedOnRampEdge"/>
+  <flow id="flow_route_132_duration_20250327_2240" type="car" route="route_132_duration_20250327_2240" begin="0" end="60" number="3" departPos="random" arrivalPos="random"/>
+  <route id="route_133_duration_20250327_2240" edges="714011134#0 56196502#0 56196502#1-AddedOnRampEdge 56196502#1 488801107#0 488801107#1 138000492#0"/>
+  <flow id="flow_route_133_duration_20250327_2240" type="car" route="route_133_duration_20250327_2240" begin="0" end="60" number="1" departPos="random" arrivalPos="random"/>
+</routes>

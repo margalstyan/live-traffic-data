@@ -72,14 +72,14 @@ class MultiRouteSUMOGymEnv(gym.Env):
             self.simulation_running = False
 
         # Dynamically adjust step length
-        step_len = max(1, 5 - self.episode_counter // 500)
+        # step_len = max(1, 3 - self.episode_counter // 500)
 
         traci.start([
             self.sumo_binary,
             "-c", self.sumo_config,
             "--route-files", self.route_file_path,
             "--tripinfo-output", self.tripinfo_path,
-            "--step-length", str(step_len),
+            "--step-length", "1",
             "--no-step-log", "true",
             "--no-warnings", "true",
         ])
@@ -114,15 +114,15 @@ class MultiRouteSUMOGymEnv(gym.Env):
             simulated_durations.append(avg_sim)
 
         targets = np.array([r["target_duration"] for r in self.routes])
-        base_reward = -np.mean((np.array(simulated_durations) - targets) ** 2)
+        base_reward = -np.mean(np.abs(np.array(simulated_durations) - targets) )
 
         penalty = 0.0
         if sim_time > self.max_simulation_time:
             excess_ratio = (sim_time - self.max_simulation_time) / self.max_simulation_time
-            penalty = -base_reward * excess_ratio
+            penalty = -1.0 * excess_ratio
 
         reward = base_reward + penalty
-        print(f"[ENV {self.instance_id}] Reward: {reward:.4f}, Step length: {step_len}, Sim time: {sim_time:.2f}")
+        # print(f"[ENV {self.instance_id}] Reward: {reward:.4f}, Step length: {step_len}, Sim time: {sim_time:.2f}")
 
         return self.last_observation.copy(), reward, True, False, {}
 

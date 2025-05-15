@@ -8,7 +8,7 @@ import os
 import json
 
 # CONFIGURATION
-JUNCTION_IDS_TO_PROCESS = ["3"]
+JUNCTION_IDS_TO_PROCESS = [13]
 SUMO_BINARY = "sumo"
 SUMO_CONFIG = "config/osm.sumocfg"
 FLOW_DURATION = 60
@@ -231,16 +231,16 @@ if __name__ == "__main__":
                 with open(OUTPUT_JSON_PATH, "w") as f:
                     json.dump(junction_results, f, indent=4)
 
-            if percent_diff <= 40 and sum(0.3 <= x <= 1.8 for x in update_diffs) / len(update_diffs) >= 0.8:
+            if percent_diff <= 60 and sum(0.3 <= x <= 2.1 for x in update_diffs) / len(update_diffs) >= 0.8:
                 print(f"✅ Acceptable error for {timestamp}. Moving to next timestamp...")
                 break
             else:
                 print("percent diff:", percent_diff)
                 print("update params:", update_diffs)
-            all_below_1 = all(x < 1 for x in update_diffs)
+            all_below_1 = all(x < 0.9 for x in update_diffs)
             all_above_1_1 = all(x > 1.1 for x in update_diffs)
 
-            if attempt % 5 == 0 or all_below_1 or all_above_1_1:
+            if attempt % 5 == 0:
                 ratio = total_expected / total_simulated if total_simulated else 1.0
                 total_count = max(1, int(total_count * ratio))
                 update_diffs = np.ones(len(update_diffs))

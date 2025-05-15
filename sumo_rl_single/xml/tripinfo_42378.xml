@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-05-06 16:34:02 by Eclipse SUMO sumo Version 1.20.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="osm.net.xml"/>
+        <route-files value="xml/routes_ddpg_cluster_4110471701_632031939.rou.xml"/>
+    </input>
+
+    <output>
+        <tripinfo-output value="xml/tripinfo_42378.xml"/>
+    </output>
+
+    <traci_server>
+        <remote-port value="36489"/>
+    </traci_server>
+
+</configuration>
+-->
+
+<tripinfos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tripinfo_file.xsd">
+    <tripinfo id="flow_route_88_duration_20250327_2150.0" depart="0.00" departLane="430416184_0" departPos="194.63" departSpeed="0.00" departDelay="0.00" arrival="20.00" arrivalLane="186407684#0_1" arrivalPos="3.84" arrivalSpeed="8.48" duration="20.00" routeLength="126.85" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="10.77" rerouteNo="0" devices="tripinfo_flow_route_88_duration_20250327_2150.0" vType="car" speedFactor="0.83" vaporized=""/>
+    <tripinfo id="flow_route_62_duration_20250327_2150.0" depart="0.00" departLane="409155823_0" departPos="65.43" departSpeed="0.00" departDelay="0.00" arrival="23.00" arrivalLane="1091883842_0" arrivalPos="165.47" arrivalSpeed="16.29" duration="23.00" routeLength="205.45" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="10.50" rerouteNo="0" devices="tripinfo_flow_route_62_duration_20250327_2150.0" vType="car" speedFactor="1.06" vaporized=""/>
+    <tripinfo id="flow_route_86_duration_20250327_2150.0" depart="0.00" departLane="430416184_0" departPos="215.48" departSpeed="0.00" departDelay="0.00" arrival="23.00" arrivalLane="186407685_1" arrivalPos="87.02" arrivalSpeed="16.47" duration="23.00" routeLength="195.42" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="10.59" rerouteNo="0" devices="tripinfo_flow_route_86_duration_20250327_2150.0" vType="car" speedFactor="1.08" vaporized=""/>

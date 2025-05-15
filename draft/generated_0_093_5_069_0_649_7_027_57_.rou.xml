@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<routes>
+  <vType id="car" accel="1.0" decel="4.5" length="5" maxSpeed="16.6" sigma="0.5"/>
+  <route id="route_29" edges="-422986370#2 -430406005#1"/>
+  <flow id="route_29" type="car" route="route_29" begin="57" end="357" number="205" departPos="random" arrivalPos="random"/>
+  <route id="route_30" edges="-422986370#2 485211287#0 137415945#0"/>
+  <flow id="route_30" type="car" route="route_30" begin="57" end="357" number="154" departPos="random" arrivalPos="random"/>
+  <route id="route_31" edges="1235147073.116 133126026#0 133126030#0"/>
+  <flow id="route_31" type="car" route="route_31" begin="57" end="357" number="152" departPos="random" arrivalPos="random"/>
+  <route id="route_32" edges="1235147073.116 133126026#0 -430406005#1"/>
+  <flow id="route_32" type="car" route="route_32" begin="57" end="357" number="127" departPos="random" arrivalPos="random"/>
+  <route id="route_33" edges="1235147073.116 133126026#0 1369578054"/>
+  <flow id="route_33" type="car" route="route_33" begin="57" end="357" number="158" departPos="random" arrivalPos="random"/>
+  <route id="route_34" edges="133126008#0 1369578054"/>
+  <flow id="route_34" type="car" route="route_34" begin="57" end="357" number="132" departPos="random" arrivalPos="random"/>
+  <route id="route_35" edges="133126008#0 133126030#0"/>
+  <flow id="route_35" type="car" route="route_35" begin="57" end="357" number="106" departPos="random" arrivalPos="random"/>
+  <route id="route_36" edges="485211947#0 1369578054"/>
+  <flow id="route_36" type="car" route="route_36" begin="57" end="357" number="180" departPos="random" arrivalPos="random"/>
+  <route id="route_37" edges="485211947#0 485211287#0 137415945#0"/>
+  <flow id="route_37" type="car" route="route_37" begin="57" end="357" number="147" departPos="random" arrivalPos="random"/>
+  <route id="route_38" edges="485211947#0 -430406005#1"/>
+  <flow id="route_38" type="car" route="route_38" begin="57" end="357" number="130" departPos="random" arrivalPos="random"/>
+</routes>

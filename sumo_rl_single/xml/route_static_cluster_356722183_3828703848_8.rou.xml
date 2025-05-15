@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<routes>
+  <vType id="car" accel="1.0" decel="4.5" length="5" maxSpeed="16.6" sigma="0.5"/>
+  <route id="route_0_duration_without_traffic" edges="1318793176#1 1318793176#1.11 133126031#0"/>
+  <flow id="flow_route_0_duration_without_traffic" type="car" route="route_0_duration_without_traffic" begin="0" end="60" number="6" departPos="random" arrivalPos="random"/>
+  <route id="route_1_duration_without_traffic" edges="1318793176#1 1318793176#1.11 1318793173#0"/>
+  <flow id="flow_route_1_duration_without_traffic" type="car" route="route_1_duration_without_traffic" begin="0" end="60" number="1" departPos="random" arrivalPos="random"/>
+  <route id="route_18_duration_without_traffic" edges="133126040#0 1318893695#0"/>
+  <flow id="flow_route_18_duration_without_traffic" type="car" route="route_18_duration_without_traffic" begin="0" end="60" number="1" departPos="random" arrivalPos="random"/>
+  <route id="route_19_duration_without_traffic" edges="133126040#0 133126031#0"/>
+  <flow id="flow_route_19_duration_without_traffic" type="car" route="route_19_duration_without_traffic" begin="0" end="60" number="2" departPos="random" arrivalPos="random"/>
+  <route id="route_47_duration_without_traffic" edges="380351865#0 380351865#0.21 1318793173#0"/>
+  <flow id="flow_route_47_duration_without_traffic" type="car" route="route_47_duration_without_traffic" begin="0" end="60" number="1" departPos="random" arrivalPos="random"/>
+  <route id="route_48_duration_without_traffic" edges="380351865#0 380351865#0.21 133126031#0"/>
+  <flow id="flow_route_48_duration_without_traffic" type="car" route="route_48_duration_without_traffic" begin="0" end="60" number="2" departPos="random" arrivalPos="random"/>
+  <route id="route_49_duration_without_traffic" edges="380351865#0 380351865#0.21 1318893695#0"/>
+  <flow id="flow_route_49_duration_without_traffic" type="car" route="route_49_duration_without_traffic" begin="0" end="60" number="1" departPos="random" arrivalPos="random"/>
+</routes>

@@ -135,7 +135,7 @@ def evaluate_model(model_path: str, sumo_cfg: str, csv_path: str, timestamp: str
 
 
 evaluate_model(
-    model_path="./vcheckpoints/3/vsac_7200_steps.zip",
+    model_path="./vcheckpoints/10/vsac_2300_steps.zip",
     sumo_cfg="osm.sumocfg",
     csv_path="../data/final_with_all_data.csv",
     timestamp="duration_20250402_2015"

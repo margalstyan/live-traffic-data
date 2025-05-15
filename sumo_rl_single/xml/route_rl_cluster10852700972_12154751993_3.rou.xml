@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<routes>
+  <vType id="car" accel="1.0" decel="4.5" length="5" maxSpeed="16.6" sigma="0.5"/>
+  <route id="route_54_duration_20250327_2000" edges="1341093415#0 1341093416#0"/>
+  <flow id="flow_route_54_duration_20250327_2000" type="car" route="route_54_duration_20250327_2000" begin="0" end="60" number="5" departPos="random" arrivalPos="random"/>
+  <route id="route_55_duration_20250327_2000" edges="1341093415#0 791826085"/>
+  <flow id="flow_route_55_duration_20250327_2000" type="car" route="route_55_duration_20250327_2000" begin="0" end="60" number="9" departPos="random" arrivalPos="random"/>
+  <route id="route_56_duration_20250327_2000" edges="1341093415#0 409155823"/>
+  <flow id="flow_route_56_duration_20250327_2000" type="car" route="route_56_duration_20250327_2000" begin="0" end="60" number="7" departPos="random" arrivalPos="random"/>
+  <route id="route_60_duration_20250327_2000" edges="186407684#0 791826085"/>
+  <flow id="flow_route_60_duration_20250327_2000" type="car" route="route_60_duration_20250327_2000" begin="0" end="60" number="7" departPos="random" arrivalPos="random"/>
+  <route id="route_61_duration_20250327_2000" edges="186407684#0 1341093416#0"/>
+  <flow id="flow_route_61_duration_20250327_2000" type="car" route="route_61_duration_20250327_2000" begin="0" end="60" number="4" departPos="random" arrivalPos="random"/>
+</routes>

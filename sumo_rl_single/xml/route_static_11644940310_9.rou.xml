@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<routes>
+  <vType id="car" accel="1.0" decel="4.5" length="5" maxSpeed="16.6" sigma="0.5"/>
+  <route id="route_25_duration_without_traffic" edges="1254771874#0 1341093415#0"/>
+  <flow id="flow_route_25_duration_without_traffic" type="car" route="route_25_duration_without_traffic" begin="0" end="60" number="1" departPos="random" arrivalPos="random"/>
+  <route id="route_26_duration_without_traffic" edges="1254771874#0 -422986370#2"/>
+  <flow id="flow_route_26_duration_without_traffic" type="car" route="route_26_duration_without_traffic" begin="0" end="60" number="1" departPos="random" arrivalPos="random"/>
+  <route id="route_27_duration_without_traffic" edges="1254771874#0 138002006#0"/>
+  <flow id="flow_route_27_duration_without_traffic" type="car" route="route_27_duration_without_traffic" begin="0" end="60" number="1" departPos="random" arrivalPos="random"/>
+  <route id="route_40_duration_without_traffic" edges="1369578054 1341093415#0"/>
+  <flow id="flow_route_40_duration_without_traffic" type="car" route="route_40_duration_without_traffic" begin="0" end="60" number="1" departPos="random" arrivalPos="random"/>
+  <route id="route_41_duration_without_traffic" edges="1369578054 138002006#0"/>
+  <flow id="flow_route_41_duration_without_traffic" type="car" route="route_41_duration_without_traffic" begin="0" end="60" number="5" departPos="random" arrivalPos="random"/>
+  <route id="route_50_duration_without_traffic" edges="-138002006#3 -422986370#2"/>
+  <flow id="flow_route_50_duration_without_traffic" type="car" route="route_50_duration_without_traffic" begin="0" end="60" number="1" departPos="random" arrivalPos="random"/>
+  <route id="route_51_duration_without_traffic" edges="-138002006#3 1341093415#0"/>
+  <flow id="flow_route_51_duration_without_traffic" type="car" route="route_51_duration_without_traffic" begin="0" end="60" number="2" departPos="random" arrivalPos="random"/>
+</routes>

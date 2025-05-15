@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-05-06 21:08:45 by Eclipse SUMO sumo Version 1.20.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="osm.net.xml"/>
+        <route-files value="xml/route_static_GS_cluster_4854142864_4854142865_6.rou.xml"/>
+    </input>
+
+    <output>
+        <tripinfo-output value="xml/tripinfo_static_GS_cluster_4854142864_4854142865_6.xml"/>
+    </output>
+
+    <traci_server>
+        <remote-port value="34319"/>
+    </traci_server>
+
+</configuration>
+-->
+
+<tripinfos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tripinfo_file.xsd">
+    <tripinfo id="flow_route_39_duration_20250327_2130.0" depart="0.00" departLane="133126030#0_0" departPos="101.03" departSpeed="0.00" departDelay="0.00" arrival="29.00" arrivalLane="1328664748#0_0" arrivalPos="158.52" arrivalSpeed="15.14" duration="29.00" routeLength="263.70" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="11.27" rerouteNo="0" devices="tripinfo_flow_route_39_duration_20250327_2130.0" vType="car" speedFactor="0.94" vaporized=""/>
+    <tripinfo id="flow_route_38_duration_20250327_2130.0" depart="0.00" departLane="133126030#0_0" departPos="45.86" departSpeed="0.00" departDelay="0.00" arrival="34.00" arrivalLane="134193294#0_0" arrivalPos="152.84" arrivalSpeed="16.03" duration="34.00" routeLength="301.86" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="15.00" rerouteNo="0" devices="tripinfo_flow_route_38_duration_20250327_2130.0" vType="car" speedFactor="1.06" vaporized=""/>
+    <tripinfo id="flow_route_43_duration_20250327_2130.0" depart="0.00" departLane="1328664744#0_0" departPos="1.34" departSpeed="0.00" departDelay="0.00" arrival="56.00" arrivalLane="134193294#0_3" arrivalPos="84.30" arrivalSpeed="12.47" duration="56.00" routeLength="323.03" waitingTime="13.00" waitingCount="1" stopTime="0.00" timeLoss="35.70" rerouteNo="0" devices="tripinfo_flow_route_43_duration_20250327_2130.0" vType="car" speedFactor="1.08" vaporized=""/>
+    <tripinfo id="flow_route_45_duration_20250327_2130.0" depart="0.00" departLane="791826085_0" departPos="152.03" departSpeed="0.00" departDelay="0.00" arrival="92.00" arrivalLane="485211947#0_0" arrivalPos="8.08" arrivalSpeed="6.38" duration="92.00" routeLength="191.81" waitingTime="59.00" waitingCount="1" stopTime="0.00" timeLoss="76.91" rerouteNo="0" devices="tripinfo_flow_route_45_duration_20250327_2130.0" vType="car" speedFactor="0.83" vaporized=""/>
+    <tripinfo id="flow_route_44_duration_20250327_2130.0" depart="0.00" departLane="791826085_0" departPos="219.49" departSpeed="0.00" departDelay="0.00" arrival="101.00" arrivalLane="134193294#0_0" arrivalPos="101.20" arrivalSpeed="14.52" duration="101.00" routeLength="236.08" waitingTime="63.00" waitingCount="1" stopTime="0.00" timeLoss="86.07" rerouteNo="0" devices="tripinfo_flow_route_44_duration_20250327_2130.0" vType="car" speedFactor="1.03" vaporized=""/>
+    <tripinfo id="flow_route_45_duration_20250327_2130.1" depart="9.00" departLane="791826085_0" departPos="19.65" departSpeed="0.00" departDelay="0.43" arrival="102.00" arrivalLane="485211947#0_0" arrivalPos="49.01" arrivalSpeed="9.35" duration="93.00" routeLength="365.12" waitingTime="41.00" waitingCount="1" stopTime="0.00" timeLoss="66.98" rerouteNo="0" devices="tripinfo_flow_route_45_duration_20250327_2130.1" vType="car" speedFactor="0.89" vaporized=""/>
+    <tripinfo id="flow_route_46_duration_20250327_2130.0" depart="1.00" departLane="791826085_0" departPos="184.68" departSpeed="0.00" departDelay="1.00" arrival="104.00" arrivalLane="1328664748#0_1" arrivalPos="165.37" arrivalSpeed="16.37" duration="103.00" routeLength="329.48" waitingTime="61.00" waitingCount="1" stopTime="0.00" timeLoss="81.86" rerouteNo="0" devices="tripinfo_flow_route_46_duration_20250327_2130.0" vType="car" speedFactor="1.05" vaporized=""/>
+    <tripinfo id="flow_route_45_duration_20250327_2130.2" depart="18.00" departLane="791826085_0" departPos="105.00" departSpeed="0.00" departDelay="0.86" arrival="108.00" arrivalLane="485211947#0_0" arrivalPos="162.24" arrivalSpeed="15.21" duration="90.00" routeLength="392.99" waitingTime="41.00" waitingCount="1" stopTime="0.00" timeLoss="63.14" rerouteNo="0" devices="tripinfo_flow_route_45_duration_20250327_2130.2" vType="car" speedFactor="0.94" vaporized=""/>
+    <tripinfo id="flow_route_45_duration_20250327_2130.4" depart="35.00" departLane="791826085_0" departPos="100.14" departSpeed="0.00" departDelay="0.72" arrival="110.00" arrivalLane="485211947#0_0" arrivalPos="95.05" arrivalSpeed="13.31" duration="75.00" routeLength="330.66" waitingTime="27.00" waitingCount="1" stopTime="0.00" timeLoss="53.51" rerouteNo="0" devices="tripinfo_flow_route_45_duration_20250327_2130.4" vType="car" speedFactor="1.09" vaporized=""/>
+    <tripinfo id="flow_route_45_duration_20250327_2130.5" depart="44.00" departLane="791826085_0" departPos="268.83" departSpeed="0.00" departDelay="1.15" arrival="110.00" arrivalLane="485211947#0_0" arrivalPos="117.38" arrivalSpeed="13.97" duration="66.00" routeLength="184.31" waitingTime="33.00" waitingCount="1" stopTime="0.00" timeLoss="53.36" rerouteNo="0" devices="tripinfo_flow_route_45_duration_20250327_2130.5" vType="car" speedFactor="1.03" vaporized=""/>
+    <tripinfo id="flow_route_45_duration_20250327_2130.3" depart="26.00" departLane="791826085_0" departPos="15.07" departSpeed="0.00" departDelay="0.29" arrival="116.00" arrivalLane="485211947#0_0" arrivalPos="126.67" arrivalSpeed="13.90" duration="90.00" routeLength="447.36" waitingTime="27.00" waitingCount="1" stopTime="0.00" timeLoss="57.61" rerouteNo="0" devices="tripinfo_flow_route_45_duration_20250327_2130.3" vType="car" speedFactor="0.86" vaporized=""/>
+    <tripinfo id="flow_route_45_duration_20250327_2130.6" depart="52.00" departLane="791826085_0" departPos="129.34" departSpeed="0.00" departDelay="0.57" arrival="120.00" arrivalLane="485211947#0_0" arrivalPos="164.47" arrivalSpeed="16.01" duration="68.00" routeLength="370.89" waitingTime="18.00" waitingCount="1" stopTime="0.00" timeLoss="44.51" rerouteNo="0" devices="tripinfo_flow_route_45_duration_20250327_2130.6" vType="car" speedFactor="1.05" vaporized=""/>
+    <tripinfo id="flow_route_42_duration_20250327_2130.0" depart="0.00" departLane="1328664744#0_0" departPos="165.30" departSpeed="0.00" departDelay="0.00" arrival="228.00" arrivalLane="133126030#0_0" arrivalPos="8.43" arrivalSpeed="5.68" duration="228.00" routeLength="669.86" waitingTime="137.00" waitingCount="3" stopTime="0.00" timeLoss="185.23" rerouteNo="0" devices="tripinfo_flow_route_42_duration_20250327_2130.0" vType="car" speedFactor="1.01" vaporized=""/>
+</tripinfos>

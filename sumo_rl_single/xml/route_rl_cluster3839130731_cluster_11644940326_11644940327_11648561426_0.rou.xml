@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<routes>
+  <vType id="car" accel="1.0" decel="4.5" length="5" maxSpeed="16.6" sigma="0.5"/>
+  <route id="route_94_duration_20250327_2200" edges="1341093416#0 799091563#0"/>
+  <flow id="flow_route_94_duration_20250327_2200" type="car" route="route_94_duration_20250327_2200" begin="0" end="60" number="1" departPos="random" arrivalPos="random"/>
+  <route id="route_95_duration_20250327_2200" edges="1341093416#0 1254519225#0 1254519225#0.109"/>
+  <flow id="flow_route_95_duration_20250327_2200" type="car" route="route_95_duration_20250327_2200" begin="0" end="60" number="10" departPos="random" arrivalPos="random"/>
+  <route id="route_96_duration_20250327_2200" edges="1341093416#0 1254519229#0"/>
+  <flow id="flow_route_96_duration_20250327_2200" type="car" route="route_96_duration_20250327_2200" begin="0" end="60" number="4" departPos="random" arrivalPos="random"/>
+  <route id="route_104_duration_20250327_2200" edges="189240001 1254519225#0 1254519225#0.109"/>
+  <flow id="flow_route_104_duration_20250327_2200" type="car" route="route_104_duration_20250327_2200" begin="0" end="60" number="6" departPos="random" arrivalPos="random"/>
+  <route id="route_105_duration_20250327_2200" edges="189240001 799091563#0"/>
+  <flow id="flow_route_105_duration_20250327_2200" type="car" route="route_105_duration_20250327_2200" begin="0" end="60" number="1" departPos="random" arrivalPos="random"/>
+  <route id="route_111_duration_20250327_2200" edges="1253188486#8 1254519229#0"/>
+  <flow id="flow_route_111_duration_20250327_2200" type="car" route="route_111_duration_20250327_2200" begin="0" end="60" number="12" departPos="random" arrivalPos="random"/>
+  <route id="route_112_duration_20250327_2200" edges="1253188486#8 799091563#0"/>
+  <flow id="flow_route_112_duration_20250327_2200" type="car" route="route_112_duration_20250327_2200" begin="0" end="60" number="2" departPos="random" arrivalPos="random"/>
+  <route id="route_123_duration_20250327_2200" edges="189240000#0-AddedOnRampEdge 189240000#0 1254519229#0"/>
+  <flow id="flow_route_123_duration_20250327_2200" type="car" route="route_123_duration_20250327_2200" begin="0" end="60" number="4" departPos="random" arrivalPos="random"/>
+  <route id="route_124_duration_20250327_2200" edges="189240000#0-AddedOnRampEdge 189240000#0 1254519225#0 1254519225#0.109"/>
+  <flow id="flow_route_124_duration_20250327_2200" type="car" route="route_124_duration_20250327_2200" begin="0" end="60" number="9" departPos="random" arrivalPos="random"/>
+</routes>

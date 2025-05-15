@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<routes>
+  <vType id="car" accel="1.0" decel="4.5" length="5" maxSpeed="16.6" sigma="0.5"/>
+  <route id="route_2_duration_20250327_1930" edges="1318793173#0 133126013#0 189835257"/>
+  <flow id="flow_route_2_duration_20250327_1930" type="car" route="route_2_duration_20250327_1930" begin="0" end="60" number="18" departPos="random" arrivalPos="random"/>
+  <route id="route_3_duration_20250327_1930" edges="1318793173#0 291974733#0"/>
+  <flow id="flow_route_3_duration_20250327_1930" type="car" route="route_3_duration_20250327_1930" begin="0" end="60" number="7" departPos="random" arrivalPos="random"/>
+  <route id="route_9_duration_20250327_1930" edges="1318793173#0 1254771875#0 1254771874#0"/>
+  <flow id="flow_route_9_duration_20250327_1930" type="car" route="route_9_duration_20250327_1930" begin="0" end="60" number="6" departPos="random" arrivalPos="random"/>
+  <route id="route_13_duration_20250327_1930" edges="1252820503#0 291974733#0"/>
+  <flow id="flow_route_13_duration_20250327_1930" type="car" route="route_13_duration_20250327_1930" begin="0" end="60" number="4" departPos="random" arrivalPos="random"/>
+  <route id="route_14_duration_20250327_1930" edges="1252820503#0 1254771875#0 1254771874#0"/>
+  <flow id="flow_route_14_duration_20250327_1930" type="car" route="route_14_duration_20250327_1930" begin="0" end="60" number="6" departPos="random" arrivalPos="random"/>
+  <route id="route_15_duration_20250327_1930" edges="1252820503#0 133126040#0"/>
+  <flow id="flow_route_15_duration_20250327_1930" type="car" route="route_15_duration_20250327_1930" begin="0" end="60" number="3" departPos="random" arrivalPos="random"/>
+  <route id="route_16_duration_20250327_1930" edges="137406408#0 133126040#0"/>
+  <flow id="flow_route_16_duration_20250327_1930" type="car" route="route_16_duration_20250327_1930" begin="0" end="60" number="7" departPos="random" arrivalPos="random"/>
+  <route id="route_17_duration_20250327_1930" edges="137406408#0 1254771875#0 1254771874#0"/>
+  <flow id="flow_route_17_duration_20250327_1930" type="car" route="route_17_duration_20250327_1930" begin="0" end="60" number="8" departPos="random" arrivalPos="random"/>
+</routes>

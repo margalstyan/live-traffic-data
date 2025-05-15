@@ -1,0 +1,12 @@
+route_id,origin,destination,real_duration,simulated_duration,vehicle_count,converged
+route_0,sayat_nova_6,baghramyan_1,74,110.0,1,True
+route_1,sayat_nova_6,mesrop_mashtoc_4,73,82.0,1,True
+route_2,baghramyan_1-,mesrop_mashtoc_4,41,60.0,1,False
+route_3,baghramyan_1-,sayat_nova_6-,66,70.0,1,True
+route_4,baghramyan_1-,mesrop_mashtoc_3-,72,70.5909090909091,22,True
+route_5,mesrop_mashtoc_4-,baghramyan_1,61,53.0,2,True
+route_6,mesrop_mashtoc_3,baghramyan_1,32,20.0,7,True
+route_7,mesrop_mashtoc_3,mesrop_mashtoc_4,47,47.6,15,True
+route_8,mesrop_mashtoc_4-,sayat_nova_6-,41,73.66666666666667,1,True
+route_9,mesrop_mashtoc_4-,mesrop_mashtoc_3-,62,62.03125,32,True
+route_10,sayat_nova_6,mesrop_mashtoc_3-,88,66.17241379310344,60,False
