@@ -60,6 +60,33 @@ class DummySingleAgentEnv(gym.Env):
     def reset(self, **kwargs): return self.observation_space.sample(), {}
     def step(self, action): return self.observation_space.sample(), 0.0, True, False, {}
 
+# === Load Checkpoint or Create Agent ===
+def load_or_create_agent(tls_id, dummy_env, logger, checkpoint_dir):
+    checkpoint_path = os.path.join(checkpoint_dir, tls_id)
+    if os.path.exists(checkpoint_path):
+        checkpoints = [f for f in os.listdir(checkpoint_path) if f.endswith(".zip")]
+        if checkpoints:
+            latest = sorted(checkpoints, key=lambda x: int(x.split("_")[-1].split(".")[0]))[-1]
+            model = SAC.load(os.path.join(checkpoint_path, latest), env=dummy_env)
+            model.set_logger(logger)
+            print(f"✅ Loaded checkpoint for {tls_id}: {latest}")
+            return model
+    # No checkpoint found, create new agent
+    model = SAC(
+        "MlpPolicy",
+        dummy_env,
+        verbose=0,
+        buffer_size=100_000,
+        learning_starts=100,
+        batch_size=100,
+        learning_rate=1e-3,
+        tau=0.005,
+        ent_coef="auto_0.3",
+        tensorboard_log=logger.dir
+    )
+    model.set_logger(logger)
+    return model
+
 # === Load Data and Initialize Environment ===
 tls_to_routes = generate_tls_to_routes(csv_path)
 env = MultiAgentRouteEnv(
@@ -79,24 +106,12 @@ loggers = {}
 for tls_id in tls_to_routes:
     dummy_env = DummySingleAgentEnv(env.observation_space[tls_id], env.action_space[tls_id])
     log_path = os.path.join(LOG_DIR, tls_id)
+    checkpoint_dir = os.path.join(MODEL_DIR, tls_id)
     os.makedirs(log_path, exist_ok=True)
+    os.makedirs(checkpoint_dir, exist_ok=True)
     logger = configure(log_path, ["stdout", "tensorboard"])
-
-    model = SAC(
-        "MlpPolicy",
-        dummy_env,
-        verbose=0,
-        buffer_size=100_000,
-        learning_starts=100,
-        batch_size=100,
-        learning_rate=1e-3,
-        tau=0.005,
-        ent_coef="auto_0.3",
-        tensorboard_log=log_path
-    )
-    model.set_logger(logger)
-    agents[tls_id] = model
     loggers[tls_id] = logger
+    agents[tls_id] = load_or_create_agent(tls_id, dummy_env, logger, MODEL_DIR)
 
 print(f"🚦 Training {len(agents)} agents")
 print(f"🧪 TensorBoard logs: {LOG_DIR}")

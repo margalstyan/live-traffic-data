@@ -53,6 +53,7 @@ class MultiAgentRouteEnv(gym.Env):
         return obs, {}
 
     def step(self, actions: Dict[str, np.ndarray]):
+        # === 1. Build route dictionary from actions ===
         routes_dict = {}
         for tls_id, action_array in actions.items():
             for i, route in enumerate(self.tls_to_routes[tls_id]):
@@ -61,9 +62,12 @@ class MultiAgentRouteEnv(gym.Env):
                     "edges": (route["from"], route["to"]),
                     "vehicle_count": vehicle_count
                 }
+                # Save predicted count for reward usage
+                route["predicted_count"] = vehicle_count
 
         self._generate_routes_file(routes_dict)
 
+        # === 2. Start SUMO simulation ===
         if self.simulation_running:
             traci.close()
             self.simulation_running = False
@@ -85,7 +89,7 @@ class MultiAgentRouteEnv(gym.Env):
         traci.close()
         self.simulation_running = False
 
-        # === Parse tripinfo and compute per-agent metrics ===
+        # === 3. Parse tripinfo ===
         route_durations = {}
         route_wait_times = {}
         route_counts = {}
@@ -104,7 +108,7 @@ class MultiAgentRouteEnv(gym.Env):
         except Exception as e:
             print(f"❌ Error parsing tripinfo: {e}")
 
-        # === Rewards + Infos ===
+        # === 4. Compute rewards and infos ===
         rewards = {}
         infos = {}
 
@@ -112,7 +116,8 @@ class MultiAgentRouteEnv(gym.Env):
             routes = self.tls_to_routes[tls_id]
             sim_durations = []
             sim_waits = []
-            targets = []
+            duration_errors = []
+            vehicle_penalties = []
             total_vehicles = 0
 
             for route in routes:
@@ -123,17 +128,30 @@ class MultiAgentRouteEnv(gym.Env):
 
                 avg_sim = np.mean(durs) if durs else route["target_duration"] * 2
                 avg_wait = np.mean(waits) if waits else 0.0
+                target = route["target_duration"]
+                predicted_count = route.get("predicted_count", 0)
 
                 sim_durations.append(avg_sim)
                 sim_waits.append(avg_wait)
-                targets.append(route["target_duration"])
+                duration_errors.append(abs(avg_sim - target))
+
+                # Linear penalty for over-usage
+                vehicle_penalties.append(predicted_count / 300.0)
                 total_vehicles += count
 
-            reward = -np.mean(np.abs(np.array(sim_durations) - np.array(targets)))
+            # === Normalize and combine
+            norm_duration_error = np.mean(duration_errors) / 300.0  # assume 300s max error
+            norm_vehicle_penalty = np.mean(vehicle_penalties)
 
+            reward = - (0.9 * norm_duration_error + 0.1 * norm_vehicle_penalty)
+
+            # === Timeout penalty
             if hasattr(self, "max_simulation_time") and sim_time > self.max_simulation_time:
                 excess = (sim_time - self.max_simulation_time) / self.max_simulation_time
-                reward += -excess
+                reward -= min(excess, 1.0)  # max -1.0 penalty
+
+            # === Clip to [-1, 0]
+            reward = float(np.clip(reward, -1.0, 0.0))
 
             rewards[tls_id] = reward
             infos[tls_id] = [{
@@ -142,6 +160,7 @@ class MultiAgentRouteEnv(gym.Env):
                 "vehicle_count": total_vehicles
             }]
 
+        # === 5. Build next observation
         obs = {tls_id: self._build_observation(tls_id) for tls_id in self.tls_ids}
         done = {tls_id: True for tls_id in self.tls_ids}
         done["__all__"] = True
@@ -149,7 +168,10 @@ class MultiAgentRouteEnv(gym.Env):
         return obs, rewards, done, False, infos
 
     def _select_random_timestamp(self):
-        duration_cols = [col for col in self.raw_data_df.columns if col.startswith("duration_")]
+        duration_cols = [
+            col for col in self.raw_data_df.columns
+            if col.startswith("duration_") and not col.startswith("duration_without")
+        ]
         self.timestamp_column = np.random.choice(duration_cols)
         hhmm = self.timestamp_column.split('_')[-1]
         hour = int(hhmm[:2])
